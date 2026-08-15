@@ -96,7 +96,7 @@ SMART PLAY/
 - [x] Central de Documentos (index.html)
 - [x] Pesquisa de mercado (3 pilares: público, concorrência, oportunidades)
 - [x] Briefing completo (12 seções preenchidas)
-- [x] Big Idea da campanha — "Assista esperto." (8 seções, 12 headlines, 8 aplicações por canal)
+- [x] Big Idea da campanha — "A família inteira assistindo." (8 seções, 12 headlines, 8 aplicações por canal)
 
 ## Próximas fases pendentes
 - [ ] Paletas de cores → @brand-architect
