@@ -64,6 +64,7 @@
 ## Repositório GitHub
 
 - **URL:** `https://github.com/davidsonpereira-adscompany/smartplay`
+- **SSH:** `git@github.com:davidsonpereira-adscompany/smartplay.git`
 - **Branch:** `main`
 - **Publicação:** GitHub Pages (quando ativado)
 
@@ -93,11 +94,9 @@ SMART PLAY/
 - [x] Estrutura de pastas do projeto
 - [x] Central de Documentos (index.html)
 - [x] Pesquisa de mercado (3 pilares: público, concorrência, oportunidades)
+- [x] Briefing completo (12 seções preenchidas)
 
 ## Próximas fases pendentes
-
-- [ ] Pesquisa de mercado (YouTube IPTV / concorrência) → @researcher
-- [ ] Briefing completo → @brand-architect
 - [ ] Big Idea da campanha → @strategist
 - [ ] Paletas de cores → @brand-architect
 - [ ] Brandbook(s) HTML → @brand-architect
