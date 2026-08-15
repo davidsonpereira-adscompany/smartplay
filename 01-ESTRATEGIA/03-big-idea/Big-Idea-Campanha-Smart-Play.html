@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Big Idea &mdash; Smart Play</title>
+
+<style>
+  :root {
+    --preto: #0A0F1C;
+    --bg2: #0E1628;
+    --bg3: #111D34;
+    --card: #111D34;
+    --card2: #0E1628;
+    --border: rgba(255,255,255,0.07);
+    --azul: #4F8CFF;
+    --azul2: #6BA0FF;
+    --azul3: rgba(79,140,255,0.12);
+    --laranja: #FF6B35;
+    --teal: #00D4AA;
+    --branco: #FFFFFF;
+    --texto: #a8b8d4;
+    --texto2: #5a6e8a;
+    --texto3: #2a3e5a;
+    --serif: 'Montserrat', sans-serif;
+    --sans: 'Montserrat', sans-serif;
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--preto);
+    color: var(--branco);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HERO ─────────────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 32px;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(79,140,255,0.10) 0%, transparent 70%),
+                linear-gradient(180deg, #060a14 0%, #0A0F1C 100%);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 80%, rgba(0,212,170,0.04) 0%, transparent 40%),
+      radial-gradient(circle at 80% 20%, rgba(79,140,255,0.05) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--azul);
+    margin-bottom: 40px;
+  }
+  .hero-big-idea {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(52px, 9vw, 120px);
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+    max-width: 900px;
+  }
+  .hero-big-idea em {
+    font-style: italic;
+    color: var(--azul);
+  }
+  .hero-tagline {
+    font-size: clamp(17px, 2.5vw, 22px);
+    font-weight: 300;
+    color: var(--texto);
+    max-width: 680px;
+    line-height: 1.6;
+    margin-bottom: 56px;
+  }
+  .hero-tagline strong { color: var(--branco); font-weight: 500; }
+  .hero-divider {
+    width: 1px;
+    height: 80px;
+    background: linear-gradient(180deg, var(--azul) 0%, transparent 100%);
+    margin: 0 auto;
+  }
+
+  /* ── LAYOUT ───────────────────────────────────────────── */
+  .wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .section {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-child { border-bottom: none; }
+
+  .sec-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--azul);
+    margin-bottom: 16px;
+  }
+  .sec-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 32px;
+  }
+  .sec-title em { font-style: italic; color: var(--azul); }
+  .sec-body {
+    font-size: 17px;
+    color: var(--texto);
+    font-weight: 300;
+    max-width: 700px;
+    line-height: 1.8;
+  }
+  .sec-body p + p { margin-top: 20px; }
+  .sec-body strong { color: var(--branco); font-weight: 500; }
+
+  /* ── QUOTE BLOCK ──────────────────────────────────────── */
+  .quote-block {
+    margin: 48px 0;
+    padding: 40px 48px;
+    background: var(--card);
+    border-left: 3px solid var(--azul);
+    position: relative;
+  }
+  .quote-block::before {
+    content: '\201C';
+    font-family: 'Montserrat', sans-serif;
+    font-size: 120px;
+    color: var(--azul3);
+    position: absolute;
+    top: -20px;
+    left: 24px;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .quote-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(22px, 3.5vw, 34px);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--branco);
+    position: relative;
+    z-index: 1;
+    margin-bottom: 16px;
+  }
+  .quote-author {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--azul);
+  }
+
+  /* ── ANTES / DEPOIS ───────────────────────────────────── */
+  .transform-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    margin: 56px 0;
+    align-items: start;
+  }
+  .transform-col {
+    padding: 32px;
+    background: var(--card);
+    border: 1px solid var(--border);
+  }
+  .transform-col.antes { border-right: none; border-radius: 12px 0 0 12px; }
+  .transform-col.depois { border-left: none; border-color: rgba(79,140,255,0.3); border-radius: 0 12px 12px 0; background: rgba(79,140,255,0.05); }
+  .transform-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    font-size: 22px;
+    color: var(--azul);
+    flex-shrink: 0;
+    align-self: stretch;
+  }
+  .transform-col-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .transform-col.antes .transform-col-label { color: var(--texto3); }
+  .transform-col.depois .transform-col-label { color: var(--azul); }
+  .transform-item {
+    font-size: 14px;
+    color: var(--texto);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+  .transform-item:last-child { border-bottom: none; }
+  .transform-item .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+  .antes .dot { background: var(--texto3); }
+  .depois .dot { background: var(--azul); }
+
+  /* ── PILARES ──────────────────────────────────────────── */
+  .pilares-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin: 56px 0;
+  }
+  @media (max-width: 700px) { .pilares-grid { grid-template-columns: 1fr; } }
+  .pilar {
+    background: var(--card);
+    padding: 40px 32px;
+    border: 1px solid var(--border);
+    transition: border-color 0.3s;
+  }
+  .pilar:hover { border-color: rgba(79,140,255,0.3); }
+  .pilar-num {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--azul3);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+  .pilar-titulo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--branco);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .pilar-frase {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--azul);
+    margin-bottom: 16px;
+    font-style: italic;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .pilar-desc {
+    font-size: 13px;
+    color: var(--texto2);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* ── INIMIGO ──────────────────────────────────────────── */
+  .inimigo-box {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 48px;
+    margin: 48px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .inimigo-box::before {
+    content: 'INIMIGO';
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    color: rgba(255,255,255,0.08);
+  }
+  .inimigo-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .inimigo-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .inimigo-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .inimigo-nome {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--texto3);
+    margin-bottom: 6px;
+  }
+  .inimigo-desc {
+    font-size: 15px;
+    color: var(--texto);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+  .inimigo-desc strong { color: var(--branco); font-weight: 500; }
+
+  /* ── VOZ ──────────────────────────────────────────────── */
+  .voz-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin: 48px 0;
+  }
+  @media (max-width: 600px) { .voz-grid { grid-template-columns: 1fr; } }
+  .voz-card {
+    padding: 32px;
+    background: var(--card);
+    border: 1px solid var(--border);
+  }
+  .voz-card-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .voz-card.sim .voz-card-label { color: var(--azul); }
+  .voz-card.nao .voz-card-label { color: var(--texto3); }
+  .voz-exemplo {
+    font-size: 14px;
+    color: var(--texto);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-style: italic;
+    font-weight: 300;
+  }
+  .voz-exemplo:last-child { border-bottom: none; }
+
+  /* ── APLICACOES ───────────────────────────────────────── */
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin: 48px 0;
+  }
+  @media (max-width: 600px) { .app-grid { grid-template-columns: 1fr; } }
+  .app-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 32px;
+  }
+  .app-plataforma {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--azul);
+    margin-bottom: 12px;
+  }
+  .app-titulo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--branco);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+  .app-desc {
+    font-size: 13px;
+    color: var(--texto2);
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .app-exemplo {
+    background: var(--bg3);
+    border-left: 2px solid var(--azul);
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--texto);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  /* ── HEADLINE BANK ────────────────────────────────────── */
+  .headline-item {
+    padding: 24px 32px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    margin-bottom: 2px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .headline-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--azul);
+    width: 24px;
+    flex-shrink: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .headline-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: var(--branco);
+    font-weight: 400;
+    line-height: 1.4;
+    flex: 1;
+  }
+  .headline-uso {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--texto3);
+    white-space: nowrap;
+  }
+
+  /* ── FOOTER ───────────────────────────────────────────── */
+  .footer {
+    padding: 60px 32px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+  .footer-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: var(--texto3);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .footer-logo em { color: var(--azul); font-style: italic; }
+  .footer-sub { font-size: 12px; color: var(--texto3); }
+
+  /* ── PRINT ────────────────────────────────────────────── */
+  @media print {
+    @page { margin: 15mm; }
+    body { background: #fff; color: #111; }
+    .hero { background: #fff; min-height: auto; padding: 40px 0; }
+    .hero-big-idea, .sec-title { color: #111; }
+    .hero-big-idea em, .sec-title em { color: #4F8CFF; }
+    .sec-label, .pilar-frase, .app-plataforma, .hero-eyebrow, .quote-author { color: #4F8CFF; }
+    .hero-tagline, .sec-body, .pilar-desc, .app-desc { color: #444; }
+    .card, .pilar, .voz-card, .app-card, .headline-item, .inimigo-box { background: #f9f9f9; border-color: #ddd; }
+    .quote-block { background: #f5f5f5; border-left-color: #4F8CFF; }
+    .quote-text { color: #111; }
+    .hero-divider, .transform-divider { display: none; }
+    .footer { border-top-color: #ddd; }
+  }
+</style>
+
+<style id="smart-play-override">
+*, *::before, *::after { font-family: 'Montserrat', sans-serif !important; }
+body { font-family: 'Montserrat', sans-serif !important; }
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVO DOCS ESTRATEGIA  v2
+   Breakpoints: 1024px · 768px · 480px
+══════════════════════════════════════════════════ */
+
+/* ── Tablet (≤ 1024px) ── */
+@media (max-width: 1024px) {
+  div[style*="repeat(3,1fr)"],
+  div[style*="repeat(3, 1fr)"],
+  div[style*="repeat(4,1fr)"],
+  div[style*="repeat(4, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ── Mobile largo (≤ 768px) ── */
+@media (max-width: 768px) {
+  body   { overflow-x: hidden !important; font-size: 15px !important; }
+  img    { max-width: 100% !important; height: auto !important; }
+  h1     { font-size: 26px !important; line-height: 1.2 !important; }
+  h2     { font-size: 21px !important; line-height: 1.25 !important; }
+  h3     { font-size: 17px !important; }
+  table  { display: block !important; overflow-x: auto !important; width: 100% !important; -webkit-overflow-scrolling: touch; }
+  div[style*="repeat(3,1fr)"],
+  div[style*="repeat(3, 1fr)"],
+  div[style*="repeat(4,1fr)"],
+  div[style*="repeat(4, 1fr)"],
+  div[style*="repeat(2,1fr)"],
+  div[style*="repeat(2, 1fr)"],
+  div[style*="1fr 1fr"]   { grid-template-columns: 1fr !important; }
+  div[style*="max-width:1100px"],
+  div[style*="max-width: 1100px"],
+  div[style*="max-width:900px"],
+  div[style*="max-width: 900px"],
+  div[style*="max-width:800px"] {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+  div[style*="padding:80px"],
+  div[style*="padding: 80px"] { padding: 40px 18px !important; }
+  div[style*="padding:64px"],
+  div[style*="padding: 64px"] { padding: 32px 18px !important; }
+  div[style*="padding:48px"],
+  div[style*="padding: 48px"] { padding: 28px 16px !important; }
+
+  .transform-grid { grid-template-columns: 1fr !important; }
+  .transform-col.antes { border-radius: 12px 12px 0 0 !important; border-right: 1px solid var(--border) !important; border-bottom: none !important; }
+  .transform-col.depois { border-radius: 0 0 12px 12px !important; border-left: 1px solid rgba(79,140,255,0.3) !important; border-top: none !important; }
+  .transform-divider { width: 100% !important; height: 40px !important; border-left: 1px solid var(--border) !important; border-right: 1px solid var(--border) !important; border-top: none !important; border-bottom: none !important; }
+}
+
+/* ── Mobile estreito (≤ 480px) ── */
+@media (max-width: 480px) {
+  body  { font-size: 14px !important; }
+  h1    { font-size: 22px !important; }
+  h2    { font-size: 18px !important; }
+  h3    { font-size: 15px !important; }
+  div[style*="display:grid"],
+  div[style*="display: grid"] { grid-template-columns: 1fr !important; }
+  div[style*="display:flex"][style*="gap"],
+  div[style*="display: flex"][style*="gap"] {
+    flex-wrap: wrap !important;
+  }
+  #sp-back-fixed a { font-size: 9px !important; padding: 8px 12px !important; }
+  .quote-block { padding: 28px 24px !important; }
+  .inimigo-box { padding: 28px 20px !important; }
+  .headline-item { flex-direction: column; gap: 8px; }
+  .headline-uso { white-space: normal; }
+}
+
+</style>
+
+</head>
+<body>
+
+<div id="sp-back-fixed" style="position:fixed;top:20px;left:20px;z-index:99999;font-family:'Montserrat',sans-serif;">
+  <a href="../../index.html"
+     style="display:flex;align-items:center;gap:8px;background:rgba(10,15,28,0.95);border:1px solid rgba(79,140,255,0.5);color:#00D4AA;text-decoration:none;font-size:10px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;padding:10px 16px;border-radius:6px;box-shadow:0 4px 20px rgba(0,0,0,0.5);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:all 0.2s;"
+     onmouseover="this.style.borderColor='rgba(79,140,255,0.9)';this.style.boxShadow='0 4px 24px rgba(79,140,255,0.3)'"
+     onmouseout="this.style.borderColor='rgba(79,140,255,0.5)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.5)'">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><path d="M8 2L4 6L8 10" stroke="#00D4AA" stroke-width="1.5" stroke-linecap="round"/></svg>
+    Central Smart Play
+  </a>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     HERO — A BIG IDEA
+═══════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-eyebrow">Smart Play &mdash; Big Idea da Campanha</div>
+
+  <h1 class="hero-big-idea">
+    Assista<br>
+    <em>esperto.</em>
+  </h1>
+
+  <p class="hero-tagline">
+    Canais ao vivo, filmes, s&eacute;ries e todos os jogos &mdash;
+    <strong>at&eacute; 3 telas ao mesmo tempo, sem travar, sem contrato,</strong>
+    pelo pre&ccedil;o de um caf&eacute; por dia.
+  </p>
+
+  <div class="hero-divider"></div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     1. A TESE CENTRAL
+═══════════════════════════════════════════════ -->
+<div class="wrap">
+<section class="section">
+  <div class="sec-label">01 &mdash; A Tese Central</div>
+  <h2 class="sec-title">O insight que move<br><em>tudo</em></h2>
+
+  <div class="quote-block">
+    <p class="quote-text">O brasileiro esperto n&atilde;o aceita mais pagar caro por algo que pode ter melhor e mais barato.</p>
+    <span class="quote-author">A tens&atilde;o que o Smart Play resolve</span>
+  </div>
+
+  <div class="sec-body">
+    <p>Existe uma gera&ccedil;&atilde;o inteira de brasileiros que cresceu ouvindo que TV boa custava caro. Pagaram TV a cabo por anos. Depois vieram os streamings &mdash; um, dois, cinco assinaturas diferentes. A conta voltou a pesar, e o futebol ao vivo continuou sendo privil&eacute;gio de quem pagava o pacote mais caro.</p>
+    <p>Quem foi esperto e migrou para IPTV encontrou pre&ccedil;o bom &mdash; mas caiu em armadilha. Servi&ccedil;os amadores que travam na hora do jogo, suporte que some, teste de 4 horas que n&atilde;o prova nada. A desconfian&ccedil;a virou padr&atilde;o: <strong>&ldquo;IPTV barato &eacute; golpe at&eacute; que se prove o contr&aacute;rio.&rdquo;</strong></p>
+    <p>O Smart Play existe para quebrar essa cren&ccedil;a. N&atilde;o &eacute; preciso escolher entre pre&ccedil;o justo e servi&ccedil;o confi&aacute;vel. <strong>Ser esperto n&atilde;o &eacute; aceitar o mais barato &mdash; &eacute; escolher o que entrega mais por menos.</strong> A campanha deve comunicar isso em cada ponto de contato: resultado, nunca ferramenta. Vida do cliente, nunca especifica&ccedil;&atilde;o t&eacute;cnica.</p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     2. O INIMIGO
+═══════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-label">02 &mdash; O Inimigo</div>
+  <h2 class="sec-title">Contra o que<br><em>estamos lutando</em></h2>
+
+  <div class="sec-body">
+    <p>Toda Big Idea precisa de um inimigo claro. O inimigo n&atilde;o &eacute; um concorrente &mdash; &eacute; a <strong>situa&ccedil;&atilde;o que o cliente quer escapar.</strong> S&atilde;o tr&ecirc;s:</p>
+  </div>
+
+  <div class="inimigo-box">
+    <div class="inimigo-item">
+      <div class="inimigo-icon">&#128184;</div>
+      <div>
+        <div class="inimigo-nome">O Pre&ccedil;o que Humilha</div>
+        <div class="inimigo-desc">R$200/m&ecirc;s em TV a cabo. Contrato de 24 meses. Multa se cancelar. O brasileiro paga e sente que est&aacute; sendo feito de trouxa &mdash; porque usa no m&aacute;ximo 10% dos canais. <strong>O dinheiro que vai para a TV a cabo &eacute; o dinheiro que falta no fim do m&ecirc;s.</strong> Todo mundo sabe. Ningu&eacute;m aceita mais.</div>
+      </div>
+    </div>
+    <div class="inimigo-item">
+      <div class="inimigo-icon">&#128560;</div>
+      <div>
+        <div class="inimigo-nome">O IPTV Fantasma</div>
+        <div class="inimigo-desc">O cliente encontra um IPTV barato. Assina. Funciona &mdash; at&eacute; a final do campeonato. A tela congela. O suporte? Um n&uacute;mero de WhatsApp que nunca mais respondeu. O teste? 4 horas que n&atilde;o provam nada. <strong>Quem j&aacute; foi enganado uma vez n&atilde;o confia f&aacute;cil de novo.</strong> Esse &eacute; o maior obst&aacute;culo do mercado.</div>
+      </div>
+    </div>
+    <div class="inimigo-item">
+      <div class="inimigo-icon">&#128240;</div>
+      <div>
+        <div class="inimigo-nome">O Festival de Logins</div>
+        <div class="inimigo-desc">Netflix para s&eacute;ries. Globoplay para novela. Prime para filmes. Premiere para futebol. Quatro apps, quatro senhas, quatro cobran&ccedil;as no cart&atilde;o. <strong>Quando soma tudo, passa de R$150/m&ecirc;s &mdash; e ainda assim n&atilde;o tem tudo num lugar s&oacute;.</strong> O brasileiro quer simplificar, n&atilde;o multiplicar.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     3. A TRANSFORMAÇÃO
+═══════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-label">03 &mdash; A Transforma&ccedil;&atilde;o</div>
+  <h2 class="sec-title">De onde o cliente est&aacute;<br>para <em>onde ele quer chegar</em></h2>
+
+  <div class="sec-body">
+    <p>A campanha n&atilde;o vende um app. <strong>Vende a mudan&ccedil;a que esse app provoca na rotina da fam&iacute;lia.</strong> &Eacute; essa transforma&ccedil;&atilde;o que deve aparecer em cada an&uacute;ncio, cada post, cada palavra da copy.</p>
+  </div>
+
+  <div class="transform-grid">
+    <div class="transform-col antes">
+      <div class="transform-col-label">Antes do Smart Play</div>
+      <div class="transform-item"><span class="dot"></span>Paga R$200/m&ecirc;s e usa 10% dos canais</div>
+      <div class="transform-item"><span class="dot"></span>V&ecirc; a tela travar no gol mais esperado</div>
+      <div class="transform-item"><span class="dot"></span>Paga por 4 streamings e n&atilde;o tem futebol completo</div>
+      <div class="transform-item"><span class="dot"></span>Assinou IPTV sem suporte e ficou na m&atilde;o</div>
+      <div class="transform-item"><span class="dot"></span>M&aacute;ximo 2 telas &mdash; fam&iacute;lia briga pelo controle</div>
+      <div class="transform-item"><span class="dot"></span>Teste de 4 horas que n&atilde;o prova nada</div>
+    </div>
+    <div class="transform-divider">&rarr;</div>
+    <div class="transform-col depois">
+      <div class="transform-col-label">Depois do Smart Play</div>
+      <div class="transform-item"><span class="dot"></span>Paga menos de R$1 por dia e acessa tudo</div>
+      <div class="transform-item"><span class="dot"></span>Assiste cada gol, cada lance, ao vivo e sem travar</div>
+      <div class="transform-item"><span class="dot"></span>Um &uacute;nico app com canais, filmes, s&eacute;ries e futebol</div>
+      <div class="transform-item"><span class="dot"></span>Suporte real no WhatsApp com resposta em 15 minutos</div>
+      <div class="transform-item"><span class="dot"></span>3 telas simult&acirc;neas &mdash; cada um assiste o que quer</div>
+      <div class="transform-item"><span class="dot"></span>15 dias de teste &mdash; tempo de verdade para confiar</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     4. OS TRÊS PILARES DE BENEFÍCIO
+═══════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-label">04 &mdash; Os Tr&ecirc;s Pilares</div>
+  <h2 class="sec-title">As tr&ecirc;s promessas que<br><em>sustentam tudo</em></h2>
+
+  <div class="sec-body">
+    <p>Toda comunica&ccedil;&atilde;o do Smart Play &mdash; seja um Reel de 6 segundos ou uma p&aacute;gina de vendas completa &mdash; deve se apoiar em pelo menos um desses tr&ecirc;s pilares. S&atilde;o eles que transformam caracter&iacute;sticas t&eacute;cnicas em <strong>benef&iacute;cios que o cliente sente na pele.</strong></p>
+  </div>
+
+  <div class="pilares-grid">
+
+    <div class="pilar">
+      <div class="pilar-num">01</div>
+      <div class="pilar-titulo">A Fam&iacute;lia Inteira Assistindo</div>
+      <div class="pilar-frase">&ldquo;Cada um na sua tela, todo mundo feliz&rdquo;</div>
+      <div class="pilar-desc">Pai assiste futebol na sala. M&atilde;e assiste novela no quarto. Filho assiste desenho no celular. Ao mesmo tempo, sem briga, sem revezamento. 3 telas simult&acirc;neas &mdash; a fam&iacute;lia inteira conectada sem ningu&eacute;m abrir m&atilde;o de nada.</div>
+    </div>
+
+    <div class="pilar">
+      <div class="pilar-num">02</div>
+      <div class="pilar-titulo">Confian&ccedil;a que se Prova</div>
+      <div class="pilar-frase">&ldquo;15 dias para testar, suporte que responde&rdquo;</div>
+      <div class="pilar-desc">N&atilde;o &eacute; promessa de 4 horas. S&atilde;o 15 dias reais para testar em hor&aacute;rio de pico, dia de jogo e na internet da sua casa. E se precisar de ajuda, o suporte responde no WhatsApp em at&eacute; 15 minutos. 7 dias por semana.</div>
+    </div>
+
+    <div class="pilar">
+      <div class="pilar-num">03</div>
+      <div class="pilar-titulo">Mais TV, Menos Conta</div>
+      <div class="pilar-frase">&ldquo;Tudo que a TV a cabo cobra, por uma fra&ccedil;&atilde;o&rdquo;</div>
+      <div class="pilar-desc">+200 canais ao vivo, +50.000 t&iacute;tulos, todos os campeonatos &mdash; por menos de R$1 por dia no plano anual. Sem contrato, sem fidelidade, sem multa. O dinheiro que sobra volta para a fam&iacute;lia investir no que realmente importa.</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     5. A VOZ DA CAMPANHA
+═══════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-label">05 &mdash; A Voz da Campanha</div>
+  <h2 class="sec-title">Como o Smart Play<br><em>fala com o mundo</em></h2>
+
+  <div class="sec-body">
+    <p>A voz do Smart Play &eacute; a do <strong>vizinho esperto</strong> &mdash; aquele cara que j&aacute; testou tudo e te indica o melhor custo-benef&iacute;cio sem enrola&ccedil;&atilde;o. Entende de tecnologia mas fala a sua l&iacute;ngua. &Eacute; direto, transparente e nunca te deixa na m&atilde;o. Fala como quem manda mensagem no grupo da fam&iacute;lia.</p>
+    <p>A copy nunca fala em servidor, codec, lat&ecirc;ncia, largura de banda ou protocolo. Fala em jogo ao vivo, fam&iacute;lia reunida, tela que n&atilde;o trava e dinheiro que sobra no fim do m&ecirc;s.</p>
+  </div>
+
+  <div class="voz-grid">
+    <div class="voz-card sim">
+      <div class="voz-card-label">Fala assim</div>
+      <div class="voz-exemplo">&ldquo;Pai na sala, m&atilde;e no quarto, filho no celular. Tudo ao mesmo tempo.&rdquo;</div>
+      <div class="voz-exemplo">&ldquo;Teste 15 dias. Se n&atilde;o gostar, n&atilde;o renova. Sem pegadinha.&rdquo;</div>
+      <div class="voz-exemplo">&ldquo;Seu vizinho j&aacute; cancelou a TV a cabo. Pergunta pra ele como est&aacute;.&rdquo;</div>
+      <div class="voz-exemplo">&ldquo;Funciona de verdade. A gente te ajuda a instalar pelo WhatsApp.&rdquo;</div>
+      <div class="voz-exemplo">&ldquo;Menos de R$1 por dia. Mais de 200 canais. Faz a conta.&rdquo;</div>
+      <div class="voz-exemplo">&ldquo;Brasil&atilde;o, Libertadores, Champions &mdash; tudo ao vivo, sem travar.&rdquo;</div>
+    </div>
+    <div class="voz-card nao">
+      <div class="voz-card-label">Nunca fala assim</div>
+      <div class="voz-exemplo">&ldquo;Infraestrutura de CDN com alta disponibilidade e redundância.&rdquo;</div>
+      <div class="voz-exemplo">&ldquo;Plataforma OTT com protocolo HLS e codec H.265 otimizado.&rdquo;</div>
+      <div class="voz-exemplo">&ldquo;Servidores dedicados com 99,9% de uptime garantido.&rdquo;</div>
+      <div class="voz-exemplo">&ldquo;Solu&ccedil;&atilde;o de streaming com baixa lat&ecirc;ncia e bitrate adaptativo.&rdquo;</div>
+      <div class="voz-exemplo">&ldquo;Compat&iacute;vel com Android 5.0+ e iOS 14 ou superior.&rdquo;</div>
+      <div class="voz-exemplo">&ldquo;Subscri&ccedil;&atilde;o de acesso ao conte&uacute;do audiovisual linear e n&atilde;o-linear.&rdquo;</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     6. BANCO DE HEADLINES
+═══════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-label">06 &mdash; Banco de Headlines</div>
+  <h2 class="sec-title">Frases que abrem<br><em>qualquer porta</em></h2>
+
+  <div class="sec-body">
+    <p>Headlines derivadas diretamente da Big Idea. Cada uma ataca um ponto de dor diferente ou acende um desejo diferente &mdash; mas todas falam em <strong>benef&iacute;cio, jamais em caracter&iacute;stica.</strong> Use como ponto de partida para an&uacute;ncios, posts, p&aacute;ginas e roteiros.</p>
+  </div>
+
+  <div style="margin-top: 40px;">
+
+    <div class="headline-item">
+      <div class="headline-num">01</div>
+      <div class="headline-text">Assista esperto.</div>
+      <div class="headline-uso">Big Idea Principal</div>
+    </div>
+
+    <div class="headline-item">
+      <div class="headline-num">02</div>
+      <div class="headline-text">A fam&iacute;lia inteira assistindo. Ao mesmo tempo. Por menos de R$1 por dia.</div>
+      <div class="headline-uso">P&aacute;gina de Vendas</div>
+    </div>
+
+    <div class="headline-item">
+      <div class="headline-num">03</div>
+      <div class="headline-text">Seu IPTV travou na hora do gol? O Smart Play n&atilde;o trava.</div>
+      <div class="headline-uso">An&uacute;ncio &mdash; Dor</div>
+    </div>
+
+    <div class="headline-item">
+      <div class="headline-num">04</div>
+      <div class="headline-text">3 telas, 200 canais, todos os jogos. Num &uacute;nico app.</div>
+      <div class="headline-uso">An&uacute;ncio &mdash; Desejo</div>
+    </div>
+
+    <div class="headline-item">
+      <div class="headline-num">05</div>
+      <div class="headline-text">Voc&ecirc; paga R$200 na TV a cabo. Seus vizinhos pagam R$22 e assistem mais.</div>
+      <div class="headline-uso">An&uacute;ncio &mdash; Comparativo</div>
+    </div>
+
+    <div class="headline-item">
+      <div class="headline-num">06</div>
+      <div class="headline-text">15 dias de teste. N&atilde;o &eacute; promessa de 4 horas &mdash; &eacute; tempo de verdade.</div>
+      <div class="headline-uso">An&uacute;ncio &mdash; Confian&ccedil;a</div>
+    </div>
+
+    <div class="headline-item">
+      <div class="headline-num">07</div>
+      <div class="headline-text">Cancelei 4 streamings e sobrou dinheiro no fim do m&ecirc;s. Quer saber como?</div>
+      <div class="headline-uso">An&uacute;ncio &mdash; Curiosidade</div>
+    </div>
+
+    <div class="headline-item">
+      <div class="headline-num">08</div>
+      <div class="headline-text">Quem &eacute; esperto n&atilde;o paga caro para assistir TV. E voc&ecirc;?</div>
+      <div class="headline-uso">Reels &mdash; Instagram</div>
+    </div>
+
+    <div class="headline-item">
+      <div class="headline-num">09</div>
+      <div class="headline-text">A TV que d&aacute; pra testar antes de confiar. Porque confian&ccedil;a se prova, n&atilde;o se promete.</div>
+      <div class="headline-uso">Prova Social</div>
+    </div>
+
+    <div class="headline-item">
+      <div class="headline-num">10</div>
+      <div class="headline-text">Suporte que responde em 15 minutos. Teste durante 15 dias. Esperto &eacute; assim.</div>
+      <div class="headline-uso">An&uacute;ncio &mdash; Diferencial</div>
+    </div>
+
+    <div class="headline-item">
+      <div class="headline-num">11</div>
+      <div class="headline-text">Imagina nunca mais brigar pelo controle da TV.</div>
+      <div class="headline-uso">Branding &mdash; Slogan</div>
+    </div>
+
+    <div class="headline-item">
+      <div class="headline-num">12</div>
+      <div class="headline-text">Se voc&ecirc; soubesse quanto joga fora por m&ecirc;s em TV que n&atilde;o assiste, cancelava hoje.</div>
+      <div class="headline-uso">YouTube &mdash; Hook</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     7. APLICAÇÕES POR CANAL
+═══════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-label">07 &mdash; Aplica&ccedil;&otilde;es por Canal</div>
+  <h2 class="sec-title">A Big Idea em<br><em>cada plataforma</em></h2>
+
+  <div class="sec-body">
+    <p>A mesma ideia central &mdash; <em>Assista esperto.</em> &mdash; se adapta ao formato e ao momento de cada plataforma. O esp&iacute;rito &eacute; sempre o mesmo: resultado primeiro, sempre.</p>
+  </div>
+
+  <div class="app-grid">
+
+    <div class="app-card">
+      <div class="app-plataforma">Instagram &mdash; Reels</div>
+      <div class="app-titulo">Seu IPTV travou de novo?</div>
+      <div class="app-desc">Primeiros 3 segundos: frustra&ccedil;&atilde;o (tela congelada no gol, grupo do WhatsApp em p&acirc;nico). Virada: Smart Play, mesmo jogo, imagem limpa, sem travar. CTA: &ldquo;Teste 15 dias &mdash; link na bio.&rdquo;</div>
+      <div class="app-exemplo">&ldquo;Todo mundo viu o gol. Menos voc&ecirc;. Porque o seu IPTV travou. De novo.&rdquo;</div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-plataforma">Instagram &mdash; Carrossel</div>
+      <div class="app-titulo">A conta que voc&ecirc; n&atilde;o faz</div>
+      <div class="app-desc">Slide 1: &ldquo;Quanto voc&ecirc; gasta por m&ecirc;s em TV?&rdquo; Slides 2&ndash;5: comparativo visual (TV a cabo vs. combo de streamings vs. Smart Play). Slide final: &ldquo;Fa&ccedil;a a escolha esperta.&rdquo;</div>
+      <div class="app-exemplo">&ldquo;Slide 1: R$200 na TV a cabo. Slide 5: R$22 no Smart Play. Mesmos canais. Mais telas.&rdquo;</div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-plataforma">YouTube &mdash; V&iacute;deo Longo</div>
+      <div class="app-titulo">Usei o Smart Play por 15 dias &mdash; relato honesto</div>
+      <div class="app-desc">Hook de curiosidade nos primeiros 15 segundos. Narrativa de transforma&ccedil;&atilde;o: cancelou TV a cabo, testou, ficou. Provas visuais (3 telas funcionando, jogo ao vivo). CTA no meio e no fim.</div>
+      <div class="app-exemplo">&ldquo;Eu pagava R$200 na Claro h&aacute; 6 anos. Testei o Smart Play por 15 dias. Nunca mais voltei.&rdquo;</div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-plataforma">Meta Ads &mdash; Criativo</div>
+      <div class="app-titulo">3 telas. R$22/m&ecirc;s. Sem contrato.</div>
+      <div class="app-desc">Imagem ou v&iacute;deo curto com o contraste central: fam&iacute;lia feliz em 3 telas vs. conta de TV cara. Copy com benef&iacute;cio direto na primeira linha. CTA para teste de 15 dias.</div>
+      <div class="app-exemplo">&ldquo;Enquanto voc&ecirc; paga R$200 na TV a cabo, seus vizinhos assistem mais &mdash; por R$22/m&ecirc;s.&rdquo;</div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-plataforma">WhatsApp &mdash; Venda + Suporte</div>
+      <div class="app-titulo">A mensagem que fecha</div>
+      <div class="app-desc">Tom pessoal, como mensagem de vizinho. Benef&iacute;cio direto, sem rodeio. Oferta do teste de 15 dias como porta de entrada. Link de pagamento limpo, sem atrito.</div>
+      <div class="app-exemplo">&ldquo;Oi! Vi que voc&ecirc; se interessou pelo Smart Play. Quer testar 15 dias por R$16,90? Se gostar, renova. Se n&atilde;o, sem compromisso.&rdquo;</div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-plataforma">P&aacute;gina de Vendas</div>
+      <div class="app-titulo">Assista esperto.</div>
+      <div class="app-desc">Headline da Big Idea no topo. Jornada do cliente (antes &rarr; depois). Tr&ecirc;s pilares de benef&iacute;cio. Tabela de planos com destaque &ldquo;Mais Popular&rdquo;. Prova social com depoimentos reais. Teste de 15 dias como fechamento.</div>
+      <div class="app-exemplo">&ldquo;Voc&ecirc; n&atilde;o deveria pagar caro para assistir tudo que ama. O Smart Play prova isso em 15 dias.&rdquo;</div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-plataforma">P&aacute;gina de Obrigado</div>
+      <div class="app-titulo">Escolha esperta feita</div>
+      <div class="app-desc">Refor&ccedil;ar a decis&atilde;o certa. Tom celebrativo e acolhedor. Instru&ccedil;&otilde;es de instala&ccedil;&atilde;o em 5 minutos. Lembrar que o suporte est&aacute; no WhatsApp. Convite para indicar amigos (7 dias extras).</div>
+      <div class="app-exemplo">&ldquo;Decis&atilde;o certa. Agora instala em 5 minutos &mdash; nosso time te acompanha pelo WhatsApp.&rdquo;</div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-plataforma">Onboarding &mdash; WhatsApp</div>
+      <div class="app-titulo">A gente est&aacute; aqui</div>
+      <div class="app-desc">Primeira mensagem ap&oacute;s a assinatura. Confirma o acesso, envia tutorial em v&iacute;deo de instala&ccedil;&atilde;o, abre canal direto de suporte. Refor&ccedil;a: nunca vai ficar sem ajuda.</div>
+      <div class="app-exemplo">&ldquo;Ficou com d&uacute;vida? Chama aqui. Resposta em at&eacute; 15 minutos. 7 dias por semana.&rdquo;</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     8. A REGRA DE OURO
+═══════════════════════════════════════════════ -->
+<section class="section">
+  <div class="sec-label">08 &mdash; A Regra de Ouro</div>
+  <h2 class="sec-title">O filtro de<br><em>toda decis&atilde;o criativa</em></h2>
+
+  <div class="quote-block">
+    <p class="quote-text">Antes de publicar qualquer coisa, pergunte: isso fala sobre o que o cliente <em>sente e vive</em> &mdash; ou sobre o que o produto <em>tem e faz</em>?</p>
+    <span class="quote-author">Teste da Big Idea &mdash; Smart Play</span>
+  </div>
+
+  <div class="sec-body">
+    <p>Se a resposta for &ldquo;fala sobre o produto&rdquo;, reescreva at&eacute; que fale sobre o cliente. <strong>O Smart Play n&atilde;o tem 200 canais. O Smart Play faz voc&ecirc; nunca mais perder um jogo.</strong> O Smart Play n&atilde;o tem 3 telas simult&acirc;neas. O Smart Play faz a fam&iacute;lia inteira assistir ao mesmo tempo sem briga.</p>
+    <p>Caracter&iacute;stica &eacute; o que o produto &eacute;. Benef&iacute;cio &eacute; o que o cliente <em>vira</em> depois de ter o produto. <strong>Venda sempre a transforma&ccedil;&atilde;o &mdash; jamais a especifica&ccedil;&atilde;o.</strong></p>
+  </div>
+
+</section>
+
+</div><!-- /wrap -->
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">ADS <em>Company</em> &mdash; Assessoria de Marketing e Performance</div>
+  <div class="footer-sub">Big Idea &mdash; Smart Play &mdash; Agosto 2026</div>
+</footer>
+
+</body>
+</html>

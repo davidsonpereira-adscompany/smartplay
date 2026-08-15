@@ -80,7 +80,8 @@ SMART PLAY/
 ├── REFERENCIAS/                        # Imagens de referência
 ├── 01-ESTRATEGIA/
 │   ├── 01-pesquisa-mercado/            # Pesquisa de mercado IPTV
-│   └── 02-briefing/                    # Briefing completo
+│   ├── 02-briefing/                    # Briefing completo
+│   └── 03-big-idea/                    # Big Idea da campanha
 ├── 02-IDENTIDADE-VISUAL/              # Paletas, brandbooks, logo
 ├── 03-FUNIL-VENDAS/                   # Páginas de captura, vendas, obrigado
 └── 04-CONTEUDO-ORGANICO/              # Instagram, YouTube, WhatsApp
@@ -95,9 +96,9 @@ SMART PLAY/
 - [x] Central de Documentos (index.html)
 - [x] Pesquisa de mercado (3 pilares: público, concorrência, oportunidades)
 - [x] Briefing completo (12 seções preenchidas)
+- [x] Big Idea da campanha — "Assista esperto." (8 seções, 12 headlines, 8 aplicações por canal)
 
 ## Próximas fases pendentes
-- [ ] Big Idea da campanha → @strategist
 - [ ] Paletas de cores → @brand-architect
 - [ ] Brandbook(s) HTML → @brand-architect
 - [ ] Logo / identidade visual → @designer
