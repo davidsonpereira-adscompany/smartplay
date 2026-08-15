@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Play — Central de Documentos</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap');
+
+:root {
+  --base:    #0A0F1C;
+  --base2:   #0E1528;
+  --card:    #111829;
+  --azul:    #4F8CFF;
+  --cta:     #FF6B35;
+  --teal:    #00D4AA;
+  --branco:  #FFFFFF;
+  --texto:   #8899B8;
+  --texto2:  #4A5E80;
+  --texto-claro: #E8ECF4;
+  --borda:   rgba(79,140,255,0.14);
+  --font:    'Montserrat', sans-serif;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  background: var(--base);
+  color: var(--branco);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ─── HERO ─── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 100px 48px 80px;
+  background: linear-gradient(160deg, #060912 0%, #0A0F1C 40%, #0e1a34 100%);
+  border-bottom: 1px solid var(--borda);
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(79,140,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79,140,255,0.03) 1px, transparent 1px);
+  background-size: 72px 72px;
+  pointer-events: none;
+}
+.hero-glow {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 900px 500px at 70% 0%, rgba(79,140,255,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 400px at 10% 100%, rgba(0,212,170,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 400px 300px at 90% 80%, rgba(255,107,53,0.05) 0%, transparent 60%);
+}
+.hero-inner {
+  position: relative; z-index: 2;
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 48px; flex-wrap: wrap;
+}
+.hero-left { flex: 1; min-width: 280px; }
+.hero-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.5em;
+  text-transform: uppercase; color: var(--teal); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.hero-eyebrow::before {
+  content: ''; display: inline-block; width: 28px; height: 2px;
+  background: var(--teal);
+}
+.hero-brand {
+  font-size: clamp(56px, 9vw, 110px);
+  font-weight: 900; letter-spacing: -0.04em; line-height: 0.9;
+  margin-bottom: 6px;
+}
+.hero-brand span { color: var(--azul); font-weight: 200; }
+.hero-tagline {
+  font-size: clamp(14px, 1.8vw, 18px); font-weight: 300;
+  color: rgba(232,236,244,0.4); letter-spacing: 0.04em;
+  margin-bottom: 32px;
+}
+.hero-tagline strong { color: rgba(232,236,244,0.75); font-weight: 600; }
+.hero-big-idea {
+  display: inline-block;
+  font-size: 14px; font-weight: 700; letter-spacing: 0.02em;
+  color: var(--cta);
+  border-left: 3px solid var(--cta);
+  padding: 8px 0 8px 16px;
+  max-width: 420px; line-height: 1.5;
+}
+.hero-right {
+  display: flex; flex-direction: column; align-items: flex-end; gap: 24px;
+  flex-shrink: 0; padding-bottom: 4px;
+}
+.hero-stat {
+  text-align: right;
+}
+.hero-stat-num {
+  font-size: 40px; font-weight: 900; letter-spacing: -0.04em; line-height: 1;
+  background: linear-gradient(135deg, var(--branco) 0%, rgba(255,255,255,0.5) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero-stat-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.4em;
+  text-transform: uppercase; color: var(--texto2);
+}
+.hero-divider { width: 1px; height: 56px; background: var(--borda); }
+.hero-bar {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+  background: linear-gradient(to bottom, var(--cta), var(--azul), var(--teal));
+}
+
+/* ─── MAIN LAYOUT ─── */
+.main { max-width: 1100px; margin: 0 auto; padding: 80px 48px 120px; }
+
+/* ─── SECTION HEADER ─── */
+.sec-header { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--borda); display: flex; align-items: flex-end; justify-content: space-between; }
+.sec-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.5em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
+.sec-title { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
+.sec-count {
+  font-size: 32px; font-weight: 900; letter-spacing: -0.04em;
+  background: linear-gradient(135deg, var(--azul), var(--teal));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  line-height: 1;
+}
+.section-block { margin-bottom: 64px; }
+
+/* ─── GRID ─── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.grid-hero-card { display: grid; grid-template-columns: 1fr; gap: 20px; }
+
+/* ─── CARD BASE ─── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+  display: flex; flex-direction: column;
+  position: relative; overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.card::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 300px 200px at 0% 0%, rgba(79,140,255,0.06) 0%, transparent 70%);
+  pointer-events: none; opacity: 0; transition: opacity 0.3s;
+}
+a.card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.4); border-color: rgba(79,140,255,0.4); }
+a.card:hover::before { opacity: 1; }
+.card-accent { position: absolute; left: 0; top: 0; bottom: 0; width: 3px; border-radius: 14px 0 0 14px; }
+.accent-azul { background: linear-gradient(to bottom, var(--azul), rgba(79,140,255,0.2)); }
+.accent-cta { background: linear-gradient(to bottom, var(--cta), rgba(255,107,53,0.2)); }
+.accent-teal { background: linear-gradient(to bottom, var(--teal), rgba(0,212,170,0.2)); }
+.accent-gradient { background: linear-gradient(to bottom, var(--cta), var(--azul), var(--teal)); }
+
+/* ─── CARD PREVIEW AREA ─── */
+.card-preview {
+  height: 120px; padding: 20px 24px;
+  display: flex; align-items: flex-start; justify-content: space-between;
+  position: relative; overflow: hidden;
+}
+.card-preview-dark { background: linear-gradient(135deg, #060912 0%, #0c1528 100%); }
+.card-preview-azul { background: linear-gradient(135deg, #0c1528 0%, #102050 100%); }
+.card-preview-cta  { background: linear-gradient(135deg, #1a0c06 0%, #2a1408 100%); }
+.card-preview-teal { background: linear-gradient(135deg, #06120e 0%, #0a2018 100%); }
+.card-preview-hero { height: 160px; }
+.preview-badge {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+  padding: 5px 10px; border-radius: 5px;
+}
+.badge-azul { background: rgba(79,140,255,0.15); color: var(--azul); border: 1px solid rgba(79,140,255,0.35); }
+.badge-cta  { background: rgba(255,107,53,0.12); color: var(--cta); border: 1px solid rgba(255,107,53,0.3); }
+.badge-teal { background: rgba(0,212,170,0.1); color: var(--teal); border: 1px solid rgba(0,212,170,0.2); }
+.badge-pending {
+  background: rgba(74,94,128,0.15); color: var(--texto2); border: 1px solid rgba(74,94,128,0.3);
+  font-size: 8px; letter-spacing: 0.35em;
+}
+.preview-num {
+  font-size: 56px; font-weight: 900; letter-spacing: -0.04em;
+  opacity: 0.08; line-height: 1; align-self: flex-end;
+}
+.preview-icon {
+  font-size: 36px; opacity: 0.15; align-self: flex-end;
+}
+.preview-bar-group { display: flex; align-items: flex-end; gap: 4px; align-self: flex-end; }
+.preview-bar { width: 8px; border-radius: 2px; background: linear-gradient(to top, var(--azul), var(--teal)); opacity: 0.4; }
+
+/* ─── CARD BODY ─── */
+.card-body { padding: 22px 24px 20px; flex: 1; display: flex; flex-direction: column; }
+.card-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.35em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px; }
+.card-tag-cta { color: var(--cta); }
+.card-tag-azul { color: var(--azul); }
+.card-title { font-size: 16px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.25; margin-bottom: 10px; }
+.card-desc { font-size: 12px; font-weight: 300; color: var(--texto); line-height: 1.7; flex: 1; }
+.card-footer {
+  padding: 14px 24px 18px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.card-cta {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--azul); display: flex; align-items: center; gap: 6px;
+  transition: gap 0.2s, color 0.2s;
+}
+a.card:hover .card-cta { gap: 10px; color: var(--teal); }
+.card-meta { font-size: 10px; color: var(--texto2); }
+
+/* ─── CARD HERO (wide card) ─── */
+.card-hero {
+  grid-column: 1 / -1;
+  flex-direction: row; align-items: stretch;
+}
+.card-hero .card-preview {
+  width: 280px; flex-shrink: 0; height: auto;
+  flex-direction: column; justify-content: space-between;
+  padding: 28px 28px;
+}
+.card-hero .card-body { padding: 28px 28px; }
+.card-hero .card-title { font-size: 20px; margin-bottom: 12px; }
+.card-hero .card-desc { font-size: 13px; }
+.card-hero-accent {
+  position: absolute; top: 0; right: 0; width: 200px; height: 200px;
+  background: radial-gradient(ellipse at 100% 0%, rgba(79,140,255,0.08), transparent 70%);
+  pointer-events: none;
+}
+
+/* ─── PENDING CARD ─── */
+.card-pending {
+  opacity: 0.45;
+  cursor: default;
+}
+.card-pending:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  border-color: var(--borda) !important;
+}
+.card-pending::before { display: none; }
+
+/* ─── FOOTER ─── */
+.footer {
+  background: #060912; border-top: 1px solid var(--borda);
+  padding: 56px 48px;
+}
+.footer-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 48px; flex-wrap: wrap;
+}
+.footer-brand-name { font-size: 28px; font-weight: 900; letter-spacing: -0.04em; margin-bottom: 8px; }
+.footer-brand-name span { color: var(--azul); font-weight: 200; }
+.footer-tagline { font-size: 11px; font-weight: 300; color: var(--texto2); }
+.footer-bottom {
+  max-width: 1100px; margin: 32px auto 0; padding-top: 24px;
+  border-top: 1px solid var(--borda);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+}
+.footer-copy { font-size: 11px; color: var(--texto2); }
+
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVO
+   Breakpoints: 1024px · 768px · 480px
+══════════════════════════════════════════════════ */
+
+/* ── Tablet (≤ 1024px) ── */
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: 1fr 1fr !important; }
+  .grid-3 { grid-template-columns: 1fr 1fr !important; }
+  .main   { padding: 60px 32px 100px !important; }
+}
+
+/* ── Mobile largo (≤ 768px) ── */
+@media (max-width: 768px) {
+  .hero   { padding: 60px 20px 48px !important; }
+  .main   { padding: 48px 20px 80px !important; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr !important; }
+  .card-hero { flex-direction: column !important; }
+  .card-hero .card-preview { width: 100% !important; height: 100px !important; }
+  .sec-title  { font-size: 18px !important; }
+  .card-title { font-size: 15px !important; }
+  body        { overflow-x: hidden !important; }
+}
+
+/* ── Mobile estreito (≤ 480px) ── */
+@media (max-width: 480px) {
+  .hero-brand      { font-size: 44px !important; letter-spacing: -0.04em !important; }
+  .hero-tagline    { font-size: 12px !important; }
+  .hero-big-idea   { font-size: 13px !important; padding: 12px 14px !important; }
+  .hero-right      { display: none !important; }
+  .hero-eyebrow    { font-size: 9px !important; }
+  .hero            { padding: 48px 16px 40px !important; }
+  .main            { padding: 36px 14px 60px !important; }
+  .footer          { padding: 32px 16px !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ═══════════════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-bar"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Central de Documentos</div>
+      <div class="hero-brand">Smart<span>Play</span></div>
+      <p class="hero-tagline"><strong>Entretenimento inteligente</strong> para toda a família</p>
+      <div class="hero-big-idea">"A TV que a sua família merece. Pelo preço que cabe no seu bolso."</div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stat">
+        <div class="hero-stat-num">8</div>
+        <div class="hero-stat-label">Documentos</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">6</div>
+        <div class="hero-stat-label">Módulos</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">1</div>
+        <div class="hero-stat-label">Concluído</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══ MAIN ════════════════════════════════════════════════ -->
+<main class="main">
+
+  <!-- ── 01 ESTRATÉGIA ──────────────────────────────────── -->
+  <div class="section-block">
+    <div class="sec-header">
+      <div>
+        <div class="sec-eyebrow">01 — Estratégia</div>
+        <div class="sec-title">Pesquisa e Briefing</div>
+      </div>
+      <div class="sec-count">02</div>
+    </div>
+
+    <div class="grid-2">
+
+      <!-- Pesquisa de Mercado — ATIVO -->
+      <a class="card" href="01-ESTRATEGIA/01-pesquisa-mercado/Pesquisa-Mercado-Smart-Play.html">
+        <div class="card-accent accent-azul"></div>
+        <div class="card-preview card-preview-azul">
+          <div class="preview-badge badge-azul">Pesquisa</div>
+          <div class="preview-bar-group">
+            <div class="preview-bar" style="height:18px"></div>
+            <div class="preview-bar" style="height:28px"></div>
+            <div class="preview-bar" style="height:42px;opacity:0.8"></div>
+            <div class="preview-bar" style="height:34px;opacity:0.6"></div>
+            <div class="preview-bar" style="height:24px;opacity:0.4"></div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-tag card-tag-azul">Pesquisa</div>
+          <div class="card-title">Inteligência de Mercado IPTV</div>
+          <p class="card-desc">Pesquisa completa com 3 pilares: público-alvo, concorrência e oportunidades. 4 personas, 5 concorrentes diretos, 6 indiretos, 6 gaps de mercado e 5 ângulos de campanha validados.</p>
+        </div>
+        <div class="card-footer">
+          <div class="card-cta">Abrir <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div class="card-meta">3 pilares · 16 fontes</div>
+        </div>
+      </a>
+
+      <!-- Briefing — PENDENTE -->
+      <div class="card card-pending">
+        <div class="card-accent" style="background:linear-gradient(to bottom,var(--texto2),rgba(74,94,128,0.15))"></div>
+        <div class="card-preview card-preview-dark">
+          <div class="preview-badge badge-pending">Briefing</div>
+          <div style="align-self:flex-end">
+            <div class="preview-badge badge-pending" style="font-size:7px;letter-spacing:0.4em;background:rgba(74,94,128,0.1);border-color:rgba(74,94,128,0.2)">Em breve</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-tag" style="color:var(--texto2)">Briefing</div>
+          <div class="card-title" style="color:var(--texto)">Briefing Estratégico Smart Play</div>
+          <p class="card-desc" style="color:var(--texto2)">Em desenvolvimento — todos os blocos estratégicos do projeto: público-alvo, posicionamento, oferta, concorrência, tom de voz e objetivos.</p>
+        </div>
+        <div class="card-footer">
+          <div class="card-meta">Em desenvolvimento</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── 02 CAMPANHA ──────────────────────────────────── -->
+  <div class="section-block">
+    <div class="sec-header">
+      <div>
+        <div class="sec-eyebrow">02 — Campanha</div>
+        <div class="sec-title">Conceito Central</div>
+      </div>
+      <div class="sec-count">01</div>
+    </div>
+
+    <div class="grid-hero-card">
+      <!-- Big Idea — PENDENTE -->
+      <div class="card card-hero card-pending">
+        <div class="card-accent" style="background:linear-gradient(to bottom,var(--texto2),rgba(74,94,128,0.15))"></div>
+        <div class="card-hero-accent" style="background:radial-gradient(ellipse at 100% 0%,rgba(74,94,128,0.06),transparent 70%)"></div>
+        <div class="card-preview card-preview-dark card-preview-hero">
+          <div class="preview-badge badge-pending">Campanha</div>
+          <div style="display:flex;flex-direction:column;gap:4px;margin-top:auto">
+            <div style="font-size:22px;font-weight:900;letter-spacing:-0.03em;line-height:1.1;color:rgba(232,236,244,0.15)">Big Idea</div>
+            <div style="font-size:14px;font-weight:300;letter-spacing:-0.01em;line-height:1.2;color:rgba(232,236,244,0.1)">Conceito Central</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-tag" style="color:var(--texto2)">Campanha</div>
+          <div class="card-title" style="color:var(--texto)">Big Idea — Conceito Central</div>
+          <p class="card-desc" style="color:var(--texto2)">Em desenvolvimento — tese central, inimigo, transformação e pilares da mensagem.</p>
+          <div style="margin-top:16px">
+            <div class="preview-badge badge-pending" style="font-size:7px;letter-spacing:0.4em;background:rgba(74,94,128,0.1);border-color:rgba(74,94,128,0.2)">Em breve</div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-meta">Em desenvolvimento</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 03 IDENTIDADE VISUAL ─────────────────────────── -->
+  <div class="section-block">
+    <div class="sec-header">
+      <div>
+        <div class="sec-eyebrow">03 — Identidade Visual</div>
+        <div class="sec-title">Paleta de Cores e Brandbook</div>
+      </div>
+      <div class="sec-count">02</div>
+    </div>
+
+    <div class="grid-2">
+
+      <!-- Paletas de Cores — PENDENTE -->
+      <div class="card card-pending">
+        <div class="card-accent" style="background:linear-gradient(to bottom,var(--texto2),rgba(74,94,128,0.15))"></div>
+        <div class="card-preview card-preview-dark">
+          <div class="preview-badge badge-pending">Identidade Visual</div>
+          <div style="display:flex;flex-direction:column;gap:4px;align-self:flex-end">
+            <div style="display:flex;gap:3px">
+              <div style="width:20px;height:4px;border-radius:2px;background:rgba(79,140,255,0.25)"></div>
+              <div style="width:20px;height:4px;border-radius:2px;background:rgba(0,212,170,0.25)"></div>
+              <div style="width:20px;height:4px;border-radius:2px;background:rgba(255,107,53,0.25)"></div>
+            </div>
+            <div style="display:flex;gap:3px">
+              <div style="width:20px;height:4px;border-radius:2px;background:rgba(232,236,244,0.12)"></div>
+              <div style="width:20px;height:4px;border-radius:2px;background:rgba(232,236,244,0.08)"></div>
+              <div style="width:20px;height:4px;border-radius:2px;background:rgba(232,236,244,0.05)"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-tag" style="color:var(--texto2)">Paleta de Cores</div>
+          <div class="card-title" style="color:var(--texto)">Paletas de Cores com Psicologia Cromática</div>
+          <p class="card-desc" style="color:var(--texto2)">Em desenvolvimento — direções visuais baseadas na psicologia das cores, análise de concorrentes e perfil do público-alvo.</p>
+          <div style="margin-top:12px">
+            <div class="preview-badge badge-pending" style="font-size:7px;letter-spacing:0.4em;background:rgba(74,94,128,0.1);border-color:rgba(74,94,128,0.2)">Em breve</div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-meta">Em desenvolvimento</div>
+        </div>
+      </div>
+
+      <!-- Brandbook — PENDENTE -->
+      <div class="card card-pending">
+        <div class="card-accent" style="background:linear-gradient(to bottom,var(--texto2),rgba(74,94,128,0.15))"></div>
+        <div class="card-preview card-preview-dark">
+          <div class="preview-badge badge-pending">Identidade Visual</div>
+          <div style="display:flex;gap:5px;align-self:flex-end">
+            <div style="width:14px;height:14px;border-radius:4px;background:rgba(79,140,255,0.15);border:1px solid rgba(79,140,255,0.2)"></div>
+            <div style="width:14px;height:14px;border-radius:4px;background:rgba(0,212,170,0.15);border:1px solid rgba(0,212,170,0.2)"></div>
+            <div style="width:14px;height:14px;border-radius:4px;background:rgba(255,107,53,0.15);border:1px solid rgba(255,107,53,0.2)"></div>
+            <div style="width:14px;height:14px;border-radius:4px;background:rgba(232,236,244,0.08);border:1px solid rgba(232,236,244,0.08)"></div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-tag" style="color:var(--texto2)">Brandbook</div>
+          <div class="card-title" style="color:var(--texto)">Brandbook Completo</div>
+          <p class="card-desc" style="color:var(--texto2)">Em desenvolvimento — manifesto, identidade visual, tipografia, aplicações, mockups e diretrizes de marca.</p>
+          <div style="margin-top:12px">
+            <div class="preview-badge badge-pending" style="font-size:7px;letter-spacing:0.4em;background:rgba(74,94,128,0.1);border-color:rgba(74,94,128,0.2)">Em breve</div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-meta">Em desenvolvimento</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── 04 FUNIL DE VENDAS ───────────────────────────── -->
+  <div class="section-block">
+    <div class="sec-header">
+      <div>
+        <div class="sec-eyebrow">04 — Funil de Vendas</div>
+        <div class="sec-title">Páginas de Conversão</div>
+      </div>
+      <div class="sec-count">01</div>
+    </div>
+
+    <div class="grid-hero-card">
+      <!-- Página de Vendas — PENDENTE -->
+      <div class="card card-pending">
+        <div class="card-accent" style="background:linear-gradient(to bottom,var(--texto2),rgba(74,94,128,0.15))"></div>
+        <div class="card-preview card-preview-dark" style="height:100px">
+          <div class="preview-badge badge-pending">Funil</div>
+          <div style="display:flex;flex-direction:column;gap:3px;align-self:flex-end">
+            <div style="width:60px;height:4px;border-radius:2px;background:rgba(232,236,244,0.06)"></div>
+            <div style="width:48px;height:4px;border-radius:2px;background:rgba(232,236,244,0.05)"></div>
+            <div style="width:36px;height:4px;border-radius:2px;background:rgba(232,236,244,0.04)"></div>
+            <div style="width:24px;height:4px;border-radius:2px;background:rgba(232,236,244,0.03)"></div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-tag" style="color:var(--texto2)">Funil de Vendas</div>
+          <div class="card-title" style="color:var(--texto)">Página de Vendas</div>
+          <p class="card-desc" style="color:var(--texto2)">Em desenvolvimento — landing page de alta conversão com copy persuasiva, seções de benefícios, prova social, planos e CTA otimizado.</p>
+          <div style="margin-top:12px">
+            <div class="preview-badge badge-pending" style="font-size:7px;letter-spacing:0.4em;background:rgba(74,94,128,0.1);border-color:rgba(74,94,128,0.2)">Em breve</div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-meta">Em desenvolvimento</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 05 TRÁFEGO PAGO ──────────────────────────────── -->
+  <div class="section-block">
+    <div class="sec-header">
+      <div>
+        <div class="sec-eyebrow">05 — Tráfego Pago</div>
+        <div class="sec-title">Planejamento de Campanhas</div>
+      </div>
+      <div class="sec-count">01</div>
+    </div>
+
+    <div class="grid-hero-card">
+      <!-- Planejamento de Tráfego — PENDENTE -->
+      <div class="card card-pending">
+        <div class="card-accent" style="background:linear-gradient(to bottom,var(--texto2),rgba(74,94,128,0.15))"></div>
+        <div class="card-preview card-preview-dark" style="height:100px">
+          <div class="preview-badge badge-pending">Tráfego</div>
+          <div style="display:flex;align-items:flex-end;gap:3px;align-self:flex-end">
+            <div style="width:6px;height:12px;border-radius:2px;background:rgba(79,140,255,0.12)"></div>
+            <div style="width:6px;height:20px;border-radius:2px;background:rgba(79,140,255,0.10)"></div>
+            <div style="width:6px;height:30px;border-radius:2px;background:rgba(79,140,255,0.08)"></div>
+            <div style="width:6px;height:24px;border-radius:2px;background:rgba(79,140,255,0.06)"></div>
+            <div style="width:6px;height:36px;border-radius:2px;background:rgba(79,140,255,0.08)"></div>
+            <div style="width:6px;height:28px;border-radius:2px;background:rgba(79,140,255,0.06)"></div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-tag" style="color:var(--texto2)">Tráfego Pago</div>
+          <div class="card-title" style="color:var(--texto)">Planejamento de Tráfego</div>
+          <p class="card-desc" style="color:var(--texto2)">Em desenvolvimento — estratégia de mídia paga, estrutura de campanhas, públicos, orçamentos, criativos e métricas de performance.</p>
+          <div style="margin-top:12px">
+            <div class="preview-badge badge-pending" style="font-size:7px;letter-spacing:0.4em;background:rgba(74,94,128,0.1);border-color:rgba(74,94,128,0.2)">Em breve</div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-meta">Em desenvolvimento</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 06 CONTEÚDO ORGÂNICO ─────────────────────────── -->
+  <div class="section-block">
+    <div class="sec-header">
+      <div>
+        <div class="sec-eyebrow">06 — Conteúdo Orgânico</div>
+        <div class="sec-title">Planejamento de Conteúdo</div>
+      </div>
+      <div class="sec-count">01</div>
+    </div>
+
+    <div class="grid-hero-card">
+      <!-- Plano de Conteúdo Instagram — PENDENTE -->
+      <div class="card card-pending">
+        <div class="card-accent" style="background:linear-gradient(to bottom,var(--texto2),rgba(74,94,128,0.15))"></div>
+        <div class="card-preview card-preview-dark" style="height:100px">
+          <div class="preview-badge badge-pending">Conteúdo</div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;width:100px;align-self:flex-end">
+            <div style="width:100%;aspect-ratio:1;border-radius:2px;background:rgba(232,236,244,0.05)"></div>
+            <div style="width:100%;aspect-ratio:1;border-radius:2px;background:rgba(232,236,244,0.04)"></div>
+            <div style="width:100%;aspect-ratio:1;border-radius:2px;background:rgba(232,236,244,0.06)"></div>
+            <div style="width:100%;aspect-ratio:1;border-radius:2px;background:rgba(232,236,244,0.03)"></div>
+            <div style="width:100%;aspect-ratio:1;border-radius:2px;background:rgba(232,236,244,0.05)"></div>
+            <div style="width:100%;aspect-ratio:1;border-radius:2px;background:rgba(232,236,244,0.04)"></div>
+            <div style="width:100%;aspect-ratio:1;border-radius:2px;background:rgba(232,236,244,0.03)"></div>
+            <div style="width:100%;aspect-ratio:1;border-radius:2px;background:rgba(232,236,244,0.04)"></div>
+            <div style="width:100%;aspect-ratio:1;border-radius:2px;background:rgba(232,236,244,0.06)"></div>
+            <div style="width:100%;aspect-ratio:1;border-radius:2px;background:rgba(232,236,244,0.03)"></div>
+            <div style="width:100%;aspect-ratio:1;border-radius:2px;background:rgba(232,236,244,0.05)"></div>
+            <div style="width:100%;aspect-ratio:1;border-radius:2px;background:rgba(232,236,244,0.04)"></div>
+            <div style="width:100%;aspect-ratio:1;border-radius:2px;background:rgba(232,236,244,0.06)"></div>
+            <div style="width:100%;aspect-ratio:1;border-radius:2px;background:rgba(232,236,244,0.03)"></div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-tag" style="color:var(--texto2)">Conteúdo Orgânico</div>
+          <div class="card-title" style="color:var(--texto)">Plano de Conteúdo Instagram</div>
+          <p class="card-desc" style="color:var(--texto2)">Em desenvolvimento — calendário editorial, pilares de conteúdo, hooks, formatos de postagem e estratégia de crescimento orgânico.</p>
+          <div style="margin-top:12px">
+            <div class="preview-badge badge-pending" style="font-size:7px;letter-spacing:0.4em;background:rgba(74,94,128,0.1);border-color:rgba(74,94,128,0.2)">Em breve</div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-meta">Em desenvolvimento</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">Smart<span>Play</span></div>
+      <div class="footer-tagline">"A TV que a sua família merece. Pelo preço que cabe no seu bolso."</div>
+    </div>
+    <div style="display:flex;gap:48px;flex-wrap:wrap">
+      <div>
+        <div style="font-size:9px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--texto2);margin-bottom:12px">Módulos do Projeto</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:12px;color:var(--texto2);line-height:1.6">
+          <span>01 — Estratégia</span>
+          <span>02 — Campanha</span>
+          <span>03 — Identidade Visual</span>
+          <span>04 — Funil de Vendas</span>
+          <span>05 — Tráfego Pago</span>
+          <span>06 — Conteúdo Orgânico</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:9px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--texto2);margin-bottom:12px">Paleta Provisória</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="width:14px;height:14px;border-radius:3px;background:#0A0F1C;border:1px solid rgba(255,255,255,0.1)"></div>
+            <span style="font-size:11px;color:var(--texto2)">#0A0F1C · Base</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="width:14px;height:14px;border-radius:3px;background:#4F8CFF"></div>
+            <span style="font-size:11px;color:var(--texto2)">#4F8CFF · Primária</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="width:14px;height:14px;border-radius:3px;background:#FF6B35"></div>
+            <span style="font-size:11px;color:var(--texto2)">#FF6B35 · CTA</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="width:14px;height:14px;border-radius:3px;background:#00D4AA"></div>
+            <span style="font-size:11px;color:var(--texto2)">#00D4AA · Destaque</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">Smart Play — Central de Documentos · 2026</div>
+    <div class="footer-copy">Paleta provisória · Tipografia Montserrat</div>
+  </div>
+</footer>
+
+</body>
+</html>

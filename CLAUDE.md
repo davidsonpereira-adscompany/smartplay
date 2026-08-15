@@ -57,6 +57,15 @@
 
 **Status:** A ser criada do zero  
 **Tipografia:** Montserrat (toda a identidade)  
+**Paleta provisória (Central):** #0A0F1C (base) · #4F8CFF (primária) · #FF6B35 (CTA) · #00D4AA (destaque)
+
+---
+
+## Repositório GitHub
+
+- **URL:** `https://github.com/davidsonpereira-adscompany/smartplay`
+- **Branch:** `main`
+- **Publicação:** GitHub Pages (quando ativado)
 
 ---
 
@@ -64,6 +73,7 @@
 
 ```
 SMART PLAY/
+├── index.html                          # Central de Documentos (hub)
 ├── CLAUDE.md                           # Contexto do projeto
 ├── assets/                             # Logos e imagens
 ├── REFERENCIAS/                        # Imagens de referência
@@ -81,6 +91,8 @@ SMART PLAY/
 
 - [x] Definição de planos e preços
 - [x] Estrutura de pastas do projeto
+- [x] Central de Documentos (index.html)
+- [x] Pesquisa de mercado (3 pilares: público, concorrência, oportunidades)
 
 ## Próximas fases pendentes
 

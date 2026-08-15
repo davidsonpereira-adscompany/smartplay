@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pesquisa de Mercado — Smart Play</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #6C5CE7;
+      --primary-light: #A29BFE;
+      --primary-dark: #4A3DB8;
+      --accent: #00CEC9;
+      --accent-light: #55EFC4;
+      --bg-dark: #0A0A1A;
+      --bg-card: #12122A;
+      --bg-card-alt: #1A1A3E;
+      --text-primary: #F0F0FF;
+      --text-secondary: #A0A0C0;
+      --text-muted: #707090;
+      --border: rgba(108, 92, 231, 0.2);
+      --border-accent: rgba(0, 206, 201, 0.3);
+      --gradient-primary: linear-gradient(135deg, #6C5CE7, #A29BFE);
+      --gradient-accent: linear-gradient(135deg, #00CEC9, #55EFC4);
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.4);
+      --radius: 12px;
+      --radius-lg: 20px;
+
+      --green: #00B894;
+      --red: #FF6B6B;
+      --yellow: #FDCB6E;
+      --orange: #E17055;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .header {
+      background: linear-gradient(180deg, rgba(108, 92, 231, 0.15) 0%, transparent 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .header-badge {
+      display: inline-block;
+      background: var(--gradient-primary);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 6px 20px;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+
+    .header h1 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .header h1 span {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header-subtitle {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    .header-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .header-meta-item {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .header-meta-item strong {
+      color: var(--text-secondary);
+    }
+
+    .nav-bar {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      overflow-x: auto;
+    }
+
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: nowrap;
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+      background: rgba(108, 92, 231, 0.15);
+    }
+
+    .nav-link.active {
+      color: #fff;
+      background: var(--gradient-primary);
+    }
+
+    .main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .section-number {
+      display: inline-block;
+      background: var(--gradient-primary);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 5px 14px;
+      border-radius: 6px;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      transition: border-color 0.2s;
+    }
+
+    .card:hover {
+      border-color: var(--primary-light);
+    }
+
+    .card-accent {
+      border-left: 3px solid var(--accent);
+    }
+
+    .card-primary {
+      border-left: 3px solid var(--primary);
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+
+    .card-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .card p, .card li {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .card ul li {
+      padding: 0.35rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .card ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.75rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary-light);
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.6rem;
+      font-weight: 800;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .persona-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 640px) {
+      .persona-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .persona-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+
+    .persona-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .persona-age {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .persona-detail {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.4rem;
+    }
+
+    .persona-detail strong {
+      color: var(--text-primary);
+    }
+
+    .persona-quote {
+      margin-top: 0.75rem;
+      padding: 0.75rem;
+      background: rgba(108, 92, 231, 0.1);
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-style: italic;
+      color: var(--primary-light);
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+
+    thead {
+      background: var(--bg-card-alt);
+    }
+
+    th {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      padding: 12px 16px;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 12px 16px;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+
+    tr:hover td {
+      background: rgba(108, 92, 231, 0.05);
+    }
+
+    .gap-card {
+      background: linear-gradient(135deg, rgba(0, 206, 201, 0.08), rgba(108, 92, 231, 0.08));
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .gap-card .gap-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .gap-card p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .keyword-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .keyword-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .keyword-term {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .keyword-vol {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .rec-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .rec-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .rec-icon {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--gradient-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .rec-content {
+      flex: 1;
+    }
+
+    .rec-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .rec-desc {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .rec-block {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 0.4rem;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(108, 92, 231, 0.12), rgba(162, 155, 254, 0.08));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .highlight-box p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .highlight-box strong {
+      color: var(--text-primary);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(108, 92, 231, 0.12);
+      color: var(--primary-light);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 50px;
+    }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 3rem 0;
+    }
+
+    @media (max-width: 640px) {
+      .header { padding: 1.5rem 1rem; }
+      .main { padding: 1.5rem 1rem 3rem; }
+      .stat-grid { grid-template-columns: 1fr 1fr; }
+      .nav-inner { justify-content: flex-start; }
+      .header-meta { gap: 1rem; }
+      .rec-card { flex-direction: column; }
+      .keyword-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 400px) {
+      .stat-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-badge">Pesquisa de Mercado</div>
+      <h1>Smart Play <span>IPTV</span></h1>
+      <p class="header-subtitle">Pesquisa completa de mercado: intelig&#234;ncia de p&#250;blico, concorr&#234;ncia e oportunidades para o segmento de IPTV no Brasil</p>
+      <div class="header-meta">
+        <span class="header-meta-item"><strong>Data:</strong> 13 de agosto de 2026</span>
+        <span class="header-meta-item"><strong>Segmento:</strong> IPTV / TV por Internet</span>
+        <span class="header-meta-item"><strong>Mercado:</strong> Brasil</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-bar">
+    <div class="nav-inner">
+      <a href="#panorama" class="nav-link active">Panorama</a>
+      <a href="#publico" class="nav-link">P&#250;blico</a>
+      <a href="#concorrentes" class="nav-link">Concorrentes</a>
+      <a href="#oportunidades" class="nav-link">Oportunidades</a>
+      <a href="#recomendacoes" class="nav-link">Briefing</a>
+    </div>
+  </nav>
+
+  <main class="main">
+
+    <!-- PANORAMA -->
+    <section id="panorama" class="section">
+      <div class="section-header">
+        <div class="section-number">Panorama</div>
+        <h2 class="section-title">O mercado de IPTV no Brasil em 2026</h2>
+        <p class="section-desc">Dados reais sobre o cen&#225;rio atual, crescimento, comportamento de consumo e as for&#231;as que impulsionam o segmento.</p>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-value">16,67%</div>
+          <div class="stat-label">CAGR at&#233; 2035</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">131 mi</div>
+          <div class="stat-label">Usu&#225;rios de CTV no Brasil</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">4h/dia</div>
+          <div class="stat-label">M&#233;dia de consumo de v&#237;deo</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">64%</div>
+          <div class="stat-label">J&#225; cancelaram streaming</div>
+        </div>
+      </div>
+
+      <div class="card card-primary">
+        <div class="card-label">Cen&#225;rio do mercado</div>
+        <ul>
+          <li>O Brasil &#233; um dos maiores mercados de IPTV do mundo, impulsionado pela expans&#227;o da internet de alta velocidade e pela queda nos custos de dados m&#243;veis</li>
+          <li>A TV por assinatura tradicional perdeu <strong>1,6 milh&#227;o de clientes</strong> s&#243; em 2025. A falta de interesse pelo servi&#231;o saltou de 39,1% (2016) para 58,4% (2024)</li>
+          <li>O mercado de IPTV n&#227;o licenciado movimenta at&#233; R$ 2 bilh&#245;es/ano com 4 a 8 milh&#245;es de usu&#225;rios, gerando perdas de R$ 1,5 a R$ 2 bilh&#245;es para o mercado legal</li>
+          <li>A fus&#227;o de servi&#231;os em pacotes (bundles) virou tend&#234;ncia: o Meli+ Mega re&#250;ne Disney+, Netflix, HBO Max e Apple TV+ em um &#250;nico plano</li>
+          <li>O brasileiro utiliza, em m&#233;dia, <strong>8,2 servi&#231;os de streaming</strong> por domic&#237;lio (4,6 pagos + 3,6 gratuitos)</li>
+          <li>98,8% dos usu&#225;rios de internet no Brasil acessam a rede pelo smartphone, e 53,5% dos domic&#237;lios usam a Smart TV para acessar a internet</li>
+        </ul>
+      </div>
+
+      <div class="card card-accent">
+        <div class="card-label">For&#231;a motriz: pre&#231;o da TV a cabo</div>
+        <p>O pre&#231;o m&#233;dio de um pacote de TV a cabo no Brasil em 2026 varia entre <strong>R$ 150 e R$ 400 por m&#234;s</strong>. As operadoras cobram taxa de instala&#231;&#227;o, exigem fidelidade de 12 a 24 meses e aplicam multas pesadas. Enquanto isso, servi&#231;os IPTV oferecem cat&#225;logo equivalente ou superior por <strong>R$ 20 a R$ 35/m&#234;s</strong>, sem contrato e sem fidelidade. Essa diferen&#231;a de at&#233; 10x no pre&#231;o &#233; o principal motor de migra&#231;&#227;o.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Copa do Mundo 2026 &#8212; catalisador</div>
+        <p>Com a Copa do Mundo FIFA 2026 nos EUA, M&#233;xico e Canad&#225;, o consumo de conte&#250;do esportivo via streaming vai explodir. Dados mostram que <strong>39% dos brasileiros assinaram streaming motivados por esporte</strong> e <strong>95% dos consumidores de esportes em CTV assistem a futebol regularmente</strong>. O investimento em CTV no Brasil deve crescer 23,7% em 2026. Esse &#233; o melhor momento para posicionar um servi&#231;o de IPTV com foco esportivo.</p>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- PILAR 1: P&#218;BLICO -->
+    <section id="publico" class="section">
+      <div class="section-header">
+        <div class="section-number">Pilar 1</div>
+        <h2 class="section-title">Intelig&#234;ncia de P&#250;blico</h2>
+        <p class="section-desc">Quem &#233; o consumidor de IPTV no Brasil: perfil demogr&#225;fico, dores, desejos e a linguagem que utiliza.</p>
+      </div>
+
+      <div class="card card-primary">
+        <div class="card-label">Perfil demogr&#225;fico</div>
+        <div class="card-title">Quem &#233; o p&#250;blico do Smart Play</div>
+        <ul>
+          <li><strong>Faixa et&#225;ria principal:</strong> 25 a 50 anos (pico entre 34 e 43 anos, que responde por 28,4% dos consumidores de streaming)</li>
+          <li><strong>G&#234;nero:</strong> Misto, com leve predomin&#226;ncia masculina no consumo de conte&#250;do esportivo ao vivo</li>
+          <li><strong>Classe social:</strong> C e D &#8212; sens&#237;vel a pre&#231;o, valoriza custo-benef&#237;cio acima de tudo</li>
+          <li><strong>Escolaridade:</strong> Ensino m&#233;dio completo a superior incompleto</li>
+          <li><strong>Renda familiar:</strong> R$ 2.500 a R$ 6.000/m&#234;s</li>
+          <li><strong>Localiza&#231;&#227;o:</strong> Brasil inteiro, com forte concentra&#231;&#227;o em periferias de grandes cidades e interior</li>
+          <li><strong>Score de cr&#233;dito:</strong> 34,3% dos consumidores de streaming t&#234;m score acima de 751 (bons pagadores)</li>
+          <li><strong>Comportamento online:</strong> 93,8% dos consumidores de streaming fazem compras online regularmente</li>
+        </ul>
+      </div>
+
+      <div class="card-label" style="margin-bottom: 0.75rem; padding-left: 4px;">Personas identificadas</div>
+      <div class="persona-grid">
+        <div class="persona-card">
+          <div class="persona-name">Carlos &#8212; O Pai de Fam&#237;lia</div>
+          <div class="persona-age">38 anos / Classe C / Interior de SP</div>
+          <div class="persona-detail"><strong>Profiss&#227;o:</strong> Motorista de aplicativo</div>
+          <div class="persona-detail"><strong>Situa&#231;&#227;o:</strong> Paga R$ 189/m&#234;s de TV a cabo, mas s&#243; assiste futebol e filmes. Esposa usa Netflix (R$ 44,90). Total: R$ 234/m&#234;s em TV</div>
+          <div class="persona-detail"><strong>Dispositivo:</strong> Smart TV Samsung na sala + celular Android</div>
+          <div class="persona-quote">"Se eu conseguir ver o jogo do meu time, filme pra fam&#237;lia e desenho pro moleque por R$ 25, cancelo tudo hoje."</div>
+        </div>
+        <div class="persona-card">
+          <div class="persona-name">Luciana &#8212; A M&#227;e Conectada</div>
+          <div class="persona-age">32 anos / Classe D / Regi&#227;o Nordeste</div>
+          <div class="persona-detail"><strong>Profiss&#227;o:</strong> Vendedora aut&#244;noma (Instagram)</div>
+          <div class="persona-detail"><strong>Situa&#231;&#227;o:</strong> Nunca teve TV a cabo. Assiste tudo pelo celular. Quer s&#233;ries, novelas e filmes sem pagar v&#225;rios streamings</div>
+          <div class="persona-detail"><strong>Dispositivo:</strong> Celular Android + TV Box barata</div>
+          <div class="persona-quote">"N&#227;o vou pagar Netflix, Globoplay e mais sei l&#225; o qu&#234;. Quero tudo num lugar s&#243;, barato e que funcione no meu celular."</div>
+        </div>
+        <div class="persona-card">
+          <div class="persona-name">Diego &#8212; O Fan&#225;tico por Futebol</div>
+          <div class="persona-age">27 anos / Classe C / BH - MG</div>
+          <div class="persona-detail"><strong>Profiss&#227;o:</strong> Auxiliar administrativo</div>
+          <div class="persona-detail"><strong>Situa&#231;&#227;o:</strong> Assiste futebol em bar ou por links duvidosos. Quer Premiere, ESPN e SporTV sem pagar R$ 200 de TV a cabo</div>
+          <div class="persona-detail"><strong>Dispositivo:</strong> Celular + notebook + Smart TV LG</div>
+          <div class="persona-quote">"Se tiver todos os jogos do Brasileir&#227;o, Libertadores e Champions League, j&#225; me ganha."</div>
+        </div>
+        <div class="persona-card">
+          <div class="persona-name">Dona Maria &#8212; A Aposentada</div>
+          <div class="persona-age">52 anos / Classe D / Interior da Bahia</div>
+          <div class="persona-detail"><strong>Profiss&#227;o:</strong> Aposentada</div>
+          <div class="persona-detail"><strong>Situa&#231;&#227;o:</strong> S&#243; assiste Globo, SBT e Record. Quer canais abertos em boa qualidade + novelas + filmes antigos</div>
+          <div class="persona-detail"><strong>Dispositivo:</strong> Smart TV + ajuda do neto para configurar</div>
+          <div class="persona-quote">"Se o menino instalar pra mim e eu s&#243; precisar ligar a TV, t&#225; &#243;timo."</div>
+        </div>
+      </div>
+
+      <div class="card card-accent" style="margin-top: 1.5rem;">
+        <div class="card-label">Dores do p&#250;blico (dados reais de reclama&#231;&#245;es e pesquisas)</div>
+        <ul>
+          <li><strong>Pre&#231;o abusivo da TV a cabo:</strong> "Pago quase R$ 200 por m&#234;s e assisto 5 canais" &#8212; reclama&#231;&#227;o recorrente sobre operadoras tradicionais</li>
+          <li><strong>Fidelidade e multas:</strong> Contratos de 12-24 meses com multas de at&#233; R$ 800 para cancelar. Consumidores se sentem presos</li>
+          <li><strong>Fragmenta&#231;&#227;o de streaming:</strong> Para ter tudo (filmes, s&#233;ries, futebol, novelas) precisa assinar 4-5 plataformas, somando R$ 150-280/m&#234;s</li>
+          <li><strong>Instabilidade de IPTV barato:</strong> "Tela preta", "travamentos", "servidor caiu" &#8212; reclama&#231;&#245;es massivas no Reclame Aqui contra provedores IPTV sem estrutura</li>
+          <li><strong>Suporte inexistente:</strong> "Mandei mensagem no WhatsApp e ningu&#233;m responde h&#225; 3 dias" &#8212; queixa constante contra IPTVs concorrentes</li>
+          <li><strong>Medo de golpe:</strong> Usu&#225;rios relatam servi&#231;os que somem ap&#243;s o pagamento, sites que desaparecem, sem nenhum canal de reembolso</li>
+          <li><strong>Dificuldade t&#233;cnica:</strong> P&#250;blico classe C/D tem dificuldade em instalar apps, configurar listas M3U e resolver problemas t&#233;cnicos sozinho</li>
+        </ul>
+      </div>
+
+      <div class="card card-primary">
+        <div class="card-label">Desejos do p&#250;blico</div>
+        <ul>
+          <li><strong>Tudo em um lugar s&#243;:</strong> Canais ao vivo + filmes + s&#233;ries + futebol &#8212; sem precisar de 5 assinaturas diferentes</li>
+          <li><strong>Pre&#231;o justo e sem surpresas:</strong> Valor fixo, sem reajuste, sem taxa escondida, sem fidelidade</li>
+          <li><strong>Estabilidade que funcione:</strong> "Que n&#227;o trave na hora do gol" &#8212; o desejo n&#250;mero 1 &#233; n&#227;o passar raiva assistindo</li>
+          <li><strong>Suporte humano e r&#225;pido:</strong> Ter algu&#233;m que responda no WhatsApp em minutos, n&#227;o em dias</li>
+          <li><strong>M&#250;ltiplas telas para a fam&#237;lia:</strong> Pai assiste futebol na sala, m&#227;e assiste novela no quarto, filho assiste desenho no celular</li>
+          <li><strong>Facilidade de uso:</strong> Instalar f&#225;cil, interface simples, funcionar na Smart TV sem complica&#231;&#227;o</li>
+          <li><strong>Testar antes de pagar:</strong> Per&#237;odo de teste gratuito para ver se funciona no dispositivo e na internet do usu&#225;rio</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Onde esse p&#250;blico est&#225; online</div>
+        <ul>
+          <li><strong>WhatsApp:</strong> Canal principal de comunica&#231;&#227;o e compra. Grupos de IPTV, indica&#231;&#245;es boca a boca, revenda via WhatsApp</li>
+          <li><strong>Instagram:</strong> Segue perfis de dicas de tecnologia, TV e entretenimento. Busca por "IPTV" nos Reels</li>
+          <li><strong>YouTube:</strong> Assiste tutoriais de instala&#231;&#227;o, reviews de servi&#231;os, comparativos. Canal de decis&#227;o de compra</li>
+          <li><strong>TikTok:</strong> V&#237;deos curtos sobre "como cancelar TV a cabo", "IPTV barato que funciona", "dica de app"</li>
+          <li><strong>Facebook:</strong> Grupos de IPTV com dezenas de milhares de membros, marketplace de revendedores</li>
+          <li><strong>Telegram:</strong> Canais de revendedores, grupos de suporte, listas de canais</li>
+          <li><strong>Google:</strong> Busca ativa por "melhor IPTV 2026", "IPTV barato", "como assistir futebol online"</li>
+        </ul>
+      </div>
+
+      <div class="card card-accent">
+        <div class="card-label">Linguagem real do p&#250;blico</div>
+        <p style="margin-bottom: 0.75rem;">Termos e express&#245;es que o p&#250;blico-alvo utiliza no dia a dia ao falar sobre TV, streaming e IPTV:</p>
+        <div class="tag-list">
+          <span class="tag">"cancela essa TV a cabo"</span>
+          <span class="tag">"tem todos os canais?"</span>
+          <span class="tag">"funciona na Smart TV?"</span>
+          <span class="tag">"passa o jogo?"</span>
+          <span class="tag">"quanto custa?"</span>
+          <span class="tag">"trava muito?"</span>
+          <span class="tag">"tem teste gr&#225;tis?"</span>
+          <span class="tag">"pega no celular?"</span>
+          <span class="tag">"pode usar em 2 TVs?"</span>
+          <span class="tag">"&#233; confi&#225;vel?"</span>
+          <span class="tag">"aceita Pix?"</span>
+          <span class="tag">"como instala?"</span>
+          <span class="tag">"tem Premiere?"</span>
+          <span class="tag">"tem Netflix junto?"</span>
+          <span class="tag">"HBO e Telecine?"</span>
+          <span class="tag">"d&#225; pra ver pelo celular?"</span>
+          <span class="tag">"sem fidelidade?"</span>
+          <span class="tag">"n&#227;o precisa de antena?"</span>
+          <span class="tag">"funciona com internet lenta?"</span>
+          <span class="tag">"meu vizinho usa e gosta"</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- PILAR 2: CONCORRENTES -->
+    <section id="concorrentes" class="section">
+      <div class="section-header">
+        <div class="section-number">Pilar 2</div>
+        <h2 class="section-title">Intelig&#234;ncia Competitiva</h2>
+        <p class="section-desc">Mapeamento dos concorrentes diretos (IPTV) e indiretos (streaming + TV a cabo), com pre&#231;os, posicionamento, for&#231;as e fraquezas.</p>
+      </div>
+
+      <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; color: var(--accent);">Concorrentes Diretos &#8212; Servi&#231;os IPTV</h3>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Servi&#231;o</th>
+              <th>Mensal</th>
+              <th>Trimestral</th>
+              <th>Semestral</th>
+              <th>Anual</th>
+              <th>Telas</th>
+              <th>Canais</th>
+              <th>Teste Gr&#225;tis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Smart Play</strong></td>
+              <td>R$ 28,00</td>
+              <td>R$ 77,90</td>
+              <td>R$ 147,90</td>
+              <td>R$ 267,90</td>
+              <td>At&#233; 3</td>
+              <td>+200</td>
+              <td>15 dias (R$ 16,90)</td>
+            </tr>
+            <tr>
+              <td><strong>SIFR IPTV</strong></td>
+              <td>R$ 25,00</td>
+              <td>R$ 70,00</td>
+              <td>R$ 140,00</td>
+              <td>R$ 250,00</td>
+              <td>At&#233; 2</td>
+              <td>+30.000</td>
+              <td>6 horas</td>
+            </tr>
+            <tr>
+              <td><strong>OrFury IPTV</strong></td>
+              <td>R$ 25,00</td>
+              <td>R$ 75,00</td>
+              <td>R$ 140,00</td>
+              <td>R$ 260,00</td>
+              <td>At&#233; 2</td>
+              <td>+18.000</td>
+              <td>6 horas</td>
+            </tr>
+            <tr>
+              <td><strong>AssistaAqui</strong></td>
+              <td>R$ 20-30</td>
+              <td>--</td>
+              <td>--</td>
+              <td>--</td>
+              <td>At&#233; 3</td>
+              <td>+10.000</td>
+              <td>4 horas</td>
+            </tr>
+            <tr>
+              <td><strong>Core Play</strong></td>
+              <td>R$ 24,90</td>
+              <td>R$ 64,90</td>
+              <td>R$ 119,90</td>
+              <td>R$ 229,90</td>
+              <td>At&#233; 2</td>
+              <td>+20.000</td>
+              <td>6 horas</td>
+            </tr>
+            <tr>
+              <td><strong>CariocaoPlay</strong></td>
+              <td>R$ 30,00</td>
+              <td>R$ 80,00</td>
+              <td>--</td>
+              <td>R$ 280,00</td>
+              <td>At&#233; 2</td>
+              <td>+15.000</td>
+              <td>6 horas</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card card-primary">
+        <div class="card-title">SIFR IPTV</div>
+        <ul>
+          <li><strong>Posicionamento:</strong> "Planos IPTV mais baratos e completos do Brasil"</li>
+          <li><strong>Diferenciais:</strong> +30.000 canais 4K, +80.000 filmes e s&#233;ries, esportes ao vivo (UFC, F1, NBA, NFL), pagamento via Pix</li>
+          <li><strong>Suporte:</strong> 24/7 via WhatsApp</li>
+          <li><strong>Ponto forte:</strong> Cat&#225;logo massivo e pre&#231;os agressivos no plano anual (R$ 250)</li>
+          <li><strong>Ponto fraco:</strong> M&#225;ximo de 2 telas simult&#226;neas mesmo no plano anual</li>
+        </ul>
+      </div>
+
+      <div class="card card-primary">
+        <div class="card-title">OrFury IPTV</div>
+        <ul>
+          <li><strong>Posicionamento:</strong> "Melhor IPTV do Brasil 2026"</li>
+          <li><strong>Diferenciais:</strong> +18.000 canais, +65.000 filmes e s&#233;ries, atualiza&#231;&#227;o di&#225;ria, Full HD e 4K</li>
+          <li><strong>Suporte:</strong> 24/7 via WhatsApp</li>
+          <li><strong>Ponto forte:</strong> SEO dominante &#8212; aparece em primeiro lugar em diversas buscas. Teste gr&#225;tis de 6 horas sem cart&#227;o</li>
+          <li><strong>Ponto fraco:</strong> M&#225;ximo de 2 telas. Pre&#231;o mensal id&#234;ntico ao SIFR, sem diferencia&#231;&#227;o clara</li>
+        </ul>
+      </div>
+
+      <div class="card card-primary">
+        <div class="card-title">AssistaAqui</div>
+        <ul>
+          <li><strong>Posicionamento:</strong> "Planos desde R$20 at&#233; 3 Telas"</li>
+          <li><strong>Diferenciais:</strong> Pre&#231;o de entrada mais baixo do mercado (R$ 20/tela), at&#233; 3 telas, ativa&#231;&#227;o r&#225;pida via WhatsApp</li>
+          <li><strong>Suporte:</strong> 24/7 via WhatsApp, aceita Pix</li>
+          <li><strong>Ponto forte:</strong> Oferta de 3 telas e pre&#231;o acess&#237;vel. Simples e direto</li>
+          <li><strong>Ponto fraco:</strong> Cat&#225;logo menor (+10.000 canais vs +30.000 dos concorrentes). Sem planos trimestrais/semestrais/anuais claros no site</li>
+        </ul>
+      </div>
+
+      <div class="card card-primary">
+        <div class="card-title">Core Play</div>
+        <ul>
+          <li><strong>Posicionamento:</strong> "Melhor IPTV do Brasil &#8212; Comparativo completo" (usa blog pr&#243;prio como autoridade)</li>
+          <li><strong>Diferenciais:</strong> Pre&#231;os mais competitivos no trimestral e semestral, blog com conte&#250;do SEO</li>
+          <li><strong>Suporte:</strong> 24/7 via WhatsApp</li>
+          <li><strong>Ponto forte:</strong> Plano anual mais barato do mercado (R$ 229,90). Marketing de conte&#250;do forte</li>
+          <li><strong>Ponto fraco:</strong> M&#225;ximo de 2 telas. Interface e experi&#234;ncia semelhante a todos os outros</li>
+        </ul>
+      </div>
+
+      <h3 style="font-size: 1.1rem; font-weight: 700; margin: 2rem 0 1rem; color: var(--accent);">Concorrentes Indiretos &#8212; Streaming e TV a Cabo</h3>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Servi&#231;o</th>
+              <th>Pre&#231;o Mensal</th>
+              <th>O que Oferece</th>
+              <th>Ponto Forte</th>
+              <th>Ponto Fraco vs Smart Play</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Netflix</strong></td>
+              <td>R$ 20,90 a R$ 59,90</td>
+              <td>Filmes e s&#233;ries sob demanda</td>
+              <td>Marca reconhecida, cat&#225;logo vasto</td>
+              <td>Sem canais ao vivo, sem futebol</td>
+            </tr>
+            <tr>
+              <td><strong>Globoplay</strong></td>
+              <td>R$ 22,90 a R$ 39,90</td>
+              <td>Novelas, s&#233;ries Globo, canais ao vivo</td>
+              <td>Conte&#250;do brasileiro, Brasileir&#227;o</td>
+              <td>Cat&#225;logo limitado, pre&#231;o alto pelo que oferece</td>
+            </tr>
+            <tr>
+              <td><strong>Amazon Prime</strong></td>
+              <td>R$ 19,90</td>
+              <td>Filmes, s&#233;ries, Brasileir&#227;o, frete gr&#225;tis</td>
+              <td>Melhor custo-benef&#237;cio isolado</td>
+              <td>Sem canais ao vivo tradicionais</td>
+            </tr>
+            <tr>
+              <td><strong>SKY TV</strong></td>
+              <td>R$ 61,90 a R$ 300+</td>
+              <td>33 a 286 canais via sat&#233;lite</td>
+              <td>Cobertura nacional, canais esportivos</td>
+              <td>Pre&#231;o alto, fidelidade, equipamento f&#237;sico</td>
+            </tr>
+            <tr>
+              <td><strong>Claro TV</strong></td>
+              <td>R$ 119,90+</td>
+              <td>120+ canais + streaming integrado</td>
+              <td>Bundle com internet e streaming</td>
+              <td>Pre&#231;o 4-5x maior, contrato obrigat&#243;rio</td>
+            </tr>
+            <tr>
+              <td><strong>Pluto TV</strong></td>
+              <td>Gr&#225;tis</td>
+              <td>150+ canais com publicidade</td>
+              <td>Zero custo, sem cadastro</td>
+              <td>Sem esportes ao vivo, sem conte&#250;do premium</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="highlight-box">
+        <div class="card-label" style="margin-bottom: 0.75rem;">Padr&#227;o identificado nos concorrentes IPTV</div>
+        <p><strong>O que todos fazem igual:</strong> Site com planos (mensal/trimestral/anual), teste gr&#225;tis de 4-6 horas, suporte WhatsApp 24/7, pagamento via Pix, promessa de "+X mil canais" e "sem travamento". Nenhum se diferencia por experi&#234;ncia, marca ou comunica&#231;&#227;o. Todos parecem iguais.</p>
+        <p style="margin-top: 0.75rem;"><strong>O que todos fazem mal:</strong> Sites gen&#233;ricos sem identidade visual pr&#243;pria. Zero conte&#250;do educativo (n&#227;o ensinam o usu&#225;rio a configurar). Sem garantia real al&#233;m do "confie em n&#243;s". Sem redes sociais ativas com conte&#250;do de valor. Comunica&#231;&#227;o focada em PRE&#199;O, nunca em EXPERI&#202;NCIA.</p>
+        <p style="margin-top: 0.75rem;"><strong>O que ningu&#233;m faz:</strong> Nenhum concorrente IPTV tem marca forte, posicionamento emocional, funil de vendas estruturado, conte&#250;do org&#226;nico consistente ou programa de indica&#231;&#227;o formal. O mercado &#233; comoditizado &#8212; quem construir MARCA vence.</p>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- PILAR 3: OPORTUNIDADES -->
+    <section id="oportunidades" class="section">
+      <div class="section-header">
+        <div class="section-number">Pilar 3</div>
+        <h2 class="section-title">Oportunidades e Tend&#234;ncias</h2>
+        <p class="section-desc">Gaps no mercado, &#226;ngulos de diferencia&#231;&#227;o e tend&#234;ncias que o Smart Play pode explorar para se destacar.</p>
+      </div>
+
+      <div class="card card-primary">
+        <div class="card-label">Tend&#234;ncias do segmento em 2026</div>
+        <ul>
+          <li><strong>Copa do Mundo 2026:</strong> Explos&#227;o de demanda por canais esportivos ao vivo. Janela de oportunidade &#250;nica para captar assinantes</li>
+          <li><strong>Expans&#227;o do 5G:</strong> Melhor qualidade de streaming m&#243;vel, menor lat&#234;ncia, mais usu&#225;rios assistindo pelo celular em 4K</li>
+          <li><strong>FAST Channels (Free Ad-Supported TV):</strong> Canais gratuitos com publicidade crescem como alternativa, for&#231;ando servi&#231;os pagos a entregar mais valor</li>
+          <li><strong>Personaliza&#231;&#227;o por dados:</strong> Recomenda&#231;&#245;es inteligentes, interface adaptativa, listas personalizadas baseadas em h&#225;bitos de consumo</li>
+          <li><strong>Modelo h&#237;brido:</strong> Servi&#231;os com plano gratuito com an&#250;ncios + premium sem an&#250;ncios (56% dos brasileiros aceitam publicidade em troca de pre&#231;o menor)</li>
+          <li><strong>Smart TV como hub central:</strong> 53,5% dos domic&#237;lios usam Smart TV para internet. O app na TV &#233; t&#227;o importante quanto o app no celular</li>
+          <li><strong>Bundles e pacotes:</strong> Consumidor busca "tudo em um". Quem unificar canais + filmes + s&#233;ries + esporte num &#250;nico app ganha</li>
+        </ul>
+      </div>
+
+      <h3 style="font-size: 1.1rem; font-weight: 700; margin: 1.5rem 0 1rem; color: var(--accent);">Gaps de Mercado Identificados</h3>
+
+      <div class="gap-card">
+        <div class="gap-title">Gap 1: Nenhum IPTV tem marca forte</div>
+        <p>Todos os concorrentes IPTV competem por pre&#231;o e n&#250;mero de canais. Nenhum construiu uma marca com identidade visual pr&#243;pria, tom de voz, storytelling ou posicionamento emocional. S&#227;o todos "mais do mesmo" &#8212; sites gen&#233;ricos com lista de pre&#231;os. <strong>Oportunidade:</strong> O Smart Play pode ser o primeiro IPTV com branding profissional, comunica&#231;&#227;o clara e identidade que gere confian&#231;a.</p>
+      </div>
+
+      <div class="gap-card">
+        <div class="gap-title">Gap 2: Suporte real e humanizado (n&#227;o s&#243; promessa)</div>
+        <p>A reclama&#231;&#227;o mais comum no Reclame Aqui contra IPTVs &#233; "mandei mensagem e ningu&#233;m respondeu". Todos prometem suporte 24/7 no WhatsApp, mas poucos cumprem. <strong>Oportunidade:</strong> Implementar suporte real com SLA de resposta (ex: "respondemos em at&#233; 15 minutos"), tutoriais em v&#237;deo e onboarding assistido.</p>
+      </div>
+
+      <div class="gap-card">
+        <div class="gap-title">Gap 3: 3 telas simult&#226;neas (fam&#237;lia de verdade)</div>
+        <p>A maioria dos concorrentes oferece no m&#225;ximo 2 telas simult&#226;neas. Para fam&#237;lias brasileiras (pai + m&#227;e + filhos), 2 telas n&#227;o s&#227;o suficientes. <strong>Oportunidade:</strong> O Smart Play j&#225; oferece at&#233; 3 telas a partir do trimestral. Esse diferencial precisa ser o centro da comunica&#231;&#227;o: "Toda a fam&#237;lia assistindo ao mesmo tempo."</p>
+      </div>
+
+      <div class="gap-card">
+        <div class="gap-title">Gap 4: Teste real (n&#227;o s&#243; 4-6 horas)</div>
+        <p>Concorrentes oferecem teste gr&#225;tis de 4 a 6 horas &#8212; tempo insuficiente para testar de verdade. O usu&#225;rio precisa testar em diferentes hor&#225;rios (pico da noite, dia de jogo). <strong>Oportunidade:</strong> O Smart Play oferece 15 dias por R$ 16,90. Posicionar como "teste de verdade" &#8212; n&#227;o uma degusta&#231;&#227;o apressada, mas tempo real para experimentar.</p>
+      </div>
+
+      <div class="gap-card">
+        <div class="gap-title">Gap 5: Conte&#250;do educativo e comunidade</div>
+        <p>Nenhum IPTV produz conte&#250;do org&#226;nico relevante. Nenhum tem Instagram ativo com dicas, tutoriais de instala&#231;&#227;o, lan&#231;amentos de filmes ou cobertura esportiva. <strong>Oportunidade:</strong> Criar presen&#231;a org&#226;nica com conte&#250;do de valor: "Como instalar", "Filmes da semana", "Jogos de hoje", "Dicas de s&#233;ries". Construir comunidade, n&#227;o s&#243; vender assinatura.</p>
+      </div>
+
+      <div class="gap-card">
+        <div class="gap-title">Gap 6: Programa de indica&#231;&#227;o estruturado</div>
+        <p>O IPTV vive de boca a boca, mas nenhum concorrente tem programa formal de indica&#231;&#227;o com recompensa. <strong>Oportunidade:</strong> "Indique um amigo e ganhe 7 dias gr&#225;tis" &#8212; transformar clientes satisfeitos em vendedores org&#226;nicos.</p>
+      </div>
+
+      <h3 style="font-size: 1.1rem; font-weight: 700; margin: 2rem 0 1rem; color: var(--accent);">&#194;ngulos de Comunica&#231;&#227;o Recomendados</h3>
+
+      <div class="card card-accent">
+        <div class="card-title">&#194;ngulo 1: Economia vs. TV a Cabo</div>
+        <p>"Voc&#234; paga R$ 200/m&#234;s em TV a cabo. Com o Smart Play, voc&#234; tem MAIS canais, MAIS conte&#250;do e paga R$ 22/m&#234;s. Fa&#231;a as contas."</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);"><strong>Formato:</strong> Carrossel comparativo, Reels com calculadora, story com enquete</p>
+      </div>
+
+      <div class="card card-accent">
+        <div class="card-title">&#194;ngulo 2: Fam&#237;lia Inteira, Um S&#243; Plano</div>
+        <p>"Pai assiste futebol na sala. M&#227;e assiste novela no quarto. Filho assiste desenho no celular. Tudo ao mesmo tempo, tudo no Smart Play."</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);"><strong>Formato:</strong> V&#237;deo com cenas de fam&#237;lia, carrossel com situa&#231;&#245;es do dia a dia</p>
+      </div>
+
+      <div class="card card-accent">
+        <div class="card-title">&#194;ngulo 3: Copa do Mundo sem Pagar Caro</div>
+        <p>"A Copa do Mundo come&#231;ou e voc&#234; ainda paga caro pra ver os jogos? No Smart Play, voc&#234; assiste TODOS os jogos em HD por menos de R$ 1 por dia."</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);"><strong>Formato:</strong> Reels com contagem regressiva, stories com programa&#231;&#227;o de jogos</p>
+      </div>
+
+      <div class="card card-accent">
+        <div class="card-title">&#194;ngulo 4: Sem Contrato, Sem Surpresa</div>
+        <p>"Chega de fidelidade, multa e reajuste. No Smart Play, voc&#234; paga s&#243; enquanto quiser. Cancela quando quiser. Sem burocracia."</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);"><strong>Formato:</strong> Comparativo visual (antes/depois), depoimento de ex-assinante de TV a cabo</p>
+      </div>
+
+      <div class="card card-accent">
+        <div class="card-title">&#194;ngulo 5: Confian&#231;a e Seguran&#231;a</div>
+        <p>"IPTV que funciona de verdade: suporte em portugu&#234;s no WhatsApp, resposta em at&#233; 15 minutos. Teste 15 dias antes de decidir."</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);"><strong>Formato:</strong> Prova social (prints de WhatsApp com suporte), depoimentos reais</p>
+      </div>
+
+      <h3 style="font-size: 1.1rem; font-weight: 700; margin: 2rem 0 1rem; color: var(--accent);">Palavras-chave Relevantes</h3>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Termos com alta demanda de busca no Google Brasil, organizados por inten&#231;&#227;o de busca. Volume indicativo baseado em tend&#234;ncias de busca e dados de mercado.</p>
+
+      <div class="keyword-grid">
+        <div class="keyword-item">
+          <span class="keyword-term">melhor IPTV 2026</span>
+          <span class="keyword-vol">Volume alto</span>
+        </div>
+        <div class="keyword-item">
+          <span class="keyword-term">IPTV barato</span>
+          <span class="keyword-vol">Volume alto</span>
+        </div>
+        <div class="keyword-item">
+          <span class="keyword-term">teste IPTV gr&#225;tis</span>
+          <span class="keyword-vol">Volume alto</span>
+        </div>
+        <div class="keyword-item">
+          <span class="keyword-term">cancelar TV a cabo</span>
+          <span class="keyword-vol">Volume alto</span>
+        </div>
+        <div class="keyword-item">
+          <span class="keyword-term">IPTV que n&#227;o trava</span>
+          <span class="keyword-vol">Volume m&#233;dio</span>
+        </div>
+        <div class="keyword-item">
+          <span class="keyword-term">assistir futebol online</span>
+          <span class="keyword-vol">Volume alto</span>
+        </div>
+        <div class="keyword-item">
+          <span class="keyword-term">IPTV 4K</span>
+          <span class="keyword-vol">Volume m&#233;dio</span>
+        </div>
+        <div class="keyword-item">
+          <span class="keyword-term">canais ao vivo online</span>
+          <span class="keyword-vol">Volume alto</span>
+        </div>
+        <div class="keyword-item">
+          <span class="keyword-term">IPTV para Smart TV</span>
+          <span class="keyword-vol">Volume m&#233;dio</span>
+        </div>
+        <div class="keyword-item">
+          <span class="keyword-term">streaming barato Brasil</span>
+          <span class="keyword-vol">Volume m&#233;dio</span>
+        </div>
+        <div class="keyword-item">
+          <span class="keyword-term">IPTV confi&#225;vel</span>
+          <span class="keyword-vol">Volume m&#233;dio</span>
+        </div>
+        <div class="keyword-item">
+          <span class="keyword-term">Copa do Mundo ao vivo</span>
+          <span class="keyword-vol">Volume alto</span>
+        </div>
+        <div class="keyword-item">
+          <span class="keyword-term">como funciona IPTV</span>
+          <span class="keyword-vol">Volume m&#233;dio</span>
+        </div>
+        <div class="keyword-item">
+          <span class="keyword-term">IPTV no celular</span>
+          <span class="keyword-vol">Volume m&#233;dio</span>
+        </div>
+        <div class="keyword-item">
+          <span class="keyword-term">planos IPTV 2026</span>
+          <span class="keyword-vol">Volume alto</span>
+        </div>
+        <div class="keyword-item">
+          <span class="keyword-term">TV online gr&#225;tis</span>
+          <span class="keyword-vol">Volume alto</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- RECOMENDA&#199;&#213;ES PARA O BRIEFING -->
+    <section id="recomendacoes" class="section">
+      <div class="section-header">
+        <div class="section-number">Recomenda&#231;&#245;es</div>
+        <h2 class="section-title">Como esta pesquisa alimenta o briefing</h2>
+        <p class="section-desc">Cada dado descoberto tem aplica&#231;&#227;o direta nos blocos do briefing. Veja como usar cada insight.</p>
+      </div>
+
+      <div class="rec-grid">
+        <div class="rec-card">
+          <div class="rec-icon">2</div>
+          <div class="rec-content">
+            <div class="rec-title">Bloco 2 &#8212; P&#250;blico-Alvo</div>
+            <div class="rec-desc">Usar as 4 personas identificadas (Carlos, Luciana, Diego, Dona Maria) com dados reais: faixa et&#225;ria 25-50, classe C/D, renda R$ 2.500-6.000, 98,8% acessam internet pelo celular, 53,5% t&#234;m Smart TV. Incluir as dores e desejos mapeados como base para toda a comunica&#231;&#227;o.</div>
+            <div class="rec-block">Dados do Pilar 1</div>
+          </div>
+        </div>
+
+        <div class="rec-card">
+          <div class="rec-icon">4</div>
+          <div class="rec-content">
+            <div class="rec-title">Bloco 4 &#8212; Promessa Central</div>
+            <div class="rec-desc">A promessa deve atacar os 3 maiores problemas do p&#250;blico: pre&#231;o alto da TV a cabo (R$ 150-400/m&#234;s), fragmenta&#231;&#227;o de streaming (precisar de 4-5 apps) e medo de golpe/instabilidade. Sugest&#227;o: "Toda a TV que a sua fam&#237;lia precisa, num &#250;nico app, sem contrato e por menos de R$ 1 por dia."</div>
+            <div class="rec-block">Dados dos Pilares 1 e 2</div>
+          </div>
+        </div>
+
+        <div class="rec-card">
+          <div class="rec-icon">5</div>
+          <div class="rec-content">
+            <div class="rec-title">Bloco 5 &#8212; Concorrentes</div>
+            <div class="rec-desc">Usar o mapa completo dos 5 concorrentes diretos (SIFR, OrFury, AssistaAqui, Core Play, CariocaoPlay) e 6 indiretos (Netflix, Globoplay, Amazon, SKY, Claro, Pluto TV). Destaque os gaps: nenhum tem marca forte, suporte real ou 3 telas. O Smart Play se diferencia nesses 3 pontos.</div>
+            <div class="rec-block">Dados do Pilar 2</div>
+          </div>
+        </div>
+
+        <div class="rec-card">
+          <div class="rec-icon">6</div>
+          <div class="rec-content">
+            <div class="rec-title">Bloco 6 &#8212; &#194;ngulos de Campanha</div>
+            <div class="rec-desc">5 &#226;ngulos validados pela pesquisa: (1) Economia vs. TV a cabo, (2) Fam&#237;lia inteira num s&#243; plano, (3) Copa do Mundo acess&#237;vel, (4) Sem contrato/sem fidelidade, (5) Confian&#231;a e suporte real. Cada &#226;ngulo tem formato sugerido para criativo.</div>
+            <div class="rec-block">Dados do Pilar 3</div>
+          </div>
+        </div>
+
+        <div class="rec-card">
+          <div class="rec-icon">7</div>
+          <div class="rec-content">
+            <div class="rec-title">Bloco 7 &#8212; Tom de Voz e Linguagem</div>
+            <div class="rec-desc">Usar a linguagem real mapeada: "funciona na Smart TV?", "passa o jogo?", "aceita Pix?", "trava muito?". O tom deve ser direto, acess&#237;vel, sem termos t&#233;cnicos. Falar como o p&#250;blico fala &#8212; como um amigo que indica, n&#227;o como uma empresa que vende.</div>
+            <div class="rec-block">Dados do Pilar 1 &#8212; Linguagem</div>
+          </div>
+        </div>
+
+        <div class="rec-card">
+          <div class="rec-icon">9</div>
+          <div class="rec-content">
+            <div class="rec-title">Bloco 9 &#8212; Mecanismo &#218;nico</div>
+            <div class="rec-desc">O mecanismo do Smart Play &#233; a combina&#231;&#227;o de 3 diferenciais que nenhum concorrente re&#250;ne ao mesmo tempo: (1) at&#233; 3 telas simult&#226;neas, (2) teste real de 15 dias por R$ 16,90, (3) suporte humanizado em portugu&#234;s com SLA de resposta. N&#227;o &#233; s&#243; mais um IPTV &#8212; &#233; o IPTV com garantia.</div>
+            <div class="rec-block">Dados dos Pilares 2 e 3</div>
+          </div>
+        </div>
+
+        <div class="rec-card">
+          <div class="rec-icon">10</div>
+          <div class="rec-content">
+            <div class="rec-title">Bloco 10 &#8212; Canais e Estrat&#233;gia de Distribui&#231;&#227;o</div>
+            <div class="rec-desc">Priorizar: (1) WhatsApp &#8212; canal principal de venda e suporte, (2) Instagram &#8212; Reels e Stories para conte&#250;do org&#226;nico, (3) YouTube &#8212; tutoriais e reviews, (4) Google Ads &#8212; captar buscas de alta inten&#231;&#227;o ("melhor IPTV 2026"), (5) Meta Ads &#8212; campanhas de convers&#227;o com os &#226;ngulos identificados.</div>
+            <div class="rec-block">Dados dos Pilares 1 e 3</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box" style="margin-top: 2rem;">
+        <div class="card-label" style="margin-bottom: 0.75rem;">S&#237;ntese estrat&#233;gica</div>
+        <p>O mercado de IPTV brasileiro &#233; um oceano de oportunidades com um problema claro: <strong>todos os concorrentes s&#227;o iguais</strong>. Competem por pre&#231;o, por n&#250;mero de canais e por promessas vazias de "sem travamento". Nenhum construiu marca, nenhum tem funil estruturado, nenhum produz conte&#250;do org&#226;nico.</p>
+        <p style="margin-top: 0.75rem;">O Smart Play tem 3 vantagens competitivas reais: <strong>at&#233; 3 telas simult&#226;neas</strong> (a maioria oferece 2), <strong>teste real de 15 dias</strong> (a maioria oferece 4-6 horas) e <strong>suporte humanizado em portugu&#234;s</strong>. Se a essas vantagens for somada uma marca profissional, um funil de vendas bem constru&#237;do e conte&#250;do org&#226;nico consistente, o Smart Play n&#227;o ser&#225; mais um IPTV &#8212; ser&#225; o IPTV de refer&#234;ncia.</p>
+        <p style="margin-top: 0.75rem;">O timing &#233; perfeito: Copa do Mundo 2026, TV a cabo perdendo clientes em massa, 5G expandindo, e um p&#250;blico de 131 milh&#245;es de brasileiros consumindo v&#237;deo por TV conectada e buscando alternativas baratas. <strong>O mercado est&#225; pedindo por um IPTV confi&#225;vel. O Smart Play pode ser esse IPTV.</strong></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Pesquisa de Mercado &#8212; Smart Play IPTV | 13 de agosto de 2026<br>Dados coletados de fontes p&#250;blicas: Reclame Aqui, Anatel, IBGE, Serasa Experian, Forbes Brasil, E-Commerce Brasil, Canaltech, Oficina da Net, sites de concorrentes e pesquisas de mercado.</p>
+  </footer>
+
+  <a href="../../index.html" style="position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;align-items:center;gap:8px;background:linear-gradient(135deg,#6C5CE7,#4A3DB8);color:#fff;font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;padding:12px 20px;border-radius:50px;box-shadow:0 4px 20px rgba(108,92,231,0.4);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 28px rgba(108,92,231,0.5)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(108,92,231,0.4)'">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Central
+  </a>
+
+</body>
+</html>
