@@ -64,7 +64,7 @@
     .divider { background: linear-gradient(90deg, #FF6B35, rgba(255,107,53,0.1)) !important; }
     .obj-table th    { background: #eee !important; color: #333 !important; }
     .obj-table td    { color: #111 !important; border-bottom-color: #ddd !important; }
-    .obj-table input { background: #f5f5f5 !important; color: #111 !important; border-color: transparent !important; }
+    .obj-table textarea { background: #f5f5f5 !important; color: #111 !important; border-color: transparent !important; }
     .obj-table td:first-child { color: #FF6B35 !important; }
     .scale-label { color: #333 !important; }
     .scale-track { background: #e0e0e0 !important; }
@@ -136,7 +136,7 @@
   .obj-table th { background: var(--cinza-medio); padding: 10px 14px; text-align: left; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cinza-claro); }
   .obj-table td { padding: 4px; border-bottom: 1px solid var(--cinza-border); vertical-align: top; }
   .obj-table td:first-child { width: 36px; text-align: center; color: var(--laranja); font-weight: 600; padding: 14px 10px; font-size: 0.85rem; }
-  .obj-table input {
+  .obj-table textarea {
     width: 100%;
     background: transparent;
     border: 1px solid transparent;
@@ -146,8 +146,11 @@
     color: var(--branco);
     font-weight: 300;
     outline: none;
+    resize: vertical;
+    min-height: 60px;
+    line-height: 1.5;
   }
-  .obj-table input:focus { border-color: var(--laranja); background: var(--cinza-escuro); }
+  .obj-table textarea:focus { border-color: var(--laranja); background: var(--cinza-escuro); }
 
   /* Scale */
   .scale-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
@@ -306,15 +309,15 @@ body { font-family: 'Montserrat', sans-serif !important; }
   </div>
   <div class="field">
     <div class="field-label">O que &eacute;</div>
-    <input class="field-input" type="text" value="Plataforma de streaming IPTV com canais ao vivo, filmes, s&#233;ries e esportes em HD/4K &#8212; sem TV a cabo, sem contrato, sem fidelidade">
+    <textarea class="field-textarea">Plataforma de streaming IPTV com canais ao vivo, filmes, s&#233;ries e esportes em HD/4K &#8212; sem TV a cabo, sem contrato, sem fidelidade</textarea>
   </div>
   <div class="field">
     <div class="field-label">Resultado que entrega</div>
-    <input class="field-input" type="text" value="O cliente acessa tudo que quer assistir &#8212; canais ao vivo, filmes, s&#233;ries e esportes &#8212; pagando at&#233; 7x menos que TV a cabo, com estabilidade e suporte real">
+    <textarea class="field-textarea">O cliente acessa tudo que quer assistir &#8212; canais ao vivo, filmes, s&#233;ries e esportes &#8212; pagando at&#233; 7x menos que TV a cabo, com estabilidade e suporte real</textarea>
   </div>
   <div class="field">
     <div class="field-label">Formato</div>
-    <input class="field-input" type="text" value="Produto digital &#8212; assinatura de streaming IPTV">
+    <textarea class="field-textarea" style="min-height:48px;">Produto digital &#8212; assinatura de streaming IPTV</textarea>
   </div>
 </div>
 
@@ -327,11 +330,11 @@ body { font-family: 'Montserrat', sans-serif !important; }
   <div class="field-grid">
     <div class="field">
       <div class="field-label">Cliente ideal</div>
-      <input class="field-input" type="text" value="Adultos de 25 a 50 anos, classe C/D, renda R$2.500&#8211;6.000/m&#234;s, com Smart TV ou celular Android, que buscam substituir TV a cabo por algo mais barato">
+      <textarea class="field-textarea">Adultos de 25 a 50 anos, classe C/D, renda R$2.500&#8211;6.000/m&#234;s, com Smart TV ou celular Android, que buscam substituir TV a cabo por algo mais barato</textarea>
     </div>
     <div class="field">
       <div class="field-label">Profiss&atilde;o / perfil</div>
-      <input class="field-input" type="text" value="Trabalhadores assalariados, aut&#244;nomos, motoristas de app, vendedores &#8212; consomem muito conte&#250;do em casa, especialmente futebol e s&#233;ries">
+      <textarea class="field-textarea">Trabalhadores assalariados, aut&#244;nomos, motoristas de app, vendedores &#8212; consomem muito conte&#250;do em casa, especialmente futebol e s&#233;ries</textarea>
     </div>
   </div>
   <div class="field">
@@ -367,18 +370,18 @@ body { font-family: 'Montserrat', sans-serif !important; }
   <div class="field-grid">
     <div class="field">
       <div class="field-label">Pre&ccedil;o</div>
-      <input class="field-input" type="text" value="Planos de R$16,90 (15 dias &#183; 1 tela) a R$267,90 (1 ano &#183; 3 telas)">
+      <textarea class="field-textarea">Planos de R$16,90 (15 dias &#183; 1 tela) a R$267,90 (1 ano &#183; 3 telas)</textarea>
     </div>
     <div class="field">
       <div class="field-label">Garantia</div>
-      <input class="field-input" type="text" value="Teste real de 15 dias por R$16,90 &#8212; se n&#227;o gostar, n&#227;o renova. Sem fidelidade e sem multa">
+      <textarea class="field-textarea">Teste real de 15 dias por R$16,90 &#8212; se n&#227;o gostar, n&#227;o renova. Sem fidelidade e sem multa</textarea>
     </div>
   </div>
   <div class="field">
     <div class="field-label">O que est&aacute; incluso</div>
     <textarea class="field-textarea" style="min-height:160px;">&#8226; Mais de 200 canais ao vivo em HD/4K (esportes, not&#237;cias, entretenimento, filmes, infantil, document&#225;rios)
 &#8226; Cat&#225;logo sob demanda com mais de 50.000 t&#237;tulos (filmes e s&#233;ries nacionais e internacionais)
-&#8226; Todos os jogos ao vivo &#8212; Brasil&#227;o, Libertadores, Champions League, Copa do Brasil, Copa do Mundo
+&#8226; Todos os jogos ao vivo &#8212; Brasil&#227;o, Libertadores, Champions League, Copa do Brasil, Sul-Americana
 &#8226; Compat&#237;vel com Smart TV, celular, tablet, computador, TV Box, Fire Stick, Chromecast
 &#8226; At&#233; 3 telas simult&#226;neas (dispon&#237;vel a partir do plano trimestral)
 &#8226; Suporte via WhatsApp 7 dias por semana
@@ -386,7 +389,7 @@ body { font-family: 'Montserrat', sans-serif !important; }
   </div>
   <div class="field">
     <div class="field-label">B&ocirc;nus diferencial</div>
-    <input class="field-input" type="text" value="Programa de indica&#231;&#227;o: indique um amigo e ganhe 7 dias extras. Suporte assistido na instala&#231;&#227;o via WhatsApp.">
+    <textarea class="field-textarea">Programa de indica&#231;&#227;o: indique um amigo e ganhe 7 dias extras. Suporte assistido na instala&#231;&#227;o via WhatsApp.</textarea>
   </div>
 </div>
 
@@ -408,33 +411,33 @@ body { font-family: 'Montserrat', sans-serif !important; }
     <tbody>
       <tr>
         <td>1</td>
-        <td><input type="text" value="Pre&#231;o barato demais, deve ser golpe"></td>
-        <td><input type="text" value="O custo &#233; baixo porque streaming digital n&#227;o tem infraestrutura f&#237;sica &#8212; sem cabo, sem t&#233;cnico, sem ve&#237;culo. O teste de 15 dias por R$16,90 prova a confian&#231;a: voc&#234; usa antes de decidir."></td>
-        <td><input type="text" value="Per&#237;odo de teste real de 15 dias + sem dados de cart&#227;o obrigat&#243;rio + depoimentos de clientes"></td>
+        <td><textarea>Pre&#231;o barato demais, deve ser golpe</textarea></td>
+        <td><textarea>O custo &#233; baixo porque streaming digital n&#227;o tem infraestrutura f&#237;sica &#8212; sem cabo, sem t&#233;cnico, sem ve&#237;culo. O teste de 15 dias por R$16,90 prova a confian&#231;a: voc&#234; usa antes de decidir.</textarea></td>
+        <td><textarea>Per&#237;odo de teste real de 15 dias + sem dados de cart&#227;o obrigat&#243;rio + depoimentos de clientes</textarea></td>
       </tr>
       <tr>
         <td>2</td>
-        <td><input type="text" value="IPTV sempre trava na hora do jogo"></td>
-        <td><input type="text" value="O Smart Play opera com servidores dedicados e infraestrutura profissional &#8212; completamente diferente de provedores amadores que dividem banda sem controle."></td>
-        <td><input type="text" value="Transmiss&#245;es de finais de campeonato sem quedas + depoimentos de clientes em hor&#225;rio de pico"></td>
+        <td><textarea>IPTV sempre trava na hora do jogo</textarea></td>
+        <td><textarea>O Smart Play opera com servidores dedicados e infraestrutura profissional &#8212; completamente diferente de provedores amadores que dividem banda sem controle.</textarea></td>
+        <td><textarea>Transmiss&#245;es de finais de campeonato sem quedas + depoimentos de clientes em hor&#225;rio de pico</textarea></td>
       </tr>
       <tr>
         <td>3</td>
-        <td><input type="text" value="N&#227;o sei instalar, &#233; muito complicado"></td>
-        <td><input type="text" value="Instala&#231;&#227;o guiada pelo suporte no WhatsApp em menos de 5 minutos. Nosso time acompanha o passo a passo at&#233; funcionar na sua tela."></td>
-        <td><input type="text" value="Tutoriais em v&#237;deo + suporte ao vivo no momento da instala&#231;&#227;o via WhatsApp"></td>
+        <td><textarea>N&#227;o sei instalar, &#233; muito complicado</textarea></td>
+        <td><textarea>Instala&#231;&#227;o guiada pelo suporte no WhatsApp em menos de 5 minutos. Nosso time acompanha o passo a passo at&#233; funcionar na sua tela.</textarea></td>
+        <td><textarea>Tutoriais em v&#237;deo + suporte ao vivo no momento da instala&#231;&#227;o via WhatsApp</textarea></td>
       </tr>
       <tr>
         <td>4</td>
-        <td><input type="text" value="Se der problema, ningu&#233;m responde"></td>
-        <td><input type="text" value="Suporte humano via WhatsApp com SLA de resposta em at&#233; 15 minutos. Equipe ativa 7 dias por semana &#8212; nunca te deixamos sem TV."></td>
-        <td><input type="text" value="Prints de atendimentos reais resolvidos + avalia&#231;&#245;es de clientes sobre rapidez do suporte"></td>
+        <td><textarea>Se der problema, ningu&#233;m responde</textarea></td>
+        <td><textarea>Suporte humano via WhatsApp com SLA de resposta em at&#233; 15 minutos. Equipe ativa 7 dias por semana &#8212; nunca te deixamos sem TV.</textarea></td>
+        <td><textarea>Prints de atendimentos reais resolvidos + avalia&#231;&#245;es de clientes sobre rapidez do suporte</textarea></td>
       </tr>
       <tr>
         <td>5</td>
-        <td><input type="text" value="Minha internet &#233; fraca, n&#227;o vai funcionar"></td>
-        <td><input type="text" value="Funciona com internet a partir de 10 Mbps. A qualidade se adapta automaticamente &#224; velocidade da sua conex&#227;o &#8212; sem travar."></td>
-        <td><input type="text" value="Teste de 15 dias para validar no pr&#243;prio Wi-Fi, em hor&#225;rio de pico e dia de jogo"></td>
+        <td><textarea>Minha internet &#233; fraca, n&#227;o vai funcionar</textarea></td>
+        <td><textarea>Funciona com internet a partir de 10 Mbps. A qualidade se adapta automaticamente &#224; velocidade da sua conex&#227;o &#8212; sem travar.</textarea></td>
+        <td><textarea>Teste de 15 dias para validar no pr&#243;prio Wi-Fi, em hor&#225;rio de pico e dia de jogo</textarea></td>
       </tr>
     </tbody>
   </table>
@@ -459,24 +462,24 @@ body { font-family: 'Montserrat', sans-serif !important; }
     <tbody>
       <tr>
         <td>1</td>
-        <td><input type="text" value="TV a cabo (SKY, Claro, Vivo)"></td>
-        <td><input type="text" value="Marca reconhecida, suporte presencial, contrato formal com nota fiscal"></td>
-        <td><input type="text" value="Pre&#231;o alto R$150&#8211;400/m&#234;s, fidelidade de 12&#8211;24 meses, poucos canais internacionais, sem mobilidade"></td>
-        <td><input type="text" value="7x mais barato, sem fidelidade, +200 canais, funciona em qualquer tela, instala em 5 minutos"></td>
+        <td><textarea>TV a cabo (SKY, Claro, Vivo)</textarea></td>
+        <td><textarea>Marca reconhecida, suporte presencial, contrato formal com nota fiscal</textarea></td>
+        <td><textarea>Pre&#231;o alto R$150&#8211;400/m&#234;s, fidelidade de 12&#8211;24 meses, poucos canais internacionais, sem mobilidade</textarea></td>
+        <td><textarea>7x mais barato, sem fidelidade, +200 canais, funciona em qualquer tela, instala em 5 minutos</textarea></td>
       </tr>
       <tr>
         <td>2</td>
-        <td><input type="text" value="Combo de streamings (Netflix + Globoplay + Prime + Disney)"></td>
-        <td><input type="text" value="Conte&#250;do original de qualidade, apps polidos, marcas globais reconhecidas"></td>
-        <td><input type="text" value="Sem canais ao vivo, pre&#231;o combinado R$150+/m&#234;s, apps separados, sem futebol completo"></td>
-        <td><input type="text" value="Tudo num &#250;nico app por R$22,33/m&#234;s no anual &#8212; canais ao vivo + cat&#225;logo sob demanda + todos os jogos"></td>
+        <td><textarea>Combo de streamings (Netflix + Globoplay + Prime + Disney)</textarea></td>
+        <td><textarea>Conte&#250;do original de qualidade, apps polidos, marcas globais reconhecidas</textarea></td>
+        <td><textarea>Sem canais ao vivo, pre&#231;o combinado R$150+/m&#234;s, apps separados, sem futebol completo</textarea></td>
+        <td><textarea>Tudo num &#250;nico app por R$22,33/m&#234;s no anual &#8212; canais ao vivo + cat&#225;logo sob demanda + todos os jogos</textarea></td>
       </tr>
       <tr>
         <td>3</td>
-        <td><input type="text" value="IPTVs concorrentes (SIFR, OrFury, Core Play)"></td>
-        <td><input type="text" value="Pre&#231;o baixo, cat&#225;logo grande, f&#225;cil de encontrar online"></td>
-        <td><input type="text" value="M&#225;ximo 2 telas, suporte fraco ou inexistente, sem marca/identidade, sites gen&#233;ricos, teste de 4&#8211;6 horas"></td>
-        <td><input type="text" value="At&#233; 3 telas, suporte real em 15 min, teste de 15 dias (vs 4&#8211;6 horas), branding profissional"></td>
+        <td><textarea>IPTVs concorrentes (SIFR, OrFury, Core Play)</textarea></td>
+        <td><textarea>Pre&#231;o baixo, cat&#225;logo grande, f&#225;cil de encontrar online</textarea></td>
+        <td><textarea>M&#225;ximo 2 telas, suporte fraco ou inexistente, sem marca/identidade, sites gen&#233;ricos, teste de 4&#8211;6 horas</textarea></td>
+        <td><textarea>At&#233; 3 telas, suporte real em 15 min, teste de 15 dias (vs 4&#8211;6 horas), branding profissional</textarea></td>
       </tr>
     </tbody>
   </table>
@@ -490,23 +493,23 @@ body { font-family: 'Montserrat', sans-serif !important; }
   <h2>Formas de <em>abordar</em> o p&uacute;blico</h2>
   <div class="field">
     <div class="field-label">&Acirc;ngulo de Dor</div>
-    <input class="field-input" type="text" value="Voc&#234; paga R$200/m&#234;s em TV a cabo e assiste meia d&#250;zia de canais? Assina 4 streamings separados e ainda n&#227;o consegue ver todos os jogos ao vivo? Chega de pagar caro por menos.">
+    <textarea class="field-textarea">Voc&#234; paga R$200/m&#234;s em TV a cabo e assiste meia d&#250;zia de canais? Assina 4 streamings separados e ainda n&#227;o consegue ver todos os jogos ao vivo? Chega de pagar caro por menos.</textarea>
   </div>
   <div class="field">
     <div class="field-label">&Acirc;ngulo de Desejo</div>
-    <input class="field-input" type="text" value="Toda a TV que a sua fam&#237;lia precisa &#8212; canais ao vivo, filmes, s&#233;ries e todos os jogos &#8212; num &#250;nico app, por menos de R$1 por dia. Pai na sala, m&#227;e no quarto, filho no celular. Ao mesmo tempo.">
+    <textarea class="field-textarea">Toda a TV que a sua fam&#237;lia precisa &#8212; canais ao vivo, filmes, s&#233;ries e todos os jogos &#8212; num &#250;nico app, por menos de R$1 por dia. Pai na sala, m&#227;e no quarto, filho no celular. Ao mesmo tempo.</textarea>
   </div>
   <div class="field">
     <div class="field-label">&Acirc;ngulo de Prova</div>
-    <input class="field-input" type="text" value="Fam&#237;lias que migraram para o Smart Play economizam em m&#233;dia R$150/m&#234;s. Transmiss&#245;es ao vivo em finais de campeonato sem uma &#250;nica queda. Suporte que responde em at&#233; 15 minutos.">
+    <textarea class="field-textarea">Fam&#237;lias que migraram para o Smart Play economizam em m&#233;dia R$150/m&#234;s. Transmiss&#245;es ao vivo em finais de campeonato sem uma &#250;nica queda. Suporte que responde em at&#233; 15 minutos.</textarea>
   </div>
   <div class="field">
     <div class="field-label">&Acirc;ngulo de Urg&ecirc;ncia</div>
-    <input class="field-input" type="text" value="A Copa do Mundo 2026 j&#225; come&#231;ou. IPTVs amadores v&#227;o travar nos jogos decisivos. Quem j&#225; est&#225; no Smart Play vai assistir cada gol com tranquilidade. Quem esperar, vai travar no momento que mais importa.">
+    <textarea class="field-textarea">O Brasil&#227;o S&#233;rie A est&#225; a todo vapor. Libertadores definindo as oitavas. Champions League come&#231;ando. IPTVs amadores travam nos jogos decisivos. Quem j&#225; est&#225; no Smart Play assiste cada gol com tranquilidade. Quem esperar, vai travar no momento que mais importa.</textarea>
   </div>
   <div class="field">
     <div class="field-label">&Acirc;ngulo de Curiosidade</div>
-    <input class="field-input" type="text" value="Por que milh&#245;es de brasileiros est&#227;o cancelando a TV a cabo e pagando menos de R$25/m&#234;s para ter acesso a mais de 200 canais ao vivo, filmes e s&#233;ries? O segredo est&#225; no seu Wi-Fi.">
+    <textarea class="field-textarea">Por que milh&#245;es de brasileiros est&#227;o cancelando a TV a cabo e pagando menos de R$25/m&#234;s para ter acesso a mais de 200 canais ao vivo, filmes e s&#233;ries? O segredo est&#225; no seu Wi-Fi.</textarea>
   </div>
 </div>
 
@@ -522,15 +525,15 @@ body { font-family: 'Montserrat', sans-serif !important; }
   </div>
   <div class="field">
     <div class="field-label">Sub-promessa 1</div>
-    <input class="field-input" type="text" value="Todos os jogos ao vivo &#8212; Brasil&#227;o, Libertadores, Champions, Copa &#8212; sem travar, com 3 telas para a fam&#237;lia inteira assistir ao mesmo tempo">
+    <textarea class="field-textarea">Todos os jogos ao vivo &#8212; Brasil&#227;o, Libertadores, Champions &#8212; sem travar, com 3 telas para a fam&#237;lia inteira assistir ao mesmo tempo</textarea>
   </div>
   <div class="field">
     <div class="field-label">Sub-promessa 2</div>
-    <input class="field-input" type="text" value="Instala&#231;&#227;o guiada em menos de 5 minutos pelo WhatsApp &#8212; funciona em qualquer Smart TV, celular, tablet ou computador que voc&#234; j&#225; tem em casa">
+    <textarea class="field-textarea">Instala&#231;&#227;o guiada em menos de 5 minutos pelo WhatsApp &#8212; funciona em qualquer Smart TV, celular, tablet ou computador que voc&#234; j&#225; tem em casa</textarea>
   </div>
   <div class="field">
     <div class="field-label">Sub-promessa 3</div>
-    <input class="field-input" type="text" value="Teste 15 dias por R$16,90 &#8212; n&#227;o &#233; promessa vazia de 4 horas. &#201; tempo de verdade para testar em hor&#225;rio de pico, dia de jogo e na internet da sua casa">
+    <textarea class="field-textarea">Teste 15 dias por R$16,90 &#8212; n&#227;o &#233; promessa vazia de 4 horas. &#201; tempo de verdade para testar em hor&#225;rio de pico, dia de jogo e na internet da sua casa</textarea>
   </div>
 </div>
 
@@ -551,11 +554,11 @@ Priorizar relatos que mencionem: futebol ao vivo, qualidade de imagem, facilidad
   </div>
   <div class="field">
     <div class="field-label">Resultados num&eacute;ricos</div>
-    <input class="field-input" type="text" value="+200 canais ao vivo | +50.000 t&#237;tulos | at&#233; 3 telas simult&#226;neas | suporte com resposta em at&#233; 15 minutos | teste real de 15 dias | 6 planos sem fidelidade">
+    <textarea class="field-textarea">+200 canais ao vivo | +50.000 t&#237;tulos | at&#233; 3 telas simult&#226;neas | suporte com resposta em at&#233; 15 minutos | teste real de 15 dias | 6 planos sem fidelidade</textarea>
   </div>
   <div class="field">
     <div class="field-label">Credenciais e diferenciais</div>
-    <input class="field-input" type="text" value="Opera&#231;&#227;o profissional com servidores dedicados, equipe t&#233;cnica especializada, suporte humano ativo 7 dias via WhatsApp">
+    <textarea class="field-textarea">Opera&#231;&#227;o profissional com servidores dedicados, equipe t&#233;cnica especializada, suporte humano ativo 7 dias via WhatsApp</textarea>
   </div>
 </div>
 
@@ -567,7 +570,7 @@ Priorizar relatos que mencionem: futebol ao vivo, qualidade de imagem, facilidad
   <h2>O m&eacute;todo que <em>faz funcionar</em></h2>
   <div class="field">
     <div class="field-label">Nome do mecanismo</div>
-    <input class="field-input" type="text" value="Smart Play &#8212; Streaming Inteligente para Toda a Fam&#237;lia">
+    <textarea class="field-textarea" style="min-height:48px;">Smart Play &#8212; Streaming Inteligente para Toda a Fam&#237;lia</textarea>
   </div>
   <div class="field">
     <div class="field-label">Por que funciona</div>
@@ -575,7 +578,7 @@ Priorizar relatos que mencionem: futebol ao vivo, qualidade de imagem, facilidad
   </div>
   <div class="field">
     <div class="field-label">Diferencial frente aos concorrentes</div>
-    <input class="field-input" type="text" value="&#218;nico servi&#231;o que combina 3 pilares: (1) at&#233; 3 telas simult&#226;neas, (2) teste real de 15 dias, (3) suporte humanizado com SLA de 15 minutos. Nenhum IPTV concorrente oferece os 3 juntos.">
+    <textarea class="field-textarea">&#218;nico servi&#231;o que combina 3 pilares: (1) at&#233; 3 telas simult&#226;neas, (2) teste real de 15 dias, (3) suporte humanizado com SLA de 15 minutos. Nenhum IPTV concorrente oferece os 3 juntos.</textarea>
   </div>
 </div>
 
@@ -648,7 +651,7 @@ Priorizar relatos que mencionem: futebol ao vivo, qualidade de imagem, facilidad
 
   <div class="field" style="margin-top:16px;">
     <div class="field-label">Persona da marca</div>
-    <input class="field-input" type="text" value="O vizinho esperto &#8212; aquele cara que j&#225; testou tudo e te indica o melhor custo-benef&#237;cio sem enrola&#231;&#227;o. Entende de tecnologia mas fala a sua l&#237;ngua. &#201; direto, transparente e nunca te deixa na m&#227;o. Fala como quem manda mensagem no grupo da fam&#237;lia.">
+    <textarea class="field-textarea">O vizinho esperto &#8212; aquele cara que j&#225; testou tudo e te indica o melhor custo-benef&#237;cio sem enrola&#231;&#227;o. Entende de tecnologia mas fala a sua l&#237;ngua. &#201; direto, transparente e nunca te deixa na m&#227;o. Fala como quem manda mensagem no grupo da fam&#237;lia.</textarea>
   </div>
 
   <p style="font-size:0.82rem; color:var(--cinza-claro); font-weight:300; margin-top:16px; padding:12px 16px; background:var(--cinza-escuro); border-left:2px solid var(--laranja);">
@@ -665,20 +668,20 @@ Priorizar relatos que mencionem: futebol ao vivo, qualidade de imagem, facilidad
   <div class="field-grid">
     <div class="field">
       <div class="field-label">Prazo de lan&ccedil;amento</div>
-      <input class="field-input" type="text" value="Imediato &#8212; produto j&#225; em opera&#231;&#227;o. In&#237;cio de campanha: agosto/2026">
+      <textarea class="field-textarea">Imediato &#8212; produto j&#225; em opera&#231;&#227;o. In&#237;cio de campanha: agosto/2026</textarea>
     </div>
     <div class="field">
       <div class="field-label">Or&ccedil;amento</div>
-      <input class="field-input" type="text" value="A definir &#8212; recomenda&#231;&#227;o: R$600 a R$2.000/m&#234;s para tr&#225;fego pago (Meta Ads + Google Ads) + conte&#250;do org&#226;nico">
+      <textarea class="field-textarea">A definir &#8212; recomenda&#231;&#227;o: R$600 a R$2.000/m&#234;s para tr&#225;fego pago (Meta Ads + Google Ads) + conte&#250;do org&#226;nico</textarea>
     </div>
   </div>
   <div class="field">
     <div class="field-label">Canais priorit&aacute;rios</div>
-    <input class="field-input" type="text" value="WhatsApp (venda + suporte + fechamento), Instagram (Reels + Stories &#8212; descoberta e convers&#227;o), YouTube (tutoriais e autoridade), Google (captura de busca ativa &#8220;melhor IPTV 2026&#8221;)">
+    <textarea class="field-textarea">WhatsApp (venda + suporte + fechamento), Instagram (Reels + Stories &#8212; descoberta e convers&#227;o), YouTube (tutoriais e autoridade), Google (captura de busca ativa &#8220;melhor IPTV 2026&#8221;)</textarea>
   </div>
   <div class="field">
     <div class="field-label">Restri&ccedil;&otilde;es do nicho</div>
-    <input class="field-input" type="text" value="Evitar linguagem que sugira pirataria. Usar termos como &#8220;streaming&#8221;, &#8220;IPTV profissional&#8221;, &#8220;plataforma de entretenimento&#8221;. N&#227;o prometer canais espec&#237;ficos licenciados em an&#250;ncios pagos. Acompanhar regulamenta&#231;&#227;o brasileira.">
+    <textarea class="field-textarea">Evitar linguagem que sugira pirataria. Usar termos como &#8220;streaming&#8221;, &#8220;IPTV profissional&#8221;, &#8220;plataforma de entretenimento&#8221;. N&#227;o prometer canais espec&#237;ficos licenciados em an&#250;ncios pagos. Acompanhar regulamenta&#231;&#227;o brasileira.</textarea>
   </div>
 </div>
 
@@ -746,7 +749,7 @@ Priorizar relatos que mencionem: futebol ao vivo, qualidade de imagem, facilidad
       });
 
       section.querySelectorAll('.obj-table tbody tr').forEach(row => {
-        const cells = row.querySelectorAll('input');
+        const cells = row.querySelectorAll('textarea');
         if (cells.length > 0) {
           const num = row.querySelector('td:first-child');
           const vals = Array.from(cells).map(c => c.value || '').filter(v => v);
