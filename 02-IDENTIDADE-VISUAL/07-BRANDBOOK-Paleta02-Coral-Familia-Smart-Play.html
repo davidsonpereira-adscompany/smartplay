@@ -1,0 +1,2376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brandbook — Smart Play — Paleta 02 Coral Família</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --base:    #0F0808;
+  --base2:   #1A1010;
+  --card:    #201414;
+  --border:  rgba(255,255,255,0.07);
+  --azul:    #FF6B6B;
+  --cta:     #FFD93D;
+  --cyan:    #4ECDC4;
+  --branco:  #FFFFFF;
+  --texto:   #c8a0a0;
+  --texto2:  #7a5555;
+  --oncta:   #2B1608;
+  --font:    'Montserrat', system-ui, sans-serif;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--base);
+  color: var(--branco);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+/* ─── UTILITIES ─── */
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+.wrap-wide { max-width: 1400px; margin: 0 auto; padding: 0 48px; }
+.sec-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.45em;
+  text-transform: uppercase; color: var(--cyan); margin-bottom: 14px;
+}
+.sec-title {
+  font-size: clamp(28px, 4vw, 48px); font-weight: 900;
+  letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 20px;
+}
+.sec-sub {
+  font-size: 16px; font-weight: 300; color: var(--texto);
+  max-width: 640px; line-height: 1.75;
+}
+.divider { border: none; border-top: 1px solid var(--border); }
+section { padding: 96px 0; border-bottom: 1px solid var(--border); }
+section:last-child { border-bottom: none; }
+
+/* ─── CAPA ─── */
+.capa {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 0;
+  background: linear-gradient(160deg, #0A0505 0%, #0F0808 50%, #1A0E0E 100%);
+  position: relative; overflow: hidden;
+}
+.capa::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 700px 400px at 80% 20%, rgba(255,107,107,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 300px at 10% 80%, rgba(78,205,196,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 400px 400px at 60% 90%, rgba(255,217,61,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.capa-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,107,107,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,107,107,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+.capa-inner {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; justify-content: space-between;
+  min-height: 100vh; padding: 60px 72px;
+}
+.capa-header {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.capa-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.5em;
+  text-transform: uppercase; color: rgba(78,205,196,0.7);
+}
+.capa-version {
+  font-size: 10px; font-weight: 500; letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.2); text-transform: uppercase;
+}
+.capa-main { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 80px 0 40px; }
+.capa-logotype {
+  display: flex; align-items: center; gap: 24px; margin-bottom: 64px;
+}
+.capa-logo-icon {
+  width: 72px; height: 72px; flex-shrink: 0;
+}
+.capa-brand-name {
+  font-size: clamp(64px, 12vw, 140px);
+  font-weight: 900; letter-spacing: -0.04em;
+  line-height: 0.9;
+  background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.75) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.capa-brand-name span {
+  background: linear-gradient(135deg, var(--azul) 0%, #FF9E7A 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.capa-tagline {
+  font-size: clamp(20px, 3vw, 32px); font-weight: 300;
+  letter-spacing: 0.05em; color: rgba(255,255,255,0.5);
+  margin-bottom: 56px;
+}
+.capa-tagline strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+.capa-big-idea {
+  display: inline-block;
+  font-size: clamp(14px, 1.8vw, 18px); font-weight: 700;
+  letter-spacing: 0.02em; color: var(--cta);
+  border-top: 2px solid var(--cta);
+  padding-top: 16px;
+  max-width: 520px;
+}
+.capa-footer {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  padding-top: 48px; border-top: 1px solid rgba(255,255,255,0.06);
+}
+.capa-footer-left { font-size: 11px; font-weight: 400; color: rgba(255,255,255,0.2); line-height: 1.8; }
+.capa-footer-right { font-size: 11px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.15); }
+.capa-accent-line {
+  position: absolute; right: 0; top: 0; bottom: 0; width: 4px;
+  background: linear-gradient(to bottom, var(--azul), var(--cta), var(--cyan));
+  opacity: 0.7;
+}
+
+/* ─── MANIFESTO ─── */
+.manifesto { background: var(--base2); }
+.manifesto-quote {
+  font-size: clamp(28px, 4vw, 52px); font-weight: 800;
+  letter-spacing: -0.025em; line-height: 1.15; margin-bottom: 48px;
+}
+.manifesto-quote em { font-style: italic; color: var(--cyan); }
+.manifesto-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 56px; }
+.manifesto-col h3 {
+  font-size: 13px; font-weight: 700; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--cta); margin-bottom: 16px;
+}
+.manifesto-col p { font-size: 15px; font-weight: 300; color: var(--texto); line-height: 1.8; }
+.manifesto-col p strong { color: var(--branco); font-weight: 600; }
+.manifesto-values { display: flex; gap: 48px; margin-top: 64px; flex-wrap: wrap; }
+.manifesto-value { flex: 1; min-width: 200px; }
+.manifesto-value-num {
+  font-size: 48px; font-weight: 900; letter-spacing: -0.04em;
+  background: linear-gradient(135deg, var(--azul), var(--cyan));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; line-height: 1; margin-bottom: 8px;
+}
+.manifesto-value-label { font-size: 12px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+.manifesto-value-desc { font-size: 14px; font-weight: 300; color: var(--texto); margin-top: 8px; }
+
+/* ─── LOGO SECTION ─── */
+.logo-conceitos { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 56px; }
+.logo-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; overflow: hidden;
+}
+.logo-card-header {
+  padding: 24px 28px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo-card-num {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.4em;
+  text-transform: uppercase; color: var(--texto2);
+}
+.logo-card-status {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.3em;
+  text-transform: uppercase; padding: 4px 10px; border-radius: 4px;
+}
+.status-rec { background: rgba(255,217,61,0.18); color: var(--cta); }
+.status-alt { background: rgba(255,255,255,0.06); color: var(--texto2); }
+.logo-card-name { padding: 0 28px 8px; font-size: 18px; font-weight: 800; letter-spacing: -0.01em; }
+.logo-card-desc { padding: 0 28px 20px; font-size: 13px; font-weight: 300; color: var(--texto); line-height: 1.6; }
+.logo-preview {
+  background: #080505; padding: 48px 28px;
+  display: flex; align-items: center; justify-content: center; min-height: 200px;
+}
+.logo-preview-light {
+  background: #fbeaea; padding: 48px 28px;
+  display: flex; align-items: center; justify-content: center; min-height: 160px;
+}
+.logo-preview-dark {
+  background: #080505; padding: 32px 28px;
+  display: flex; align-items: center; justify-content: center; min-height: 140px;
+}
+.logo-card-aplicacoes {
+  padding: 20px 28px; border-top: 1px solid var(--border);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+.logo-card-ap-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--texto2); margin-bottom: 12px;
+  grid-column: 1/-1;
+}
+.logo-ap-item {
+  background: rgba(255,255,255,0.03); border-radius: 8px; padding: 12px;
+  display: flex; align-items: center; justify-content: center; min-height: 64px;
+}
+
+/* ─── LOGO DRAWINGS (SVG inline) ─── */
+/* Conceito 01 — SMART SIGNAL */
+.logo-c1 { display: flex; align-items: center; gap: 14px; }
+.logo-c1-icon {
+  width: 52px; height: 52px;
+  background: linear-gradient(145deg, var(--azul) 0%, #CC4444 100%);
+  border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  position: relative; flex-shrink: 0;
+}
+.logo-c1-icon::after {
+  content: '';
+  position: absolute; inset: -1px;
+  border-radius: 11px;
+  background: linear-gradient(135deg, var(--cyan), var(--azul));
+  z-index: -1;
+}
+.logo-c1-text { line-height: 1; }
+.logo-c1-smart {
+  font-size: 38px; font-weight: 900; letter-spacing: -0.04em;
+  color: var(--branco); display: block;
+}
+.logo-c1-play {
+  font-size: 13px; font-weight: 700; letter-spacing: 0.28em;
+  color: var(--cyan); display: block; text-transform: uppercase;
+}
+.logo-c1-light .logo-c1-smart { color: #0F0808; }
+.logo-c1-light .logo-c1-play { color: var(--azul); }
+
+/* Conceito 02 — SMART SCREEN (frame) */
+.logo-c2b { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.logo-c2b-frame {
+  position: relative;
+  border: 3px solid var(--branco); border-radius: 8px;
+  padding: 10px 20px; display: flex; align-items: center; gap: 0;
+}
+.logo-c2b-frame::before {
+  content: '';
+  position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%);
+  width: 28px; height: 5px; background: var(--branco); border-radius: 0 0 3px 3px;
+}
+.logo-c2b-frame::after {
+  content: '';
+  position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%);
+  width: 44px; height: 3px; background: var(--branco); border-radius: 2px;
+}
+.logo-c2b-smart {
+  font-size: 32px; font-weight: 900; letter-spacing: -0.04em; color: var(--branco);
+}
+.logo-c2b-divider {
+  width: 2px; height: 32px; background: var(--cta); margin: 0 10px;
+}
+.logo-c2b-play-wrap { display: flex; flex-direction: column; align-items: flex-start; }
+.logo-c2b-play {
+  font-size: 20px; font-weight: 900; letter-spacing: -0.02em;
+  color: var(--cta); line-height: 1;
+}
+.logo-c2b-sub {
+  font-size: 7px; font-weight: 700; letter-spacing: 0.4em;
+  text-transform: uppercase; color: rgba(255,255,255,0.4);
+}
+
+/* Conceito 03 — SMART PLAY ICON (badge com play) */
+.logo-c3b { display: flex; align-items: center; gap: 16px; }
+.logo-c3b-text {
+  font-size: 40px; font-weight: 900; letter-spacing: -0.05em; line-height: 1;
+  background: linear-gradient(90deg, var(--branco) 0%, rgba(255,255,255,0.85) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+.logo-c3b-badge-wrap {
+  position: relative; width: 56px; height: 56px; flex-shrink: 0;
+}
+.logo-c3b-badge {
+  width: 56px; height: 56px; border-radius: 50%;
+  border: 2px solid var(--azul);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.logo-c3b-badge-inner {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--azul) 0%, var(--cyan) 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.logo-c3b-dot {
+  position: absolute; top: -4px; right: 6px;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--cta);
+  box-shadow: 0 0 8px var(--cta);
+}
+.logo-c3b-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.4em;
+  text-transform: uppercase; color: var(--cyan); display: block; margin-top: 4px;
+}
+
+/* Conceito 04 — SMART WORDMARK */
+.logo-c4b { display: flex; flex-direction: column; align-items: flex-start; }
+.logo-c4b-main {
+  display: flex; align-items: baseline; gap: 0; line-height: 1;
+}
+.logo-c4b-smart {
+  font-size: 54px; font-weight: 900; letter-spacing: -0.04em; color: var(--branco);
+}
+.logo-c4b-play {
+  font-size: 54px; font-weight: 200; letter-spacing: -0.04em;
+  background: linear-gradient(90deg, var(--azul), #FF9E7A);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.logo-c4b-tagline {
+  font-size: 9px; font-weight: 600; letter-spacing: 0.4em;
+  text-transform: uppercase; color: rgba(255,255,255,0.25);
+  margin-top: 4px;
+}
+.logo-c4b-underline {
+  width: 100%; height: 2px; margin-top: 2px;
+  background: linear-gradient(90deg, var(--azul) 0%, var(--cta) 50%, transparent 100%);
+}
+
+/* ─── MALHA DE USOS ─── */
+.uso-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 48px; }
+.uso-item {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden;
+}
+.uso-item-label {
+  padding: 10px 14px; font-size: 9px; font-weight: 700;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--texto2);
+  border-bottom: 1px solid var(--border);
+}
+.uso-item-preview { padding: 20px 14px; display: flex; align-items: center; justify-content: center; min-height: 100px; }
+.uso-dark { background: #060303; }
+.uso-light { background: #fbeaea; }
+.uso-azul { background: var(--azul); }
+.uso-cta { background: var(--cta); }
+.uso-thumb {
+  background: #0F0808; width: 100%; padding-bottom: 56.25%;
+  position: relative; border-radius: 6px; overflow: hidden;
+}
+
+/* ─── CORES ─── */
+.cores-primary { display: flex; gap: 0; margin-top: 48px; border-radius: 16px; overflow: hidden; height: 120px; }
+.cor-block { flex: 1; display: flex; align-items: flex-end; padding: 16px; }
+.cor-block-label { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.6); line-height: 1.5; }
+.cor-block-hex { font-size: 12px; font-weight: 400; color: rgba(255,255,255,0.4); }
+.cores-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 32px; }
+.cor-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+}
+.cor-sample { height: 100px; }
+.cor-info { padding: 16px; }
+.cor-name { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.cor-hex { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: var(--texto2); margin-bottom: 4px; }
+.cor-rgb { font-size: 10px; color: var(--texto2); }
+.cor-uso { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cyan); margin-top: 8px; }
+.neutros-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 32px; }
+.neutro-item { border-radius: 8px; overflow: hidden; }
+.neutro-sample { height: 64px; }
+.neutro-info { padding: 10px; background: var(--card); border: 1px solid var(--border); border-radius: 0 0 8px 8px; }
+.neutro-name { font-size: 10px; font-weight: 700; }
+.neutro-hex { font-size: 9px; color: var(--texto2); }
+.cores-regras { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+.cor-regra {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 24px;
+}
+.cor-regra h4 { font-size: 12px; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 12px; }
+.cor-regra-ok { border-left: 3px solid #22c55e; }
+.cor-regra-no { border-left: 3px solid #ef4444; }
+.cor-regra-ok h4 { color: #22c55e; }
+.cor-regra-no h4 { color: #ef4444; }
+.cor-regra ul { list-style: none; }
+.cor-regra ul li {
+  font-size: 13px; font-weight: 300; color: var(--texto); padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+.cor-regra ul li:last-child { border-bottom: none; }
+
+/* ─── TIPOGRAFIA ─── */
+.tipo-hero {
+  font-size: clamp(72px, 12vw, 144px); font-weight: 900;
+  letter-spacing: -0.04em; line-height: 0.95;
+  background: linear-gradient(135deg, var(--branco) 0%, rgba(255,255,255,0.4) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text; margin: 48px 0 32px;
+}
+.tipo-escala { display: flex; flex-direction: column; gap: 12px; margin-top: 48px; }
+.tipo-row {
+  display: flex; align-items: center; gap: 24px; padding: 20px 24px;
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+}
+.tipo-row-meta { width: 180px; flex-shrink: 0; }
+.tipo-row-name { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--texto2); }
+.tipo-row-spec { font-size: 10px; color: var(--texto2); margin-top: 2px; }
+.tipo-row-uso { font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cyan); margin-top: 4px; }
+.tipo-row-sample { flex: 1; }
+.tipo-pesos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+.tipo-peso-item {
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+  padding: 24px;
+}
+.tipo-peso-label { font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--texto2); margin-bottom: 12px; }
+.tipo-peso-demo { font-size: 32px; letter-spacing: -0.02em; color: var(--branco); line-height: 1.1; }
+.tipo-peso-num { font-size: 10px; color: var(--texto2); margin-top: 8px; }
+
+/* ─── ELEMENTOS GRÁFICOS ─── */
+.elem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+.elem-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+}
+.elem-preview { padding: 40px 28px; display: flex; align-items: center; justify-content: center; min-height: 180px; background: #0A0505; }
+.elem-info { padding: 20px 24px; }
+.elem-name { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+.elem-desc { font-size: 12px; font-weight: 300; color: var(--texto); line-height: 1.6; }
+
+/* Graphic Elements */
+.gr-signal {
+  position: relative; width: 80px; height: 80px;
+  display: flex; align-items: center; justify-content: center;
+}
+.gr-signal-bar {
+  position: absolute; bottom: 0; border-radius: 2px;
+  background: linear-gradient(to top, var(--azul), var(--cyan));
+}
+.gr-grid-pattern {
+  width: 120px; height: 120px;
+  background-image:
+    linear-gradient(rgba(255,107,107,0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,107,107,0.3) 1px, transparent 1px);
+  background-size: 20px 20px;
+  border-radius: 8px;
+}
+.gr-frame {
+  width: 100px; height: 70px; border: 2px solid var(--azul); border-radius: 6px;
+  position: relative; display: flex; align-items: center; justify-content: center;
+}
+.gr-frame::before {
+  content: ''; position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%);
+  width: 20px; height: 4px; background: var(--azul);
+}
+.gr-frame::after {
+  content: ''; position: absolute; bottom: -9px; left: 50%; transform: translateX(-50%);
+  width: 32px; height: 2px; background: var(--azul);
+}
+.gr-play {
+  width: 0; height: 0;
+  border-top: 22px solid transparent;
+  border-bottom: 22px solid transparent;
+  border-left: 40px solid var(--cta);
+  filter: drop-shadow(0 0 12px rgba(255,217,61,0.5));
+  margin-left: 6px;
+}
+.gr-wave {
+  width: 120px; height: 48px;
+  background: linear-gradient(135deg, var(--azul) 0%, var(--cyan) 100%);
+  border-radius: 50%;
+  opacity: 0.6;
+  filter: blur(2px);
+}
+.gr-dot-matrix {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px;
+}
+.gr-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--azul); opacity: 0.4;
+}
+.gr-dot:nth-child(odd) { opacity: 0.8; background: var(--cyan); }
+
+/* ─── MOODBOARD ─── */
+.moodboard { background: #060303; }
+.mood-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 16px;
+  margin-top: 48px;
+}
+.mood-cell {
+  border-radius: 12px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; min-height: 200px;
+}
+.mood-cell-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 16px; background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+  font-size: 10px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+.mood-cinema { grid-column: 1; grid-row: 1; }
+.mood-familia { grid-column: 2; grid-row: 1; }
+.mood-tech { grid-column: 3; grid-row: 1; }
+.mood-noite { grid-column: 1; grid-row: 2; }
+.mood-jogo { grid-column: 2/4; grid-row: 2; }
+
+/* ─── APLICAÇÕES ─── */
+.apps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
+.app-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+}
+.app-card-label {
+  padding: 16px 20px; border-bottom: 1px solid var(--border);
+  font-size: 10px; font-weight: 700; letter-spacing: 0.4em; text-transform: uppercase; color: var(--texto2);
+}
+.app-card-preview { padding: 32px 24px; background: #0A0505; min-height: 240px; display: flex; align-items: center; justify-content: center; }
+
+/* Business Card Mockup */
+.biz-card {
+  width: 320px; height: 180px; background: linear-gradient(135deg, #170C0C 0%, #1D0C0C 100%);
+  border-radius: 12px; padding: 24px; display: flex; flex-direction: column;
+  justify-content: space-between; position: relative; overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.biz-card::before {
+  content: ''; position: absolute; top: 0; right: 0;
+  width: 120px; height: 120px; border-radius: 0 12px 0 100%;
+  background: linear-gradient(135deg, var(--azul), var(--cyan));
+  opacity: 0.15;
+}
+.biz-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 2px; height: 100%; background: linear-gradient(to bottom, var(--cta), transparent);
+}
+.biz-name { font-size: 22px; font-weight: 900; letter-spacing: -0.02em; }
+.biz-name span { color: var(--cta); font-weight: 200; }
+.biz-tagline { font-size: 7px; font-weight: 600; letter-spacing: 0.45em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-top: 2px; }
+.biz-contact { font-size: 10px; color: rgba(255,255,255,0.4); }
+
+/* App Icon Mockup */
+.app-icons-row { display: flex; gap: 24px; align-items: center; justify-content: center; }
+.app-icon {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.app-icon-box {
+  border-radius: 22%; display: flex; align-items: center; justify-content: center;
+  font-weight: 900; letter-spacing: -0.04em; color: var(--branco);
+}
+.app-icon-lg {
+  width: 96px; height: 96px;
+  background: linear-gradient(145deg, #FF6B6B 0%, #CC4444 100%);
+  font-size: 32px;
+  box-shadow: 0 8px 32px rgba(255,107,107,0.4);
+}
+.app-icon-md {
+  width: 60px; height: 60px;
+  background: linear-gradient(145deg, #FF6B6B 0%, #CC4444 100%);
+  font-size: 20px;
+  box-shadow: 0 4px 16px rgba(255,107,107,0.3);
+}
+.app-icon-sm {
+  width: 32px; height: 32px;
+  background: linear-gradient(145deg, #FF6B6B 0%, #CC4444 100%);
+  font-size: 11px;
+  box-shadow: 0 2px 8px rgba(255,107,107,0.3);
+}
+.app-icon-label { font-size: 10px; color: var(--texto2); }
+
+/* Social Media Mockup */
+.social-mock {
+  width: 280px; background: #1B0D0D; border-radius: 16px; overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.social-mock-bar {
+  background: #0F0808; padding: 12px 16px;
+  display: flex; align-items: center; gap: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.social-mock-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--azul), var(--cyan));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 900; flex-shrink: 0;
+}
+.social-mock-name { font-size: 12px; font-weight: 700; }
+.social-mock-handle { font-size: 10px; color: var(--texto2); }
+.social-mock-img {
+  background: linear-gradient(145deg, #1B0A0A 0%, #FF6B6B 40%, #0A0505 100%);
+  height: 160px; display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 4px; padding: 20px;
+}
+.social-mock-caption { padding: 12px 16px 16px; font-size: 11px; color: var(--texto); line-height: 1.5; }
+
+/* ─── THUMBNAIL YOUTUBE ─── */
+.yt-mock {
+  width: 100%; max-width: 360px;
+  background: linear-gradient(135deg, #0F0808 0%, #150808 100%);
+  border-radius: 10px; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+.yt-img-area {
+  width: 100%; padding-bottom: 56.25%; position: relative;
+  background: linear-gradient(145deg, #0A0505 0%, #1F0C0C 60%, #103030 100%);
+}
+.yt-img-content {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+  padding: 20px 24px;
+}
+.yt-headline { font-size: 18px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; max-width: 180px; }
+.yt-headline span { color: var(--azul); }
+.yt-play-btn {
+  position: absolute; right: 20px; bottom: 20px;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--cta); display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(255,217,61,0.5);
+}
+.yt-play-arrow { width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 14px solid var(--oncta); margin-left: 3px; }
+.yt-meta { padding: 12px 14px; display: flex; align-items: center; gap: 10px; background: #170A0A; }
+.yt-ch-icon {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--azul), var(--cyan));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 900; flex-shrink: 0;
+}
+.yt-ch-info { flex: 1; }
+.yt-ch-name { font-size: 11px; font-weight: 700; }
+.yt-ch-views { font-size: 10px; color: var(--texto2); }
+.yt-badge {
+  background: var(--cta); color: var(--oncta); font-size: 8px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase; padding: 3px 7px; border-radius: 4px;
+}
+
+/* ─── VOICE GRID ─── */
+.voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 48px; }
+.voice-item {
+  padding: 24px; border-radius: 12px;
+  background: var(--card); border: 1px solid var(--border);
+}
+.voice-item h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 14px; }
+.voice-ok h4 { color: #22c55e; }
+.voice-no h4 { color: #ef4444; }
+.voice-example { font-size: 15px; font-weight: 300; color: var(--texto); line-height: 1.6; font-style: italic; }
+.voice-example strong { font-style: normal; font-weight: 600; color: var(--branco); }
+
+
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVO BRANDBOOK  v2 — mobile-first
+   Breakpoints: 1024px · 768px · 480px
+══════════════════════════════════════════════════ */
+
+/* ── Tablet (≤ 1024px) ── */
+@media (max-width: 1024px) {
+  .logo-conceitos         { grid-template-columns: 1fr 1fr !important; }
+  .cores-grid             { grid-template-columns: 1fr 1fr !important; }
+  .apps-grid              { grid-template-columns: 1fr 1fr !important; }
+  .tipo-pesos             { grid-template-columns: repeat(3, 1fr) !important; }
+  .elem-grid              { grid-template-columns: 1fr 1fr !important; }
+  .mood-grid              { grid-template-columns: 1fr 1fr !important; }
+  .voice-grid             { grid-template-columns: 1fr 1fr !important; }
+  /* Inline grids 3-col e 4-col → 2-col */
+  div[style*="repeat(3,1fr)"],
+  div[style*="repeat(3, 1fr)"],
+  div[style*="repeat(4,1fr)"],
+  div[style*="repeat(4, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ── Mobile largo (≤ 768px) ── */
+@media (max-width: 768px) {
+  .wrap, .wrap-wide        { padding-left: 20px !important; padding-right: 20px !important; }
+  section                  { padding: 56px 0 !important; }
+  .capa-brand-name         { font-size: 64px !important; }
+  .capa-inner              { padding: 36px 20px !important; }
+  .sec-title               { font-size: 26px !important; line-height: 1.2 !important; }
+  .manifesto-quote         { font-size: 22px !important; }
+  .manifesto-values        { flex-direction: column !important; gap: 28px !important; }
+  .manifesto-value         { min-width: unset !important; }
+  .logo-conceitos, .logo-card,
+  .cores-grid, .tipo-pesos,
+  .apps-grid, .elem-grid,
+  .voice-grid, .mood-grid,
+  .cores-regras, .manifesto-cols { grid-template-columns: 1fr !important; }
+  .uso-grid                { grid-template-columns: 1fr 1fr !important; }
+  .neutros-grid            { grid-template-columns: repeat(3, 1fr) !important; }
+  /* Todos inline grids → 1 coluna */
+  div[style*="repeat(3,1fr)"],
+  div[style*="repeat(3, 1fr)"],
+  div[style*="repeat(4,1fr)"],
+  div[style*="repeat(4, 1fr)"],
+  div[style*="repeat(2,1fr)"],
+  div[style*="repeat(2, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Impede overflow */
+  body                     { overflow-x: hidden !important; }
+  img                      { max-width: 100% !important; height: auto !important; }
+  /* Anúncios e cards de mockup */
+  div[style*="padding:28px"],
+  div[style*="padding: 28px"] { padding: 18px !important; }
+  div[style*="padding:24px"],
+  div[style*="padding: 24px"] { padding: 16px !important; }
+  /* Reel tela: texto escala */
+  div[style*="aspect-ratio:9/16"] p { font-size: 13px !important; }
+  /* Logo conceito 1 no reel */
+  div[style*="aspect-ratio:9/16"] div[style*="font-size:36px"] { font-size: 24px !important; }
+  div[style*="aspect-ratio:9/16"] div[style*="font-size:22px"] { font-size: 16px !important; }
+}
+
+/* ── Mobile estreito (≤ 480px) ── */
+@media (max-width: 480px) {
+  .capa-brand-name         { font-size: 48px !important; letter-spacing: -0.03em !important; }
+  .capa-tagline            { font-size: 14px !important; }
+  .sec-title               { font-size: 22px !important; }
+  .sec-label               { font-size: 9px !important; }
+  .manifesto-quote         { font-size: 18px !important; }
+  /* Força 1 coluna em qualquer grid inline */
+  div[style*="display:grid"],
+  div[style*="display: grid"] {
+    grid-template-columns: 1fr !important;
+  }
+  .wrap, .wrap-wide        { padding-left: 14px !important; padding-right: 14px !important; }
+  /* Reel cards: padding menor */
+  div[style*="aspect-ratio:9/16"] { padding: 18px 14px !important; }
+  /* Carrossel slides: 1 por vez */
+  div[style*="aspect-ratio:4/3"]  { border-radius: 8px !important; }
+  /* Tamanho de fonte em cards de mockup */
+  div[style*="font-size:16px"]    { font-size: 13px !important; }
+  div[style*="font-size:15px"]    { font-size: 12px !important; }
+}
+
+</style>
+</head>
+<body>
+
+<div id="sp-back-fixed" style="position:fixed;top:20px;left:20px;z-index:99999;font-family:'Montserrat',sans-serif;">
+  <a href="../index.html"
+     style="display:flex;align-items:center;gap:8px;background:rgba(15,8,8,0.95);border:1px solid rgba(255,107,107,0.5);color:#4ECDC4;text-decoration:none;font-size:10px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;padding:10px 16px;border-radius:6px;box-shadow:0 4px 20px rgba(0,0,0,0.5);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);"
+     onmouseover="this.style.borderColor='rgba(255,107,107,0.9)';this.style.boxShadow='0 4px 24px rgba(255,107,107,0.3)'"
+     onmouseout="this.style.borderColor='rgba(255,107,107,0.5)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.5)'">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><path d="M8 2L4 6L8 10" stroke="#4ECDC4" stroke-width="1.5" stroke-linecap="round"/></svg>
+    Central Smart Play
+  </a>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     CAPA
+══════════════════════════════════════════════════════════ -->
+<div class="capa">
+  <div class="capa-grid"></div>
+  <div class="capa-accent-line"></div>
+  <div class="capa-inner">
+    <div class="capa-header">
+      <span class="capa-eyebrow">Identidade Visual</span>
+      <span class="capa-version">Brandbook v1.0 · Paleta 02 — 2026</span>
+    </div>
+    <div class="capa-main">
+      <div class="capa-brand-name">Smart<span>Play</span></div>
+      <p class="capa-tagline">O guia completo da <strong>identidade visual</strong> da marca</p>
+      <div class="capa-big-idea">"A família inteira assistindo."</div>
+    </div>
+    <div class="capa-footer">
+      <div class="capa-footer-left">
+        Sistema de Marca Smart Play<br>
+        Paleta Principal — Coral Família<br>
+        Tipografia — Montserrat
+      </div>
+      <div class="capa-footer-right">Confidencial</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════
+     MANIFESTO
+══════════════════════════════════════════════════════════ -->
+<section class="manifesto">
+  <div class="wrap">
+    <p class="sec-label">01 — Manifesto da Marca</p>
+    <div class="manifesto-quote">
+      A família toda quer assistir junto.<br>
+      <em>Sem brigar pelo controle.</em> Sem pagar caro.
+    </div>
+    <div class="manifesto-cols">
+      <div class="manifesto-col">
+        <h3>Quem somos</h3>
+        <p>A <strong>Smart Play</strong> nasceu para unir a família na frente da TV sem pesar no bolso. Somos o streaming que reúne tudo — canais ao vivo, filmes, séries e esportes — num único plano que cabe no orçamento de qualquer família.</p>
+      </div>
+      <div class="manifesto-col">
+        <h3>Para quem existe</h3>
+        <p>Para a família que quer assistir junto sem brigar pelo controle. Para o pai que quer ver o jogo, a mãe que quer a novela, o filho que quer o desenho — cada um na sua tela, ao mesmo tempo.</p>
+      </div>
+    </div>
+    <div class="manifesto-values">
+      <div class="manifesto-value">
+        <div class="manifesto-value-num">200+</div>
+        <div class="manifesto-value-label">Canais ao vivo</div>
+        <div class="manifesto-value-desc">Em HD, Full HD e 4K</div>
+      </div>
+      <div class="manifesto-value">
+        <div class="manifesto-value-num">3</div>
+        <div class="manifesto-value-label">Telas simultâneas</div>
+        <div class="manifesto-value-desc">Qualquer dispositivo</div>
+      </div>
+      <div class="manifesto-value">
+        <div class="manifesto-value-num">R$16,90</div>
+        <div class="manifesto-value-label">A partir de</div>
+        <div class="manifesto-value-desc">Plano inicial · 15 dias</div>
+      </div>
+      <div class="manifesto-value">
+        <div class="manifesto-value-num">WhatsApp</div>
+        <div class="manifesto-value-label">Suporte real</div>
+        <div class="manifesto-value-desc">Atendimento humano, sem robô</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SISTEMA DE LOGO
+══════════════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <p class="sec-label">02 — Sistema de Logo</p>
+    <h2 class="sec-title">4 Conceitos de Identidade</h2>
+    <p class="sec-sub">Cada conceito parte da mesma essência — conexão familiar, entretenimento acessível — mas expressa isso com linguagem visual distinta.</p>
+
+    <div class="logo-conceitos">
+
+      <!-- CONCEITO 01 — SMART SIGNAL -->
+      <div class="logo-card">
+        <div class="logo-card-header">
+          <span class="logo-card-num">Conceito 01</span>
+          <span class="logo-card-status status-rec">Recomendado</span>
+        </div>
+        <div class="logo-card-name">Smart Signal</div>
+        <div class="logo-card-desc">Wordmark com ícone geométrico de sinal digital. Comunica conexão e alcance — a família recebendo sinal de qualidade em qualquer tela. O ícone funciona de forma isolada como app icon.</div>
+        <div class="logo-preview">
+          <div class="logo-c1">
+            <div class="logo-c1-icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <rect x="4" y="18" width="4" height="10" rx="2" fill="#4ECDC4" opacity="0.5"/>
+                <rect x="10" y="12" width="4" height="16" rx="2" fill="#4ECDC4" opacity="0.7"/>
+                <rect x="16" y="6" width="4" height="22" rx="2" fill="#4ECDC4"/>
+                <rect x="22" y="10" width="4" height="18" rx="2" fill="#FF6B6B"/>
+              </svg>
+            </div>
+            <div class="logo-c1-text">
+              <span class="logo-c1-smart">Smart</span>
+              <span class="logo-c1-play">PLAY</span>
+            </div>
+          </div>
+        </div>
+        <div class="logo-preview-light">
+          <div class="logo-c1 logo-c1-light">
+            <div class="logo-c1-icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <rect x="4" y="18" width="4" height="10" rx="2" fill="#FF6B6B" opacity="0.5"/>
+                <rect x="10" y="12" width="4" height="16" rx="2" fill="#FF6B6B" opacity="0.7"/>
+                <rect x="16" y="6" width="4" height="22" rx="2" fill="#FF6B6B"/>
+                <rect x="22" y="10" width="4" height="18" rx="2" fill="#B33D3D"/>
+              </svg>
+            </div>
+            <div class="logo-c1-text">
+              <span class="logo-c1-smart">Smart</span>
+              <span class="logo-c1-play">PLAY</span>
+            </div>
+          </div>
+        </div>
+        <div class="logo-card-aplicacoes">
+          <div class="logo-card-ap-label">Aplicações</div>
+          <div class="logo-ap-item uso-dark">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+              <rect x="4" y="18" width="4" height="10" rx="2" fill="#4ECDC4" opacity="0.5"/>
+              <rect x="10" y="12" width="4" height="16" rx="2" fill="#4ECDC4" opacity="0.7"/>
+              <rect x="16" y="6" width="4" height="22" rx="2" fill="#4ECDC4"/>
+              <rect x="22" y="10" width="4" height="18" rx="2" fill="#FF6B6B"/>
+            </svg>
+          </div>
+          <div class="logo-ap-item" style="background:var(--azul)">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+              <rect x="4" y="18" width="4" height="10" rx="2" fill="white" opacity="0.5"/>
+              <rect x="10" y="12" width="4" height="16" rx="2" fill="white" opacity="0.7"/>
+              <rect x="16" y="6" width="4" height="22" rx="2" fill="white"/>
+              <rect x="22" y="10" width="4" height="18" rx="2" fill="rgba(255,255,255,0.6)"/>
+            </svg>
+          </div>
+          <div class="logo-ap-item" style="background:var(--cta)">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+              <rect x="4" y="18" width="4" height="10" rx="2" fill="#2B1608" opacity="0.5"/>
+              <rect x="10" y="12" width="4" height="16" rx="2" fill="#2B1608" opacity="0.7"/>
+              <rect x="16" y="6" width="4" height="22" rx="2" fill="#2B1608"/>
+              <rect x="22" y="10" width="4" height="18" rx="2" fill="rgba(43,22,8,0.6)"/>
+            </svg>
+          </div>
+          <div class="logo-ap-item" style="background:#fbeaea">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+              <rect x="4" y="18" width="4" height="10" rx="2" fill="#FF6B6B" opacity="0.5"/>
+              <rect x="10" y="12" width="4" height="16" rx="2" fill="#FF6B6B" opacity="0.7"/>
+              <rect x="16" y="6" width="4" height="22" rx="2" fill="#FF6B6B"/>
+              <rect x="22" y="10" width="4" height="18" rx="2" fill="#B33D3D"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONCEITO 02 — SMART SCREEN -->
+      <div class="logo-card">
+        <div class="logo-card-header">
+          <span class="logo-card-num">Conceito 02</span>
+          <span class="logo-card-status status-alt">Alternativo</span>
+        </div>
+        <div class="logo-card-name">Smart Screen</div>
+        <div class="logo-card-desc">Logo dentro de uma moldura de televisão estilizada. Reforça o conceito de tela de forma direta e acolhedora, com apelo imediato para o público familiar.</div>
+        <div class="logo-preview">
+          <div class="logo-c2b">
+            <div class="logo-c2b-frame">
+              <span class="logo-c2b-smart">Smart</span>
+              <div class="logo-c2b-divider"></div>
+              <div class="logo-c2b-play-wrap">
+                <span class="logo-c2b-play">Play</span>
+                <span class="logo-c2b-sub">Streaming</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="logo-preview-light" style="background:#fbeaea">
+          <div class="logo-c2b">
+            <div class="logo-c2b-frame" style="border-color:#FF6B6B">
+              <span class="logo-c2b-smart" style="color:#0F0808">Smart</span>
+              <div class="logo-c2b-divider"></div>
+              <div class="logo-c2b-play-wrap">
+                <span class="logo-c2b-play" style="color:#CC4444">Play</span>
+                <span class="logo-c2b-sub" style="color:#FF6B6B">Streaming</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="logo-card-aplicacoes">
+          <div class="logo-card-ap-label">Aplicações</div>
+          <div class="logo-ap-item uso-dark">
+            <div style="width:48px;height:30px;border:2px solid #fff;border-radius:4px;position:relative;display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:8px;font-weight:900">Smart</span>
+            </div>
+          </div>
+          <div class="logo-ap-item" style="background:#FF6B6B">
+            <div style="width:48px;height:30px;border:2px solid rgba(255,255,255,0.8);border-radius:4px;display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:8px;font-weight:900">Smart</span>
+            </div>
+          </div>
+          <div class="logo-ap-item" style="background:#fbeaea">
+            <div style="width:48px;height:30px;border:2px solid #FF6B6B;border-radius:4px;display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:8px;font-weight:900;color:#0F0808">Smart</span>
+            </div>
+          </div>
+          <div class="logo-ap-item uso-dark">
+            <div style="width:48px;height:30px;border:2px solid #FFD93D;border-radius:4px;display:flex;align-items:center;justify-content:center;">
+              <span style="font-size:8px;font-weight:900;color:#FFD93D">Smart</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONCEITO 03 — SMART PLAY ICON -->
+      <div class="logo-card">
+        <div class="logo-card-header">
+          <span class="logo-card-num">Conceito 03</span>
+          <span class="logo-card-status status-alt">Alternativo</span>
+        </div>
+        <div class="logo-card-name">Smart Play Icon</div>
+        <div class="logo-card-desc">Símbolo circular com botão de play ao centro. Representa o momento de apertar o play e reunir a família — simples, universal, reconhecível em qualquer tamanho.</div>
+        <div class="logo-preview">
+          <div class="logo-c3b">
+            <div class="logo-c3b-badge-wrap">
+              <div class="logo-c3b-badge">
+                <div class="logo-c3b-badge-inner">
+                  <svg width="12" height="14" viewBox="0 0 12 14" fill="none">
+                    <path d="M1 1L11 7L1 13V1Z" fill="white"/>
+                  </svg>
+                </div>
+                <div class="logo-c3b-dot"></div>
+              </div>
+            </div>
+            <div>
+              <span class="logo-c3b-text">SmartPlay</span>
+              <span class="logo-c3b-label">Entretenimento</span>
+            </div>
+          </div>
+        </div>
+        <div class="logo-preview-light" style="background:#fbeaea">
+          <div class="logo-c3b">
+            <div class="logo-c3b-badge-wrap">
+              <div class="logo-c3b-badge" style="border-color:#FF6B6B">
+                <div class="logo-c3b-badge-inner">
+                  <svg width="12" height="14" viewBox="0 0 12 14" fill="none">
+                    <path d="M1 1L11 7L1 13V1Z" fill="white"/>
+                  </svg>
+                </div>
+                <div class="logo-c3b-dot"></div>
+              </div>
+            </div>
+            <div>
+              <span class="logo-c3b-text" style="background:linear-gradient(90deg,#0F0808,#FF6B6B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SmartPlay</span>
+              <span class="logo-c3b-label" style="color:#CC4444">Entretenimento</span>
+            </div>
+          </div>
+        </div>
+        <div class="logo-card-aplicacoes">
+          <div class="logo-card-ap-label">Aplicações</div>
+          <div class="logo-ap-item uso-dark" style="font-size:16px;font-weight:900;color:#fff;letter-spacing:-0.03em">Smart<span style="color:#FF6B6B;font-weight:200">Play</span></div>
+          <div class="logo-ap-item" style="background:#FF6B6B;font-size:16px;font-weight:900;color:#fff;letter-spacing:-0.03em">Smart<span style="font-weight:200">Play</span></div>
+          <div class="logo-ap-item" style="background:#fbeaea;font-size:16px;font-weight:900;color:#0F0808;letter-spacing:-0.03em">Smart<span style="color:#FF6B6B;font-weight:200">Play</span></div>
+          <div class="logo-ap-item" style="background:black;font-size:16px;font-weight:900;color:#fff;letter-spacing:-0.03em">Smart<span style="color:#4ECDC4;font-weight:200">Play</span></div>
+        </div>
+      </div>
+
+      <!-- CONCEITO 04 — SMART WORDMARK -->
+      <div class="logo-card">
+        <div class="logo-card-header">
+          <span class="logo-card-num">Conceito 04</span>
+          <span class="logo-card-status status-alt">Alternativo</span>
+        </div>
+        <div class="logo-card-name">Smart Wordmark</div>
+        <div class="logo-card-desc">Logotipo puramente tipográfico com contraste de peso — bold para Smart, light para Play. Moderno e versátil, funciona bem em qualquer aplicação.</div>
+        <div class="logo-preview">
+          <div class="logo-c4b">
+            <div class="logo-c4b-main">
+              <span class="logo-c4b-smart">Smart</span>
+              <span class="logo-c4b-play">Play</span>
+            </div>
+            <div class="logo-c4b-underline"></div>
+            <span class="logo-c4b-tagline">A família inteira assistindo.</span>
+          </div>
+        </div>
+        <div class="logo-preview-light" style="background:#fbeaea">
+          <div class="logo-c4b">
+            <div class="logo-c4b-main">
+              <span class="logo-c4b-smart" style="color:#0F0808;background:none;-webkit-text-fill-color:#0F0808">Smart</span>
+              <span class="logo-c4b-play">Play</span>
+            </div>
+            <div class="logo-c4b-underline"></div>
+            <span class="logo-c4b-tagline" style="color:#CC4444">A família inteira assistindo.</span>
+          </div>
+        </div>
+        <div class="logo-card-aplicacoes">
+          <div class="logo-card-ap-label">Aplicações</div>
+          <div class="logo-ap-item uso-dark" style="font-size:18px;font-weight:900;letter-spacing:-0.04em;color:#fff">Smart<span style="font-weight:100;color:#FF6B6B">Play</span></div>
+          <div class="logo-ap-item" style="background:#FF6B6B;font-size:18px;font-weight:900;letter-spacing:-0.04em;color:#fff">Smart<span style="font-weight:100">Play</span></div>
+          <div class="logo-ap-item" style="background:#fbeaea;font-size:18px;font-weight:900;letter-spacing:-0.04em;color:#0F0808">Smart<span style="font-weight:100;color:#FF6B6B">Play</span></div>
+          <div class="logo-ap-item uso-dark" style="font-size:18px;font-weight:900;letter-spacing:-0.04em;color:#fff">Smart<span style="font-weight:100;color:#4ECDC4">Play</span></div>
+        </div>
+      </div>
+
+    </div><!-- /logo-conceitos -->
+
+    <!-- Usos Corretos e Incorretos -->
+    <div style="margin-top:64px">
+      <p class="sec-label">Uso do Logo</p>
+      <h3 style="font-size:24px;font-weight:800;letter-spacing:-0.02em;margin-bottom:32px">Área de proteção e variações</h3>
+      <div class="uso-grid">
+        <div class="uso-item">
+          <div class="uso-item-label">Versão Principal</div>
+          <div class="uso-item-preview uso-dark">
+            <div class="logo-c1" style="transform:scale(0.8)">
+              <div class="logo-c1-icon">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <rect x="4" y="18" width="4" height="10" rx="2" fill="#4ECDC4" opacity="0.5"/>
+                  <rect x="10" y="12" width="4" height="16" rx="2" fill="#4ECDC4" opacity="0.7"/>
+                  <rect x="16" y="6" width="4" height="22" rx="2" fill="#4ECDC4"/>
+                  <rect x="22" y="10" width="4" height="18" rx="2" fill="#FF6B6B"/>
+                </svg>
+              </div>
+              <div class="logo-c1-text">
+                <span class="logo-c1-smart" style="font-size:30px">Smart</span>
+                <span class="logo-c1-play">PLAY</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="uso-item">
+          <div class="uso-item-label">Versão Coral</div>
+          <div class="uso-item-preview uso-azul">
+            <div class="logo-c1" style="transform:scale(0.8)">
+              <div class="logo-c1-icon" style="background:rgba(255,255,255,0.15)">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <rect x="4" y="18" width="4" height="10" rx="2" fill="white" opacity="0.5"/>
+                  <rect x="10" y="12" width="4" height="16" rx="2" fill="white" opacity="0.7"/>
+                  <rect x="16" y="6" width="4" height="22" rx="2" fill="white"/>
+                  <rect x="22" y="10" width="4" height="18" rx="2" fill="rgba(255,255,255,0.6)"/>
+                </svg>
+              </div>
+              <div class="logo-c1-text">
+                <span class="logo-c1-smart" style="font-size:30px">Smart</span>
+                <span class="logo-c1-play" style="color:rgba(255,255,255,0.7)">PLAY</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="uso-item">
+          <div class="uso-item-label">Versão CTA</div>
+          <div class="uso-item-preview uso-cta">
+            <div class="logo-c1" style="transform:scale(0.8)">
+              <div class="logo-c1-icon" style="background:rgba(0,0,0,0.15)">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <rect x="4" y="18" width="4" height="10" rx="2" fill="#2B1608" opacity="0.5"/>
+                  <rect x="10" y="12" width="4" height="16" rx="2" fill="#2B1608" opacity="0.7"/>
+                  <rect x="16" y="6" width="4" height="22" rx="2" fill="#2B1608"/>
+                  <rect x="22" y="10" width="4" height="18" rx="2" fill="rgba(43,22,8,0.6)"/>
+                </svg>
+              </div>
+              <div class="logo-c1-text">
+                <span class="logo-c1-smart" style="font-size:30px;color:#2B1608">Smart</span>
+                <span class="logo-c1-play" style="color:rgba(43,22,8,0.8)">PLAY</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="uso-item">
+          <div class="uso-item-label">Versão Clara</div>
+          <div class="uso-item-preview uso-light">
+            <div class="logo-c1 logo-c1-light" style="transform:scale(0.8)">
+              <div class="logo-c1-icon">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <rect x="4" y="18" width="4" height="10" rx="2" fill="#FF6B6B" opacity="0.5"/>
+                  <rect x="10" y="12" width="4" height="16" rx="2" fill="#FF6B6B" opacity="0.7"/>
+                  <rect x="16" y="6" width="4" height="22" rx="2" fill="#FF6B6B"/>
+                  <rect x="22" y="10" width="4" height="18" rx="2" fill="#B33D3D"/>
+                </svg>
+              </div>
+              <div class="logo-c1-text">
+                <span class="logo-c1-smart" style="font-size:30px">Smart</span>
+                <span class="logo-c1-play">PLAY</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     PALETA DE CORES
+══════════════════════════════════════════════════════════ -->
+<section style="background:var(--base2)">
+  <div class="wrap">
+    <p class="sec-label">03 — Sistema de Cores</p>
+    <h2 class="sec-title">Paleta Oficial<br>Coral Família</h2>
+    <p class="sec-sub">Escolhida para posicionar a Smart Play como um serviço de IPTV acolhedor e caseiro — quente, próximo e feito para reunir a família em vez de impressionar com estética fria e tecnológica.</p>
+
+    <!-- Banda de cor primária -->
+    <div class="cores-primary">
+      <div class="cor-block" style="background:#0F0808;flex:1.5">
+        <div><div class="cor-block-label">Base</div><div class="cor-block-hex">#0F0808</div></div>
+      </div>
+      <div class="cor-block" style="background:#FF6B6B">
+        <div><div class="cor-block-label">Primária</div><div class="cor-block-hex">#FF6B6B</div></div>
+      </div>
+      <div class="cor-block" style="background:#FFD93D">
+        <div><div class="cor-block-label" style="color:#2B1608">CTA</div><div class="cor-block-hex" style="color:rgba(43,22,8,0.6)">#FFD93D</div></div>
+      </div>
+      <div class="cor-block" style="background:#4ECDC4">
+        <div><div class="cor-block-label" style="color:#0A2622">Destaque</div><div class="cor-block-hex" style="color:rgba(10,38,34,0.6)">#4ECDC4</div></div>
+      </div>
+    </div>
+
+    <!-- Cards de cor -->
+    <div class="cores-grid">
+      <div class="cor-card">
+        <div class="cor-sample" style="background:linear-gradient(145deg,#1A1010,#0F0808)"></div>
+        <div class="cor-info">
+          <div class="cor-name">Noite Aconchegante</div>
+          <div class="cor-hex">#0F0808</div>
+          <div class="cor-rgb">RGB 15 · 8 · 8</div>
+          <div class="cor-uso">Fundo Principal</div>
+        </div>
+      </div>
+      <div class="cor-card">
+        <div class="cor-sample" style="background:linear-gradient(145deg,#FF8A8A,#FF6B6B)"></div>
+        <div class="cor-info">
+          <div class="cor-name">Coral Família</div>
+          <div class="cor-hex">#FF6B6B</div>
+          <div class="cor-rgb">RGB 255 · 107 · 107</div>
+          <div class="cor-uso">Cor Primária da Marca</div>
+        </div>
+      </div>
+      <div class="cor-card">
+        <div class="cor-sample" style="background:linear-gradient(145deg,#FFE066,#FFD93D)"></div>
+        <div class="cor-info">
+          <div class="cor-name">Dourado Convite</div>
+          <div class="cor-hex">#FFD93D</div>
+          <div class="cor-rgb">RGB 255 · 217 · 61</div>
+          <div class="cor-uso">CTA e Ação</div>
+        </div>
+      </div>
+      <div class="cor-card">
+        <div class="cor-sample" style="background:linear-gradient(145deg,#7EE0D6,#4ECDC4)"></div>
+        <div class="cor-info">
+          <div class="cor-name">Turquesa Viva</div>
+          <div class="cor-hex">#4ECDC4</div>
+          <div class="cor-rgb">RGB 78 · 205 · 196</div>
+          <div class="cor-uso">Destaque e Tecnologia</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Neutros -->
+    <div style="margin-top:48px">
+      <h3 style="font-size:16px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--texto2);margin-bottom:24px">Cores Neutras</h3>
+      <div class="neutros-grid">
+        <div class="neutro-item">
+          <div class="neutro-sample" style="background:#201414"></div>
+          <div class="neutro-info"><div class="neutro-name">Coral Profundo</div><div class="neutro-hex">#201414</div></div>
+        </div>
+        <div class="neutro-item">
+          <div class="neutro-sample" style="background:#2E1B1B"></div>
+          <div class="neutro-info"><div class="neutro-name">Coral Meia-Luz</div><div class="neutro-hex">#2E1B1B</div></div>
+        </div>
+        <div class="neutro-item">
+          <div class="neutro-sample" style="background:#c8a0a0"></div>
+          <div class="neutro-info"><div class="neutro-name">Rosa Acinzentado</div><div class="neutro-hex">#c8a0a0</div></div>
+        </div>
+        <div class="neutro-item">
+          <div class="neutro-sample" style="background:#fbeaea"></div>
+          <div class="neutro-info"><div class="neutro-name">Branco Quente</div><div class="neutro-hex">#fbeaea</div></div>
+        </div>
+        <div class="neutro-item">
+          <div class="neutro-sample" style="background:#FFFFFF"></div>
+          <div class="neutro-info"><div class="neutro-name">Branco Puro</div><div class="neutro-hex">#FFFFFF</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Regras de uso -->
+    <div class="cores-regras">
+      <div class="cor-regra cor-regra-ok">
+        <h4>Uso Correto</h4>
+        <ul>
+          <li>Texto branco sobre fundo escuro (#0F0808)</li>
+          <li>CTA dourado (#FFD93D) em botões de ação principal, sempre com texto escuro</li>
+          <li>Coral (#FF6B6B) em elementos de navegação e destaque</li>
+          <li>Turquesa (#4ECDC4) para labels, badges e detalhes de família</li>
+          <li>Gradiente coral-turquesa em elementos de conexão familiar</li>
+        </ul>
+      </div>
+      <div class="cor-regra cor-regra-no">
+        <h4>Evitar Sempre</h4>
+        <ul>
+          <li>CTA dourado como cor de fundo de seções inteiras</li>
+          <li>Texto escuro sobre fundo coral primário</li>
+          <li>Combinar dourado + turquesa diretamente sem contraste intermediário</li>
+          <li>Usar azul frio ou verde-neon (foge do posicionamento acolhedor)</li>
+          <li>Degradês com mais de 2 cores da paleta simultaneamente</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     TIPOGRAFIA
+══════════════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <p class="sec-label">04 — Tipografia</p>
+    <h2 class="sec-title">Montserrat</h2>
+    <p class="sec-sub">Uma única família tipográfica com amplitude de pesos suficiente para criar hierarquia visual completa. Moderna, geométrica e altamente legível em telas.</p>
+
+    <div class="tipo-hero">Aa</div>
+
+    <div class="tipo-escala">
+      <div class="tipo-row">
+        <div class="tipo-row-meta">
+          <div class="tipo-row-name">Display / Hero</div>
+          <div class="tipo-row-spec">72–144px · Black 900</div>
+          <div class="tipo-row-uso">Chamadas de capa</div>
+        </div>
+        <div class="tipo-row-sample" style="font-size:52px;font-weight:900;letter-spacing:-0.04em;line-height:1">A família inteira</div>
+      </div>
+      <div class="tipo-row">
+        <div class="tipo-row-meta">
+          <div class="tipo-row-name">Heading 1</div>
+          <div class="tipo-row-spec">40–56px · ExtraBold 800</div>
+          <div class="tipo-row-uso">Títulos de seção</div>
+        </div>
+        <div class="tipo-row-sample" style="font-size:36px;font-weight:800;letter-spacing:-0.03em;line-height:1.1">assistindo.</div>
+      </div>
+      <div class="tipo-row">
+        <div class="tipo-row-meta">
+          <div class="tipo-row-name">Heading 2</div>
+          <div class="tipo-row-spec">28–36px · Bold 700</div>
+          <div class="tipo-row-uso">Subtítulos</div>
+        </div>
+        <div class="tipo-row-sample" style="font-size:26px;font-weight:700;letter-spacing:-0.02em">200 canais ao vivo, em HD.</div>
+      </div>
+      <div class="tipo-row">
+        <div class="tipo-row-meta">
+          <div class="tipo-row-name">Subtítulo</div>
+          <div class="tipo-row-spec">20–24px · SemiBold 600</div>
+          <div class="tipo-row-uso">Cards e destaques</div>
+        </div>
+        <div class="tipo-row-sample" style="font-size:20px;font-weight:600;letter-spacing:-0.01em">A partir de R$16,90</div>
+      </div>
+      <div class="tipo-row">
+        <div class="tipo-row-meta">
+          <div class="tipo-row-name">Corpo</div>
+          <div class="tipo-row-spec">15–17px · Regular 400</div>
+          <div class="tipo-row-uso">Parágrafos longos</div>
+        </div>
+        <div class="tipo-row-sample" style="font-size:15px;font-weight:400;line-height:1.7;color:var(--texto)">Funciona no celular, na smart TV, no notebook e no tablet — cada um na sua tela, ao mesmo tempo. A família toda assistindo junto.</div>
+      </div>
+      <div class="tipo-row">
+        <div class="tipo-row-meta">
+          <div class="tipo-row-name">Label / Caption</div>
+          <div class="tipo-row-spec">10–12px · Bold 700</div>
+          <div class="tipo-row-uso">Labels e badges</div>
+        </div>
+        <div class="tipo-row-sample" style="font-size:11px;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:var(--cyan)">STREAMING · FAMÍLIA · HD · 4K</div>
+      </div>
+    </div>
+
+    <!-- Pesos -->
+    <div style="margin-top:48px">
+      <h3 style="font-size:14px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--texto2);margin-bottom:20px">Pesos em uso</h3>
+      <div class="tipo-pesos">
+        <div class="tipo-peso-item">
+          <div class="tipo-peso-label">Black 900</div>
+          <div class="tipo-peso-demo" style="font-weight:900">Smart Play</div>
+          <div class="tipo-peso-num">Títulos hero e marca</div>
+        </div>
+        <div class="tipo-peso-item">
+          <div class="tipo-peso-label">ExtraBold 800</div>
+          <div class="tipo-peso-demo" style="font-weight:800">Smart Play</div>
+          <div class="tipo-peso-num">Títulos de seção</div>
+        </div>
+        <div class="tipo-peso-item">
+          <div class="tipo-peso-label">Bold 700</div>
+          <div class="tipo-peso-demo" style="font-weight:700">Smart Play</div>
+          <div class="tipo-peso-num">Subtítulos e labels</div>
+        </div>
+        <div class="tipo-peso-item">
+          <div class="tipo-peso-label">SemiBold 600</div>
+          <div class="tipo-peso-demo" style="font-weight:600">Smart Play</div>
+          <div class="tipo-peso-num">Botões e destaques</div>
+        </div>
+        <div class="tipo-peso-item">
+          <div class="tipo-peso-label">Regular 400</div>
+          <div class="tipo-peso-demo" style="font-weight:400">Smart Play</div>
+          <div class="tipo-peso-num">Corpo de texto</div>
+        </div>
+        <div class="tipo-peso-item">
+          <div class="tipo-peso-label">Light 300</div>
+          <div class="tipo-peso-demo" style="font-weight:300">Smart Play</div>
+          <div class="tipo-peso-num">Textos secundários</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ELEMENTOS GRÁFICOS
+══════════════════════════════════════════════════════════ -->
+<section style="background:var(--base2)">
+  <div class="wrap">
+    <p class="sec-label">05 — Elementos Gráficos</p>
+    <h2 class="sec-title">Linguagem Visual</h2>
+    <p class="sec-sub">Conjunto de recursos gráficos que dão consistência a todas as peças de comunicação da Smart Play.</p>
+
+    <div class="elem-grid">
+      <div class="elem-card">
+        <div class="elem-preview">
+          <div class="gr-signal">
+            <div class="gr-signal-bar" style="width:8px;height:16px;left:0px"></div>
+            <div class="gr-signal-bar" style="width:8px;height:28px;left:13px"></div>
+            <div class="gr-signal-bar" style="width:8px;height:44px;left:26px"></div>
+            <div class="gr-signal-bar" style="width:8px;height:36px;left:39px;background:linear-gradient(to top,var(--azul),rgba(255,107,107,0.4))"></div>
+            <div class="gr-signal-bar" style="width:8px;height:22px;left:52px;background:linear-gradient(to top,var(--azul),rgba(255,107,107,0.3))"></div>
+          </div>
+        </div>
+        <div class="elem-info">
+          <div class="elem-name">Barras de Sinal</div>
+          <div class="elem-desc">Símbolo de transmissão. Usado em backgrounds, ícones de qualidade e elementos decorativos de conexão familiar.</div>
+        </div>
+      </div>
+      <div class="elem-card">
+        <div class="elem-preview">
+          <div class="gr-grid-pattern"></div>
+        </div>
+        <div class="elem-info">
+          <div class="elem-name">Grade Coral</div>
+          <div class="elem-desc">Padrão de grade sutil. Aplicado como textura de fundo em seções hero, capas e slides de apresentação.</div>
+        </div>
+      </div>
+      <div class="elem-card">
+        <div class="elem-preview">
+          <div class="gr-frame">
+            <div style="display:flex;gap:4px">
+              <div style="width:6px;height:6px;background:var(--cta);border-radius:50%"></div>
+              <div style="width:6px;height:6px;background:rgba(255,255,255,0.2);border-radius:50%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="elem-info">
+          <div class="elem-name">Frame de Tela</div>
+          <div class="elem-desc">Moldura de televisão estilizada. Usada para enquadrar conteúdo em thumbnails, posts e materiais de campanha.</div>
+        </div>
+      </div>
+      <div class="elem-card">
+        <div class="elem-preview">
+          <div class="gr-play"></div>
+        </div>
+        <div class="elem-info">
+          <div class="elem-name">Ícone Play</div>
+          <div class="elem-desc">Triângulo de reprodução na cor dourada CTA. Identifica vídeos, CTAs de ação e botões em toda a plataforma.</div>
+        </div>
+      </div>
+      <div class="elem-card">
+        <div class="elem-preview">
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="height:3px;width:120px;background:linear-gradient(90deg,var(--azul),var(--cta),transparent);border-radius:2px"></div>
+            <div style="height:3px;width:80px;background:linear-gradient(90deg,var(--cta),var(--cyan),transparent);border-radius:2px"></div>
+            <div style="height:3px;width:100px;background:linear-gradient(90deg,var(--cyan),transparent);border-radius:2px;opacity:0.5"></div>
+          </div>
+        </div>
+        <div class="elem-info">
+          <div class="elem-name">Linhas de Gradiente</div>
+          <div class="elem-desc">Divisores decorativos que seguem a paleta da marca. Separam seções e criam ritmo visual nas peças.</div>
+        </div>
+      </div>
+      <div class="elem-card">
+        <div class="elem-preview">
+          <div class="gr-dot-matrix">
+            <div class="gr-dot"></div><div class="gr-dot"></div><div class="gr-dot"></div>
+            <div class="gr-dot"></div><div class="gr-dot"></div><div class="gr-dot"></div>
+            <div class="gr-dot"></div><div class="gr-dot"></div><div class="gr-dot"></div>
+            <div class="gr-dot"></div><div class="gr-dot"></div><div class="gr-dot"></div>
+            <div class="gr-dot"></div><div class="gr-dot"></div><div class="gr-dot"></div>
+            <div class="gr-dot"></div><div class="gr-dot"></div><div class="gr-dot"></div>
+          </div>
+        </div>
+        <div class="elem-info">
+          <div class="elem-name">Matriz de Pontos</div>
+          <div class="elem-desc">Padrão pixelado que remete a telas e conexão. Aplicado como elemento de fundo ou ornamento em cantos.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     MOODBOARD
+══════════════════════════════════════════════════════════ -->
+<section class="moodboard">
+  <div class="wrap">
+    <p class="sec-label">06 — Moodboard</p>
+    <h2 class="sec-title">Universo Visual<br>da Marca</h2>
+    <p class="sec-sub">A Smart Play existe no cruzamento entre <strong>vida em família</strong>, <strong>entretenimento de qualidade</strong> e <strong>simplicidade no dia a dia</strong>. Cada imagem é uma pista de como a marca deve se sentir.</p>
+  </div>
+  <div class="wrap-wide">
+    <div class="mood-grid">
+
+      <!-- Cinema / Qualidade -->
+      <div class="mood-cell mood-cinema" style="background:linear-gradient(145deg,#0A0505 0%,#160A0A 40%,#FF6B6B22 100%);border:1px solid rgba(255,107,107,0.2);">
+        <div style="padding:40px;width:100%;height:100%;display:flex;flex-direction:column;justify-content:space-between">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--cyan)">Cinema · Qualidade</div>
+          <div>
+            <div style="font-size:clamp(40px,6vw,80px);font-weight:900;letter-spacing:-0.04em;line-height:1">4K<br><span style="color:var(--azul)">HD</span><br>FULL</div>
+            <div style="font-size:13px;font-weight:300;color:var(--texto);margin-top:16px;max-width:240px">Qualidade de imagem que antes só a TV a cabo oferecia, agora no preço da família.</div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <div style="width:40px;height:4px;background:var(--cta);border-radius:2px"></div>
+            <div style="width:24px;height:4px;background:var(--azul);border-radius:2px"></div>
+            <div style="width:16px;height:4px;background:var(--cyan);opacity:0.5;border-radius:2px"></div>
+          </div>
+        </div>
+        <div class="mood-cell-label">Qualidade de imagem premium</div>
+      </div>
+
+      <!-- Família -->
+      <div class="mood-cell mood-familia" style="background:linear-gradient(145deg,#170909,#2a1010);border:1px solid var(--border);">
+        <div style="padding:24px;text-align:center;width:100%">
+          <div style="font-size:48px;margin-bottom:12px">👨‍👩‍👧‍👦</div>
+          <div style="font-size:16px;font-weight:700">A família toda<br>na mesma casa.</div>
+          <div style="font-size:12px;font-weight:300;color:var(--texto);margin-top:8px">Cada um na sua tela.</div>
+        </div>
+        <div class="mood-cell-label">Entretenimento familiar</div>
+      </div>
+
+      <!-- Tech / Digital -->
+      <div class="mood-cell mood-tech" style="background:#060303;border:1px solid var(--border);">
+        <div style="padding:24px;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
+            <span style="background:rgba(255,107,107,0.2);border:1px solid var(--azul);border-radius:6px;padding:6px 12px;font-size:11px;font-weight:700;color:var(--cyan)">Smart TV</span>
+            <span style="background:rgba(255,107,107,0.2);border:1px solid var(--azul);border-radius:6px;padding:6px 12px;font-size:11px;font-weight:700;color:var(--cyan)">iOS</span>
+            <span style="background:rgba(255,107,107,0.2);border:1px solid var(--azul);border-radius:6px;padding:6px 12px;font-size:11px;font-weight:700;color:var(--cyan)">Android</span>
+            <span style="background:rgba(255,217,61,0.15);border:1px solid var(--cta);border-radius:6px;padding:6px 12px;font-size:11px;font-weight:700;color:var(--cta)">Fire TV</span>
+          </div>
+          <div style="font-size:12px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--texto2)">Em qualquer tela</div>
+        </div>
+        <div class="mood-cell-label">Compatibilidade total</div>
+      </div>
+
+      <!-- Noite / Lifestyle -->
+      <div class="mood-cell mood-noite" style="background:linear-gradient(135deg,#140a14,#1a1030);border:1px solid var(--border);">
+        <div style="padding:40px;width:100%">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--texto2);margin-bottom:24px">Lifestyle · Cotidiano</div>
+          <div style="font-size:clamp(22px,3vw,36px);font-weight:800;letter-spacing:-0.02em;line-height:1.2;margin-bottom:20px">
+            Sexta 21h.<br>
+            <span style="color:var(--cta)">Sofá, pipoca,</span><br>
+            família.
+          </div>
+          <div style="font-size:13px;font-weight:300;color:var(--texto);line-height:1.7">O fim da semana é da família. A Smart Play garante que o entretenimento vai estar lá, funcionando, sem tela travando, sem frustração.</div>
+        </div>
+        <div class="mood-cell-label">Momento de estar junto</div>
+      </div>
+
+      <!-- Futebol / Esportes (secundário) -->
+      <div class="mood-cell mood-jogo" style="background:linear-gradient(135deg,#0F0808 0%,#1B0B0B 50%,#0A0505 100%);border:1px solid rgba(255,107,107,0.3);">
+        <div style="padding:40px;width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+          <div style="flex:1;min-width:200px">
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--cta);margin-bottom:16px">Futebol · Esportes Ao Vivo</div>
+            <div style="font-size:clamp(28px,4vw,56px);font-weight:900;letter-spacing:-0.03em;line-height:1">Não perca<br><span style="color:var(--cta)">nenhum</span><br>jogo.</div>
+            <div style="font-size:13px;font-weight:300;color:var(--texto);margin-top:16px">Brasileirão, Libertadores, Champions — tudo ao vivo, sem pagar a mais.</div>
+          </div>
+          <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:16px">
+            <div style="width:120px;height:80px;border:2px solid rgba(255,217,61,0.4);border-radius:8px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
+              <div style="position:absolute;inset:0;background:linear-gradient(to right,#FF6B6B20,#FFD93D20)"></div>
+              <div style="position:relative;text-align:center">
+                <div style="font-size:24px;font-weight:900;letter-spacing:-0.03em">2 <span style="color:var(--cta)">×</span> 1</div>
+                <div style="font-size:8px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--texto2)">AO VIVO</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:8px">
+              <div style="width:8px;height:8px;border-radius:50%;background:var(--cta);animation:pulse 2s infinite"></div>
+              <span style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--cta)">Ao Vivo</span>
+            </div>
+          </div>
+        </div>
+        <div class="mood-cell-label">Futebol e esportes — driver secundário de conversão</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     APLICAÇÕES
+══════════════════════════════════════════════════════════ -->
+<section>
+  <div class="wrap">
+    <p class="sec-label">07 — Aplicações da Marca</p>
+    <h2 class="sec-title">A marca em uso</h2>
+    <p class="sec-sub">Como a identidade Smart Play se aplica nos principais pontos de contato com o cliente.</p>
+
+    <div class="apps-grid">
+
+      <!-- Cartão de Visita -->
+      <div class="app-card">
+        <div class="app-card-label">Cartão de Visita</div>
+        <div class="app-card-preview">
+          <div class="biz-card">
+            <div>
+              <div class="biz-name">Smart<span>Play</span></div>
+              <div class="biz-tagline">A família inteira assistindo.</div>
+            </div>
+            <div class="biz-contact">
+              contato@smartplay.com.br<br>
+              @smartplay_oficial<br>
+              (11) 9 0000-0000
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- App Icon -->
+      <div class="app-card">
+        <div class="app-card-label">Ícone de Aplicativo</div>
+        <div class="app-card-preview">
+          <div class="app-icons-row">
+            <div class="app-icon">
+              <div class="app-icon-box app-icon-lg">
+                <svg width="44" height="44" viewBox="0 0 32 32" fill="none">
+                  <rect x="4" y="18" width="4" height="10" rx="2" fill="#4ECDC4" opacity="0.5"/>
+                  <rect x="10" y="12" width="4" height="16" rx="2" fill="#4ECDC4" opacity="0.75"/>
+                  <rect x="16" y="6" width="4" height="22" rx="2" fill="#4ECDC4"/>
+                  <rect x="22" y="10" width="4" height="18" rx="2" fill="rgba(255,255,255,0.6)"/>
+                </svg>
+              </div>
+              <div class="app-icon-label">96px</div>
+            </div>
+            <div class="app-icon">
+              <div class="app-icon-box app-icon-md">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                  <rect x="4" y="18" width="4" height="10" rx="2" fill="#4ECDC4" opacity="0.5"/>
+                  <rect x="10" y="12" width="4" height="16" rx="2" fill="#4ECDC4" opacity="0.75"/>
+                  <rect x="16" y="6" width="4" height="22" rx="2" fill="#4ECDC4"/>
+                  <rect x="22" y="10" width="4" height="18" rx="2" fill="rgba(255,255,255,0.6)"/>
+                </svg>
+              </div>
+              <div class="app-icon-label">60px</div>
+            </div>
+            <div class="app-icon">
+              <div class="app-icon-box app-icon-sm">
+                <svg width="16" height="16" viewBox="0 0 32 32" fill="none">
+                  <rect x="4" y="18" width="4" height="10" rx="2" fill="white" opacity="0.8"/>
+                  <rect x="10" y="12" width="4" height="16" rx="2" fill="white"/>
+                  <rect x="16" y="6" width="4" height="22" rx="2" fill="white"/>
+                  <rect x="22" y="10" width="4" height="18" rx="2" fill="rgba(255,255,255,0.6)"/>
+                </svg>
+              </div>
+              <div class="app-icon-label">32px</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post Instagram -->
+      <div class="app-card">
+        <div class="app-card-label">Post Instagram</div>
+        <div class="app-card-preview">
+          <div class="social-mock">
+            <div class="social-mock-bar">
+              <div class="social-mock-avatar">S</div>
+              <div>
+                <div class="social-mock-name">smartplay_oficial</div>
+                <div class="social-mock-handle">Patrocinado</div>
+              </div>
+            </div>
+            <div class="social-mock-img">
+              <div style="font-size:10px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px">STREAMING EM FAMÍLIA</div>
+              <div style="font-size:20px;font-weight:900;letter-spacing:-0.02em;text-align:center;line-height:1.1">Assista com<br><span style="color:var(--cta)">quem você ama.</span></div>
+              <div style="margin-top:12px;background:var(--cta);color:var(--oncta);font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:6px 14px;border-radius:4px">Assinar Agora</div>
+            </div>
+            <div class="social-mock-caption">Canais ao vivo, filmes e séries para toda a família. A partir de R$16,90. Link na bio.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thumbnail YouTube -->
+      <div class="app-card">
+        <div class="app-card-label">Thumbnail YouTube</div>
+        <div class="app-card-preview">
+          <div class="yt-mock">
+            <div class="yt-img-area">
+              <div class="yt-img-content">
+                <div style="font-size:9px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px">SMART PLAY</div>
+                <div class="yt-headline">Por que famílias inteiras estão <span>trocando a TV a cabo</span></div>
+              </div>
+              <div class="yt-play-btn"><div class="yt-play-arrow"></div></div>
+            </div>
+            <div class="yt-meta">
+              <div class="yt-ch-icon">S</div>
+              <div class="yt-ch-info">
+                <div class="yt-ch-name">Smart Play Oficial</div>
+                <div class="yt-ch-views">98 mil visualizações</div>
+              </div>
+              <div class="yt-badge">HD</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     VOZ DA MARCA
+══════════════════════════════════════════════════════════ -->
+<section style="background:var(--base2)">
+  <div class="wrap">
+    <p class="sec-label">08 — Voz e Tom da Marca</p>
+    <h2 class="sec-title">Como a Smart Play fala</h2>
+    <p class="sec-sub">A marca fala como um vizinho de confiança — direto, simples, sem enrolação. Nunca técnico demais, nunca exagerado. A pessoa que a família chama quando precisa de uma indicação boa e honesta.</p>
+
+    <div class="voice-grid">
+      <div class="voice-item voice-ok">
+        <h4>Falamos assim</h4>
+        <p class="voice-example">"<strong>Cada um assiste o que quer,</strong> ao mesmo tempo, na mesma casa."</p>
+      </div>
+      <div class="voice-item voice-no">
+        <h4>Não falamos assim</h4>
+        <p class="voice-example">"Nossa plataforma oferece <strong>latência ultra-baixa</strong> e <strong>codificação H.265</strong> para máxima eficiência de banda."</p>
+      </div>
+      <div class="voice-item voice-ok">
+        <h4>Falamos assim</h4>
+        <p class="voice-example">"<strong>R$16,90. Sem fidelidade,</strong> sem contrato, sem dor de cabeça."</p>
+      </div>
+      <div class="voice-item voice-no">
+        <h4>Não falamos assim</h4>
+        <p class="voice-example">"Aproveite nossa <strong>oferta imperdível</strong> e assine agora! Não perca essa <strong>oportunidade única</strong>!!!"</p>
+      </div>
+      <div class="voice-item voice-ok">
+        <h4>Falamos assim</h4>
+        <p class="voice-example">"<strong>Canais ao vivo, filmes e séries.</strong> Brasileirão, Libertadores, Champions — tudo numa assinatura, do jeito que sua família gosta."</p>
+      </div>
+      <div class="voice-item voice-no">
+        <h4>Não falamos assim</h4>
+        <p class="voice-example">"Somos a <strong>melhor plataforma</strong> do mercado com a mais avançada tecnologia de streaming do Brasil."</p>
+      </div>
+    </div>
+
+    <!-- Adjetivos da marca -->
+    <div style="margin-top:64px;padding:40px;background:var(--card);border:1px solid var(--border);border-radius:16px">
+      <div class="sec-label" style="margin-bottom:24px">A marca é</div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <span style="background:rgba(255,107,107,0.15);border:1px solid var(--azul);border-radius:8px;padding:10px 20px;font-size:14px;font-weight:700;color:var(--branco)">Direta</span>
+        <span style="background:rgba(255,107,107,0.15);border:1px solid var(--azul);border-radius:8px;padding:10px 20px;font-size:14px;font-weight:700;color:var(--branco)">Confiável</span>
+        <span style="background:rgba(255,107,107,0.15);border:1px solid var(--azul);border-radius:8px;padding:10px 20px;font-size:14px;font-weight:700;color:var(--branco)">Acolhedora</span>
+        <span style="background:rgba(255,107,107,0.15);border:1px solid var(--azul);border-radius:8px;padding:10px 20px;font-size:14px;font-weight:700;color:var(--branco)">Familiar</span>
+        <span style="background:rgba(255,107,107,0.15);border:1px solid var(--azul);border-radius:8px;padding:10px 20px;font-size:14px;font-weight:700;color:var(--branco)">Brasileira</span>
+        <span style="background:rgba(255,217,61,0.15);border:1px solid var(--cta);border-radius:8px;padding:10px 20px;font-size:14px;font-weight:700;color:var(--cta)">Honesta</span>
+        <span style="background:rgba(255,217,61,0.15);border:1px solid var(--cta);border-radius:8px;padding:10px 20px;font-size:14px;font-weight:700;color:var(--cta)">Descomplicada</span>
+      </div>
+      <div style="margin-top:28px;display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+        <span style="font-size:13px;font-weight:300;color:var(--texto2)">A marca NÃO é:</span>
+        <span style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:500;color:rgba(239,68,68,0.6);text-decoration:line-through">Pirata</span>
+        <span style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:500;color:rgba(239,68,68,0.6);text-decoration:line-through">Underground</span>
+        <span style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:500;color:rgba(239,68,68,0.6);text-decoration:line-through">Técnica demais</span>
+        <span style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:500;color:rgba(239,68,68,0.6);text-decoration:line-through">Exagerada</span>
+        <span style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:8px;padding:6px 14px;font-size:12px;font-weight:500;color:rgba(239,68,68,0.6);text-decoration:line-through">Fria</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     RODAPÉ
+══════════════════════════════════════════════════════════ -->
+<section style="background:#060303;border-bottom:none;padding:64px 0">
+  <div class="wrap">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:48px;flex-wrap:wrap">
+      <div style="flex:1;min-width:240px">
+        <div class="logo-c4b" style="margin-bottom:24px">
+          <div class="logo-c4b-main">
+            <span class="logo-c4b-smart" style="font-size:34px">Smart</span>
+            <span class="logo-c4b-play" style="font-size:34px">Play</span>
+          </div>
+          <div class="logo-c4b-underline"></div>
+        </div>
+        <p style="font-size:13px;font-weight:300;color:var(--texto2);line-height:1.7;max-width:280px">"A família inteira assistindo." — A promessa que guia cada decisão de design da marca.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px">
+        <div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:var(--texto2);margin-bottom:16px">Cores</div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;align-items:center;gap:10px"><div style="width:16px;height:16px;border-radius:4px;background:#0F0808;border:1px solid rgba(255,255,255,0.1)"></div><span style="font-size:12px;color:var(--texto2)">#0F0808 · Base</span></div>
+            <div style="display:flex;align-items:center;gap:10px"><div style="width:16px;height:16px;border-radius:4px;background:#FF6B6B"></div><span style="font-size:12px;color:var(--texto2)">#FF6B6B · Primária</span></div>
+            <div style="display:flex;align-items:center;gap:10px"><div style="width:16px;height:16px;border-radius:4px;background:#FFD93D"></div><span style="font-size:12px;color:var(--texto2)">#FFD93D · CTA</span></div>
+            <div style="display:flex;align-items:center;gap:10px"><div style="width:16px;height:16px;border-radius:4px;background:#4ECDC4"></div><span style="font-size:12px;color:var(--texto2)">#4ECDC4 · Destaque</span></div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:var(--texto2);margin-bottom:16px">Tipografia</div>
+          <div style="font-size:13px;color:var(--texto2);line-height:2">
+            Montserrat<br>
+            Black 900<br>
+            ExtraBold 800<br>
+            Bold 700<br>
+            Regular 400
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:48px;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+      <span style="font-size:11px;color:var(--texto2)">Smart Play — Brandbook v1.0 · Paleta 02 — 2026</span>
+      <span style="font-size:11px;color:var(--texto2)">Documento confidencial — uso interno</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SEÇÃO 09 — APLICAÇÕES EM REDES SOCIAIS
+══════════════════════════════════════════════════════════ -->
+<section style="padding:96px 0;border-top:1px solid rgba(255,255,255,0.07);background:#0F0808;">
+<div style="max-width:1100px;margin:0 auto;padding:0 48px;">
+
+  <!-- Header -->
+  <p style="font-size:10px;font-weight:700;letter-spacing:0.45em;text-transform:uppercase;color:#4ECDC4;margin-bottom:14px;font-family:'Montserrat',sans-serif;">09 — Aplicações em Redes Sociais</p>
+  <h2 style="font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:16px;font-family:'Montserrat',sans-serif;">A Marca em<br>Movimento Digital</h2>
+  <p style="font-size:16px;font-weight:300;color:#c8a0a0;max-width:640px;line-height:1.75;margin-bottom:64px;font-family:'Montserrat',sans-serif;">Como a identidade <strong style="color:#fff;font-weight:600;">Smart Play · Coral Família</strong> se aplica nos principais formatos de conteúdo — anúncios pagos, posts de feed, carrossel e Reels.</p>
+
+  <!-- ─── 1. ANÚNCIOS PATROCINADOS ─────────────── -->
+  <div style="margin-bottom:64px;">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:28px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:#4ECDC4;font-family:'Montserrat',sans-serif;">Anúncios Patrocinados — 1080×1080px</div>
+      <div style="flex:1;height:1px;background:rgba(255,255,255,0.06);"></div>
+      <div style="font-size:9px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.2);font-family:'Montserrat',sans-serif;">Meta Ads · Google</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+
+      <!-- Ad 1: Conversao -->
+      <div style="border:1px solid rgba(255,107,107,0.2);border-radius:12px;overflow:hidden;">
+        <div style="aspect-ratio:1/1;position:relative;background:linear-gradient(160deg,#0a0505 0%,#200a0a 40%,#0F0808 100%);display:flex;flex-direction:column;overflow:hidden;padding:28px 24px;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,0.6) 100%);pointer-events:none;"></div>
+          <div style="position:absolute;top:0;right:0;width:180px;height:180px;background:radial-gradient(ellipse at 100% 0%,rgba(255,107,107,0.18) 0%,transparent 70%);pointer-events:none;"></div>
+          <!-- Barra lateral de sinal -->
+          <div style="position:absolute;right:20px;bottom:28px;display:flex;gap:4px;align-items:flex-end;">
+            <div style="width:5px;height:10px;border-radius:2px;background:#FF6B6B;opacity:0.3;"></div>
+            <div style="width:5px;height:16px;border-radius:2px;background:#FF6B6B;opacity:0.5;"></div>
+            <div style="width:5px;height:24px;border-radius:2px;background:#FF6B6B;opacity:0.7;"></div>
+            <div style="width:5px;height:32px;border-radius:2px;background:#FF6B6B;"></div>
+          </div>
+          <!-- Conteúdo -->
+          <div style="position:relative;z-index:2;display:flex;flex-direction:column;gap:8px;flex:1;">
+            <div style="font-size:9px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:rgba(78,205,196,0.8);font-family:'Montserrat',sans-serif;">Smart Play · Família</div>
+            <div style="width:20px;height:2px;background:#4ECDC4;border-radius:1px;"></div>
+            <div style="font-size:clamp(20px,3.2vw,29px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;color:#fff;font-family:'Montserrat',sans-serif;">A família<br>inteira<br><span style="color:#FFD93D;">assistindo.</span></div>
+            <div style="font-size:11px;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.5;font-family:'Montserrat',sans-serif;margin-top:4px;">Cada um na sua tela, ao mesmo tempo.<br>200+ canais ao vivo.</div>
+          </div>
+          <!-- CTA -->
+          <div style="position:relative;z-index:2;margin-top:auto;">
+            <div style="display:inline-block;background:#FFD93D;color:#2B1608;font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;padding:8px 16px;border-radius:5px;font-family:'Montserrat',sans-serif;">Assinar Agora</div>
+          </div>
+          <!-- Logo watermark -->
+          <div style="position:absolute;bottom:14px;right:18px;z-index:2;font-size:9px;font-weight:900;letter-spacing:-0.02em;color:rgba(255,255,255,0.15);font-family:'Montserrat',sans-serif;">Smart<span style="font-weight:200;">Play</span></div>
+        </div>
+        <div style="padding:14px 16px;background:#201414;border-top:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:13px;font-weight:700;margin-bottom:3px;font-family:'Montserrat',sans-serif;">Anúncio de Conversão</div>
+          <div style="font-size:11px;font-weight:300;color:rgba(255,255,255,0.4);font-family:'Montserrat',sans-serif;">Big idea direta + benefício de multi-tela — CTA forte para assinatura</div>
+        </div>
+      </div>
+
+      <!-- Ad 2: Prova Social -->
+      <div style="border:1px solid rgba(255,107,107,0.2);border-radius:12px;overflow:hidden;">
+        <div style="aspect-ratio:1/1;position:relative;background:linear-gradient(160deg,#0a0505 0%,#1c0808 50%,#080404 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;padding:28px 24px;text-align:center;">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse 200px 200px at 50% 30%,rgba(255,107,107,0.15) 0%,transparent 70%);pointer-events:none;"></div>
+          <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;">
+            <div style="width:36px;height:2px;background:#4ECDC4;border-radius:1px;"></div>
+            <div style="font-size:26px;font-weight:900;letter-spacing:-0.04em;line-height:0.9;background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.6) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Montserrat',sans-serif;">Smart<span style="font-weight:200;">Play</span></div>
+            <div style="width:36px;height:2px;background:#4ECDC4;border-radius:1px;"></div>
+            <div style="font-size:13px;font-weight:300;font-style:italic;color:rgba(255,255,255,0.75);line-height:1.6;max-width:210px;font-family:'Montserrat',sans-serif;">"Nunca mais briguei pelo controle com meu marido. Cada um assiste o que quer."</div>
+            <div style="font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:#4ECDC4;font-family:'Montserrat',sans-serif;">— Ana C., assinante</div>
+            <div style="width:36px;height:2px;background:rgba(255,255,255,0.1);"></div>
+            <div style="font-size:14px;font-weight:700;color:#fff;line-height:1.3;font-family:'Montserrat',sans-serif;">Sua família pode<br><em style="color:#FFD93D;font-style:normal;">ser a próxima.</em></div>
+          </div>
+          <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);z-index:2;">
+            <div style="font-size:8px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:rgba(78,205,196,0.4);font-family:'Montserrat',sans-serif;">smartplay.com.br</div>
+          </div>
+        </div>
+        <div style="padding:14px 16px;background:#201414;border-top:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:13px;font-weight:700;margin-bottom:3px;font-family:'Montserrat',sans-serif;">Anúncio de Prova Social</div>
+          <div style="font-size:11px;font-weight:300;color:rgba(255,255,255,0.4);font-family:'Montserrat',sans-serif;">Depoimento real de família + identidade da marca — credibilidade</div>
+        </div>
+      </div>
+
+      <!-- Ad 3: Oferta -->
+      <div style="border:1px solid rgba(255,107,107,0.2);border-radius:12px;overflow:hidden;">
+        <div style="aspect-ratio:1/1;position:relative;background:linear-gradient(160deg,#080404 0%,#180a0a 60%,#060303 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;padding:28px 24px;text-align:center;">
+          <div style="position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to top,rgba(255,217,61,0.18) 0%,transparent 100%);pointer-events:none;"></div>
+          <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;">
+            <div style="font-size:9px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:rgba(78,205,196,0.7);font-family:'Montserrat',sans-serif;">Acesso completo por</div>
+            <div style="font-size:48px;font-weight:900;letter-spacing:-0.04em;line-height:0.9;color:#FFD93D;font-family:'Montserrat',sans-serif;">R$16,90</div>
+            <div style="font-size:14px;font-weight:300;color:rgba(255,255,255,0.5);font-family:'Montserrat',sans-serif;">15 dias · sem fidelidade</div>
+            <div style="width:40px;height:2px;background:#4ECDC4;border-radius:1px;margin:4px 0;"></div>
+            <div style="font-size:11px;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.5;font-family:'Montserrat',sans-serif;">200+ canais · HD e 4K<br>até 3 telas</div>
+            <div style="background:#FF6B6B;color:#fff;font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:8px 18px;border-radius:5px;margin-top:8px;font-family:'Montserrat',sans-serif;">Assinar Agora</div>
+          </div>
+          <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);z-index:2;font-size:9px;font-weight:900;letter-spacing:-0.02em;color:rgba(255,255,255,0.2);font-family:'Montserrat',sans-serif;">Smart<span style="font-weight:200;">Play</span></div>
+        </div>
+        <div style="padding:14px 16px;background:#201414;border-top:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:13px;font-weight:700;margin-bottom:3px;font-family:'Montserrat',sans-serif;">Anúncio de Oferta</div>
+          <div style="font-size:11px;font-weight:300;color:rgba(255,255,255,0.4);font-family:'Montserrat',sans-serif;">Preço em destaque + benefícios claros — foco na decisão de compra</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ─── 2. POSTS FEED — IMAGEM ESTÁTICA ──────── -->
+  <div style="margin-bottom:64px;">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:28px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:#4ECDC4;font-family:'Montserrat',sans-serif;">Posts Feed — Imagem Estática · 1080×1080px</div>
+      <div style="flex:1;height:1px;background:rgba(255,255,255,0.06);"></div>
+      <div style="font-size:9px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.2);font-family:'Montserrat',sans-serif;">Instagram · Facebook</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+
+      <!-- Post 1: Educativo -->
+      <div style="border:1px solid rgba(255,255,255,0.07);border-radius:12px;overflow:hidden;">
+        <div style="background:#1A0E0E;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,0.05);">
+          <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#FF6B6B,#4ECDC4);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;flex-shrink:0;">S</div>
+          <div><div style="font-size:11px;font-weight:700;font-family:'Montserrat',sans-serif;">smartplay_oficial</div><div style="font-size:9px;color:rgba(255,255,255,0.4);font-family:'Montserrat',sans-serif;">Publicação</div></div>
+        </div>
+        <div style="aspect-ratio:1/1;position:relative;background:linear-gradient(140deg,#0a0505 0%,#1e0808 50%,#0F0808 100%);display:flex;flex-direction:column;overflow:hidden;padding:24px 20px;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(0,0,0,0.5) 100%);pointer-events:none;"></div>
+          <div style="position:relative;z-index:2;flex:1;">
+            <div style="font-size:9px;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:#4ECDC4;margin-bottom:8px;font-family:'Montserrat',sans-serif;">Educativo</div>
+            <div style="width:18px;height:2px;background:#4ECDC4;border-radius:1px;margin-bottom:12px;"></div>
+            <div style="font-size:17px;font-weight:800;letter-spacing:-0.02em;line-height:1.2;color:#fff;margin-bottom:16px;font-family:'Montserrat',sans-serif;">5 sinais que a<br>TV a cabo está<br><span style="color:#FFD93D;">pesando no bolso.</span></div>
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              <div style="display:flex;align-items:center;gap:8px;"><div style="width:18px;height:18px;background:#FF6B6B;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:8px;font-weight:700;color:#fff;font-family:'Montserrat',sans-serif;">01</div><span style="font-size:11px;color:rgba(255,255,255,0.8);font-family:'Montserrat',sans-serif;">Paga mais de R$150/mês</span></div>
+              <div style="display:flex;align-items:center;gap:8px;"><div style="width:18px;height:18px;background:#FF6B6B;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:8px;font-weight:700;color:#fff;font-family:'Montserrat',sans-serif;">02</div><span style="font-size:11px;color:rgba(255,255,255,0.8);font-family:'Montserrat',sans-serif;">Só uma tela por vez</span></div>
+              <div style="display:flex;align-items:center;gap:8px;"><div style="width:18px;height:18px;background:#FF6B6B;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:8px;font-weight:700;color:#fff;font-family:'Montserrat',sans-serif;">03</div><span style="font-size:11px;color:rgba(255,255,255,0.8);font-family:'Montserrat',sans-serif;">Fidelidade de 12 meses</span></div>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:2;font-size:8px;font-weight:900;letter-spacing:0.1em;color:rgba(255,255,255,0.2);font-family:'Montserrat',sans-serif;white-space:nowrap;">Smart<span style="font-weight:200;">Play</span></div>
+        </div>
+        <div style="padding:10px 14px;background:#1A0E0E;border-top:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:11px;font-weight:300;color:rgba(255,255,255,0.4);line-height:1.6;font-family:'Montserrat',sans-serif;">👍 🔁 💬 &nbsp; <span style="color:rgba(255,255,255,0.6)">3.9k curtidas</span></div>
+        </div>
+        <div style="padding:12px 14px;background:#201414;border-top:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:12px;font-weight:700;margin-bottom:2px;font-family:'Montserrat',sans-serif;">Post Educativo — Lista</div>
+          <div style="font-size:10px;font-weight:300;color:rgba(255,255,255,0.4);font-family:'Montserrat',sans-serif;">Dor + conscientização — alto compartilhamento</div>
+        </div>
+      </div>
+
+      <!-- Post 2: Motivacional -->
+      <div style="border:1px solid rgba(255,255,255,0.07);border-radius:12px;overflow:hidden;">
+        <div style="background:#1A0E0E;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,0.05);">
+          <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#FF6B6B,#4ECDC4);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;flex-shrink:0;">S</div>
+          <div><div style="font-size:11px;font-weight:700;font-family:'Montserrat',sans-serif;">smartplay_oficial</div><div style="font-size:9px;color:rgba(255,255,255,0.4);font-family:'Montserrat',sans-serif;">Publicação</div></div>
+        </div>
+        <div style="aspect-ratio:1/1;position:relative;background:linear-gradient(160deg,#060303 0%,#180606 50%,#080404 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;padding:28px 22px;text-align:center;">
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:240px;height:240px;border-radius:50%;border:1px solid rgba(255,107,107,0.1);pointer-events:none;"></div>
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:160px;height:160px;border-radius:50%;border:1px solid rgba(255,107,107,0.08);pointer-events:none;"></div>
+          <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:12px;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:-0.02em;line-height:0.9;background:linear-gradient(135deg,#fff,rgba(255,255,255,0.5));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Montserrat',sans-serif;">Smart<span>Play</span></div>
+            <div style="width:32px;height:2px;background:#4ECDC4;border-radius:1px;"></div>
+            <div style="font-size:18px;font-weight:800;letter-spacing:-0.02em;line-height:1.2;color:#fff;font-family:'Montserrat',sans-serif;">Sexta à noite.<br>Sofá, pipoca,<br><span style="color:#FFD93D;">família toda junto.</span></div>
+            <div style="width:32px;height:2px;background:#4ECDC4;border-radius:1px;"></div>
+            <div style="font-size:11px;font-weight:300;font-style:italic;color:rgba(255,255,255,0.55);line-height:1.6;font-family:'Montserrat',sans-serif;">Vocês merecem esse<br>momento. A gente garante.</div>
+          </div>
+          <div style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:2;font-size:8px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:rgba(78,205,196,0.4);font-family:'Montserrat',sans-serif;white-space:nowrap;">smartplay.com.br</div>
+        </div>
+        <div style="padding:10px 14px;background:#1A0E0E;border-top:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:11px;font-weight:300;color:rgba(255,255,255,0.4);line-height:1.6;font-family:'Montserrat',sans-serif;">👍 🔁 💬 &nbsp; <span style="color:rgba(255,255,255,0.6)">7.2k curtidas</span></div>
+        </div>
+        <div style="padding:12px 14px;background:#201414;border-top:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:12px;font-weight:700;margin-bottom:2px;font-family:'Montserrat',sans-serif;">Post Motivacional</div>
+          <div style="font-size:10px;font-weight:300;color:rgba(255,255,255,0.4);font-family:'Montserrat',sans-serif;">Conexão emocional + lifestyle familiar — alto engajamento</div>
+        </div>
+      </div>
+
+      <!-- Post 3: Oferta -->
+      <div style="border:1px solid rgba(255,255,255,0.07);border-radius:12px;overflow:hidden;">
+        <div style="background:#1A0E0E;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,0.05);">
+          <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#FF6B6B,#4ECDC4);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;flex-shrink:0;">S</div>
+          <div><div style="font-size:11px;font-weight:700;font-family:'Montserrat',sans-serif;">smartplay_oficial</div><div style="font-size:9px;color:rgba(255,255,255,0.4);font-family:'Montserrat',sans-serif;">Publicação</div></div>
+        </div>
+        <div style="aspect-ratio:1/1;position:relative;background:linear-gradient(150deg,#090404 0%,#1c0a0a 60%,#0F0808 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;padding:28px 22px;text-align:center;">
+          <div style="position:absolute;bottom:0;left:0;right:0;height:35%;background:linear-gradient(to top,rgba(255,217,61,0.2) 0%,transparent 100%);pointer-events:none;"></div>
+          <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;">
+            <div style="font-size:9px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:rgba(78,205,196,0.7);font-family:'Montserrat',sans-serif;">Sempre por perto</div>
+            <div style="font-size:30px;font-weight:900;letter-spacing:-0.03em;line-height:1.05;color:#FFD93D;font-family:'Montserrat',sans-serif;">Suporte via<br>WhatsApp</div>
+            <div style="font-size:14px;font-weight:300;color:rgba(255,255,255,0.6);font-family:'Montserrat',sans-serif;">completamente sem fidelidade</div>
+            <div style="width:36px;height:2px;background:#4ECDC4;border-radius:1px;"></div>
+            <div style="font-size:12px;font-weight:300;color:rgba(255,255,255,0.65);line-height:1.6;font-family:'Montserrat',sans-serif;">Atendimento humano<br>Cancela quando quiser</div>
+            <div style="border:1px solid #FF6B6B;color:#FF6B6B;font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;padding:6px 16px;border-radius:5px;margin-top:6px;font-family:'Montserrat',sans-serif;">Chamar no WhatsApp</div>
+          </div>
+          <div style="position:absolute;bottom:12px;right:16px;z-index:2;font-size:9px;font-weight:900;letter-spacing:-0.02em;color:rgba(255,255,255,0.18);font-family:'Montserrat',sans-serif;">Smart<span style="font-weight:200;">Play</span></div>
+        </div>
+        <div style="padding:10px 14px;background:#1A0E0E;border-top:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:11px;font-weight:300;color:rgba(255,255,255,0.4);line-height:1.6;font-family:'Montserrat',sans-serif;">👍 🔁 💬 &nbsp; <span style="color:rgba(255,255,255,0.6)">2.8k curtidas</span></div>
+        </div>
+        <div style="padding:12px 14px;background:#201414;border-top:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:12px;font-weight:700;margin-bottom:2px;font-family:'Montserrat',sans-serif;">Post de Suporte — Confiança</div>
+          <div style="font-size:10px;font-weight:300;color:rgba(255,255,255,0.4);font-family:'Montserrat',sans-serif;">Reforça atendimento humano e ausência de fidelidade</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ─── 3. CARROSSEL ──────────────────────────── -->
+  <div style="margin-bottom:64px;">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:28px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:#4ECDC4;font-family:'Montserrat',sans-serif;">Carrossel — 1080×1080px · 3–7 Slides</div>
+      <div style="flex:1;height:1px;background:rgba(255,255,255,0.06);"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+
+      <!-- Slide 1: Capa / Gancho -->
+      <div style="border:1px solid rgba(255,255,255,0.07);border-radius:12px;overflow:hidden;">
+        <div style="aspect-ratio:1/1;position:relative;background:linear-gradient(160deg,#0a0505 0%,#200a0a 40%,#0F0808 100%);display:flex;flex-direction:column;overflow:hidden;padding:24px 20px;">
+          <!-- Indicadores de slide -->
+          <div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:4px;">
+            <div style="width:20px;height:3px;background:#4ECDC4;border-radius:2px;"></div>
+            <div style="width:8px;height:3px;background:rgba(255,255,255,0.25);border-radius:2px;"></div>
+            <div style="width:8px;height:3px;background:rgba(255,255,255,0.25);border-radius:2px;"></div>
+          </div>
+          <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,0.55) 100%);pointer-events:none;"></div>
+          <div style="position:relative;z-index:2;display:flex;flex-direction:column;height:100%;justify-content:flex-end;padding-top:32px;">
+            <div style="font-size:9px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:#4ECDC4;margin-bottom:8px;font-family:'Montserrat',sans-serif;">Chega de brigar pelo controle</div>
+            <div style="font-size:20px;font-weight:900;letter-spacing:-0.03em;line-height:1.1;color:#fff;margin-bottom:12px;font-family:'Montserrat',sans-serif;">Cada um assiste<br>o que quer,<br><span style="color:#FFD93D;">ao mesmo tempo.</span></div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:auto;">
+              <div style="font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);font-family:'Montserrat',sans-serif;">Arraste para ver</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.5);">›</div>
+            </div>
+          </div>
+        </div>
+        <div style="padding:12px 14px;background:#201414;border-top:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:12px;font-weight:700;margin-bottom:2px;font-family:'Montserrat',sans-serif;">Slide 1 — Capa / Gancho</div>
+          <div style="font-size:10px;font-weight:300;color:rgba(255,255,255,0.4);font-family:'Montserrat',sans-serif;">Dor familiar comum + convida para arrastar</div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Conteudo -->
+      <div style="border:1px solid rgba(255,255,255,0.07);border-radius:12px;overflow:hidden;">
+        <div style="aspect-ratio:1/1;position:relative;background:linear-gradient(160deg,#0a0505 0%,#1c0808 50%,#080404 100%);display:flex;flex-direction:column;overflow:hidden;padding:24px 20px;">
+          <div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:4px;">
+            <div style="width:8px;height:3px;background:rgba(255,255,255,0.25);border-radius:2px;"></div>
+            <div style="width:20px;height:3px;background:#4ECDC4;border-radius:2px;"></div>
+            <div style="width:8px;height:3px;background:rgba(255,255,255,0.25);border-radius:2px;"></div>
+          </div>
+          <div style="position:relative;z-index:2;display:flex;flex-direction:column;height:100%;padding-top:28px;gap:10px;">
+            <div style="font-size:9px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:#4ECDC4;font-family:'Montserrat',sans-serif;">O que a Smart Play entrega</div>
+            <div style="display:flex;flex-direction:column;gap:8px;flex:1;">
+              <div style="background:rgba(255,107,107,0.12);border:1px solid rgba(255,107,107,0.2);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:10px;">
+                <div style="width:6px;height:6px;border-radius:50%;background:#4ECDC4;flex-shrink:0;"></div>
+                <div><div style="font-size:12px;font-weight:700;color:#fff;font-family:'Montserrat',sans-serif;">200+ canais ao vivo</div><div style="font-size:10px;color:rgba(255,255,255,0.4);font-family:'Montserrat',sans-serif;">HD, Full HD e 4K</div></div>
+              </div>
+              <div style="background:rgba(255,107,107,0.12);border:1px solid rgba(255,107,107,0.2);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:10px;">
+                <div style="width:6px;height:6px;border-radius:50%;background:#FFD93D;flex-shrink:0;"></div>
+                <div><div style="font-size:12px;font-weight:700;color:#fff;font-family:'Montserrat',sans-serif;">até 3 telas</div><div style="font-size:10px;color:rgba(255,255,255,0.4);font-family:'Montserrat',sans-serif;">TV, celular, tablet</div></div>
+              </div>
+              <div style="background:rgba(255,107,107,0.12);border:1px solid rgba(255,107,107,0.2);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:10px;">
+                <div style="width:6px;height:6px;border-radius:50%;background:#4ECDC4;flex-shrink:0;"></div>
+                <div><div style="font-size:12px;font-weight:700;color:#fff;font-family:'Montserrat',sans-serif;">Suporte via WhatsApp</div><div style="font-size:10px;color:rgba(255,255,255,0.4);font-family:'Montserrat',sans-serif;">Atendimento humano</div></div>
+              </div>
+              <div style="background:rgba(255,217,61,0.12);border:1px solid rgba(255,217,61,0.25);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:10px;">
+                <div style="width:6px;height:6px;border-radius:50%;background:#FFD93D;flex-shrink:0;"></div>
+                <div><div style="font-size:12px;font-weight:700;color:#FFD93D;font-family:'Montserrat',sans-serif;">A partir de R$16,90</div><div style="font-size:10px;color:rgba(255,255,255,0.4);font-family:'Montserrat',sans-serif;">Sem fidelidade</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="padding:12px 14px;background:#201414;border-top:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:12px;font-weight:700;margin-bottom:2px;font-family:'Montserrat',sans-serif;">Slide 2 — Conteúdo / Benefícios</div>
+          <div style="font-size:10px;font-weight:300;color:rgba(255,255,255,0.4);font-family:'Montserrat',sans-serif;">Apresentação da oferta em cards visuais</div>
+        </div>
+      </div>
+
+      <!-- Slide 3: CTA Final -->
+      <div style="border:1px solid rgba(255,255,255,0.07);border-radius:12px;overflow:hidden;">
+        <div style="aspect-ratio:1/1;position:relative;background:linear-gradient(160deg,#080404 0%,#180a0a 60%,#060303 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;padding:24px 20px;text-align:center;">
+          <div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:10;display:flex;gap:4px;">
+            <div style="width:8px;height:3px;background:rgba(255,255,255,0.25);border-radius:2px;"></div>
+            <div style="width:8px;height:3px;background:rgba(255,255,255,0.25);border-radius:2px;"></div>
+            <div style="width:20px;height:3px;background:#4ECDC4;border-radius:2px;"></div>
+          </div>
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse 300px 200px at 50% 50%,rgba(255,107,107,0.1) 0%,transparent 70%);pointer-events:none;"></div>
+          <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:12px;">
+            <div style="font-size:11px;font-weight:900;letter-spacing:-0.02em;line-height:0.9;background:linear-gradient(135deg,#fff,rgba(255,255,255,0.5));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:'Montserrat',sans-serif;">Smart<span>Play</span></div>
+            <div style="width:28px;height:2px;background:#4ECDC4;border-radius:1px;"></div>
+            <div style="font-size:20px;font-weight:900;letter-spacing:-0.03em;line-height:1.1;color:#fff;font-family:'Montserrat',sans-serif;">Assina agora.<br><span style="color:#FFD93D;">R$16,90.</span></div>
+            <div style="font-size:11px;font-weight:300;color:rgba(255,255,255,0.55);font-family:'Montserrat',sans-serif;">Sem fidelidade. Cancela quando quiser.</div>
+            <div style="background:#FF6B6B;color:#fff;font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:10px 24px;border-radius:6px;margin-top:4px;font-family:'Montserrat',sans-serif;">Link na Bio</div>
+            <div style="font-size:9px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:rgba(78,205,196,0.5);font-family:'Montserrat',sans-serif;">@smartplay_oficial</div>
+          </div>
+        </div>
+        <div style="padding:12px 14px;background:#201414;border-top:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:12px;font-weight:700;margin-bottom:2px;font-family:'Montserrat',sans-serif;">Slide 3 — Fechamento / CTA</div>
+          <div style="font-size:10px;font-weight:300;color:rgba(255,255,255,0.4);font-family:'Montserrat',sans-serif;">Reforço da marca + chamada para ação decisiva</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ─── 4. REELS ──────────────────────────────── -->
+  <div style="margin-bottom:32px;">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:28px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.4em;text-transform:uppercase;color:#4ECDC4;font-family:'Montserrat',sans-serif;">Reels — 1080×1920px · Formato 9:16</div>
+      <div style="flex:1;height:1px;background:rgba(255,255,255,0.06);"></div>
+      <div style="font-size:9px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.2);font-family:'Montserrat',sans-serif;">Instagram · TikTok · YouTube Shorts</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start;">
+
+      <!-- Reel 1 — Família -->
+      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;">
+
+        <div style="
+          aspect-ratio:9/16;
+          background:linear-gradient(175deg, #1a0a08 0%, #0F0808 60%, #1a0a08 100%);
+          display:flex;flex-direction:column;align-items:center;justify-content:center;
+          padding:30px 22px 26px;
+          text-align:center;">
+
+          <!-- Texto gancho -->
+          <div style="width:100%;margin-bottom:22px;flex-shrink:0;">
+            <p style="
+              font-size:16px;font-weight:800;line-height:1.32;
+              color:#fff;margin:0;text-align:center;
+              font-family:'Montserrat',sans-serif;">
+              👨‍👩‍👧‍👦 Cada um <strong>ASSISTINDO</strong> o que quer, ao <strong style="color:#4ECDC4;">mesmo tempo.</strong>
+            </p>
+          </div>
+
+          <!-- Representação visual (gradiente + ícone, sem imagem externa) -->
+          <div style="position:relative;width:100%;flex-shrink:0;">
+            <div style="
+              width:100%;aspect-ratio:1/1;
+              background:linear-gradient(150deg,#2a1414 0%,#FF6B6B 55%,#4ECDC4 130%);
+              border-radius:12px;
+              display:flex;align-items:center;justify-content:center;
+              position:relative;overflow:hidden;">
+              <div style="font-size:56px;">🛋️</div>
+              <div style="
+                position:absolute;inset:0;
+                display:flex;align-items:center;justify-content:center;">
+                <div style="
+                  width:56px;height:56px;border-radius:50%;
+                  background:rgba(255,255,255,0.88);
+                  display:flex;align-items:center;justify-content:center;
+                  box-shadow:0 4px 24px rgba(0,0,0,0.55);">
+                  <div style="
+                    width:0;height:0;
+                    border-top:13px solid transparent;
+                    border-bottom:13px solid transparent;
+                    border-left:24px solid #1a1a1a;
+                    margin-left:5px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Texto de apoio + logo Conceito 1 -->
+          <div style="width:100%;margin-top:22px;flex-shrink:0;">
+            <p style="
+              font-size:15px;font-weight:700;line-height:1.35;
+              color:#fff;margin:0 0 18px;text-align:center;
+              font-family:'Montserrat',sans-serif;">
+              Na mesma casa, <strong style="color:#FFD93D;">cada um</strong> na sua tela.
+            </p>
+
+            <div style="display:flex;align-items:center;justify-content:center;gap:14px;">
+
+              <!-- Ícone Smart Signal (igual ao conceito 1 do brandbook) -->
+              <div style="
+                width:52px;height:52px;border-radius:10px;flex-shrink:0;
+                background:linear-gradient(135deg,#FF6B6B 0%,#8a2323 100%);
+                display:flex;align-items:center;justify-content:center;
+                box-shadow:0 0 0 1px #4ECDC422;">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <rect x="4"  y="18" width="4" height="10" rx="2" fill="#4ECDC4" opacity="0.5"/>
+                  <rect x="10" y="12" width="4" height="16" rx="2" fill="#4ECDC4" opacity="0.75"/>
+                  <rect x="16" y="6"  width="4" height="22" rx="2" fill="#4ECDC4"/>
+                  <rect x="22" y="10" width="4" height="18" rx="2" fill="#FF6B6B"/>
+                </svg>
+              </div>
+
+              <!-- Wordmark -->
+              <div style="line-height:1;">
+                <span style="
+                  font-size:36px;font-weight:900;letter-spacing:-0.04em;
+                  color:#fff;display:block;
+                  font-family:'Montserrat',sans-serif;">Smart</span>
+                <span style="
+                  font-size:13px;font-weight:700;letter-spacing:0.3em;
+                  color:#4ECDC4;display:block;text-transform:uppercase;
+                  font-family:'Montserrat',sans-serif;">PLAY</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div style="padding:14px 16px;background:#201410;border-top:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:3px;font-family:'Montserrat',sans-serif;">Reel — Família</div>
+          <div style="font-size:10px;font-weight:300;color:rgba(255,255,255,0.4);line-height:1.5;font-family:'Montserrat',sans-serif;">Cena de sofá em família · Reforça a big idea da marca</div>
+        </div>
+
+      </div>
+
+      <!-- Reel 2 — Futebol (secundário) -->
+      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;">
+
+        <div style="
+          aspect-ratio:9/16;
+          background:linear-gradient(175deg, #1a0a08 0%, #0F0808 60%, #1a0a08 100%);
+          display:flex;flex-direction:column;align-items:center;justify-content:center;
+          padding:30px 22px 26px;
+          text-align:center;">
+
+          <!-- Texto gancho -->
+          <div style="width:100%;margin-bottom:22px;flex-shrink:0;">
+            <p style="
+              font-size:16px;font-weight:800;line-height:1.32;
+              color:#fff;margin:0;text-align:center;
+              font-family:'Montserrat',sans-serif;">
+              ⚽ O jogo do fim de semana, <strong style="color:#FFD93D;">sem brigar</strong> por canal.
+            </p>
+          </div>
+
+          <!-- Representação visual (gradiente + ícone, sem imagem externa) -->
+          <div style="position:relative;width:100%;flex-shrink:0;">
+            <div style="
+              width:100%;aspect-ratio:1/1;
+              background:linear-gradient(150deg,#2a1414 0%,#FF6B6B 55%,#FFD93D 130%);
+              border-radius:12px;
+              display:flex;align-items:center;justify-content:center;
+              position:relative;overflow:hidden;">
+              <div style="font-size:56px;">⚽</div>
+              <div style="
+                position:absolute;inset:0;
+                display:flex;align-items:center;justify-content:center;">
+                <div style="
+                  width:56px;height:56px;border-radius:50%;
+                  background:rgba(255,255,255,0.88);
+                  display:flex;align-items:center;justify-content:center;
+                  box-shadow:0 4px 24px rgba(0,0,0,0.55);">
+                  <div style="
+                    width:0;height:0;
+                    border-top:13px solid transparent;
+                    border-bottom:13px solid transparent;
+                    border-left:24px solid #1a1a1a;
+                    margin-left:5px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Texto de apoio + logo Conceito 1 -->
+          <div style="width:100%;margin-top:22px;flex-shrink:0;">
+            <p style="
+              font-size:15px;font-weight:700;line-height:1.35;
+              color:#fff;margin:0 0 18px;text-align:center;
+              font-family:'Montserrat',sans-serif;">
+              Brasileirão, Libertadores, Champions — <strong style="color:#4ECDC4;">tudo ao vivo.</strong>
+            </p>
+
+            <div style="display:flex;align-items:center;justify-content:center;gap:14px;">
+
+              <!-- Ícone Smart Signal (igual ao conceito 1 do brandbook) -->
+              <div style="
+                width:52px;height:52px;border-radius:10px;flex-shrink:0;
+                background:linear-gradient(135deg,#FF6B6B 0%,#8a2323 100%);
+                display:flex;align-items:center;justify-content:center;
+                box-shadow:0 0 0 1px #4ECDC422;">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <rect x="4"  y="18" width="4" height="10" rx="2" fill="#4ECDC4" opacity="0.5"/>
+                  <rect x="10" y="12" width="4" height="16" rx="2" fill="#4ECDC4" opacity="0.75"/>
+                  <rect x="16" y="6"  width="4" height="22" rx="2" fill="#4ECDC4"/>
+                  <rect x="22" y="10" width="4" height="18" rx="2" fill="#FF6B6B"/>
+                </svg>
+              </div>
+
+              <!-- Wordmark -->
+              <div style="line-height:1;">
+                <span style="
+                  font-size:36px;font-weight:900;letter-spacing:-0.04em;
+                  color:#fff;display:block;
+                  font-family:'Montserrat',sans-serif;">Smart</span>
+                <span style="
+                  font-size:13px;font-weight:700;letter-spacing:0.3em;
+                  color:#4ECDC4;display:block;text-transform:uppercase;
+                  font-family:'Montserrat',sans-serif;">PLAY</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div style="padding:14px 16px;background:#201410;border-top:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:3px;font-family:'Montserrat',sans-serif;">Reel — Futebol</div>
+          <div style="font-size:10px;font-weight:300;color:rgba(255,255,255,0.4);line-height:1.5;font-family:'Montserrat',sans-serif;">Conteúdo esportivo secundário · Engaja torcedores da família</div>
+        </div>
+
+      </div>
+
+      <!-- Reel 3 — Séries e Filmes -->
+      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;">
+
+        <div style="
+          aspect-ratio:9/16;
+          background:linear-gradient(175deg, #1a0a08 0%, #0F0808 60%, #1a0a08 100%);
+          display:flex;flex-direction:column;align-items:center;justify-content:center;
+          padding:30px 22px 26px;
+          text-align:center;">
+
+          <!-- Texto gancho -->
+          <div style="width:100%;margin-bottom:22px;flex-shrink:0;">
+            <p style="
+              font-size:16px;font-weight:800;line-height:1.32;
+              color:#fff;margin:0;text-align:center;
+              font-family:'Montserrat',sans-serif;">
+              🎬 Todo mundo tem uma <strong>SÉRIE FAVORITA.</strong> Aqui, <strong style="color:#4ECDC4;">cabe todo mundo.</strong>
+            </p>
+          </div>
+
+          <!-- Representação visual (gradiente + ícone, sem imagem externa) -->
+          <div style="position:relative;width:100%;flex-shrink:0;">
+            <div style="
+              width:100%;aspect-ratio:1/1;
+              background:linear-gradient(150deg,#2a1414 0%,#4ECDC4 55%,#FF6B6B 130%);
+              border-radius:12px;
+              display:flex;align-items:center;justify-content:center;
+              position:relative;overflow:hidden;">
+              <div style="font-size:56px;">🍿</div>
+              <div style="
+                position:absolute;inset:0;
+                display:flex;align-items:center;justify-content:center;">
+                <div style="
+                  width:56px;height:56px;border-radius:50%;
+                  background:rgba(255,255,255,0.88);
+                  display:flex;align-items:center;justify-content:center;
+                  box-shadow:0 4px 24px rgba(0,0,0,0.55);">
+                  <div style="
+                    width:0;height:0;
+                    border-top:13px solid transparent;
+                    border-bottom:13px solid transparent;
+                    border-left:24px solid #1a1a1a;
+                    margin-left:5px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Texto de apoio + logo Conceito 1 -->
+          <div style="width:100%;margin-top:22px;flex-shrink:0;">
+            <p style="
+              font-size:15px;font-weight:700;line-height:1.35;
+              color:#fff;margin:0 0 18px;text-align:center;
+              font-family:'Montserrat',sans-serif;">
+              Filmes, séries e desenhos, <strong style="color:#FFD93D;">na mesma assinatura.</strong>
+            </p>
+
+            <div style="display:flex;align-items:center;justify-content:center;gap:14px;">
+
+              <!-- Ícone Smart Signal (igual ao conceito 1 do brandbook) -->
+              <div style="
+                width:52px;height:52px;border-radius:10px;flex-shrink:0;
+                background:linear-gradient(135deg,#FF6B6B 0%,#8a2323 100%);
+                display:flex;align-items:center;justify-content:center;
+                box-shadow:0 0 0 1px #4ECDC422;">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <rect x="4"  y="18" width="4" height="10" rx="2" fill="#4ECDC4" opacity="0.5"/>
+                  <rect x="10" y="12" width="4" height="16" rx="2" fill="#4ECDC4" opacity="0.75"/>
+                  <rect x="16" y="6"  width="4" height="22" rx="2" fill="#4ECDC4"/>
+                  <rect x="22" y="10" width="4" height="18" rx="2" fill="#FF6B6B"/>
+                </svg>
+              </div>
+
+              <!-- Wordmark -->
+              <div style="line-height:1;">
+                <span style="
+                  font-size:36px;font-weight:900;letter-spacing:-0.04em;
+                  color:#fff;display:block;
+                  font-family:'Montserrat',sans-serif;">Smart</span>
+                <span style="
+                  font-size:13px;font-weight:700;letter-spacing:0.3em;
+                  color:#4ECDC4;display:block;text-transform:uppercase;
+                  font-family:'Montserrat',sans-serif;">PLAY</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div style="padding:14px 16px;background:#201410;border-top:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:12px;font-weight:700;color:#fff;margin-bottom:3px;font-family:'Montserrat',sans-serif;">Reel — Séries e Filmes</div>
+          <div style="font-size:10px;font-weight:300;color:rgba(255,255,255,0.4);line-height:1.5;font-family:'Montserrat',sans-serif;">Catálogo para todos os gostos da casa · Apelo de variedade</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+</body>
+</html>
+

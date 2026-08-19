@@ -83,7 +83,8 @@ SMART PLAY/
 │   ├── 02-briefing/                    # Briefing completo
 │   └── 03-big-idea/                    # Big Idea da campanha
 ├── 02-IDENTIDADE-VISUAL/
-│   └── 06-PALETAS-de-Cores-Smart-Play.html  # 5 paletas com psicologia cromática
+│   ├── 06-PALETAS-de-Cores-Smart-Play.html  # 5 paletas com psicologia cromática
+│   └── 07-BRANDBOOK-Paleta02-Coral-Familia-Smart-Play.html  # Brandbook completo (10 seções)
 ├── 03-FUNIL-VENDAS/                   # Páginas de captura, vendas, obrigado
 └── 04-CONTEUDO-ORGANICO/              # Instagram, YouTube, WhatsApp
 ```
@@ -101,7 +102,7 @@ SMART PLAY/
 
 ## Próximas fases pendentes
 - [x] Paletas de cores (5 paletas: Safira Família, Coral Família, Esmeralda Smart, Cobre Noite, Lavanda Conecta)
-- [ ] Brandbook(s) HTML → @brand-architect
+- [x] Brandbook Coral Família (10 seções: manifesto, logo, cores, tipografia, elementos, moodboard, aplicações, voz, redes sociais)
 - [ ] Logo / identidade visual → @designer
 - [ ] Funil de vendas (páginas de captura, vendas, obrigado) → @web-designer
 - [ ] Copy completa da campanha (WhatsApp, e-mail, SMS) → @copywriter
