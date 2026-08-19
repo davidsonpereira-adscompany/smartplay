@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paletas de Cores — Smart Play</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --preto: #080810;
+    --card: #0f0f1a;
+    --border: rgba(255,255,255,0.07);
+    --texto: #c0c0d8;
+    --texto2: #707088;
+    --font: 'Montserrat', system-ui, sans-serif;
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--preto);
+    color: #fff;
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 100px 48px 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+  .hero h1 span { color: rgba(255,255,255,0.2); }
+  .hero-desc {
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--texto);
+    max-width: 700px;
+    line-height: 1.7;
+  }
+  .hero-desc strong { color: #fff; font-weight: 600; }
+
+  /* ── ANÁLISE CONCORRENTES ── */
+  .concorrentes {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 72px 48px;
+    border-bottom: 1px solid var(--border);
+  }
+  .sec-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 16px;
+  }
+  .sec-title {
+    font-size: clamp(24px, 4vw, 40px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
+    line-height: 1.1;
+  }
+  .conc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 32px;
+  }
+  @media(max-width:700px){ .conc-grid{ grid-template-columns:1fr; } }
+  .conc-card {
+    background: #0f0f1a;
+    border: 1px solid var(--border);
+    padding: 28px;
+  }
+  .conc-nome {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+  }
+  .conc-paleta {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .conc-cor {
+    height: 36px;
+    border-radius: 3px;
+    flex: 1;
+  }
+  .conc-obs {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--texto2);
+    line-height: 1.5;
+  }
+  .conc-obs strong { color: var(--texto); font-weight: 600; }
+  .gap-box {
+    background: linear-gradient(135deg, rgba(255,255,255,0.03), transparent);
+    border: 1px solid var(--border);
+    padding: 28px 32px;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--texto);
+    line-height: 1.7;
+  }
+  .gap-box strong { color: #fff; font-weight: 700; }
+
+  /* ── SEÇÃO PALETA ── */
+  .paleta-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 48px;
+    border-bottom: 1px solid var(--border);
+  }
+  .paleta-section:last-of-type { border-bottom: none; }
+
+  .paleta-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+  .paleta-id {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .paleta-nome {
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+  .paleta-sub {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--texto2);
+    letter-spacing: 0.05em;
+  }
+  .paleta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 2px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  /* Swatches principais */
+  .swatches-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 2px;
+    height: 200px;
+  }
+  @media(max-width:700px){ .swatches-main{ grid-template-columns: 1fr 1fr; height:auto; } }
+  .swatch {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 16px;
+    position: relative;
+    min-height: 100px;
+  }
+  .swatch-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 4px;
+  }
+  .swatch-hex {
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+  }
+  .swatch-role {
+    font-size: 10px;
+    font-weight: 400;
+    opacity: 0.6;
+    margin-top: 2px;
+  }
+
+  /* Linha auxiliar */
+  .swatches-aux {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+    margin-bottom: 40px;
+    height: 12px;
+  }
+  .swatch-aux { height: 12px; }
+
+  /* Psicologia */
+  .psico-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 40px;
+  }
+  @media(max-width:700px){ .psico-grid{ grid-template-columns:1fr; } }
+  .psico-card {
+    background: #0f0f1a;
+    border: 1px solid var(--border);
+    padding: 28px;
+  }
+  .psico-card-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--texto2);
+    margin-bottom: 12px;
+  }
+  .psico-card p {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--texto);
+    line-height: 1.6;
+  }
+  .psico-card p strong { color: #fff; font-weight: 600; }
+
+  /* Mockup mini UI */
+  .mockup {
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+  .mockup-bar {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 16px;
+  }
+  .mockup-logo-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+  }
+  .mockup-logo-text {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+  }
+  .mockup-nav {
+    display: flex;
+    gap: 20px;
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+  }
+  .mockup-hero {
+    padding: 48px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .mockup-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    width: fit-content;
+    padding: 4px 10px;
+  }
+  .mockup-h1 {
+    font-size: clamp(22px, 4vw, 38px);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    max-width: 500px;
+  }
+  .mockup-p {
+    font-size: 13px;
+    font-weight: 300;
+    max-width: 420px;
+    line-height: 1.5;
+    opacity: 0.7;
+  }
+  .mockup-btns {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+  .mockup-btn-primary {
+    padding: 12px 24px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .mockup-btn-outline {
+    padding: 12px 24px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .mockup-cards {
+    display: flex;
+    gap: 8px;
+    padding: 0 32px 32px;
+    flex-wrap: wrap;
+  }
+  .mockup-card {
+    flex: 1;
+    min-width: 80px;
+    height: 56px;
+    border-radius: 4px;
+    opacity: 0.15;
+  }
+
+  /* Footer */
+  .page-footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .page-footer-brand {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--texto2);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .page-footer-sub {
+    font-size: 11px;
+    color: var(--texto2);
+    font-weight: 300;
+  }
+
+  /* recomendada tag */
+  .tag-rec {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    margin-left: 12px;
+    vertical-align: middle;
+    position: relative;
+    top: -2px;
+    border-radius: 2px;
+  }
+
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVO — mobile-first
+   Breakpoints: 1024px · 768px · 480px
+══════════════════════════════════════════════════ */
+
+/* ── Tablet (≤ 1024px) ── */
+@media (max-width: 1024px) {
+  div[style*="repeat(3,1fr)"],
+  div[style*="repeat(3, 1fr)"],
+  div[style*="repeat(4,1fr)"],
+  div[style*="repeat(4, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ── Mobile largo (≤ 768px) ── */
+@media (max-width: 768px) {
+  .hero, .concorrentes, .paleta-section { padding-left: 20px !important; padding-right: 20px !important; }
+  .hero { padding-top: 80px !important; }
+  .hero h1 { font-size: 36px !important; }
+  .sec-title { font-size: 26px !important; line-height: 1.2 !important; }
+  .paleta-nome { font-size: 28px !important; }
+  .psico-grid { grid-template-columns: 1fr !important; }
+  div[style*="repeat(3,1fr)"],
+  div[style*="repeat(3, 1fr)"],
+  div[style*="repeat(4,1fr)"],
+  div[style*="repeat(4, 1fr)"],
+  div[style*="repeat(2,1fr)"],
+  div[style*="repeat(2, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+  body { overflow-x: hidden !important; }
+  img { max-width: 100% !important; height: auto !important; }
+  .page-footer { padding: 32px 20px !important; }
+  .mockup-hero { padding: 32px 20px !important; }
+  .mockup-cards { padding: 0 20px 24px !important; }
+  table { font-size: 11px !important; }
+  th, td { padding: 10px 8px !important; }
+}
+
+/* ── Mobile estreito (≤ 480px) ── */
+@media (max-width: 480px) {
+  .hero h1 { font-size: 28px !important; }
+  .sec-title { font-size: 22px !important; }
+  .paleta-nome { font-size: 24px !important; }
+  .hero, .concorrentes, .paleta-section { padding-left: 14px !important; padding-right: 14px !important; }
+  .page-footer { padding: 28px 14px !important; flex-direction: column; align-items: flex-start; }
+  .mockup-h1 { font-size: 22px !important; }
+  .mockup-hero { padding: 24px 14px !important; }
+  .mockup-cards { padding: 0 14px 20px !important; }
+  div[style*="display:grid"],
+  div[style*="display: grid"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div id="sp-back-fixed" style="position:fixed;top:20px;left:20px;z-index:99999;font-family:'Montserrat',sans-serif;">
+  <a href="../index.html"
+     style="display:flex;align-items:center;gap:8px;background:rgba(10,15,28,0.95);border:1px solid rgba(74,144,255,0.5);color:#4A90FF;text-decoration:none;font-size:10px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;padding:10px 16px;border-radius:6px;box-shadow:0 4px 20px rgba(0,0,0,0.5);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);"
+     onmouseover="this.style.borderColor='rgba(74,144,255,0.9)';this.style.boxShadow='0 4px 24px rgba(74,144,255,0.3)'"
+     onmouseout="this.style.borderColor='rgba(74,144,255,0.5)';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.5)'">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><path d="M8 2L4 6L8 10" stroke="#4A90FF" stroke-width="1.5" stroke-linecap="round"/></svg>
+    Central Smart Play
+  </a>
+</div>
+
+<!-- ══ HERO ════════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-eyebrow">Smart Play &mdash; Identidade Visual &mdash; Etapa 01</div>
+  <h1>Opções de<br><span>Paleta de</span> Cores</h1>
+  <p class="hero-desc">
+    Cinco direções de cor desenvolvidas com base na <strong>psicologia das cores</strong>, no perfil do público-alvo (25–50 anos, famílias brasileiras, apaixonadas por futebol e entretenimento) e na <strong>análise dos concorrentes</strong>. Cada paleta comunica um posicionamento diferente para a Smart Play — todas alinhadas com a Big Idea: <em>&ldquo;A família inteira assistindo.&rdquo;</em>
+  </p>
+</div>
+
+<!-- ══ ANÁLISE CONCORRENTES ════════════════════════════ -->
+<div class="concorrentes">
+  <div class="sec-label">Análise de Concorrentes</div>
+  <div class="sec-title">O que o mercado<br>já está fazendo</div>
+
+  <div class="conc-grid">
+    <div class="conc-card">
+      <div class="conc-nome">SlimTV &mdash; slimtv.app</div>
+      <div class="conc-paleta">
+        <div class="conc-cor" style="background:#0A0A0A;"></div>
+        <div class="conc-cor" style="background:#1A1A1A;"></div>
+        <div class="conc-cor" style="background:#FFD600;"></div>
+        <div class="conc-cor" style="background:#FFAA00;"></div>
+        <div class="conc-cor" style="background:#FFFFFF;"></div>
+      </div>
+      <div class="conc-obs">
+        Preto absoluto + <strong>amarelo/dourado agressivo.</strong> Estética que remete a serviços de baixa credibilidade. Transmite preço baixo, mas gera desconfiança imediata.
+      </div>
+    </div>
+    <div class="conc-card">
+      <div class="conc-nome">Nexo One &mdash; nexooneoficial.com</div>
+      <div class="conc-paleta">
+        <div class="conc-cor" style="background:#050505;"></div>
+        <div class="conc-cor" style="background:#0D1A0D;"></div>
+        <div class="conc-cor" style="background:#00FF44;"></div>
+        <div class="conc-cor" style="background:#00CC33;"></div>
+        <div class="conc-cor" style="background:#FFFFFF;"></div>
+      </div>
+      <div class="conc-obs">
+        Preto + <strong>verde neon intenso.</strong> Mesmo padrão visual underground. Energético, mas associado a pirataria e instabilidade. Linguagem que afasta famílias.
+      </div>
+    </div>
+    <div class="conc-card" style="border-color:rgba(255,255,255,0.15);">
+      <div class="conc-nome" style="color:rgba(255,255,255,0.4);">O Gap — Oportunidade Smart Play</div>
+      <div class="conc-paleta">
+        <div class="conc-cor" style="background:rgba(255,255,255,0.04); border:1px dashed rgba(255,255,255,0.1);"></div>
+        <div class="conc-cor" style="background:rgba(255,255,255,0.04); border:1px dashed rgba(255,255,255,0.1);"></div>
+        <div class="conc-cor" style="background:rgba(255,255,255,0.04); border:1px dashed rgba(255,255,255,0.1);"></div>
+        <div class="conc-cor" style="background:rgba(255,255,255,0.04); border:1px dashed rgba(255,255,255,0.1);"></div>
+        <div class="conc-cor" style="background:rgba(255,255,255,0.04); border:1px dashed rgba(255,255,255,0.1);"></div>
+      </div>
+      <div class="conc-obs" style="color:rgba(255,255,255,0.3);">
+        Nenhum concorrente comunica <strong style="color:rgba(255,255,255,0.5);">família, acolhimento e confiança</strong> através das cores. Território livre para a Smart Play.
+      </div>
+    </div>
+  </div>
+
+  <div class="gap-box">
+    <strong>Conclusão estratégica:</strong> O mercado de IPTV no Brasil repete a mesma fórmula visual — preto + cor neon agressiva. Nenhuma marca transmite <strong>acolhimento familiar</strong>. A Smart Play tem uma oportunidade rara: ser a <strong>primeira marca de IPTV que fala com a família inteira</strong> — com a sofisticação de um serviço de streaming profissional, o calor de uma marca que entende o dia a dia de quem só quer sentar no sofá e assistir junto. As paletas abaixo exploram esse território.
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     PALETA 01 — SAFIRA FAMÍLIA
+════════════════════════════════════════════════════════ -->
+<div class="paleta-section">
+  <div class="paleta-header">
+    <div>
+      <div class="paleta-id" style="color:#4A90FF;">Paleta 01</div>
+      <div class="paleta-nome">Safira Família
+        <span class="tag-rec" style="background:#4A90FF; color:#fff;">Recomendada</span>
+      </div>
+      <div class="paleta-sub">Confiança · Família · Acolhimento</div>
+    </div>
+    <div class="paleta-badge" style="background:rgba(74,144,255,0.12); color:#4A90FF; border:1px solid rgba(74,144,255,0.3);">
+      Confiança + Calor Familiar
+    </div>
+  </div>
+
+  <!-- Swatches -->
+  <div class="swatches-main">
+    <div class="swatch" style="background:#080D1A;">
+      <div class="swatch-label" style="color:rgba(255,255,255,0.5);">Base</div>
+      <div class="swatch-hex">#080D1A</div>
+      <div class="swatch-role" style="color:rgba(255,255,255,0.4);">Fundo principal</div>
+    </div>
+    <div class="swatch" style="background:#0F1730;">
+      <div class="swatch-label" style="color:rgba(255,255,255,0.5);">Base 2</div>
+      <div class="swatch-hex">#0F1730</div>
+      <div class="swatch-role" style="color:rgba(255,255,255,0.4);">Cards e seções</div>
+    </div>
+    <div class="swatch" style="background:#4A90FF;">
+      <div class="swatch-label" style="color:rgba(255,255,255,0.8);">Primário</div>
+      <div class="swatch-hex">#4A90FF</div>
+      <div class="swatch-role" style="color:rgba(255,255,255,0.5);">Safira — confiança</div>
+    </div>
+    <div class="swatch" style="background:#FF7B3A;">
+      <div class="swatch-label" style="color:rgba(255,255,255,0.8);">Acento</div>
+      <div class="swatch-hex">#FF7B3A</div>
+      <div class="swatch-role" style="color:rgba(255,255,255,0.6);">CTA · Calor</div>
+    </div>
+    <div class="swatch" style="background:#3CE8B0;">
+      <div class="swatch-label" style="color:rgba(0,0,0,0.7);">Destaque</div>
+      <div class="swatch-hex">#3CE8B0</div>
+      <div class="swatch-role" style="color:rgba(0,0,0,0.5);">Mint · Highlights</div>
+    </div>
+  </div>
+  <div class="swatches-aux">
+    <div class="swatch-aux" style="background:#080D1A;"></div>
+    <div class="swatch-aux" style="background:#0F1730;"></div>
+    <div class="swatch-aux" style="background:#4A90FF;"></div>
+    <div class="swatch-aux" style="background:#FF7B3A;"></div>
+    <div class="swatch-aux" style="background:#3CE8B0;"></div>
+  </div>
+
+  <!-- Psicologia -->
+  <div class="psico-grid">
+    <div class="psico-card" style="border-color:rgba(74,144,255,0.2);">
+      <div class="psico-card-label">Psicologia das Cores</div>
+      <p><strong>Azul safira:</strong> confiança, estabilidade e proteção. É a cor das marcas em que as famílias confiam — Samsung, PayPal, Facebook. Para o público da Smart Play, comunica: &ldquo;este serviço é sério, vai funcionar quando a família sentar para assistir.&rdquo;<br><br><strong>Laranja no CTA:</strong> calor humano, energia e acolhimento. Equilibra o azul profissional com uma camada de proximidade. Psicologicamente, laranja + azul é o par de maior contraste e mais alta taxa de conversão em botões.</p>
+    </div>
+    <div class="psico-card" style="border-color:rgba(74,144,255,0.2);">
+      <div class="psico-card-label">Alinhamento com o Público</div>
+      <p>Adultos de 25 a 50 anos respondem ao <strong>azul como sinal de credibilidade</strong> — é a cor das instituições em que confiam. O mint como destaque traz frescor e modernidade sem agressividade. A combinação diz: &ldquo;somos confiáveis como seu banco, modernos como seu streaming favorito.&rdquo;<br><br>Rompe completamente com a estética underground dos concorrentes e <strong>posiciona a Smart Play como serviço de família</strong>, não de nicho.</p>
+    </div>
+  </div>
+
+  <!-- Mockup UI -->
+  <div class="mockup">
+    <div class="mockup-bar" style="background:#0F1730; border-bottom:1px solid rgba(255,255,255,0.06);">
+      <div class="mockup-logo-dot" style="background:#4A90FF;"></div>
+      <div class="mockup-logo-text" style="color:#fff;">Smart <span style="color:#4A90FF;">Play</span></div>
+      <div class="mockup-nav" style="color:rgba(255,255,255,0.5);">
+        <span>Planos</span><span>Canais</span><span>Filmes</span>
+      </div>
+    </div>
+    <div class="mockup-hero" style="background:linear-gradient(135deg,#080D1A 0%,#0F1730 100%);">
+      <div class="mockup-tag" style="background:rgba(74,144,255,0.2); color:#4A90FF;">a família inteira assistindo</div>
+      <div class="mockup-h1" style="color:#fff;">Pai na sala.<br>Mãe no quarto.<br>Filho no celular.</div>
+      <div class="mockup-p" style="color:rgba(255,255,255,0.6);">Canais ao vivo, filmes e séries — até 3 telas ao mesmo tempo, sem travar.</div>
+      <div class="mockup-btns">
+        <button class="mockup-btn-primary" style="background:#FF7B3A; color:#fff;">Começar Agora</button>
+        <button class="mockup-btn-outline" style="color:#3CE8B0; border-color:rgba(60,232,176,0.4);">Ver Planos</button>
+      </div>
+    </div>
+    <div class="mockup-cards" style="background:#080D1A;">
+      <div class="mockup-card" style="background:#4A90FF;"></div>
+      <div class="mockup-card" style="background:#FF7B3A;"></div>
+      <div class="mockup-card" style="background:#3CE8B0;"></div>
+      <div class="mockup-card" style="background:#4A90FF;"></div>
+      <div class="mockup-card" style="background:#FF7B3A;"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     PALETA 02 — CORAL FAMÍLIA
+════════════════════════════════════════════════════════ -->
+<div class="paleta-section">
+  <div class="paleta-header">
+    <div>
+      <div class="paleta-id" style="color:#FF6B6B;">Paleta 02</div>
+      <div class="paleta-nome">Coral Família</div>
+      <div class="paleta-sub">Proximidade · Calor · Conexão</div>
+    </div>
+    <div class="paleta-badge" style="background:rgba(255,107,107,0.12); color:#FF6B6B; border:1px solid rgba(255,107,107,0.3);">
+      Máxima Conexão Emocional
+    </div>
+  </div>
+
+  <div class="swatches-main">
+    <div class="swatch" style="background:#0F0808;">
+      <div class="swatch-label" style="color:rgba(255,255,255,0.5);">Base</div>
+      <div class="swatch-hex">#0F0808</div>
+      <div class="swatch-role" style="color:rgba(255,255,255,0.4);">Fundo principal</div>
+    </div>
+    <div class="swatch" style="background:#1A1010;">
+      <div class="swatch-label" style="color:rgba(255,255,255,0.5);">Base 2</div>
+      <div class="swatch-hex">#1A1010</div>
+      <div class="swatch-role" style="color:rgba(255,255,255,0.4);">Cards e seções</div>
+    </div>
+    <div class="swatch" style="background:#FF6B6B;">
+      <div class="swatch-label" style="color:rgba(255,255,255,0.8);">Primário</div>
+      <div class="swatch-hex">#FF6B6B</div>
+      <div class="swatch-role" style="color:rgba(255,255,255,0.5);">Coral — proximidade</div>
+    </div>
+    <div class="swatch" style="background:#FFD93D;">
+      <div class="swatch-label" style="color:rgba(0,0,0,0.7);">Acento</div>
+      <div class="swatch-hex">#FFD93D</div>
+      <div class="swatch-role" style="color:rgba(0,0,0,0.5);">CTA · Ouro quente</div>
+    </div>
+    <div class="swatch" style="background:#4ECDC4;">
+      <div class="swatch-label" style="color:rgba(0,0,0,0.7);">Destaque</div>
+      <div class="swatch-hex">#4ECDC4</div>
+      <div class="swatch-role" style="color:rgba(0,0,0,0.5);">Turquesa · Highlights</div>
+    </div>
+  </div>
+  <div class="swatches-aux">
+    <div class="swatch-aux" style="background:#0F0808;"></div>
+    <div class="swatch-aux" style="background:#1A1010;"></div>
+    <div class="swatch-aux" style="background:#FF6B6B;"></div>
+    <div class="swatch-aux" style="background:#FFD93D;"></div>
+    <div class="swatch-aux" style="background:#4ECDC4;"></div>
+  </div>
+
+  <div class="psico-grid">
+    <div class="psico-card" style="border-color:rgba(255,107,107,0.2);">
+      <div class="psico-card-label">Psicologia das Cores</div>
+      <p><strong>Coral:</strong> calor humano, afeição e acolhimento. Diferente do vermelho puro (agressivo, urgência), o coral é a versão &ldquo;abraço&rdquo; do vermelho — suave, convidativo, familiar. É a cor de marcas que querem parecer próximas: Airbnb, Pinterest, Headspace.<br><br><strong>Dourado no CTA:</strong> alegria, conquista e otimismo. Associado a &ldquo;prêmio&rdquo; sem parecer barato. Convida ao clique com sensação de recompensa.</p>
+    </div>
+    <div class="psico-card" style="border-color:rgba(255,107,107,0.2);">
+      <div class="psico-card-label">Alinhamento com o Público</div>
+      <p>O coral é a cor mais <strong>acolhedora e inclusiva</strong> disponível — fala com homens e mulheres igualmente. Para famílias com filhos, transmite: &ldquo;este serviço é para nós, não só para o pai que gosta de futebol.&rdquo;<br><br>Cuidado: coral pode ser menos percebido como &ldquo;tecnologia&rdquo; pelo público masculino 40+. Mitigar com turquesa nos destaques técnicos (velocidade, qualidade HD/4K).</p>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-bar" style="background:#1A1010; border-bottom:1px solid rgba(255,255,255,0.06);">
+      <div class="mockup-logo-dot" style="background:#FF6B6B;"></div>
+      <div class="mockup-logo-text" style="color:#fff;">Smart <span style="color:#FF6B6B;">Play</span></div>
+      <div class="mockup-nav" style="color:rgba(255,255,255,0.4);">
+        <span>Planos</span><span>Canais</span><span>Filmes</span>
+      </div>
+    </div>
+    <div class="mockup-hero" style="background:linear-gradient(135deg,#0F0808 0%,#1A1010 60%,#1A0D0D 100%);">
+      <div class="mockup-tag" style="background:rgba(255,107,107,0.2); color:#FF6B6B;">toda a família conectada</div>
+      <div class="mockup-h1" style="color:#fff;">Um plano.<br>Toda a família<br>assistindo.</div>
+      <div class="mockup-p" style="color:rgba(255,255,255,0.6);">Cada um no seu canto, todo mundo feliz. Até 3 telas ao mesmo tempo.</div>
+      <div class="mockup-btns">
+        <button class="mockup-btn-primary" style="background:#FFD93D; color:#0F0808;">Começar Agora</button>
+        <button class="mockup-btn-outline" style="color:#4ECDC4; border-color:rgba(78,205,196,0.4);">Ver Planos</button>
+      </div>
+    </div>
+    <div class="mockup-cards" style="background:#0F0808;">
+      <div class="mockup-card" style="background:#FF6B6B;"></div>
+      <div class="mockup-card" style="background:#FFD93D;"></div>
+      <div class="mockup-card" style="background:#4ECDC4;"></div>
+      <div class="mockup-card" style="background:#FF6B6B;"></div>
+      <div class="mockup-card" style="background:#FFD93D;"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     PALETA 03 — ESMERALDA SMART
+════════════════════════════════════════════════════════ -->
+<div class="paleta-section">
+  <div class="paleta-header">
+    <div>
+      <div class="paleta-id" style="color:#00A878;">Paleta 03</div>
+      <div class="paleta-nome">Esmeralda Smart</div>
+      <div class="paleta-sub">Estabilidade · Crescimento · Confiança</div>
+    </div>
+    <div class="paleta-badge" style="background:rgba(0,168,120,0.12); color:#00A878; border:1px solid rgba(0,168,120,0.3);">
+      Estabilidade + Modernidade
+    </div>
+  </div>
+
+  <div class="swatches-main">
+    <div class="swatch" style="background:#060F0A;">
+      <div class="swatch-label" style="color:rgba(255,255,255,0.5);">Base</div>
+      <div class="swatch-hex">#060F0A</div>
+      <div class="swatch-role" style="color:rgba(255,255,255,0.4);">Fundo principal</div>
+    </div>
+    <div class="swatch" style="background:#0D1A12;">
+      <div class="swatch-label" style="color:rgba(255,255,255,0.5);">Base 2</div>
+      <div class="swatch-hex">#0D1A12</div>
+      <div class="swatch-role" style="color:rgba(255,255,255,0.4);">Cards e seções</div>
+    </div>
+    <div class="swatch" style="background:#00A878;">
+      <div class="swatch-label" style="color:rgba(255,255,255,0.8);">Primário</div>
+      <div class="swatch-hex">#00A878</div>
+      <div class="swatch-role" style="color:rgba(255,255,255,0.5);">Esmeralda profundo</div>
+    </div>
+    <div class="swatch" style="background:#FF8533;">
+      <div class="swatch-label" style="color:rgba(255,255,255,0.8);">Acento</div>
+      <div class="swatch-hex">#FF8533</div>
+      <div class="swatch-role" style="color:rgba(255,255,255,0.6);">CTA · Laranja quente</div>
+    </div>
+    <div class="swatch" style="background:#A8E6CF;">
+      <div class="swatch-label" style="color:rgba(0,0,0,0.7);">Destaque</div>
+      <div class="swatch-hex">#A8E6CF</div>
+      <div class="swatch-role" style="color:rgba(0,0,0,0.5);">Hortelã · Suavidade</div>
+    </div>
+  </div>
+  <div class="swatches-aux">
+    <div class="swatch-aux" style="background:#060F0A;"></div>
+    <div class="swatch-aux" style="background:#0D1A12;"></div>
+    <div class="swatch-aux" style="background:#00A878;"></div>
+    <div class="swatch-aux" style="background:#FF8533;"></div>
+    <div class="swatch-aux" style="background:#A8E6CF;"></div>
+  </div>
+
+  <div class="psico-grid">
+    <div class="psico-card" style="border-color:rgba(0,168,120,0.2);">
+      <div class="psico-card-label">Psicologia das Cores</div>
+      <p><strong>Esmeralda:</strong> equilíbrio, crescimento e estabilidade. Diferente do verde neon dos concorrentes (que grita &ldquo;underground&rdquo;), o esmeralda profundo comunica maturidade e solidez. É a cor do Spotify e do WhatsApp — marcas que &ldquo;sempre funcionam&rdquo;.<br><br><strong>Laranja no CTA:</strong> energia e ação sem agressividade. O contraste verde + laranja é orgânico — lembra natureza e calor — e gera alta taxa de clique em botões.</p>
+    </div>
+    <div class="psico-card" style="border-color:rgba(0,168,120,0.2);">
+      <div class="psico-card-label">Alinhamento com o Público</div>
+      <p>O verde esmeralda fala diretamente com o público que valoriza <strong>estabilidade acima de tudo</strong> — &ldquo;não vai travar, não vai cair, vai funcionar.&rdquo; Para a faixa 30–50 anos, verde profundo comunica: &ldquo;pode confiar, é sério.&rdquo;<br><br>Risco: verde pode ser confundido com concorrentes que usam verde neon. A solução é manter o tom <strong>profundo e sofisticado</strong>, nunca neon. O hortelã no destaque adiciona leveza sem perder a seriedade.</p>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-bar" style="background:#0D1A12; border-bottom:1px solid rgba(255,255,255,0.06);">
+      <div class="mockup-logo-dot" style="background:#00A878;"></div>
+      <div class="mockup-logo-text" style="color:#fff;">Smart <span style="color:#00A878;">Play</span></div>
+      <div class="mockup-nav" style="color:rgba(255,255,255,0.4);">
+        <span>Planos</span><span>Canais</span><span>Filmes</span>
+      </div>
+    </div>
+    <div class="mockup-hero" style="background:linear-gradient(135deg,#060F0A 0%,#0D1A12 100%);">
+      <div class="mockup-tag" style="background:rgba(0,168,120,0.15); color:#00D4A0;">sinal estável · sempre funciona</div>
+      <div class="mockup-h1" style="color:#fff;">Sem travar.<br>Sem cair.<br>Sem surpresa na conta.</div>
+      <div class="mockup-p" style="color:rgba(255,255,255,0.6);">A família toda assistindo ao mesmo tempo — com estabilidade de verdade.</div>
+      <div class="mockup-btns">
+        <button class="mockup-btn-primary" style="background:#FF8533; color:#fff;">Começar Agora</button>
+        <button class="mockup-btn-outline" style="color:#A8E6CF; border-color:rgba(168,230,207,0.4);">Ver Planos</button>
+      </div>
+    </div>
+    <div class="mockup-cards" style="background:#060F0A;">
+      <div class="mockup-card" style="background:#00A878;"></div>
+      <div class="mockup-card" style="background:#FF8533;"></div>
+      <div class="mockup-card" style="background:#A8E6CF;"></div>
+      <div class="mockup-card" style="background:#00A878;"></div>
+      <div class="mockup-card" style="background:#FF8533;"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     PALETA 04 — COBRE NOITE
+════════════════════════════════════════════════════════ -->
+<div class="paleta-section">
+  <div class="paleta-header">
+    <div>
+      <div class="paleta-id" style="color:#D4944E;">Paleta 04</div>
+      <div class="paleta-nome">Cobre Noite</div>
+      <div class="paleta-sub">Premium · Lar · Sofisticação</div>
+    </div>
+    <div class="paleta-badge" style="background:rgba(212,148,78,0.12); color:#D4944E; border:1px solid rgba(212,148,78,0.3);">
+      Posicionamento Premium
+    </div>
+  </div>
+
+  <div class="swatches-main">
+    <div class="swatch" style="background:#0F0B06;">
+      <div class="swatch-label" style="color:rgba(255,255,255,0.5);">Base</div>
+      <div class="swatch-hex">#0F0B06</div>
+      <div class="swatch-role" style="color:rgba(255,255,255,0.4);">Fundo principal</div>
+    </div>
+    <div class="swatch" style="background:#1A1408;">
+      <div class="swatch-label" style="color:rgba(255,255,255,0.5);">Base 2</div>
+      <div class="swatch-hex">#1A1408</div>
+      <div class="swatch-role" style="color:rgba(255,255,255,0.4);">Cards e seções</div>
+    </div>
+    <div class="swatch" style="background:#D4944E;">
+      <div class="swatch-label" style="color:rgba(255,255,255,0.8);">Primário</div>
+      <div class="swatch-hex">#D4944E</div>
+      <div class="swatch-role" style="color:rgba(255,255,255,0.5);">Cobre — sofisticação</div>
+    </div>
+    <div class="swatch" style="background:#FF5E3A;">
+      <div class="swatch-label" style="color:rgba(255,255,255,0.8);">Acento</div>
+      <div class="swatch-hex">#FF5E3A</div>
+      <div class="swatch-role" style="color:rgba(255,255,255,0.6);">CTA · Coral vivo</div>
+    </div>
+    <div class="swatch" style="background:#F0DFC0;">
+      <div class="swatch-label" style="color:rgba(0,0,0,0.7);">Destaque</div>
+      <div class="swatch-hex">#F0DFC0</div>
+      <div class="swatch-role" style="color:rgba(0,0,0,0.5);">Creme · Textos claros</div>
+    </div>
+  </div>
+  <div class="swatches-aux">
+    <div class="swatch-aux" style="background:#0F0B06;"></div>
+    <div class="swatch-aux" style="background:#1A1408;"></div>
+    <div class="swatch-aux" style="background:#D4944E;"></div>
+    <div class="swatch-aux" style="background:#FF5E3A;"></div>
+    <div class="swatch-aux" style="background:#F0DFC0;"></div>
+  </div>
+
+  <div class="psico-grid">
+    <div class="psico-card" style="border-color:rgba(212,148,78,0.2);">
+      <div class="psico-card-label">Psicologia das Cores</div>
+      <p><strong>Cobre/bronze:</strong> qualidade, permanência e conforto. É a cor do &ldquo;lar&rdquo; — móveis de madeira, luz quente da sala, a sensação de estar em casa. Para o público da Smart Play, cobre diz: &ldquo;este serviço faz parte da sua casa, como a TV que está aí há anos.&rdquo;<br><br><strong>Coral vivo no CTA:</strong> energia orgânica que mantém a identidade quente. Vermelho-coral sobre cobre cria uma paleta inteira de calor — zero frieza, zero distância.</p>
+    </div>
+    <div class="psico-card" style="border-color:rgba(212,148,78,0.2);">
+      <div class="psico-card-label">Alinhamento com o Público</div>
+      <p>Paleta absolutamente <strong>única no mercado de IPTV</strong> — nenhum concorrente usa tons quentes metálicos. Posiciona a Smart Play como serviço de <strong>alto valor percebido</strong> sem precisar de preço alto.<br><br>Risco: pode parecer &ldquo;elegante demais&rdquo; para o público classe C que busca preço baixo. Mitigar com o creme nos textos — adiciona leveza e acessibilidade à sofisticação do cobre.</p>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-bar" style="background:#1A1408; border-bottom:1px solid rgba(255,255,255,0.06);">
+      <div class="mockup-logo-dot" style="background:#D4944E;"></div>
+      <div class="mockup-logo-text" style="color:#F0DFC0;">Smart <span style="color:#D4944E;">Play</span></div>
+      <div class="mockup-nav" style="color:rgba(240,223,192,0.4);">
+        <span>Planos</span><span>Canais</span><span>Filmes</span>
+      </div>
+    </div>
+    <div class="mockup-hero" style="background:linear-gradient(135deg,#0F0B06 0%,#1A1408 60%,#1A1208 100%);">
+      <div class="mockup-tag" style="background:rgba(212,148,78,0.15); color:#D4944E;">premium · para a família toda</div>
+      <div class="mockup-h1" style="color:#F0DFC0;">A melhor TV<br>para a sua casa.</div>
+      <div class="mockup-p" style="color:rgba(240,223,192,0.6);">Canais ao vivo, filmes e séries em HD e 4K — como a TV sempre deveria ter sido.</div>
+      <div class="mockup-btns">
+        <button class="mockup-btn-primary" style="background:#FF5E3A; color:#fff;">Começar Agora</button>
+        <button class="mockup-btn-outline" style="color:#D4944E; border-color:rgba(212,148,78,0.4);">Ver Planos</button>
+      </div>
+    </div>
+    <div class="mockup-cards" style="background:#0F0B06;">
+      <div class="mockup-card" style="background:#D4944E;"></div>
+      <div class="mockup-card" style="background:#FF5E3A;"></div>
+      <div class="mockup-card" style="background:#D4944E;"></div>
+      <div class="mockup-card" style="background:#FF5E3A;"></div>
+      <div class="mockup-card" style="background:#D4944E;"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ TABELA COMPARATIVA ══════════════════════════════ -->
+<div style="max-width:1100px; margin:0 auto; padding:0 48px 80px; border-bottom:1px solid var(--border);">
+  <div class="sec-label">Comparativo</div>
+  <div class="sec-title" style="margin-bottom:40px;">Qual escolher?</div>
+
+  <div style="overflow-x:auto;">
+  <table style="width:100%; border-collapse:collapse; font-size:13px;">
+    <thead>
+      <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+        <th style="text-align:left; padding:14px 16px; color:var(--texto2); font-weight:600; font-size:10px; letter-spacing:0.2em; text-transform:uppercase;">Critério</th>
+        <th style="text-align:center; padding:14px 16px; color:#4A90FF; font-weight:700;">01 Safira</th>
+        <th style="text-align:center; padding:14px 16px; color:#FF6B6B; font-weight:700;">02 Coral</th>
+        <th style="text-align:center; padding:14px 16px; color:#00A878; font-weight:700;">03 Esmeralda</th>
+        <th style="text-align:center; padding:14px 16px; color:#D4944E; font-weight:700;">04 Cobre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+        <td style="padding:14px 16px; color:var(--texto); font-weight:400;">Diferenciação dos concorrentes</td>
+        <td style="text-align:center; padding:14px; color:#4A90FF; font-weight:700;">&#9733;&#9733;&#9733;&#9733;&#9733;</td>
+        <td style="text-align:center; padding:14px; color:#FF6B6B; font-weight:700;">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+        <td style="text-align:center; padding:14px; color:#00A878; font-weight:700;">&#9733;&#9733;&#9733;&#9734;&#9734;</td>
+        <td style="text-align:center; padding:14px; color:#D4944E; font-weight:700;">&#9733;&#9733;&#9733;&#9733;&#9733;</td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+        <td style="padding:14px 16px; color:var(--texto);">Credibilidade / Confiança</td>
+        <td style="text-align:center; padding:14px; color:#4A90FF; font-weight:700;">&#9733;&#9733;&#9733;&#9733;&#9733;</td>
+        <td style="text-align:center; padding:14px; color:#FF6B6B; font-weight:700;">&#9733;&#9733;&#9733;&#9734;&#9734;</td>
+        <td style="text-align:center; padding:14px; color:#00A878; font-weight:700;">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+        <td style="text-align:center; padding:14px; color:#D4944E; font-weight:700;">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+        <td style="padding:14px 16px; color:var(--texto);">Conexão com família / acolhimento</td>
+        <td style="text-align:center; padding:14px; color:#4A90FF; font-weight:700;">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+        <td style="text-align:center; padding:14px; color:#FF6B6B; font-weight:700;">&#9733;&#9733;&#9733;&#9733;&#9733;</td>
+        <td style="text-align:center; padding:14px; color:#00A878; font-weight:700;">&#9733;&#9733;&#9733;&#9734;&#9734;</td>
+        <td style="text-align:center; padding:14px; color:#D4944E; font-weight:700;">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+        <td style="padding:14px 16px; color:var(--texto);">Apelo para público 25–50 anos</td>
+        <td style="text-align:center; padding:14px; color:#4A90FF; font-weight:700;">&#9733;&#9733;&#9733;&#9733;&#9733;</td>
+        <td style="text-align:center; padding:14px; color:#FF6B6B; font-weight:700;">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+        <td style="text-align:center; padding:14px; color:#00A878; font-weight:700;">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+        <td style="text-align:center; padding:14px; color:#D4944E; font-weight:700;">&#9733;&#9733;&#9733;&#9734;&#9734;</td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+        <td style="padding:14px 16px; color:var(--texto);">Performance em anúncios pagos</td>
+        <td style="text-align:center; padding:14px; color:#4A90FF; font-weight:700;">&#9733;&#9733;&#9733;&#9733;&#9733;</td>
+        <td style="text-align:center; padding:14px; color:#FF6B6B; font-weight:700;">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+        <td style="text-align:center; padding:14px; color:#00A878; font-weight:700;">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+        <td style="text-align:center; padding:14px; color:#D4944E; font-weight:700;">&#9733;&#9733;&#9733;&#9734;&#9734;</td>
+      </tr>
+      <tr>
+        <td style="padding:14px 16px; color:var(--texto);">Originalidade no mercado IPTV BR</td>
+        <td style="text-align:center; padding:14px; color:#4A90FF; font-weight:700;">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+        <td style="text-align:center; padding:14px; color:#FF6B6B; font-weight:700;">&#9733;&#9733;&#9733;&#9733;&#9733;</td>
+        <td style="text-align:center; padding:14px; color:#00A878; font-weight:700;">&#9733;&#9733;&#9733;&#9734;&#9734;</td>
+        <td style="text-align:center; padding:14px; color:#D4944E; font-weight:700;">&#9733;&#9733;&#9733;&#9733;&#9733;</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div style="margin-top:32px; background:#0f0f1a; border:1px solid rgba(74,144,255,0.25); padding:28px 32px;">
+    <div style="font-size:10px; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:#4A90FF; margin-bottom:12px;">Recomendação Estratégica</div>
+    <p style="font-size:15px; font-weight:300; color:var(--texto); line-height:1.7;">A <strong style="color:#fff;">Paleta 01 — Safira Família</strong> é a recomendação principal: une confiança institucional (azul) com calor humano (laranja), comunica seriedade sem frieza, e o par azul + laranja tem a maior taxa de conversão em botões de CTA. Para a Big Idea &ldquo;A família inteira assistindo&rdquo;, safira transmite <strong style="color:#fff;">a segurança de um serviço que a família pode confiar</strong>. A <strong style="color:#fff;">Paleta 02 — Coral Família</strong> é a alternativa ideal para campanhas emocionais e conteúdo orgânico, criando uma identidade complementar: safira para o institucional, coral para o emocional.</p>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════
+     PALETA 05 — LAVANDA CONECTA
+════════════════════════════════════════════════════════ -->
+<div class="paleta-section">
+  <div class="paleta-header">
+    <div>
+      <div class="paleta-id" style="color:#8B7AFF;">Paleta 05</div>
+      <div class="paleta-nome">Lavanda Conecta</div>
+      <div class="paleta-sub">Modernidade · Inclusão · Diferenciação</div>
+    </div>
+    <div class="paleta-badge" style="background:rgba(139,122,255,0.12); color:#8B7AFF; border:1px solid rgba(139,122,255,0.3);">
+      Máxima Diferenciação
+    </div>
+  </div>
+
+  <div class="swatches-main">
+    <div class="swatch" style="background:#0B081A;">
+      <div class="swatch-label" style="color:rgba(255,255,255,0.5);">Base</div>
+      <div class="swatch-hex">#0B081A</div>
+      <div class="swatch-role" style="color:rgba(255,255,255,0.4);">Fundo principal</div>
+    </div>
+    <div class="swatch" style="background:#140F28;">
+      <div class="swatch-label" style="color:rgba(255,255,255,0.5);">Base 2</div>
+      <div class="swatch-hex">#140F28</div>
+      <div class="swatch-role" style="color:rgba(255,255,255,0.4);">Cards e seções</div>
+    </div>
+    <div class="swatch" style="background:#8B7AFF;">
+      <div class="swatch-label" style="color:rgba(255,255,255,0.8);">Primário</div>
+      <div class="swatch-hex">#8B7AFF</div>
+      <div class="swatch-role" style="color:rgba(255,255,255,0.5);">Lavanda elétrica</div>
+    </div>
+    <div class="swatch" style="background:#FF6B8A;">
+      <div class="swatch-label" style="color:rgba(255,255,255,0.8);">Acento</div>
+      <div class="swatch-hex">#FF6B8A</div>
+      <div class="swatch-role" style="color:rgba(255,255,255,0.6);">CTA · Rosa quente</div>
+    </div>
+    <div class="swatch" style="background:#7BFFE0;">
+      <div class="swatch-label" style="color:rgba(0,0,0,0.7);">Destaque</div>
+      <div class="swatch-hex">#7BFFE0</div>
+      <div class="swatch-role" style="color:rgba(0,0,0,0.5);">Mint neon · Highlights</div>
+    </div>
+  </div>
+  <div class="swatches-aux">
+    <div class="swatch-aux" style="background:#0B081A;"></div>
+    <div class="swatch-aux" style="background:#140F28;"></div>
+    <div class="swatch-aux" style="background:#8B7AFF;"></div>
+    <div class="swatch-aux" style="background:#FF6B8A;"></div>
+    <div class="swatch-aux" style="background:#7BFFE0;"></div>
+  </div>
+
+  <div class="psico-grid">
+    <div class="psico-card" style="border-color:rgba(139,122,255,0.2);">
+      <div class="psico-card-label">Psicologia das Cores</div>
+      <p><strong>Lavanda:</strong> criatividade, modernidade e inclusão. É uma cor que não segrega — fala com homens, mulheres, jovens e adultos igualmente. Para o público da Smart Play, lavanda comunica: &ldquo;este serviço é moderno, é para todo mundo.&rdquo;<br><br><strong>Rosa quente no CTA:</strong> desejo, emoção e pertencimento. Funciona especialmente bem em redes sociais, onde cores vibrantes e não convencionais geram mais paradas no scroll.</p>
+    </div>
+    <div class="psico-card" style="border-color:rgba(139,122,255,0.2);">
+      <div class="psico-card-label">Alinhamento com o Público</div>
+      <p>A lavanda <strong>não existe no mercado de IPTV brasileiro</strong> — diferenciação absoluta. Qualquer anúncio com essa paleta será imediatamente reconhecível no feed. Para o público 25–35 anos, funciona como convite à modernidade.<br><br>Risco: pode não conectar com o público 40–50 anos, que tende a preferir cores mais &ldquo;sérias&rdquo; (azul, verde). Ideal para campanhas digitais e Instagram, menos para materiais de suporte.</p>
+    </div>
+  </div>
+
+  <div class="mockup">
+    <div class="mockup-bar" style="background:#140F28; border-bottom:1px solid rgba(255,255,255,0.06);">
+      <div class="mockup-logo-dot" style="background:#8B7AFF;"></div>
+      <div class="mockup-logo-text" style="color:#fff;">Smart <span style="color:#8B7AFF;">Play</span></div>
+      <div class="mockup-nav" style="color:rgba(255,255,255,0.4);">
+        <span>Planos</span><span>Canais</span><span>Filmes</span>
+      </div>
+    </div>
+    <div class="mockup-hero" style="background:linear-gradient(135deg,#0B081A 0%,#140F28 60%,#180F30 100%);">
+      <div class="mockup-tag" style="background:rgba(139,122,255,0.2); color:#A89BFF;">entretenimento para todos</div>
+      <div class="mockup-h1" style="color:#fff;">Cada um no<br>seu canto.<br>Todo mundo feliz.</div>
+      <div class="mockup-p" style="color:rgba(255,255,255,0.6);">Canais ao vivo, filmes e séries — na TV, no celular, no computador. Ao mesmo tempo.</div>
+      <div class="mockup-btns">
+        <button class="mockup-btn-primary" style="background:#FF6B8A; color:#fff;">Começar Agora</button>
+        <button class="mockup-btn-outline" style="color:#7BFFE0; border-color:rgba(123,255,224,0.4);">Ver Planos</button>
+      </div>
+    </div>
+    <div class="mockup-cards" style="background:#0B081A;">
+      <div class="mockup-card" style="background:#8B7AFF;"></div>
+      <div class="mockup-card" style="background:#FF6B8A;"></div>
+      <div class="mockup-card" style="background:#7BFFE0;"></div>
+      <div class="mockup-card" style="background:#8B7AFF;"></div>
+      <div class="mockup-card" style="background:#FF6B8A;"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<div class="page-footer">
+  <div class="page-footer-brand">ADS Company &mdash; Smart Play</div>
+  <div class="page-footer-sub">Paletas de Cores (5 opções) &mdash; Etapa 01 da Identidade Visual &mdash; Agosto 2026</div>
+</div>
+
+</body>
+</html>

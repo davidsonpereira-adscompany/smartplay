@@ -82,7 +82,8 @@ SMART PLAY/
 │   ├── 01-pesquisa-mercado/            # Pesquisa de mercado IPTV
 │   ├── 02-briefing/                    # Briefing completo
 │   └── 03-big-idea/                    # Big Idea da campanha
-├── 02-IDENTIDADE-VISUAL/              # Paletas, brandbooks, logo
+├── 02-IDENTIDADE-VISUAL/
+│   └── 06-PALETAS-de-Cores-Smart-Play.html  # 5 paletas com psicologia cromática
 ├── 03-FUNIL-VENDAS/                   # Páginas de captura, vendas, obrigado
 └── 04-CONTEUDO-ORGANICO/              # Instagram, YouTube, WhatsApp
 ```
@@ -99,7 +100,7 @@ SMART PLAY/
 - [x] Big Idea da campanha — "A família inteira assistindo." (8 seções, 12 headlines, 8 aplicações por canal)
 
 ## Próximas fases pendentes
-- [ ] Paletas de cores → @brand-architect
+- [x] Paletas de cores (5 paletas: Safira Família, Coral Família, Esmeralda Smart, Cobre Noite, Lavanda Conecta)
 - [ ] Brandbook(s) HTML → @brand-architect
 - [ ] Logo / identidade visual → @designer
 - [ ] Funil de vendas (páginas de captura, vendas, obrigado) → @web-designer
