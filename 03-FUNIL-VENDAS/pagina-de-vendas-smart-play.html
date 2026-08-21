@@ -175,8 +175,11 @@ img{max-width:100%;height:auto;display:block}
    07 · FEEDBACKS (WhatsApp mockups)
 ══════════════════════════════════════ */
 .feedbacks{padding:100px 0;background:var(--base);border-top:1px solid var(--border)}
-.feedbacks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
-.wpp-phone{background:var(--wpp-bg);border-radius:20px;border:3px solid #2a1520;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.4)}
+.feedbacks-carousel{position:relative;margin-top:48px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.feedbacks-track{display:flex;gap:20px;width:max-content;animation:feedbackScroll 40s linear infinite}
+.feedbacks-track:hover{animation-play-state:paused}
+@keyframes feedbackScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.wpp-phone{background:var(--wpp-bg);border-radius:20px;border:3px solid #2a1520;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.4);width:340px;flex-shrink:0}
 .wpp-header{background:#1F2C34;padding:12px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.05)}
 .wpp-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--azul),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;flex-shrink:0}
 .wpp-contact{display:flex;flex-direction:column}
@@ -262,7 +265,7 @@ img{max-width:100%;height:auto;display:block}
   .device-slide{width:240px}
   .plans-main{grid-template-columns:1fr 1fr}
   .plans-row2{grid-template-columns:1fr 1fr}
-  .feedbacks-grid{grid-template-columns:1fr 1fr}
+  .wpp-phone{width:300px}
   .access-card-visual{height:160px}
   .device-slide-visual{height:160px}
 }
@@ -307,8 +310,7 @@ img{max-width:100%;height:auto;display:block}
   .device-slide{width:220px}
   .device-slide-visual{height:160px}
   .feedbacks{padding:60px 0}
-  .feedbacks-grid{grid-template-columns:1fr}
-  .wpp-phone{max-width:400px;margin:0 auto}
+  .wpp-phone{width:300px}
   .plans{padding:60px 0}
   .plans-main{grid-template-columns:1fr}
   .plans-row2{grid-template-columns:1fr}
@@ -708,7 +710,8 @@ img{max-width:100%;height:auto;display:block}
       <h2 class="sec-title">Feedback <span>real</span></h2>
     </div>
 
-    <div class="feedbacks-grid">
+    <div class="feedbacks-carousel">
+      <div class="feedbacks-track">
 
       <!-- Feedback 1 -->
       <div class="wpp-phone">
@@ -765,6 +768,176 @@ img{max-width:100%;height:auto;display:block}
         </div>
       </div>
 
+      <!-- Feedback 4 -->
+      <div class="wpp-phone">
+        <div class="wpp-header">
+          <div class="wpp-avatar">L</div>
+          <div class="wpp-contact">
+            <span class="wpp-contact-name">Luciana R.</span>
+            <span class="wpp-contact-status">online</span>
+          </div>
+        </div>
+        <div class="wpp-chat">
+          <div class="wpp-msg in">Menina, preciso te contar! Meu sogro que mora na ro&ccedil;a conseguiu usar <span class="wpp-time">14:22</span></div>
+          <div class="wpp-msg in">Ele s&oacute; tem internet via r&aacute;dio e funciona liso. Assiste jornal todo dia de manh&atilde; <span class="wpp-time">14:22</span></div>
+          <div class="wpp-msg out">Que massa Luciana! Nosso servidor &eacute; otimizado justamente pra conex&otilde;es mais leves <span class="wpp-time">14:25 <span class="wpp-check">&#10003;&#10003;</span></span></div>
+          <div class="wpp-msg in">Ele t&aacute; feliz&atilde;o. Disse que agora n&atilde;o perde mais o jogo do Bahia kk <span class="wpp-time">14:26</span></div>
+          <div class="wpp-msg in">Vou renovar o dele j&aacute;. Quanto &eacute; o trimestral mesmo? <span class="wpp-time">14:27</span></div>
+          <div class="wpp-msg out">R$77,90 por 3 meses, com 3 telas! Mando o link <span class="wpp-time">14:28 <span class="wpp-check">&#10003;&#10003;</span></span></div>
+        </div>
+      </div>
+
+      <!-- Feedback 5 -->
+      <div class="wpp-phone">
+        <div class="wpp-header">
+          <div class="wpp-avatar">M</div>
+          <div class="wpp-contact">
+            <span class="wpp-contact-name">Marcos V.</span>
+            <span class="wpp-contact-status">online</span>
+          </div>
+        </div>
+        <div class="wpp-chat">
+          <div class="wpp-msg in">Rapaz, n&atilde;o acredito que demorei tanto pra conhecer isso <span class="wpp-time">21:45</span></div>
+          <div class="wpp-msg in">Eu pagava R$180 na Oi TV e tinha metade dos canais que tenho aqui <span class="wpp-time">21:45</span></div>
+          <div class="wpp-msg out">Fico feliz que est&aacute; curtindo, Marcos! <span class="wpp-time">21:48 <span class="wpp-check">&#10003;&#10003;</span></span></div>
+          <div class="wpp-msg in">Minha mulher assiste novela na TV, eu assisto o jogo no celular e meu filho v&ecirc; desenho no tablet. Tudo ao mesmo tempo sem travar nada <span class="wpp-time">21:49</span></div>
+          <div class="wpp-msg in">Isso sim &eacute; economia de verdade <span class="wpp-time">21:49</span></div>
+        </div>
+      </div>
+
+      <!-- Feedback 6 -->
+      <div class="wpp-phone">
+        <div class="wpp-header">
+          <div class="wpp-avatar">P</div>
+          <div class="wpp-contact">
+            <span class="wpp-contact-name">Patr&iacute;cia F.</span>
+            <span class="wpp-contact-status">online</span>
+          </div>
+        </div>
+        <div class="wpp-chat">
+          <div class="wpp-msg in">Ol&aacute;! S&oacute; passando pra dizer que o suporte de voc&ecirc;s &eacute; nota 10 <span class="wpp-time">09:10</span></div>
+          <div class="wpp-msg in">Tive um probleminha ontem e em 5 minutos j&aacute; tinham resolvido <span class="wpp-time">09:10</span></div>
+          <div class="wpp-msg out">Obrigado pelo feedback Patr&iacute;cia! Estamos sempre por aqui <span class="wpp-time">09:14 <span class="wpp-check">&#10003;&#10003;</span></span></div>
+          <div class="wpp-msg in">Minha vizinha viu funcionando aqui em casa e j&aacute; quer tamb&eacute;m. Vou passar o contato <span class="wpp-time">09:15</span></div>
+          <div class="wpp-msg in">Melhor custo-benef&iacute;cio que existe. J&aacute; indiquei pra 4 pessoas <span class="wpp-time">09:16</span></div>
+          <div class="wpp-msg out">Sensacional! Pode mandar que a gente atende na hora <span class="wpp-time">09:18 <span class="wpp-check">&#10003;&#10003;</span></span></div>
+        </div>
+      </div>
+
+      <!-- DUPLICADOS PARA LOOP INFINITO -->
+
+      <!-- Feedback 1 (dup) -->
+      <div class="wpp-phone">
+        <div class="wpp-header">
+          <div class="wpp-avatar">R</div>
+          <div class="wpp-contact">
+            <span class="wpp-contact-name">Rodrigo S.</span>
+            <span class="wpp-contact-status">online</span>
+          </div>
+        </div>
+        <div class="wpp-chat">
+          <div class="wpp-msg out">Boa noite Rodrigo! Tudo bem? Como est&aacute; o servi&ccedil;o? <span class="wpp-time">20:12 <span class="wpp-check">&#10003;&#10003;</span></span></div>
+          <div class="wpp-msg in">Cara, sensacional! Cancelei a Sky depois de 8 anos. N&atilde;o sinto falta de nada <span class="wpp-time">20:14</span></div>
+          <div class="wpp-msg in">Assisti &agrave; final da Libertadores sem travar um segundo. Minha fam&iacute;lia toda assistindo junto, 3 telas ao mesmo tempo <span class="wpp-time">20:14</span></div>
+          <div class="wpp-msg out">Que bom! E a qualidade de imagem? <span class="wpp-time">20:15 <span class="wpp-check">&#10003;&#10003;</span></span></div>
+          <div class="wpp-msg in">Imagem perfeita. 4K na TV da sala. Melhor que a Sky. E pago 8x menos haha <span class="wpp-time">20:16</span></div>
+        </div>
+      </div>
+
+      <!-- Feedback 2 (dup) -->
+      <div class="wpp-phone">
+        <div class="wpp-header">
+          <div class="wpp-avatar">A</div>
+          <div class="wpp-contact">
+            <span class="wpp-contact-name">Ana Paula</span>
+            <span class="wpp-contact-status">online</span>
+          </div>
+        </div>
+        <div class="wpp-chat">
+          <div class="wpp-msg in">Oi! Queria agradecer voc&ecirc;s. Meu marido n&atilde;o para de elogiar <span class="wpp-time">18:32</span></div>
+          <div class="wpp-msg in">Ele achava que ia ser igual os outros servi&ccedil;os que a gente j&aacute; testou, que travava tudo <span class="wpp-time">18:32</span></div>
+          <div class="wpp-msg in">Mas j&aacute; tem 2 meses e n&atilde;o caiu uma vez. Nem na hora do jogo do Flamengo <span class="wpp-time">18:33</span></div>
+          <div class="wpp-msg out">Fico muito feliz, Ana! &Eacute; isso a&iacute;, pode contar sempre com a gente <span class="wpp-time">18:35 <span class="wpp-check">&#10003;&#10003;</span></span></div>
+          <div class="wpp-msg in">Vou indicar pra minha irm&atilde; e pra vizinha. Elas pagam R$200 na Claro e t&atilde;o loucas pra sair <span class="wpp-time">18:36</span></div>
+        </div>
+      </div>
+
+      <!-- Feedback 3 (dup) -->
+      <div class="wpp-phone">
+        <div class="wpp-header">
+          <div class="wpp-avatar">C</div>
+          <div class="wpp-contact">
+            <span class="wpp-contact-name">Carlos M.</span>
+            <span class="wpp-contact-status">online</span>
+          </div>
+        </div>
+        <div class="wpp-chat">
+          <div class="wpp-msg in">Fala! Instalei ontem de noite e j&aacute; t&ocirc; viciado kk <span class="wpp-time">10:08</span></div>
+          <div class="wpp-msg in">Minha esposa ficou impressionada com a quantidade de novela e s&eacute;rie <span class="wpp-time">10:08</span></div>
+          <div class="wpp-msg in">E meu filho de 6 anos j&aacute; sabe ir no Discovery Kids sozinho <span class="wpp-time">10:09</span></div>
+          <div class="wpp-msg out">Que &oacute;timo Carlos! A fam&iacute;lia toda aproveitando. Qualquer d&uacute;vida estamos aqui <span class="wpp-time">10:15 <span class="wpp-check">&#10003;&#10003;</span></span></div>
+          <div class="wpp-msg in">S&oacute; queria saber, como faz pra renovar? Quero j&aacute; pegar o anual <span class="wpp-time">10:17</span></div>
+          <div class="wpp-msg out">Mando o link agora! Com o anual voc&ecirc; economiza mais de R$60 <span class="wpp-time">10:18 <span class="wpp-check">&#10003;&#10003;</span></span></div>
+        </div>
+      </div>
+
+      <!-- Feedback 4 (dup) -->
+      <div class="wpp-phone">
+        <div class="wpp-header">
+          <div class="wpp-avatar">L</div>
+          <div class="wpp-contact">
+            <span class="wpp-contact-name">Luciana R.</span>
+            <span class="wpp-contact-status">online</span>
+          </div>
+        </div>
+        <div class="wpp-chat">
+          <div class="wpp-msg in">Menina, preciso te contar! Meu sogro que mora na ro&ccedil;a conseguiu usar <span class="wpp-time">14:22</span></div>
+          <div class="wpp-msg in">Ele s&oacute; tem internet via r&aacute;dio e funciona liso. Assiste jornal todo dia de manh&atilde; <span class="wpp-time">14:22</span></div>
+          <div class="wpp-msg out">Que massa Luciana! Nosso servidor &eacute; otimizado justamente pra conex&otilde;es mais leves <span class="wpp-time">14:25 <span class="wpp-check">&#10003;&#10003;</span></span></div>
+          <div class="wpp-msg in">Ele t&aacute; feliz&atilde;o. Disse que agora n&atilde;o perde mais o jogo do Bahia kk <span class="wpp-time">14:26</span></div>
+          <div class="wpp-msg in">Vou renovar o dele j&aacute;. Quanto &eacute; o trimestral mesmo? <span class="wpp-time">14:27</span></div>
+          <div class="wpp-msg out">R$77,90 por 3 meses, com 3 telas! Mando o link <span class="wpp-time">14:28 <span class="wpp-check">&#10003;&#10003;</span></span></div>
+        </div>
+      </div>
+
+      <!-- Feedback 5 (dup) -->
+      <div class="wpp-phone">
+        <div class="wpp-header">
+          <div class="wpp-avatar">M</div>
+          <div class="wpp-contact">
+            <span class="wpp-contact-name">Marcos V.</span>
+            <span class="wpp-contact-status">online</span>
+          </div>
+        </div>
+        <div class="wpp-chat">
+          <div class="wpp-msg in">Rapaz, n&atilde;o acredito que demorei tanto pra conhecer isso <span class="wpp-time">21:45</span></div>
+          <div class="wpp-msg in">Eu pagava R$180 na Oi TV e tinha metade dos canais que tenho aqui <span class="wpp-time">21:45</span></div>
+          <div class="wpp-msg out">Fico feliz que est&aacute; curtindo, Marcos! <span class="wpp-time">21:48 <span class="wpp-check">&#10003;&#10003;</span></span></div>
+          <div class="wpp-msg in">Minha mulher assiste novela na TV, eu assisto o jogo no celular e meu filho v&ecirc; desenho no tablet. Tudo ao mesmo tempo sem travar nada <span class="wpp-time">21:49</span></div>
+          <div class="wpp-msg in">Isso sim &eacute; economia de verdade <span class="wpp-time">21:49</span></div>
+        </div>
+      </div>
+
+      <!-- Feedback 6 (dup) -->
+      <div class="wpp-phone">
+        <div class="wpp-header">
+          <div class="wpp-avatar">P</div>
+          <div class="wpp-contact">
+            <span class="wpp-contact-name">Patr&iacute;cia F.</span>
+            <span class="wpp-contact-status">online</span>
+          </div>
+        </div>
+        <div class="wpp-chat">
+          <div class="wpp-msg in">Ol&aacute;! S&oacute; passando pra dizer que o suporte de voc&ecirc;s &eacute; nota 10 <span class="wpp-time">09:10</span></div>
+          <div class="wpp-msg in">Tive um probleminha ontem e em 5 minutos j&aacute; tinham resolvido <span class="wpp-time">09:10</span></div>
+          <div class="wpp-msg out">Obrigado pelo feedback Patr&iacute;cia! Estamos sempre por aqui <span class="wpp-time">09:14 <span class="wpp-check">&#10003;&#10003;</span></span></div>
+          <div class="wpp-msg in">Minha vizinha viu funcionando aqui em casa e j&aacute; quer tamb&eacute;m. Vou passar o contato <span class="wpp-time">09:15</span></div>
+          <div class="wpp-msg in">Melhor custo-benef&iacute;cio que existe. J&aacute; indiquei pra 4 pessoas <span class="wpp-time">09:16</span></div>
+          <div class="wpp-msg out">Sensacional! Pode mandar que a gente atende na hora <span class="wpp-time">09:18 <span class="wpp-check">&#10003;&#10003;</span></span></div>
+        </div>
+      </div>
+
+      </div>
     </div>
   </div>
 </section>
