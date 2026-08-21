@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg971"
+   viewBox="0 0 340.82529 348.09299"
+   version="1.1"
+   sodipodi:docname="DKids_2021.svg"
+   inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)"
+   width="340.82529"
+   height="348.09299">
+  <metadata
+     id="metadata24">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     id="namedview22"
+     showgrid="false"
+     inkscape:snap-page="true"
+     inkscape:object-paths="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:zoom="2.1632122"
+     inkscape:cx="110.70279"
+     inkscape:cy="148.58027"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Group-8-Copy" />
+  <defs
+     id="defs8">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient853">
+      <stop
+         style="stop-color:#00dd4e;stop-opacity:1"
+         offset="0"
+         id="stop849" />
+      <stop
+         style="stop-color:#16df4e;stop-opacity:1"
+         offset="0.39999998"
+         id="stop857" />
+      <stop
+         style="stop-color:#80f559;stop-opacity:1"
+         offset="0.69999999"
+         id="stop859" />
+      <stop
+         style="stop-color:#b2ff5a;stop-opacity:1"
+         offset="1"
+         id="stop851" />
+    </linearGradient>
+    <style
+       id="style2">
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-3, .cls-4 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        mask: url(#mask);
+      }
+
+      .cls-3 {
+        fill: #003eff;
+      }
+
+      .cls-4 {
+        fill: #64d662;
+      }
+
+      .cls-5 {
+        fill: #f9d018;
+      }
+    </style>
+    <mask
+       id="mask"
+       x="0"
+       y="-0.00001"
+       width="340.86592"
+       height="348.09346"
+       maskUnits="userSpaceOnUse">
+      <g
+         id="mask-6">
+        <g
+           id="use961">
+          <polygon
+             id="path-5"
+             class="cls-1"
+             points="340.866,0 340.866,348.093 0,348.093 0,0 " />
+        </g>
+      </g>
+    </mask>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient853"
+       id="linearGradient855"
+       x1="111.2291"
+       y1="258.04321"
+       x2="316.1225"
+       y2="100.57674"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <title
+     id="title10">Монтажная область 2</title>
+  <g
+     id="_atoms_logo_dkids_plus_horizontal"
+     data-name="*atoms/logo/dkids_plus_horizontal"
+     transform="translate(-0.04057309)">
+    <g
+       id="Group-8-Copy">
+      <g
+         id="Group-3">
+        <g
+           class="cls-2"
+           mask="url(#mask)"
+           id="g13">
+          <path
+             id="Fill-1"
+             class="cls-3"
+             d="m 309.962,315.44958 a 37.8893,37.8893 0 0 1 -53.56029,0 l -63.58929,-63.58929 a 3.41457,3.41457 0 0 0 -5.82909,2.41841 v 34.37 a 37.92173,37.92173 0 0 1 -39.036,37.85913 c -20.58876,-0.60921 -36.72376,-18.055 -36.72376,-38.65757 v -71.366 a 76.49127,76.49127 0 0 0 0,-136.3353 V 56.75405 c 0,-20.61182 16.13962,-38.053 36.733,-38.66679 0.37848,-0.0092 0.76615,-0.01382 1.14459,-0.01382 A 37.9206,37.9206 0 0 1 186.98335,55.951 v 95.08853 a 3.41226,3.41226 0 0 0 5.82909,2.41379 L 255.47868,90.7917 a 37.86605,37.86605 0 0 1 33.74232,-10.48127 36.403,36.403 0 0 1 14.455,5.986 37.91739,37.91739 0 0 1 5.36758,58.06481 l -55.8864,55.88176 a 3.41788,3.41788 0 0 0 0,4.83219 L 309.962,261.88 a 37.87814,37.87814 0 0 1 0,53.56952 M 323.974,249.608 280.38271,206.01671 a 2.2731,2.2731 0 0 1 0,-3.23069 l 41.98056,-41.98056 a 59.31165,59.31165 0 0 0 17.58884,-41.399 57.68883,57.68883 0 0 0 -98.4854,-40.88212 l -34.67459,34.67 V 58.67864 C 206.79213,26.33939 180.9235,0.0277 149.115,0 h -0.17076 c -0.27694,0.00462 -0.55848,0.00462 -0.84,0.00923 A 57.95473,57.95473 0 0 0 91.41019,57.69558 v 15.57656 a 76.50284,76.50284 0 1 0 0,150.08882 v 66.04924 c 0,32.35309 25.8871,58.674 57.70481,58.674 l 0.87691,-0.005 a 57.93133,57.93133 0 0 0 56.5879,-52.69259 l 35.80533,35.81455 a 57.314,57.314 0 0 0 40.7852,16.89191 h 0.009 a 57.67261,57.67261 0 0 0 57.68635,-57.66789 v -0.0459 a 57.31705,57.31705 0 0 0 -16.89192,-40.77137" />
+        </g>
+      </g>
+      <path
+         d="m 153.01121,148.29439 v 0.0465 a 76.48686,76.48686 0 0 1 -41.78211,68.14 v 71.366 c 0,20.60721 16.12578,38.04833 36.72377,38.66218 A 37.91557,37.91557 0 0 0 186.975,288.64992 V 254.28 a 3.42328,3.42328 0 0 1 5.83833,-2.423 l 63.58467,63.58921 a 37.877734,37.877734 0 0 0 53.5649,-53.56951 l -56.80484,-56.80023 a 3.41788,3.41788 0 0 1 0,-4.83219 l 55.88642,-55.88672 a 37.91738,37.91738 0 0 0 -5.36757,-58.06479 36.45058,36.45058 0 0 0 -14.45505,-5.98141 37.83681,37.83681 0 0 0 -33.7423,10.4813 l -62.66622,62.66161 a 3.41864,3.41864 0 0 1 -5.83833,-2.41378 V 55.95193 a 37.90975,37.90975 0 0 0 -37.873,-37.87759 c -0.37847,0 -0.76152,0.0046 -1.14459,0.01383 -20.60258,0.60921 -36.72838,18.055 -36.72838,38.66679 V 80.1498 a 76.48914,76.48914 0 0 1 41.78211,68.14456"
+         style="fill:url(#linearGradient855);fill-opacity:1" />
+    </g>
+  </g>
+  <path
+     class="cls-5"
+     d="m 86.197957,98.32251 h -46.55914 v 96.80078 h 46.55914 c 22.532843,0 43.650823,-26.339 43.650823,-48.40033 0,-22.06133 -21.11798,-48.40045 -43.650823,-48.40045 z M 101.56057,146.723 a 23.54828,23.54828 0 0 1 -23.479253,23.47925 h -11.46189 v -46.95866 h 11.46182 a 23.54834,23.54834 0 0 1 23.479323,23.47932 z"
+     id="path19" />
+</svg>

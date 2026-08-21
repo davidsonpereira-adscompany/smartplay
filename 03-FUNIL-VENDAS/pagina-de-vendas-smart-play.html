@@ -122,8 +122,8 @@ img{max-width:100%;height:auto;display:block}
 .logo-track{display:flex;gap:16px;animation:scrollLogos 25s linear infinite;width:max-content;padding:0 20px;align-items:center}
 .logo-track:hover{animation-play-state:paused}
 @keyframes scrollLogos{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
-.service-badge{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:8px 20px;border-radius:20px;font-size:12px;font-weight:600;white-space:nowrap;color:rgba(255,255,255,.7);transition:all .3s;flex-shrink:0;cursor:default}
-.service-badge:hover{background:rgba(255,107,107,.1);border-color:rgba(255,107,107,.25);color:rgba(255,255,255,.9)}
+.logo-track img{height:40px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;transition:opacity .3s}
+.logo-track img:hover{opacity:1}
 
 /* Track 2: Poster gradient cards */
 .poster-track{display:flex;gap:14px;animation:scrollPosters 40s linear infinite;width:max-content;padding:0 20px}
@@ -290,7 +290,7 @@ img{max-width:100%;height:auto;display:block}
   .sec-title{font-size:clamp(22px,5vw,28px)}
   .sec-desc{font-size:14px;margin-bottom:32px}
   .poster-track img{height:180px}
-  .service-badge{font-size:11px;padding:6px 14px}
+  .logo-track img{height:32px}
   .access{padding:60px 0}
   .access-grid{grid-template-columns:repeat(2,1fr);gap:12px}
   .access-card-visual{height:140px}
@@ -354,7 +354,7 @@ img{max-width:100%;height:auto;display:block}
   .sec-title{font-size:clamp(20px,5vw,24px)}
   .sec-label{font-size:9px;letter-spacing:.35em;margin-bottom:10px}
   .poster-track img{height:150px;border-radius:8px}
-  .service-badge{font-size:10px;padding:6px 12px}
+  .logo-track img{height:28px}
   .access-grid{grid-template-columns:1fr;gap:10px}
   .access-card-visual{height:160px}
   .access-card-body h3{font-size:15px}
@@ -485,43 +485,9 @@ img{max-width:100%;height:auto;display:block}
     <!-- Track 1: Streaming service text badges -->
     <div class="carousel-row">
       <div class="logo-track">
-        <span class="service-badge">Netflix</span>
-        <span class="service-badge">Prime Video</span>
-        <span class="service-badge">Disney+</span>
-        <span class="service-badge">HBO Max</span>
-        <span class="service-badge">Globoplay</span>
-        <span class="service-badge">Paramount+</span>
-        <span class="service-badge">Apple TV+</span>
-        <span class="service-badge">ESPN</span>
-        <span class="service-badge">SporTV</span>
-        <span class="service-badge">TNT Sports</span>
-        <span class="service-badge">Premiere</span>
-        <span class="service-badge">Telecine</span>
-        <span class="service-badge">Cartoon Network</span>
-        <span class="service-badge">Discovery Kids</span>
-        <span class="service-badge">Multishow</span>
-        <span class="service-badge">Band</span>
-        <span class="service-badge">SBT</span>
-        <span class="service-badge">Record</span>
+        <img src="img/logos/netflix.svg" alt="Netflix"><img src="img/logos/primevideo.svg" alt="Prime Video"><img src="img/logos/disneyplus.svg" alt="Disney+"><img src="img/logos/hbomax.svg" alt="HBO Max"><img src="img/logos/globoplay.svg" alt="Globoplay"><img src="img/logos/paramountplus.svg" alt="Paramount+"><img src="img/logos/appletv.svg" alt="Apple TV+"><img src="img/logos/espn.svg" alt="ESPN"><img src="img/logos/sportv.svg" alt="SporTV"><img src="img/logos/tntsports.svg" alt="TNT Sports"><img src="img/logos/premiere.svg" alt="Premiere"><img src="img/logos/telecine.svg" alt="Telecine"><img src="img/logos/cartoonnetwork.svg" alt="Cartoon Network"><img src="img/logos/discoverykids.svg" alt="Discovery Kids"><img src="img/logos/multishow.svg" alt="Multishow"><img src="img/logos/band.svg" alt="Band"><img src="img/logos/sbt.svg" alt="SBT"><img src="img/logos/record.svg" alt="Record">
         <!-- duplicados para loop infinito -->
-        <span class="service-badge">Netflix</span>
-        <span class="service-badge">Prime Video</span>
-        <span class="service-badge">Disney+</span>
-        <span class="service-badge">HBO Max</span>
-        <span class="service-badge">Globoplay</span>
-        <span class="service-badge">Paramount+</span>
-        <span class="service-badge">Apple TV+</span>
-        <span class="service-badge">ESPN</span>
-        <span class="service-badge">SporTV</span>
-        <span class="service-badge">TNT Sports</span>
-        <span class="service-badge">Premiere</span>
-        <span class="service-badge">Telecine</span>
-        <span class="service-badge">Cartoon Network</span>
-        <span class="service-badge">Discovery Kids</span>
-        <span class="service-badge">Multishow</span>
-        <span class="service-badge">Band</span>
-        <span class="service-badge">SBT</span>
-        <span class="service-badge">Record</span>
+        <img src="img/logos/netflix.svg" alt="Netflix"><img src="img/logos/primevideo.svg" alt="Prime Video"><img src="img/logos/disneyplus.svg" alt="Disney+"><img src="img/logos/hbomax.svg" alt="HBO Max"><img src="img/logos/globoplay.svg" alt="Globoplay"><img src="img/logos/paramountplus.svg" alt="Paramount+"><img src="img/logos/appletv.svg" alt="Apple TV+"><img src="img/logos/espn.svg" alt="ESPN"><img src="img/logos/sportv.svg" alt="SporTV"><img src="img/logos/tntsports.svg" alt="TNT Sports"><img src="img/logos/premiere.svg" alt="Premiere"><img src="img/logos/telecine.svg" alt="Telecine"><img src="img/logos/cartoonnetwork.svg" alt="Cartoon Network"><img src="img/logos/discoverykids.svg" alt="Discovery Kids"><img src="img/logos/multishow.svg" alt="Multishow"><img src="img/logos/band.svg" alt="Band"><img src="img/logos/sbt.svg" alt="SBT"><img src="img/logos/record.svg" alt="Record">
       </div>
     </div>
 
