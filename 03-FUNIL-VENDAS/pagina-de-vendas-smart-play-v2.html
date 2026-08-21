@@ -870,53 +870,55 @@ a {
 .category-mosaic {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 20px;
 }
 
 .category-card {
-  position: relative;
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
-  aspect-ratio: 16 / 10;
-  cursor: pointer;
+  background: var(--card);
   border: 1px solid var(--border);
-  transition: border-color 0.3s;
+  transition: all 0.3s;
+  cursor: default;
 }
 
 .category-card:hover {
   border-color: var(--border2);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
 }
 
-.category-card img {
+.category-card-imgs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  height: 200px;
+  overflow: hidden;
+  background: #000;
+}
+
+.category-card-imgs img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s;
 }
 
-.category-card:hover img {
-  transform: scale(1.06);
+.category-card-body {
+  padding: 18px 20px;
 }
 
-.category-card-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 16px 20px;
-  background: linear-gradient(to top, rgba(15, 8, 8, 0.92) 0%, transparent 100%);
-}
-
-.category-card-name {
+.category-card-body h3 {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--white);
+  margin-bottom: 6px;
 }
 
-.category-card-count {
-  font-size: 11px;
+.category-card-body p {
+  font-size: 13px;
   color: var(--text);
-  margin-top: 2px;
+  font-weight: 300;
+  line-height: 1.5;
 }
 
 /* ══════════════════════════════════════════════
@@ -973,19 +975,49 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  gap: 32px 48px;
+  align-items: flex-start;
+  gap: 32px 44px;
   margin-top: 48px;
 }
 
-.logo-grid img {
-  filter: brightness(0) invert(1);
+.device-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  width: 92px;
   opacity: 0.6;
   transition: opacity 0.3s;
 }
 
-.logo-grid img:hover {
+.device-item:hover {
   opacity: 1;
+}
+
+.device-item img {
+  filter: brightness(0) invert(1);
+}
+
+.device-item svg {
+  color: var(--white);
+}
+
+.device-item-media {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.device-item-name {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  line-height: 1.3;
+  white-space: nowrap;
 }
 
 /* ══════════════════════════════════════════════
@@ -1584,6 +1616,23 @@ a {
 
   .category-mosaic {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .category-card-imgs {
+    height: 140px;
+  }
+
+  .category-card-body {
+    padding: 14px 16px;
+  }
+
+  .category-card-body h3 {
+    font-size: 15px;
+  }
+
+  .category-card-body p {
+    font-size: 12px;
   }
 
   .plans {
@@ -1735,11 +1784,28 @@ a {
   }
 
   .logo-grid {
-    gap: 20px 28px;
+    gap: 20px 16px;
   }
 
-  .logo-grid img {
-    height: 28px !important;
+  .device-item {
+    width: 76px;
+  }
+
+  .device-item img {
+    height: 24px !important;
+  }
+
+  .device-item svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .device-item-media {
+    height: 36px;
+  }
+
+  .device-item-name {
+    font-size: 10px;
   }
 
   .cta-buttons {
@@ -1875,8 +1941,8 @@ a {
           <!-- Slide 1 -->
           <div class="carousel-slide">
             <video muted loop playsinline preload="metadata">
-              <source src="https://zapping-marketing.obs.la-south-2.myhuaweicloud.com/br/features-carousel/replay.webm" type="video/webm">
-              <source src="https://zapping-marketing.obs.la-south-2.myhuaweicloud.com/br/features-carousel/replay.mp4" type="video/mp4">
+              <source src="img/videos/replay.webm" type="video/webm">
+              <source src="img/videos/replay.mp4" type="video/mp4">
             </video>
             <div class="carousel-slide-overlay">
               <span class="slide-badge">Catálogo</span>
@@ -1887,8 +1953,8 @@ a {
           <!-- Slide 2 -->
           <div class="carousel-slide">
             <video muted loop playsinline preload="metadata">
-              <source src="https://zapping-marketing.obs.la-south-2.myhuaweicloud.com/br/features-carousel/esportes.webm" type="video/webm">
-              <source src="https://zapping-marketing.obs.la-south-2.myhuaweicloud.com/br/features-carousel/esportes.mp4" type="video/mp4">
+              <source src="img/videos/esportes.webm" type="video/webm">
+              <source src="img/videos/esportes.mp4" type="video/mp4">
             </video>
             <div class="carousel-slide-overlay">
               <span class="slide-badge">Futebol ao vivo</span>
@@ -1899,8 +1965,8 @@ a {
           <!-- Slide 3 -->
           <div class="carousel-slide">
             <video muted loop playsinline preload="metadata">
-              <source src="https://zapping-marketing.obs.la-south-2.myhuaweicloud.com/br/features-carousel/barra.webm" type="video/webm">
-              <source src="https://zapping-marketing.obs.la-south-2.myhuaweicloud.com/br/features-carousel/barra.mp4" type="video/mp4">
+              <source src="img/videos/barra.webm" type="video/webm">
+              <source src="img/videos/barra.mp4" type="video/mp4">
             </video>
             <div class="carousel-slide-overlay">
               <span class="slide-badge">Qualidade automática</span>
@@ -2126,50 +2192,74 @@ a {
     <div class="category-mosaic">
 
       <div class="category-card">
-        <img src="img/categories/filmes.png" alt="Filmes" loading="lazy">
-        <div class="category-card-overlay">
-          <div class="category-card-name">Filmes</div>
-          <div class="category-card-count">Catálogo completo em HD/4K</div>
+        <div class="category-card-imgs">
+          <img src="img/categories/filme1.webp" alt="Filme" loading="lazy">
+          <img src="img/categories/filme2.jpg" alt="Filme" loading="lazy">
+          <img src="img/categories/filme3.webp" alt="Filme" loading="lazy">
+        </div>
+        <div class="category-card-body">
+          <h3>+ 50.000 Filmes</h3>
+          <p>Catálogo imenso de filmes de todos os gêneros — ação, comédia, drama, terror e muito mais.</p>
         </div>
       </div>
 
       <div class="category-card">
-        <img src="img/categories/series.png" alt="Séries" loading="lazy">
-        <div class="category-card-overlay">
-          <div class="category-card-name">Séries</div>
-          <div class="category-card-count">Temporadas completas</div>
+        <div class="category-card-imgs">
+          <img src="img/posters/strangerthings.webp" alt="Série" loading="lazy">
+          <img src="img/posters/breakingbad.jpg" alt="Série" loading="lazy">
+          <img src="img/posters/thelastofus.jpg" alt="Série" loading="lazy">
+        </div>
+        <div class="category-card-body">
+          <h3>Séries imperdíveis</h3>
+          <p>As melhores séries dos principais streamings. Maratonar nunca foi tão fácil e barato.</p>
         </div>
       </div>
 
       <div class="category-card">
-        <img src="img/categories/esportes.png" alt="Esportes" loading="lazy">
-        <div class="category-card-overlay">
-          <div class="category-card-name">Esportes</div>
-          <div class="category-card-count">Ao vivo e sem delay</div>
+        <div class="category-card-imgs">
+          <img src="img/categories/esporte1.webp" alt="Esporte" loading="lazy">
+          <img src="img/categories/esporte2.webp" alt="Esporte" loading="lazy">
+          <img src="img/categories/esporte3.webp" alt="Esporte" loading="lazy">
+        </div>
+        <div class="category-card-body">
+          <h3>Esportes ao vivo</h3>
+          <p>Futebol, UFC, F1, NBA e todos os grandes eventos esportivos ao vivo. Sem travar, sem atraso.</p>
         </div>
       </div>
 
       <div class="category-card">
-        <img src="img/categories/infantil.png" alt="Infantil" loading="lazy">
-        <div class="category-card-overlay">
-          <div class="category-card-name">Infantil</div>
-          <div class="category-card-count">Conteúdo seguro para crianças</div>
+        <div class="category-card-imgs">
+          <img src="img/categories/novela1.webp" alt="Novela" loading="lazy">
+          <img src="img/categories/novela2.webp" alt="Novela" loading="lazy">
+          <img src="img/categories/novela3.jpg" alt="Novela" loading="lazy">
+        </div>
+        <div class="category-card-body">
+          <h3>Novelas</h3>
+          <p>As novelas da Globo e de outros canais. Assista ao vivo ou reveja os capítulos quando quiser.</p>
         </div>
       </div>
 
       <div class="category-card">
-        <img src="img/categories/animes.png" alt="Animes" loading="lazy">
-        <div class="category-card-overlay">
-          <div class="category-card-name">Animes</div>
-          <div class="category-card-count">Dublado e legendado</div>
+        <div class="category-card-imgs">
+          <img src="img/categories/kids1.webp" alt="Infantil" loading="lazy">
+          <img src="img/categories/kids2.webp" alt="Infantil" loading="lazy">
+          <img src="img/categories/kids3.jpg" alt="Infantil" loading="lazy">
+        </div>
+        <div class="category-card-body">
+          <h3>Canais Infantis</h3>
+          <p>Para os filhos, sobrinhos e netos. Discovery Kids, Cartoon, desenhos e filmes para toda hora.</p>
         </div>
       </div>
 
       <div class="category-card">
-        <img src="img/categories/novelas.png" alt="Novelas" loading="lazy">
-        <div class="category-card-overlay">
-          <div class="category-card-name">Novelas</div>
-          <div class="category-card-count">Todas as emissoras</div>
+        <div class="category-card-imgs">
+          <img src="img/categories/anime1.jpg" alt="Anime" loading="lazy">
+          <img src="img/categories/anime2.webp" alt="Anime" loading="lazy">
+          <img src="img/categories/anime3.jpg" alt="Anime" loading="lazy">
+        </div>
+        <div class="category-card-body">
+          <h3>Os melhores animes</h3>
+          <p>Naruto, Dragon Ball, Demon Slayer, One Piece e muito mais. Dublado e legendado.</p>
         </div>
       </div>
 
@@ -2390,14 +2480,87 @@ a {
     </a>
 
     <div class="logo-grid">
-      <img src="img/plataformas/google-play.webp" alt="Google Play" style="height:40px" loading="lazy">
-      <img src="img/plataformas/app-store.webp" alt="App Store" style="height:40px" loading="lazy">
-      <img src="img/plataformas/android-tv.webp" alt="Android TV" style="height:40px" loading="lazy">
-      <img src="img/plataformas/samsung.webp" alt="Samsung Smart TV" style="height:36px" loading="lazy">
-      <img src="img/plataformas/lg-smart-tv.webp" alt="LG Smart TV" style="height:40px" loading="lazy">
-      <img src="img/plataformas/roku.webp" alt="Roku" style="height:32px" loading="lazy">
-      <img src="img/plataformas/apple-tv.webp" alt="Apple TV" style="height:28px" loading="lazy">
-      <img src="img/plataformas/google-tv.webp" alt="Google TV" style="height:38px" loading="lazy">
+
+      <div class="device-item">
+        <div class="device-item-media"><img src="img/plataformas/samsung.webp" alt="Samsung Smart TV" style="height:32px" loading="lazy"></div>
+        <span class="device-item-name">Samsung</span>
+      </div>
+
+      <div class="device-item">
+        <div class="device-item-media"><img src="img/plataformas/lg-smart-tv.webp" alt="LG Smart TV" style="height:38px" loading="lazy"></div>
+        <span class="device-item-name">LG Smart TV</span>
+      </div>
+
+      <div class="device-item">
+        <div class="device-item-media"><img src="img/plataformas/android-tv.webp" alt="Android TV" style="height:38px" loading="lazy"></div>
+        <span class="device-item-name">Android TV</span>
+      </div>
+
+      <div class="device-item">
+        <div class="device-item-media"><img src="img/plataformas/google-tv.webp" alt="Google TV" style="height:36px" loading="lazy"></div>
+        <span class="device-item-name">Google TV</span>
+      </div>
+
+      <div class="device-item">
+        <div class="device-item-media"><img src="img/plataformas/apple-tv.webp" alt="Apple TV" style="height:26px" loading="lazy"></div>
+        <span class="device-item-name">Apple TV</span>
+      </div>
+
+      <div class="device-item">
+        <div class="device-item-media"><img src="img/plataformas/roku.webp" alt="Roku" style="height:28px" loading="lazy"></div>
+        <span class="device-item-name">Roku</span>
+      </div>
+
+      <div class="device-item">
+        <div class="device-item-media">
+          <!-- Chromecast -->
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6"/><path d="M2 12a9 9 0 0 1 8 8"/><path d="M2 16a5 5 0 0 1 4 4"/><circle cx="2.5" cy="19.5" r="0.8" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <span class="device-item-name">Chromecast</span>
+      </div>
+
+      <div class="device-item">
+        <div class="device-item-media">
+          <!-- Fire Stick -->
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="16" rx="2"/><circle cx="12" cy="6" r="1" fill="currentColor" stroke="none"/><path d="M12 18v4"/><path d="M8 22h8"/></svg>
+        </div>
+        <span class="device-item-name">Fire Stick</span>
+      </div>
+
+      <div class="device-item">
+        <div class="device-item-media">
+          <!-- TV Box -->
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="8" rx="2"/><circle cx="7" cy="13" r="1" fill="currentColor" stroke="none"/><path d="M15 13h3"/><path d="M7 5l5 4 5-4"/></svg>
+        </div>
+        <span class="device-item-name">TV Box</span>
+      </div>
+
+      <div class="device-item">
+        <div class="device-item-media">
+          <!-- Celular e Tablet -->
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>
+        </div>
+        <span class="device-item-name">Celular e Tablet</span>
+      </div>
+
+      <div class="device-item">
+        <div class="device-item-media">
+          <!-- Computador -->
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+        </div>
+        <span class="device-item-name">Computador</span>
+      </div>
+
+      <div class="device-item">
+        <div class="device-item-media"><img src="img/plataformas/google-play.webp" alt="Google Play" style="height:36px" loading="lazy"></div>
+        <span class="device-item-name">Google Play</span>
+      </div>
+
+      <div class="device-item">
+        <div class="device-item-media"><img src="img/plataformas/app-store.webp" alt="App Store" style="height:36px" loading="lazy"></div>
+        <span class="device-item-name">App Store</span>
+      </div>
+
     </div>
 
   </div>
