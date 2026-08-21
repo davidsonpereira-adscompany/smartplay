@@ -1,0 +1,2701 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Play &mdash; Assista TV por R$16,90</title>
+<meta name="description" content="Mais de 200 canais ao vivo, filmes, s&eacute;ries e futebol em HD/4K. A partir de R$16,90. Sem contrato, sem fidelidade.">
+<meta name="theme-color" content="#0F0808">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════
+   Smart Play V2 — Pagina de Vendas
+   Paleta: Coral Familia  |  Inspiracao: Zapping.com.br
+══════════════════════════════════════════════ */
+
+:root {
+  --base: #0F0808;
+  --base2: #1A1010;
+  --base3: #150A0A;
+  --card: #201414;
+  --card2: #281818;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,107,107,0.18);
+  --coral: #FF6B6B;
+  --coral2: #FF8585;
+  --coral-glow: rgba(255,107,107,0.35);
+  --cta: #FFD93D;
+  --cta2: #FFE468;
+  --cyan: #4ECDC4;
+  --white: #FFFFFF;
+  --text: #c8a0a0;
+  --text2: #7a5555;
+  --oncta: #2B1608;
+  --gradient: linear-gradient(90deg, #FF6B6B 25%, #FFD93D 100%);
+  --font: 'Montserrat', sans-serif;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--base);
+  color: var(--white);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── Utilities ── */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ══════════════════════════════════════════════
+   LOGO
+══════════════════════════════════════════════ */
+
+.logo-smartplay {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-badge {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.logo-badge-ring {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--coral);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.logo-badge-inner {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--coral);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-badge-dot {
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cta);
+  box-shadow: 0 0 6px var(--cta);
+}
+
+.logo-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-main-text {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.logo-label {
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-top: 2px;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION 1: NAVBAR
+══════════════════════════════════════════════ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(15, 8, 8, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--white);
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-nav-outline {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--cyan);
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(78, 205, 196, 0.3);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-nav-outline:hover {
+  border-color: var(--cyan);
+  background: rgba(78, 205, 196, 0.06);
+}
+
+.btn-nav-gradient {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--oncta);
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: var(--gradient);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-nav-gradient:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(255, 107, 107, 0.25);
+}
+
+/* ══════════════════════════════════════════════
+   SECTION 2: HERO
+══════════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 72px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-overlay-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to bottom, #0F0808 0%, transparent 100%);
+  z-index: 1;
+}
+
+.hero-overlay-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to top, #0F0808 0%, #0F0808 15%, transparent 100%);
+  z-index: 1;
+}
+
+.hero-glow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  opacity: 0.6;
+  mix-blend-mode: screen;
+  z-index: 1;
+}
+
+.hero-overlay-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(to left, #0F0808 0%, #0F0808 30%, transparent 100%);
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+/* Validation badge */
+.validation-badge {
+  height: 28px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.validation-badge-track {
+  display: flex;
+  flex-direction: column;
+  animation: badgeAlternate 6s ease-in-out infinite;
+}
+
+.validation-line {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
+}
+
+.validation-stars {
+  color: var(--coral);
+  letter-spacing: 2px;
+}
+
+.validation-avatars {
+  display: flex;
+  align-items: center;
+}
+
+.validation-avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.validation-avatar:nth-child(1) { background: var(--coral); margin-left: 0; }
+.validation-avatar:nth-child(2) { background: var(--cyan); margin-left: -6px; }
+.validation-avatar:nth-child(3) { background: var(--cta); color: var(--oncta); margin-left: -6px; }
+
+@keyframes badgeAlternate {
+  0%, 40% { transform: translateY(0); }
+  50%, 90% { transform: translateY(-28px); }
+  100% { transform: translateY(0); }
+}
+
+/* Headline with rotating text */
+.hero-headline {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.hero-price {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.rotating-container {
+  display: inline-block;
+  height: 1.15em;
+  overflow: hidden;
+  vertical-align: bottom;
+  position: relative;
+}
+
+.rotating-track {
+  display: flex;
+  flex-direction: column;
+  animation: rotateWords 12s ease-in-out infinite;
+}
+
+.rotating-word {
+  height: 1.15em;
+  display: flex;
+  align-items: center;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  white-space: nowrap;
+}
+
+@keyframes rotateWords {
+  0%, 20% { transform: translateY(0); }
+  25%, 45% { transform: translateY(-1.15em); }
+  50%, 70% { transform: translateY(-2.3em); }
+  75%, 95% { transform: translateY(-3.45em); }
+  100% { transform: translateY(0); }
+}
+
+.hero-subtitle {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.7;
+  max-width: 560px;
+  margin-top: 24px;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.btn-hero-gradient {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--oncta);
+  padding: 16px 32px;
+  border-radius: 8px;
+  background: var(--gradient);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-hero-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(255, 107, 107, 0.3);
+}
+
+.btn-hero-gradient svg {
+  width: 16px;
+  height: 16px;
+}
+
+.btn-hero-outline {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  padding: 16px 32px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-hero-outline:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.hero-legal {
+  font-size: 11px;
+  color: var(--text2);
+  line-height: 1.5;
+  margin-top: 20px;
+  max-width: 500px;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION 3: FEATURES CAROUSEL
+══════════════════════════════════════════════ */
+
+.features {
+  background: var(--base);
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
+}
+
+.features-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.features-title {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.features-desc {
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.7;
+  padding-top: 8px;
+}
+
+/* Carousel */
+.carousel-wrapper {
+  margin-top: 48px;
+  position: relative;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--card);
+}
+
+.carousel-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-slide-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 32px 32px;
+  background: linear-gradient(to top, rgba(15, 8, 8, 0.95) 0%, rgba(15, 8, 8, 0.6) 50%, transparent 100%);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  -webkit-mask-image: linear-gradient(to top, black 0%, black 60%, transparent 100%);
+  mask-image: linear-gradient(to top, black 0%, black 60%, transparent 100%);
+}
+
+.slide-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 12px;
+  padding: 4px 12px;
+  background: rgba(255, 107, 107, 0.1);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 107, 107, 0.15);
+}
+
+.slide-title {
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--white);
+}
+
+/* Carousel controls */
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: var(--card2);
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: var(--gradient);
+  width: 28px;
+  border-radius: 5px;
+}
+
+.carousel-next {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: var(--white);
+}
+
+.carousel-next:hover {
+  background: var(--card2);
+  border-color: var(--border2);
+}
+
+.carousel-next svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION 4: TESTIMONIALS
+══════════════════════════════════════════════ */
+
+.testimonials {
+  background: var(--base);
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--coral-glow) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.testimonials-content {
+  position: relative;
+  z-index: 1;
+}
+
+.testimonials-heading {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.testimonials-heading h2 {
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.testimonials-heading p {
+  font-size: 15px;
+  color: var(--text);
+  margin-top: 12px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ticker */
+.ticker-wrapper {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.ticker-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: tickerScroll 120s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.testimonial-card {
+  flex-shrink: 0;
+  width: 320px;
+  background: var(--card);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid var(--border);
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.testimonial-avatar.av-coral { background: linear-gradient(135deg, var(--coral), #ff9a9e); }
+.testimonial-avatar.av-cyan { background: linear-gradient(135deg, var(--cyan), #45b7aa); }
+.testimonial-avatar.av-gold { background: linear-gradient(135deg, var(--cta), #ffb347); color: var(--oncta); }
+.testimonial-avatar.av-mix1 { background: linear-gradient(135deg, var(--coral), var(--cyan)); }
+.testimonial-avatar.av-mix2 { background: linear-gradient(135deg, var(--cyan), var(--cta)); }
+.testimonial-avatar.av-mix3 { background: linear-gradient(135deg, var(--cta), var(--coral)); color: var(--oncta); }
+
+.testimonial-info .testimonial-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.testimonial-info .testimonial-handle {
+  font-size: 12px;
+  color: var(--text2);
+}
+
+.testimonial-body {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+.testimonial-body .mention {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION 5: CONTENT HIGHLIGHTS
+══════════════════════════════════════════════ */
+
+.content-highlights {
+  background: var(--base3);
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
+}
+
+/* Featured card */
+.featured-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.featured-card-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.featured-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(15, 8, 8, 0.92) 0%, rgba(15, 8, 8, 0.5) 50%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px;
+}
+
+.featured-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 16px;
+}
+
+.featured-title {
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 800;
+  line-height: 1.2;
+  max-width: 420px;
+}
+
+.featured-desc {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.7;
+  max-width: 400px;
+  margin-top: 12px;
+}
+
+.featured-channel-logo {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  height: 40px;
+  opacity: 0.8;
+}
+
+/* Category mosaic */
+.content-heading {
+  margin-bottom: 40px;
+}
+
+.content-heading h2 {
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.content-heading p {
+  font-size: 16px;
+  color: var(--text);
+  margin-top: 12px;
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+.category-mosaic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.category-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  transition: border-color 0.3s;
+}
+
+.category-card:hover {
+  border-color: var(--border2);
+}
+
+.category-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.category-card:hover img {
+  transform: scale(1.06);
+}
+
+.category-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 20px;
+  background: linear-gradient(to top, rgba(15, 8, 8, 0.92) 0%, transparent 100%);
+}
+
+.category-card-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.category-card-count {
+  font-size: 11px;
+  color: var(--text);
+  margin-top: 2px;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION 6: DEVICES
+══════════════════════════════════════════════ */
+
+.devices {
+  background: var(--base);
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+
+.devices .container {
+  max-width: 1000px;
+  text-align: center;
+}
+
+.devices-title {
+  font-size: clamp(24px, 3.5vw, 36px);
+  font-weight: 800;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.devices-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card);
+  color: var(--white);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  margin-top: 20px;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+}
+
+.devices-link:hover {
+  background: var(--card2);
+  border-color: var(--border2);
+}
+
+.devices-link svg {
+  width: 14px;
+  height: 14px;
+}
+
+.logo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 32px 48px;
+  margin-top: 48px;
+}
+
+.logo-grid img {
+  filter: brightness(0) invert(1);
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.logo-grid img:hover {
+  opacity: 1;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION 7: FAQ
+══════════════════════════════════════════════ */
+
+.faq {
+  background: var(--base);
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
+}
+
+.faq .container {
+  max-width: 800px;
+}
+
+.faq-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+
+.faq-heading {
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.faq-intro {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.7;
+  padding-top: 4px;
+}
+
+.faq-intro a {
+  color: var(--coral);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 107, 107, 0.3);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.3s;
+}
+
+.faq-intro a:hover {
+  text-decoration-color: var(--coral);
+}
+
+/* Accordion */
+.accordion-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  cursor: pointer;
+  gap: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.accordion-question {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.4;
+}
+
+.accordion-chevron {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: var(--text2);
+  transition: transform 0.3s, color 0.3s;
+}
+
+.accordion-item.active .accordion-chevron {
+  transform: rotate(180deg);
+  color: var(--coral);
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.accordion-answer {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.7;
+  padding-bottom: 20px;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION 8: CTA FOOTER + FOOTER
+══════════════════════════════════════════════ */
+
+.cta-section {
+  background: var(--base3);
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+}
+
+.cta-section .container {
+  max-width: 900px;
+  text-align: center;
+}
+
+.cta-headline {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.cta-subtitle {
+  font-size: 16px;
+  color: var(--text);
+  margin-top: 16px;
+  line-height: 1.7;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-validators {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+  align-items: center;
+}
+
+.cta-validator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cta-validator-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--card2);
+  border: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cta-validator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gradient);
+}
+
+.cta-validator-text {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+/* Footer */
+.footer {
+  background: var(--base);
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+}
+
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-social {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.footer-social a {
+  color: var(--text2);
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.footer-social a:hover {
+  color: var(--white);
+}
+
+.footer-social svg {
+  width: 18px;
+  height: 18px;
+}
+
+.footer-sep {
+  height: 1px;
+  background: var(--border);
+  margin: 24px 0;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-copy,
+.footer-disclaimer {
+  font-size: 12px;
+  color: var(--text2);
+}
+
+/* Footer logo muted */
+.footer .logo-badge-ring {
+  border-color: rgba(255, 107, 107, 0.3);
+}
+
+.footer .logo-badge-inner {
+  opacity: 0.5;
+}
+
+.footer .logo-badge-dot {
+  opacity: 0.4;
+}
+
+.footer .logo-main-text {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer .logo-label {
+  color: rgba(78, 205, 196, 0.4);
+}
+
+/* ══════════════════════════════════════════════
+   INLINE CTA BANNERS
+══════════════════════════════════════════════ */
+
+.inline-cta {
+  background: var(--base3);
+  padding: 56px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.inline-cta-text {
+  font-size: clamp(18px, 3vw, 22px);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.inline-cta .btn-hero-gradient {
+  font-size: 14px;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION: PLANS
+══════════════════════════════════════════════ */
+
+.plans {
+  background: var(--base);
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
+}
+
+.plans .container {
+  text-align: center;
+}
+
+.plans-title {
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.plans-subtitle {
+  font-size: 16px;
+  color: var(--text);
+  margin-top: 12px;
+  line-height: 1.7;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+  text-align: left;
+}
+
+.plan-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.plan-card:hover {
+  border-color: var(--border2);
+  transform: translateY(-4px);
+}
+
+.plan-card.highlight {
+  border-color: var(--coral);
+  box-shadow: 0 0 40px rgba(255, 107, 107, 0.12);
+}
+
+.plan-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 16px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.plan-badge.popular {
+  background: var(--gradient);
+  color: var(--oncta);
+}
+
+.plan-badge.best {
+  background: var(--cyan);
+  color: #042120;
+}
+
+.plan-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.plan-screens {
+  font-size: 12px;
+  color: var(--text);
+  margin-top: 4px;
+}
+
+.plan-price {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--white);
+  margin-top: 16px;
+  line-height: 1;
+}
+
+.plan-price span {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.plan-equiv {
+  font-size: 13px;
+  color: var(--coral);
+  font-weight: 600;
+  margin-top: 6px;
+  min-height: 18px;
+}
+
+.plan-features {
+  list-style: none;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.plan-features li {
+  font-size: 13px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.plan-check {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(255, 107, 107, 0.12);
+  border: 1px solid rgba(255, 107, 107, 0.25);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plan-check svg {
+  width: 10px;
+  height: 10px;
+  color: var(--coral);
+}
+
+.plan-cta {
+  display: block;
+  text-align: center;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 14px 24px;
+  border-radius: 8px;
+  margin-top: 24px;
+  transition: all 0.3s;
+  border: 1px solid var(--border);
+  color: var(--white);
+  background: transparent;
+}
+
+.plan-cta:hover {
+  border-color: var(--border2);
+  background: rgba(255, 107, 107, 0.06);
+}
+
+.plan-card.highlight .plan-cta {
+  background: var(--gradient);
+  color: var(--oncta);
+  border: none;
+}
+
+.plan-card.highlight .plan-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 107, 107, 0.3);
+}
+
+.plans-legal {
+  font-size: 12px;
+  color: var(--text2);
+  margin-top: 32px;
+  text-align: center;
+}
+
+/* ══════════════════════════════════════════════
+   SECTION: MELHOR SERVIDOR
+══════════════════════════════════════════════ */
+
+.server-strip {
+  background: var(--base3);
+  padding: 64px 0;
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.server-strip .container {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.server-strip-title {
+  font-size: clamp(22px, 3.5vw, 32px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.server-strip-subtitle {
+  font-size: 15px;
+  color: var(--text);
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.server-ticker {
+  display: flex;
+  width: max-content;
+  animation: serverScroll 30s linear infinite;
+}
+
+.server-ticker:hover {
+  animation-play-state: paused;
+}
+
+.server-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  margin: 0 8px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: border-color 0.3s;
+}
+
+.server-tag:hover {
+  border-color: var(--border2);
+}
+
+.server-tag-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 107, 107, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.server-tag-icon svg {
+  width: 16px;
+  height: 16px;
+  color: var(--coral);
+}
+
+.server-tag-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+@keyframes serverScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .category-mosaic {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .features-header {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 72px;
+    padding-bottom: 0;
+  }
+
+  .hero .container {
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+
+  .features {
+    padding: 60px 0;
+  }
+
+  .features-header {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .content-highlights {
+    padding: 60px 0;
+  }
+
+  .category-mosaic {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .plans {
+    padding: 60px 0;
+  }
+
+  .plans-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .inline-cta {
+    padding: 40px 0;
+  }
+
+  .server-strip {
+    padding: 48px 0;
+  }
+
+  .featured-card-img {
+    height: 250px;
+  }
+
+  .featured-card-overlay {
+    padding: 24px;
+    background: linear-gradient(to top, rgba(15, 8, 8, 0.95) 0%, rgba(15, 8, 8, 0.6) 60%, transparent 100%);
+    justify-content: flex-end;
+  }
+
+  .devices {
+    padding: 60px 0;
+  }
+
+  .faq {
+    padding: 60px 0;
+  }
+
+  .faq-header {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .cta-section {
+    padding: 60px 0;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .logo-grid {
+    gap: 24px 32px;
+  }
+
+  .carousel-slide {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .navbar .container {
+    padding: 0 16px;
+  }
+
+  .nav-buttons {
+    gap: 6px;
+  }
+
+  .btn-nav-outline,
+  .btn-nav-gradient {
+    font-size: 11px;
+    padding: 8px 14px;
+  }
+
+  .logo-badge-ring {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logo-badge-inner {
+    width: 16px;
+    height: 16px;
+  }
+
+  .logo-badge-inner svg {
+    width: 8px;
+    height: 9px;
+  }
+
+  .logo-badge-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .logo-main-text {
+    font-size: 18px;
+  }
+
+  .logo-label {
+    font-size: 6px;
+  }
+
+  .hero-headline {
+    font-size: clamp(26px, 7vw, 40px);
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+  }
+
+  .btn-hero-gradient,
+  .btn-hero-outline {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 24px;
+  }
+
+  .featured-card-overlay {
+    padding: 16px;
+  }
+
+  .featured-title {
+    font-size: 20px;
+  }
+
+  .category-mosaic {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-card {
+    width: 280px;
+  }
+
+  .logo-grid {
+    gap: 20px 28px;
+  }
+
+  .logo-grid img {
+    height: 28px !important;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-buttons a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .carousel-slide {
+    aspect-ratio: 3 / 4;
+  }
+
+  .carousel-slide-overlay {
+    padding: 24px 20px 20px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 1: NAVBAR
+══════════════════════════════════════════════ -->
+<nav class="navbar">
+  <div class="container">
+    <a href="#" class="logo-smartplay">
+      <div class="logo-badge">
+        <div class="logo-badge-ring">
+          <div class="logo-badge-inner">
+            <svg width="10" height="11" viewBox="0 0 12 14" fill="none"><path d="M1 1L11 7L1 13V1Z" fill="white"/></svg>
+          </div>
+          <div class="logo-badge-dot"></div>
+        </div>
+      </div>
+      <div class="logo-text-wrap">
+        <span class="logo-main-text">SmartPlay</span>
+        <span class="logo-label">Entretenimento</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#hero">Início</a></li>
+      <li><a href="#features">Recursos</a></li>
+      <li><a href="#content">Conteúdo</a></li>
+      <li><a href="#plans">Planos</a></li>
+      <li><a href="#devices">Dispositivos</a></li>
+      <li><a href="#faq">Dúvidas</a></li>
+    </ul>
+
+    <div class="nav-buttons">
+      <a href="https://wa.me/5577981367910?text=Ol%C3%A1%21%20Quero%20testar%20gr%C3%A1tis%20por%20duas%20horas%20%E2%8F%B3" class="btn-nav-outline">Testar grátis</a>
+      <a href="https://wa.me/5577981367910?text=Ol%C3%A1%21%20Quero%20assinar%20a%20Smart%20Play%20%F0%9F%93%BA" class="btn-nav-gradient">Assinar agora</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 2: HERO
+══════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <img src="img/hero/hero-bg.webp" alt="" class="hero-bg" loading="eager">
+  <div class="hero-overlay-top"></div>
+  <div class="hero-overlay-bottom"></div>
+  <div class="hero-overlay-right"></div>
+  <img src="img/hero/hero-glow.webp" alt="" class="hero-glow" loading="eager">
+
+  <div class="container">
+    <div class="hero-content">
+
+      <!-- Validation badge -->
+      <div class="validation-badge">
+        <div class="validation-badge-track">
+          <div class="validation-line">
+            <span class="validation-stars">★★★★★</span>
+            <span>Avaliado por quem já cancelou a TV a cabo</span>
+          </div>
+          <div class="validation-line">
+            <div class="validation-avatars">
+              <div class="validation-avatar">R</div>
+              <div class="validation-avatar">A</div>
+              <div class="validation-avatar">C</div>
+            </div>
+            <span>+2.000 famílias já assistem com a Smart Play</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="hero-headline">
+        Assista TV por <span class="hero-price">R$16,90</span><br>
+        e esqueça <span class="rotating-container"><span class="rotating-track"><span class="rotating-word">os cabos</span><span class="rotating-word">a TV a cabo</span><span class="rotating-word">os travamentos</span><span class="rotating-word">as mensalidades caras</span></span></span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="hero-subtitle">Com a Smart Play, você tem mais de 200 canais ao vivo, filmes, séries e futebol na sua Smart TV, celular ou computador. Tudo em HD/4K, sem contrato.</p>
+
+      <!-- CTAs -->
+      <div class="hero-ctas">
+        <a href="https://wa.me/5577981367910?text=Ol%C3%A1%21%20Quero%20assinar%20a%20Smart%20Play%20%F0%9F%93%BA" class="btn-hero-gradient">
+          Quero assinar
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="https://wa.me/5577981367910?text=Ol%C3%A1%21%20Quero%20testar%20gr%C3%A1tis%20por%20duas%20horas%20%E2%8F%B3" class="btn-hero-outline">
+          Testar grátis 2 horas
+        </a>
+      </div>
+
+      <!-- Legal -->
+      <p class="hero-legal">O plano de 15 dias por R$16,90 é válido para 1 tela. Planos a partir de R$28,00/mês com até 3 telas. Sem fidelidade.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 3: FEATURES CAROUSEL
+══════════════════════════════════════════════ -->
+<section class="features" id="features">
+  <div class="container">
+
+    <div class="features-header">
+      <h2 class="features-title">Tudo que você precisa,<br><span class="gradient-text">agora em um app</span></h2>
+      <p class="features-desc">A Smart Play é TV ao vivo pela internet. Esqueça os cabos e aparelhos. Basta instalar o app e dar o play. Assinou, está liberado.</p>
+    </div>
+
+    <div class="carousel-wrapper">
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carouselTrack">
+
+          <!-- Slide 1 -->
+          <div class="carousel-slide">
+            <video muted loop playsinline preload="metadata">
+              <source src="https://zapping-marketing.obs.la-south-2.myhuaweicloud.com/br/features-carousel/replay.webm" type="video/webm">
+              <source src="https://zapping-marketing.obs.la-south-2.myhuaweicloud.com/br/features-carousel/replay.mp4" type="video/mp4">
+            </video>
+            <div class="carousel-slide-overlay">
+              <span class="slide-badge">Catálogo</span>
+              <h3 class="slide-title">Mais de 200 canais ao vivo, <span style="color:var(--text2)">filmes e séries sem limite para toda a família</span></h3>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-slide">
+            <video muted loop playsinline preload="metadata">
+              <source src="https://zapping-marketing.obs.la-south-2.myhuaweicloud.com/br/features-carousel/esportes.webm" type="video/webm">
+              <source src="https://zapping-marketing.obs.la-south-2.myhuaweicloud.com/br/features-carousel/esportes.mp4" type="video/mp4">
+            </video>
+            <div class="carousel-slide-overlay">
+              <span class="slide-badge">Futebol ao vivo</span>
+              <h3 class="slide-title">Assista todos os jogos <span style="color:var(--text2)">sem travar, em HD/4K e em tempo real</span></h3>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-slide">
+            <video muted loop playsinline preload="metadata">
+              <source src="https://zapping-marketing.obs.la-south-2.myhuaweicloud.com/br/features-carousel/barra.webm" type="video/webm">
+              <source src="https://zapping-marketing.obs.la-south-2.myhuaweicloud.com/br/features-carousel/barra.mp4" type="video/mp4">
+            </video>
+            <div class="carousel-slide-overlay">
+              <span class="slide-badge">Qualidade automática</span>
+              <h3 class="slide-title">A qualidade se ajusta sozinha à sua internet, <span style="color:var(--text2)">para você assistir sem travamento em qualquer conexão</span></h3>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="carousel-controls">
+        <div class="carousel-dots" id="carouselDots">
+          <button class="carousel-dot active" data-slide="0" aria-label="Slide 1"></button>
+          <button class="carousel-dot" data-slide="1" aria-label="Slide 2"></button>
+          <button class="carousel-dot" data-slide="2" aria-label="Slide 3"></button>
+        </div>
+        <button class="carousel-next" id="carouselNext" aria-label="Próximo slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 4: TESTIMONIALS
+══════════════════════════════════════════════ -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-glow"></div>
+  <div class="testimonials-content">
+
+    <div class="container">
+      <div class="testimonials-heading">
+        <h2>O que dizem <span class="gradient-text">nossos assinantes</span></h2>
+        <p>Milhares de famílias já cancelaram a TV a cabo e escolheram a Smart Play.</p>
+      </div>
+    </div>
+
+    <div class="ticker-wrapper">
+      <div class="ticker-track" id="tickerTrack">
+
+        <!-- Card 1 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-coral">R</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Rodrigo S.</div>
+              <div class="testimonial-handle">@rodrigo.s_</div>
+            </div>
+          </div>
+          <div class="testimonial-body">Cancelei a Sky depois de 8 anos. Assisti à final da Libertadores sem travar um segundo, 3 telas ao mesmo tempo. Melhor que a Sky e pago 8x menos. <span class="mention">@smartplay</span> sensacional!</div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-cyan">A</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Ana Paula</div>
+              <div class="testimonial-handle">@anapaula.m</div>
+            </div>
+          </div>
+          <div class="testimonial-body">Meu marido achava que ia travar como os outros serviços. Já tem 2 meses e não caiu uma vez. Nem na hora do jogo do Flamengo! Vou indicar pra vizinha.</div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-gold">C</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Carlos M.</div>
+              <div class="testimonial-handle">@carlosm.sp</div>
+            </div>
+          </div>
+          <div class="testimonial-body">Minha esposa ficou impressionada com a quantidade de novela e série. E meu filho de 6 anos já sabe ir no Discovery Kids sozinho. A <span class="mention">@smartplay</span> é top!</div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix1">L</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Luciana R.</div>
+              <div class="testimonial-handle">@luciana.r</div>
+            </div>
+          </div>
+          <div class="testimonial-body">Meu sogro na roça usa com internet via rádio e funciona liso. Assiste jornal todo dia. Disse que não perde mais o jogo do Bahia!</div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix2">M</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Marcos V.</div>
+              <div class="testimonial-handle">@marcos.v</div>
+            </div>
+          </div>
+          <div class="testimonial-body">Pagava R$180 na Oi TV e tinha metade dos canais. Agora minha mulher assiste novela, eu o jogo, meu filho vê desenho. Tudo ao mesmo tempo sem travar nada.</div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix3">P</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Patrícia F.</div>
+              <div class="testimonial-handle">@patricia.f</div>
+            </div>
+          </div>
+          <div class="testimonial-body">Suporte nota 10! Tive um problema e em 5 minutos já tinham resolvido. Melhor custo-benefício que existe. Já indiquei a <span class="mention">@smartplay</span> pra 4 pessoas.</div>
+        </div>
+
+        <!-- Duplicates for seamless loop -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-coral">R</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Rodrigo S.</div>
+              <div class="testimonial-handle">@rodrigo.s_</div>
+            </div>
+          </div>
+          <div class="testimonial-body">Cancelei a Sky depois de 8 anos. Assisti à final da Libertadores sem travar um segundo, 3 telas ao mesmo tempo. Melhor que a Sky e pago 8x menos. <span class="mention">@smartplay</span> sensacional!</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-cyan">A</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Ana Paula</div>
+              <div class="testimonial-handle">@anapaula.m</div>
+            </div>
+          </div>
+          <div class="testimonial-body">Meu marido achava que ia travar como os outros serviços. Já tem 2 meses e não caiu uma vez. Nem na hora do jogo do Flamengo! Vou indicar pra vizinha.</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-gold">C</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Carlos M.</div>
+              <div class="testimonial-handle">@carlosm.sp</div>
+            </div>
+          </div>
+          <div class="testimonial-body">Minha esposa ficou impressionada com a quantidade de novela e série. E meu filho de 6 anos já sabe ir no Discovery Kids sozinho. A <span class="mention">@smartplay</span> é top!</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix1">L</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Luciana R.</div>
+              <div class="testimonial-handle">@luciana.r</div>
+            </div>
+          </div>
+          <div class="testimonial-body">Meu sogro na roça usa com internet via rádio e funciona liso. Assiste jornal todo dia. Disse que não perde mais o jogo do Bahia!</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix2">M</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Marcos V.</div>
+              <div class="testimonial-handle">@marcos.v</div>
+            </div>
+          </div>
+          <div class="testimonial-body">Pagava R$180 na Oi TV e tinha metade dos canais. Agora minha mulher assiste novela, eu o jogo, meu filho vê desenho. Tudo ao mesmo tempo sem travar nada.</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix3">P</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Patrícia F.</div>
+              <div class="testimonial-handle">@patricia.f</div>
+            </div>
+          </div>
+          <div class="testimonial-body">Suporte nota 10! Tive um problema e em 5 minutos já tinham resolvido. Melhor custo-benefício que existe. Já indiquei a <span class="mention">@smartplay</span> pra 4 pessoas.</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     INLINE CTA 1
+══════════════════════════════════════════════ -->
+<section class="inline-cta">
+  <div class="container">
+    <p class="inline-cta-text">Famílias inteiras já cancelaram a TV a cabo.<br>A sua pode ser a próxima.</p>
+    <a href="https://wa.me/5577981367910?text=Ol%C3%A1%21%20Quero%20assinar%20a%20Smart%20Play%20%F0%9F%93%BA" class="btn-hero-gradient">
+      Quero assinar agora
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 5: CONTEÚDO — MOSAICO DE CATEGORIAS
+══════════════════════════════════════════════ -->
+<section class="content-highlights" id="content">
+  <div class="container">
+
+    <div class="content-heading">
+      <h2>Tudo em um só lugar. <span class="gradient-text">Escolha o que assistir.</span></h2>
+      <p>Filmes, séries, esportes, animes, novelas e conteúdo infantil. Mais de 200 canais ao vivo e catálogo sob demanda.</p>
+    </div>
+
+    <!-- Featured card — futebol -->
+    <div class="featured-card">
+      <img src="img/conteudos/futebol-destaque.png" alt="Futebol ao vivo na Smart Play" class="featured-card-img" loading="lazy">
+      <div class="featured-card-overlay">
+        <span class="featured-badge">Futebol ao vivo</span>
+        <h3 class="featured-title">Todos os campeonatos na palma da mão</h3>
+        <p class="featured-desc">Brasileirão, Libertadores, Champions League e muito mais. Transmissão ao vivo em HD/4K, sem travamento.</p>
+      </div>
+    </div>
+
+    <!-- Category mosaic -->
+    <div class="category-mosaic">
+
+      <div class="category-card">
+        <img src="img/categories/filmes.png" alt="Filmes" loading="lazy">
+        <div class="category-card-overlay">
+          <div class="category-card-name">Filmes</div>
+          <div class="category-card-count">Catálogo completo em HD/4K</div>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <img src="img/categories/series.png" alt="Séries" loading="lazy">
+        <div class="category-card-overlay">
+          <div class="category-card-name">Séries</div>
+          <div class="category-card-count">Temporadas completas</div>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <img src="img/categories/esportes.png" alt="Esportes" loading="lazy">
+        <div class="category-card-overlay">
+          <div class="category-card-name">Esportes</div>
+          <div class="category-card-count">Ao vivo e sem delay</div>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <img src="img/categories/infantil.png" alt="Infantil" loading="lazy">
+        <div class="category-card-overlay">
+          <div class="category-card-name">Infantil</div>
+          <div class="category-card-count">Conteúdo seguro para crianças</div>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <img src="img/categories/animes.png" alt="Animes" loading="lazy">
+        <div class="category-card-overlay">
+          <div class="category-card-name">Animes</div>
+          <div class="category-card-count">Dublado e legendado</div>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <img src="img/categories/novelas.png" alt="Novelas" loading="lazy">
+        <div class="category-card-overlay">
+          <div class="category-card-name">Novelas</div>
+          <div class="category-card-count">Todas as emissoras</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 6: PLANOS
+══════════════════════════════════════════════ -->
+<section class="plans" id="plans">
+  <div class="container">
+
+    <h2 class="plans-title">Escolha o plano ideal <span class="gradient-text">para sua família</span></h2>
+    <p class="plans-subtitle">Todos os planos incluem acesso completo, suporte via WhatsApp e sem fidelidade.</p>
+
+    <div class="plans-grid">
+
+      <!-- 15 dias -->
+      <div class="plan-card">
+        <div class="plan-name">15 Dias</div>
+        <div class="plan-screens">1 tela simultânea</div>
+        <div class="plan-price">R$16<span>,90</span></div>
+        <div class="plan-equiv">&nbsp;</div>
+        <ul class="plan-features">
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Acesso completo</li>
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>+200 canais ao vivo</li>
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Sem fidelidade</li>
+        </ul>
+        <a href="https://wa.me/5577981367910?text=Ol%C3%A1%21%20Quero%20o%20plano%20de%2015%20dias%20%F0%9F%93%BA" class="plan-cta">Assinar este plano</a>
+      </div>
+
+      <!-- Mensal -->
+      <div class="plan-card">
+        <div class="plan-name">Mensal</div>
+        <div class="plan-screens">1 tela simultânea</div>
+        <div class="plan-price">R$28<span>,00</span></div>
+        <div class="plan-equiv">&nbsp;</div>
+        <ul class="plan-features">
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Acesso completo</li>
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>+200 canais ao vivo</li>
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Sem fidelidade</li>
+        </ul>
+        <a href="https://wa.me/5577981367910?text=Ol%C3%A1%21%20Quero%20o%20plano%20mensal%20%F0%9F%93%BA" class="plan-cta">Assinar este plano</a>
+      </div>
+
+      <!-- Bimestral -->
+      <div class="plan-card">
+        <div class="plan-name">Bimestral</div>
+        <div class="plan-screens">2 telas simultâneas</div>
+        <div class="plan-price">R$52<span>,90</span></div>
+        <div class="plan-equiv">Equivale a R$26,45/mês</div>
+        <ul class="plan-features">
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Acesso completo</li>
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>+200 canais ao vivo</li>
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>2 telas ao mesmo tempo</li>
+        </ul>
+        <a href="https://wa.me/5577981367910?text=Ol%C3%A1%21%20Quero%20o%20plano%20bimestral%20%F0%9F%93%BA" class="plan-cta">Assinar este plano</a>
+      </div>
+
+      <!-- Trimestral — Mais Popular -->
+      <div class="plan-card highlight">
+        <div class="plan-badge popular">Mais Popular</div>
+        <div class="plan-name">Trimestral</div>
+        <div class="plan-screens">3 telas simultâneas</div>
+        <div class="plan-price">R$77<span>,90</span></div>
+        <div class="plan-equiv">Equivale a R$25,97/mês</div>
+        <ul class="plan-features">
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Acesso completo</li>
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>+200 canais ao vivo</li>
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Até 3 telas simultâneas</li>
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Suporte prioritário</li>
+        </ul>
+        <a href="https://wa.me/5577981367910?text=Ol%C3%A1%21%20Quero%20o%20plano%20trimestral%20%F0%9F%93%BA" class="plan-cta">Assinar este plano</a>
+      </div>
+
+      <!-- Semestral -->
+      <div class="plan-card">
+        <div class="plan-name">Semestral</div>
+        <div class="plan-screens">3 telas simultâneas</div>
+        <div class="plan-price">R$147<span>,90</span></div>
+        <div class="plan-equiv">Equivale a R$24,65/mês</div>
+        <ul class="plan-features">
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Acesso completo</li>
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>+200 canais ao vivo</li>
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Até 3 telas simultâneas</li>
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Suporte prioritário</li>
+        </ul>
+        <a href="https://wa.me/5577981367910?text=Ol%C3%A1%21%20Quero%20o%20plano%20semestral%20%F0%9F%93%BA" class="plan-cta">Assinar este plano</a>
+      </div>
+
+      <!-- Anual — Melhor Custo-Benefício -->
+      <div class="plan-card">
+        <div class="plan-badge best">Melhor Custo-Benefício</div>
+        <div class="plan-name">Anual</div>
+        <div class="plan-screens">3 telas simultâneas</div>
+        <div class="plan-price">R$267<span>,90</span></div>
+        <div class="plan-equiv">Equivale a R$22,33/mês</div>
+        <ul class="plan-features">
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Acesso completo</li>
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>+200 canais ao vivo</li>
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Até 3 telas simultâneas</li>
+          <li><span class="plan-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>Suporte prioritário</li>
+        </ul>
+        <a href="https://wa.me/5577981367910?text=Ol%C3%A1%21%20Quero%20o%20plano%20anual%20%F0%9F%93%BA" class="plan-cta">Assinar este plano</a>
+      </div>
+
+    </div>
+
+    <p class="plans-legal">Todos os planos são sem fidelidade. Você assina pelo período escolhido e renova só se quiser. Sem multas, sem burocracia.</p>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     INLINE CTA 2
+══════════════════════════════════════════════ -->
+<section class="inline-cta">
+  <div class="container">
+    <p class="inline-cta-text">Ainda em dúvida? <span class="gradient-text">Teste grátis por 2 horas.</span></p>
+    <a href="https://wa.me/5577981367910?text=Ol%C3%A1%21%20Quero%20testar%20gr%C3%A1tis%20por%20duas%20horas%20%E2%8F%B3" class="btn-hero-gradient">
+      Testar grátis agora
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 7: MELHOR SERVIDOR
+══════════════════════════════════════════════ -->
+<section class="server-strip">
+  <div class="container">
+    <h2 class="server-strip-title">O melhor servidor <span class="gradient-text">do mercado</span></h2>
+    <p class="server-strip-subtitle">Tecnologia de ponta para você assistir sem travamento, em qualquer dispositivo.</p>
+  </div>
+
+  <div class="server-ticker" id="serverTicker">
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <span class="server-tag-text">Servidor Premium</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
+      <span class="server-tag-text">HD / 4K</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></div>
+      <span class="server-tag-text">Funciona em internet leve</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg></div>
+      <span class="server-tag-text">Zero travamento</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <span class="server-tag-text">Sinal estável 24h</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <span class="server-tag-text">Suporte via WhatsApp</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+      <span class="server-tag-text">+200 canais ao vivo</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><path d="m16.2 16.2 2.9 2.9"/><path d="M12 18v4"/><path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/></svg></div>
+      <span class="server-tag-text">Qualidade automática</span>
+    </div>
+    <!-- duplicates for loop -->
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <span class="server-tag-text">Servidor Premium</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
+      <span class="server-tag-text">HD / 4K</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></div>
+      <span class="server-tag-text">Funciona em internet leve</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg></div>
+      <span class="server-tag-text">Zero travamento</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <span class="server-tag-text">Sinal estável 24h</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <span class="server-tag-text">Suporte via WhatsApp</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+      <span class="server-tag-text">+200 canais ao vivo</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><path d="m16.2 16.2 2.9 2.9"/><path d="M12 18v4"/><path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/></svg></div>
+      <span class="server-tag-text">Qualidade automática</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 6: DEVICES
+══════════════════════════════════════════════ -->
+<section class="devices" id="devices">
+  <div class="container">
+
+    <h2 class="devices-title">Assista na sua Smart TV, celular ou dispositivo de streaming</h2>
+
+    <a href="https://wa.me/5577981367910?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20para%20instalar%20%F0%9F%93%B2" class="devices-link">
+      Veja como instalar
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+
+    <div class="logo-grid">
+      <img src="img/plataformas/google-play.webp" alt="Google Play" style="height:40px" loading="lazy">
+      <img src="img/plataformas/app-store.webp" alt="App Store" style="height:40px" loading="lazy">
+      <img src="img/plataformas/android-tv.webp" alt="Android TV" style="height:40px" loading="lazy">
+      <img src="img/plataformas/samsung.webp" alt="Samsung Smart TV" style="height:36px" loading="lazy">
+      <img src="img/plataformas/lg-smart-tv.webp" alt="LG Smart TV" style="height:40px" loading="lazy">
+      <img src="img/plataformas/roku.webp" alt="Roku" style="height:32px" loading="lazy">
+      <img src="img/plataformas/apple-tv.webp" alt="Apple TV" style="height:28px" loading="lazy">
+      <img src="img/plataformas/google-tv.webp" alt="Google TV" style="height:38px" loading="lazy">
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 7: FAQ
+══════════════════════════════════════════════ -->
+<section class="faq" id="faq">
+  <div class="container">
+
+    <div class="faq-header">
+      <h2 class="faq-heading">Perguntas frequentes</h2>
+      <p class="faq-intro">Respondemos as dúvidas mais comuns. Ficou com alguma pergunta? <a href="https://wa.me/5577981367910?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20Smart%20Play%20%F0%9F%A4%94">Fale com a gente</a> pelo WhatsApp.</p>
+    </div>
+
+    <div class="accordion" id="accordion">
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span class="accordion-question">O que é a Smart Play?</span>
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-body">
+          <p class="accordion-answer">A Smart Play é um app de TV pela internet com mais de 200 canais ao vivo, filmes, séries e esportes em HD/4K. Funciona na sua Smart TV, celular, computador, tablet, TV Box, Fire Stick ou Chromecast. Basta ter internet e dar o play.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span class="accordion-question">Em quais dispositivos posso assistir?</span>
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-body">
+          <p class="accordion-answer">Smart TV (qualquer marca com acesso a apps), celular Android e iPhone, tablet, computador, notebook, TV Box, Amazon Fire Stick, Google Chromecast e outros dispositivos com acesso à internet.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span class="accordion-question">Quantas telas posso usar ao mesmo tempo?</span>
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-body">
+          <p class="accordion-answer">Depende do plano. Os planos de 15 dias e mensal permitem 1 tela. O bimestral permite 2 telas. A partir do trimestral, você tem até 3 telas simultâneas — perfeito para toda a família.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span class="accordion-question">Posso cancelar quando quiser?</span>
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-body">
+          <p class="accordion-answer">Sim. Todos os planos da Smart Play são sem fidelidade. Você assina pelo período escolhido e renova só se quiser. Sem multas, sem burocracia.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span class="accordion-question">Funciona em internet lenta?</span>
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-body">
+          <p class="accordion-answer">Sim. Nosso servidor é otimizado para funcionar até em conexões mais leves, como internet via rádio em zonas rurais. Recomendamos no mínimo 5 Mbps para uma boa experiência em HD.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span class="accordion-question">Como faço para instalar?</span>
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-body">
+          <p class="accordion-answer">É simples: entre em contato pelo WhatsApp, escolha seu plano e receba as instruções de instalação. Em 5 minutos você já está assistindo.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span class="accordion-question">Quais canais estão incluídos?</span>
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-body">
+          <p class="accordion-answer">Mais de 200 canais nacionais e internacionais: Globo, SBT, Record, Band, ESPN, SporTV, Premiere, HBO, Telecine, Cartoon Network, Discovery Kids, Multishow e muito mais. Além do catálogo completo de filmes e séries.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <span class="accordion-question">Vocês oferecem teste gratuito?</span>
+          <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div class="accordion-body">
+          <p class="accordion-answer">Sim! Oferecemos 2 horas de teste grátis para você conhecer a qualidade do serviço antes de assinar. Entre em contato pelo WhatsApp e solicite seu teste.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 8: CTA FOOTER + FOOTER
+══════════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+
+    <h2 class="cta-headline">Assine a Smart Play e tenha <span class="gradient-text">a família inteira assistindo</span></h2>
+    <p class="cta-subtitle">Sem cabos, sem contrato, sem surpresas. Só entretenimento de verdade, do jeito que sua família merece.</p>
+
+    <div class="cta-validators">
+      <div class="cta-validator">
+        <div class="cta-validator-icon"><div class="cta-validator-dot"></div></div>
+        <span class="cta-validator-text">Em 5 minutos você já está assistindo</span>
+      </div>
+      <div class="cta-validator">
+        <div class="cta-validator-icon"><div class="cta-validator-dot"></div></div>
+        <span class="cta-validator-text">Sem contrato e sem fidelidade</span>
+      </div>
+      <div class="cta-validator">
+        <div class="cta-validator-icon"><div class="cta-validator-dot"></div></div>
+        <span class="cta-validator-text">Suporte direto via WhatsApp</span>
+      </div>
+    </div>
+
+    <div class="cta-buttons">
+      <a href="https://wa.me/5577981367910?text=Ol%C3%A1%21%20Quero%20assinar%20a%20Smart%20Play%20%F0%9F%93%BA" class="btn-hero-gradient">
+        Assinar agora
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="https://wa.me/5577981367910?text=Ol%C3%A1%21%20Quero%20testar%20gr%C3%A1tis%20por%20duas%20horas%20%E2%8F%B3" class="btn-hero-outline">
+        Testar grátis 2 horas
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+
+    <div class="footer-top">
+      <a href="#" class="logo-smartplay">
+        <div class="logo-badge">
+          <div class="logo-badge-ring">
+            <div class="logo-badge-inner">
+              <svg width="10" height="11" viewBox="0 0 12 14" fill="none"><path d="M1 1L11 7L1 13V1Z" fill="white"/></svg>
+            </div>
+            <div class="logo-badge-dot"></div>
+          </div>
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-main-text">SmartPlay</span>
+          <span class="logo-label">Entretenimento</span>
+        </div>
+      </a>
+
+      <div class="footer-social">
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/smartplay" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <!-- WhatsApp -->
+        <a href="https://wa.me/5577981367910" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-sep"></div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Smart Play. Todos os direitos reservados.</span>
+      <span class="footer-disclaimer">Smart Play requer assinatura. Conteúdos sujeitos à disponibilidade.</span>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  /* ── Features Carousel ── */
+  var track = document.getElementById('carouselTrack');
+  var dots = document.querySelectorAll('.carousel-dot');
+  var nextBtn = document.getElementById('carouselNext');
+  var slides = track ? track.querySelectorAll('.carousel-slide') : [];
+  var totalSlides = slides.length;
+  var currentSlide = 0;
+  var autoTimer;
+
+  function goToSlide(index) {
+    currentSlide = index % totalSlides;
+    if (track) {
+      track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+    }
+
+    dots.forEach(function(dot, i) {
+      dot.classList.toggle('active', i === currentSlide);
+    });
+
+    /* Play/pause videos */
+    slides.forEach(function(slide, i) {
+      var video = slide.querySelector('video');
+      if (!video) return;
+      if (i === currentSlide) {
+        video.play().catch(function() {});
+      } else {
+        video.pause();
+      }
+    });
+  }
+
+  function nextSlide() {
+    goToSlide(currentSlide + 1);
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoTimer = setInterval(nextSlide, 8000);
+  }
+
+  function stopAutoplay() {
+    if (autoTimer) clearInterval(autoTimer);
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function() {
+      nextSlide();
+      startAutoplay();
+    });
+  }
+
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      var idx = parseInt(this.getAttribute('data-slide'), 10);
+      goToSlide(idx);
+      startAutoplay();
+    });
+  });
+
+  /* Initial state */
+  goToSlide(0);
+  startAutoplay();
+
+  /* ── FAQ Accordion ── */
+  var accordionHeaders = document.querySelectorAll('.accordion-header');
+
+  accordionHeaders.forEach(function(header) {
+    header.addEventListener('click', function() {
+      var item = this.parentElement;
+      var body = item.querySelector('.accordion-body');
+      var isActive = item.classList.contains('active');
+
+      /* Close all */
+      document.querySelectorAll('.accordion-item').forEach(function(el) {
+        el.classList.remove('active');
+        el.querySelector('.accordion-body').style.maxHeight = '0';
+      });
+
+      /* Open clicked (if was closed) */
+      if (!isActive) {
+        item.classList.add('active');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ── Smooth scroll for nav links ── */
+  document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  /* ── Navbar opacity on scroll ── */
+  var navbar = document.querySelector('.navbar');
+  if (navbar) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 60) {
+        navbar.style.background = 'rgba(15, 8, 8, 0.98)';
+      } else {
+        navbar.style.background = 'rgba(15, 8, 8, 0.95)';
+      }
+    }, { passive: true });
+  }
+
+})();
+</script>
+</body>
+</html>
