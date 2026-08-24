@@ -769,6 +769,47 @@ a {
   margin-top: 12px;
 }
 
+.testimonial-card {
+  position: relative;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.testimonial-card:hover {
+  border-color: var(--border2);
+  transform: translateY(-3px);
+}
+
+.testimonial-x {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 15px;
+  height: 15px;
+  color: var(--text2);
+  opacity: 0.7;
+}
+
+.testimonial-verified {
+  width: 13px;
+  height: 13px;
+  color: var(--cyan);
+  flex-shrink: 0;
+}
+
+.testimonial-info .testimonial-name {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.ticker-wrapper + .ticker-wrapper {
+  margin-top: 20px;
+}
+
+.ticker-track.reverse {
+  animation-direction: reverse;
+}
+
 .testimonial-body .mention {
   background: var(--gradient);
   -webkit-background-clip: text;
@@ -2012,147 +2053,277 @@ a {
     </div>
 
     <div class="ticker-wrapper">
-      <div class="ticker-track" id="tickerTrack">
-
-        <!-- Card 1 -->
+      <div class="ticker-track" style="animation-duration:80s">
         <div class="testimonial-card">
           <div class="testimonial-header">
             <div class="testimonial-avatar av-coral">R</div>
             <div class="testimonial-info">
-              <div class="testimonial-name">Rodrigo S.</div>
+              <div class="testimonial-name">Rodrigo S. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
               <div class="testimonial-handle">@rodrigo.s_</div>
             </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
           <div class="testimonial-body">Cancelei a Sky depois de 8 anos. Assisti à final da Libertadores sem travar um segundo, 3 telas ao mesmo tempo. Melhor que a Sky e pago 8x menos. <span class="mention">@smartplay</span> sensacional!</div>
         </div>
-
-        <!-- Card 2 -->
         <div class="testimonial-card">
           <div class="testimonial-header">
             <div class="testimonial-avatar av-cyan">A</div>
             <div class="testimonial-info">
-              <div class="testimonial-name">Ana Paula</div>
+              <div class="testimonial-name">Ana Paula <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
               <div class="testimonial-handle">@anapaula.m</div>
             </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
           <div class="testimonial-body">Meu marido achava que ia travar como os outros serviços. Já tem 2 meses e não caiu uma vez. Nem na hora do jogo do Flamengo! Vou indicar pra vizinha.</div>
         </div>
-
-        <!-- Card 3 -->
         <div class="testimonial-card">
           <div class="testimonial-header">
             <div class="testimonial-avatar av-gold">C</div>
             <div class="testimonial-info">
-              <div class="testimonial-name">Carlos M.</div>
+              <div class="testimonial-name">Carlos M. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
               <div class="testimonial-handle">@carlosm.sp</div>
             </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
           <div class="testimonial-body">Minha esposa ficou impressionada com a quantidade de novela e série. E meu filho de 6 anos já sabe ir no Discovery Kids sozinho. A <span class="mention">@smartplay</span> é top!</div>
         </div>
-
-        <!-- Card 4 -->
         <div class="testimonial-card">
           <div class="testimonial-header">
             <div class="testimonial-avatar av-mix1">L</div>
             <div class="testimonial-info">
-              <div class="testimonial-name">Luciana R.</div>
+              <div class="testimonial-name">Luciana R. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
               <div class="testimonial-handle">@luciana.r</div>
             </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
           <div class="testimonial-body">Meu sogro na roça usa com internet via rádio e funciona liso. Assiste jornal todo dia. Disse que não perde mais o jogo do Bahia!</div>
         </div>
-
-        <!-- Card 5 -->
         <div class="testimonial-card">
           <div class="testimonial-header">
             <div class="testimonial-avatar av-mix2">M</div>
             <div class="testimonial-info">
-              <div class="testimonial-name">Marcos V.</div>
+              <div class="testimonial-name">Marcos V. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
               <div class="testimonial-handle">@marcos.v</div>
             </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
           <div class="testimonial-body">Pagava R$180 na Oi TV e tinha metade dos canais. Agora minha mulher assiste novela, eu o jogo, meu filho vê desenho. Tudo ao mesmo tempo sem travar nada.</div>
         </div>
-
-        <!-- Card 6 -->
         <div class="testimonial-card">
           <div class="testimonial-header">
             <div class="testimonial-avatar av-mix3">P</div>
             <div class="testimonial-info">
-              <div class="testimonial-name">Patrícia F.</div>
+              <div class="testimonial-name">Patrícia F. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
               <div class="testimonial-handle">@patricia.f</div>
             </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
           <div class="testimonial-body">Suporte nota 10! Tive um problema e em 5 minutos já tinham resolvido. Melhor custo-benefício que existe. Já indiquei a <span class="mention">@smartplay</span> pra 4 pessoas.</div>
         </div>
-
-        <!-- Duplicates for seamless loop -->
+        <!-- duplicatas para loop -->
         <div class="testimonial-card">
           <div class="testimonial-header">
             <div class="testimonial-avatar av-coral">R</div>
             <div class="testimonial-info">
-              <div class="testimonial-name">Rodrigo S.</div>
+              <div class="testimonial-name">Rodrigo S. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
               <div class="testimonial-handle">@rodrigo.s_</div>
             </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
           <div class="testimonial-body">Cancelei a Sky depois de 8 anos. Assisti à final da Libertadores sem travar um segundo, 3 telas ao mesmo tempo. Melhor que a Sky e pago 8x menos. <span class="mention">@smartplay</span> sensacional!</div>
         </div>
-
         <div class="testimonial-card">
           <div class="testimonial-header">
             <div class="testimonial-avatar av-cyan">A</div>
             <div class="testimonial-info">
-              <div class="testimonial-name">Ana Paula</div>
+              <div class="testimonial-name">Ana Paula <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
               <div class="testimonial-handle">@anapaula.m</div>
             </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
           <div class="testimonial-body">Meu marido achava que ia travar como os outros serviços. Já tem 2 meses e não caiu uma vez. Nem na hora do jogo do Flamengo! Vou indicar pra vizinha.</div>
         </div>
-
         <div class="testimonial-card">
           <div class="testimonial-header">
             <div class="testimonial-avatar av-gold">C</div>
             <div class="testimonial-info">
-              <div class="testimonial-name">Carlos M.</div>
+              <div class="testimonial-name">Carlos M. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
               <div class="testimonial-handle">@carlosm.sp</div>
             </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
           <div class="testimonial-body">Minha esposa ficou impressionada com a quantidade de novela e série. E meu filho de 6 anos já sabe ir no Discovery Kids sozinho. A <span class="mention">@smartplay</span> é top!</div>
         </div>
-
         <div class="testimonial-card">
           <div class="testimonial-header">
             <div class="testimonial-avatar av-mix1">L</div>
             <div class="testimonial-info">
-              <div class="testimonial-name">Luciana R.</div>
+              <div class="testimonial-name">Luciana R. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
               <div class="testimonial-handle">@luciana.r</div>
             </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
           <div class="testimonial-body">Meu sogro na roça usa com internet via rádio e funciona liso. Assiste jornal todo dia. Disse que não perde mais o jogo do Bahia!</div>
         </div>
-
         <div class="testimonial-card">
           <div class="testimonial-header">
             <div class="testimonial-avatar av-mix2">M</div>
             <div class="testimonial-info">
-              <div class="testimonial-name">Marcos V.</div>
+              <div class="testimonial-name">Marcos V. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
               <div class="testimonial-handle">@marcos.v</div>
             </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
           <div class="testimonial-body">Pagava R$180 na Oi TV e tinha metade dos canais. Agora minha mulher assiste novela, eu o jogo, meu filho vê desenho. Tudo ao mesmo tempo sem travar nada.</div>
         </div>
-
         <div class="testimonial-card">
           <div class="testimonial-header">
             <div class="testimonial-avatar av-mix3">P</div>
             <div class="testimonial-info">
-              <div class="testimonial-name">Patrícia F.</div>
+              <div class="testimonial-name">Patrícia F. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
               <div class="testimonial-handle">@patricia.f</div>
             </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
           <div class="testimonial-body">Suporte nota 10! Tive um problema e em 5 minutos já tinham resolvido. Melhor custo-benefício que existe. Já indiquei a <span class="mention">@smartplay</span> pra 4 pessoas.</div>
         </div>
-
+      </div>
+    </div>
+    <div class="ticker-wrapper">
+      <div class="ticker-track reverse" style="animation-duration:92s">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-cyan">F</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Fernanda L. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@fer.lima</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Instalei na Smart TV da sala e no celular do meu esposo com um plano só. As crianças assistem desenho de manhã e ninguém mais briga pelo controle.</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-coral">J</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">João Pedro <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@joaopedro.ba</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Testei as 2 horas grátis num jogo do Vitória. Não travou nem no gol. Assinei o trimestral na hora. <span class="mention">@smartplay</span> surreal!</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix2">R</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Rosângela M. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@rosangela.m</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Minha novela das 9 em qualquer lugar. Fui pra casa da minha irmã e assisti pelo tablet. Coisa boa demais, viu.</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-gold">T</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Thiago R. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@thiago.reis</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">UFC, Champions e Brasileirão no mesmo app. Cancelei duas assinaturas e economizo mais de R$100 por mês. A <span class="mention">@smartplay</span> resolveu minha vida.</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix1">C</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Cláudia S. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@claudia.santos</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Meu filho estuda em outra cidade e usa a mesma conta. 3 telas de verdade, cada um assiste o seu sem atrapalhar ninguém.</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix3">E</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Edson P. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@edson.p</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Sou caminhoneiro e assisto pelo celular na estrada. Funciona até com internet do chip. Recomendo demais!</div>
+        </div>
+        <!-- duplicatas para loop -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-cyan">F</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Fernanda L. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@fer.lima</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Instalei na Smart TV da sala e no celular do meu esposo com um plano só. As crianças assistem desenho de manhã e ninguém mais briga pelo controle.</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-coral">J</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">João Pedro <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@joaopedro.ba</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Testei as 2 horas grátis num jogo do Vitória. Não travou nem no gol. Assinei o trimestral na hora. <span class="mention">@smartplay</span> surreal!</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix2">R</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Rosângela M. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@rosangela.m</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Minha novela das 9 em qualquer lugar. Fui pra casa da minha irmã e assisti pelo tablet. Coisa boa demais, viu.</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-gold">T</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Thiago R. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@thiago.reis</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">UFC, Champions e Brasileirão no mesmo app. Cancelei duas assinaturas e economizo mais de R$100 por mês. A <span class="mention">@smartplay</span> resolveu minha vida.</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix1">C</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Cláudia S. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@claudia.santos</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Meu filho estuda em outra cidade e usa a mesma conta. 3 telas de verdade, cada um assiste o seu sem atrapalhar ninguém.</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix3">E</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Edson P. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@edson.p</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Sou caminhoneiro e assisto pelo celular na estrada. Funciona até com internet do chip. Recomendo demais!</div>
+        </div>
       </div>
     </div>
 

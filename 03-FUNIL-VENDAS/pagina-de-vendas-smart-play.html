@@ -183,22 +183,28 @@ img{max-width:100%;height:auto;display:block}
    07 · FEEDBACKS (WhatsApp mockups)
 ══════════════════════════════════════ */
 .feedbacks{padding:100px 0;background:var(--base);border-top:1px solid var(--border)}
-.feedbacks-carousel{position:relative;margin-top:48px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
-.feedbacks-track{display:flex;gap:20px;width:max-content;animation:feedbackScroll 40s linear infinite}
-.feedbacks-track:hover{animation-play-state:paused}
-@keyframes feedbackScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.wpp-phone{background:var(--wpp-bg);border-radius:20px;border:3px solid #2a1520;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.4);width:340px;flex-shrink:0}
-.wpp-header{background:#1F2C34;padding:12px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.05)}
-.wpp-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--azul),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;flex-shrink:0}
-.wpp-contact{display:flex;flex-direction:column}
-.wpp-contact-name{font-size:13px;font-weight:600;color:#e9edef}
-.wpp-contact-status{font-size:10px;color:#8696a0;font-weight:300}
-.wpp-chat{padding:16px 12px;display:flex;flex-direction:column;gap:6px;min-height:280px;background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h60v60H0z' fill='%230b141a'/%3E%3Cpath d='M30 10c1 0 1.5.5 1.5 1.5S31 13 30 13s-1.5-.5-1.5-1.5S29 10 30 10z' fill='%230d1820' opacity='.5'/%3E%3C/svg%3E")}
-.wpp-msg{max-width:85%;padding:8px 12px;border-radius:8px;font-size:12px;line-height:1.5;position:relative;word-wrap:break-word}
-.wpp-msg.in{background:var(--wpp-in);color:#e9edef;align-self:flex-start;border-top-left-radius:0}
-.wpp-msg.out{background:var(--wpp-out);color:#e9edef;align-self:flex-end;border-top-right-radius:0}
-.wpp-msg .wpp-time{display:block;text-align:right;font-size:9px;color:rgba(255,255,255,.45);margin-top:4px}
-.wpp-msg .wpp-check{color:var(--wpp-green);font-size:9px;margin-left:4px}
+.ticker-wrapper{overflow:hidden;width:100%;margin-top:48px;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%)}
+.ticker-wrapper+.ticker-wrapper{margin-top:20px}
+.ticker-track{display:flex;gap:20px;width:max-content;animation:tickerScroll 80s linear infinite}
+.ticker-track.reverse{animation-direction:reverse}
+.ticker-track:hover{animation-play-state:paused}
+@keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.testimonial-card{flex-shrink:0;width:320px;background:var(--card);border-radius:16px;padding:20px;border:1px solid var(--border);position:relative;transition:border-color .3s,transform .3s}
+.testimonial-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.testimonial-header{display:flex;align-items:center;gap:12px}
+.testimonial-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:var(--branco);flex-shrink:0}
+.testimonial-avatar.av-coral{background:linear-gradient(135deg,var(--azul),#ff9a9e)}
+.testimonial-avatar.av-cyan{background:linear-gradient(135deg,var(--cyan),#45b7aa)}
+.testimonial-avatar.av-gold{background:linear-gradient(135deg,var(--cta),#ffb347);color:var(--oncta)}
+.testimonial-avatar.av-mix1{background:linear-gradient(135deg,var(--azul),var(--cyan))}
+.testimonial-avatar.av-mix2{background:linear-gradient(135deg,var(--cyan),var(--cta))}
+.testimonial-avatar.av-mix3{background:linear-gradient(135deg,var(--cta),var(--azul));color:var(--oncta)}
+.testimonial-info .testimonial-name{font-size:14px;font-weight:600;color:var(--branco);display:flex;align-items:center;gap:5px}
+.testimonial-info .testimonial-handle{font-size:12px;color:var(--texto2)}
+.testimonial-body{font-size:14px;color:var(--texto);line-height:1.6;margin-top:12px}
+.testimonial-body .mention{color:var(--azul);font-weight:600}
+.testimonial-x{position:absolute;top:20px;right:20px;width:15px;height:15px;color:var(--texto2);opacity:.7}
+.testimonial-verified{width:13px;height:13px;color:var(--cyan);flex-shrink:0}
 
 /* ══════════════════════════════════════
    08 · PLANS
@@ -273,7 +279,7 @@ img{max-width:100%;height:auto;display:block}
   .device-slide{width:210px}
   .plans-main{grid-template-columns:1fr 1fr}
   .plans-row2{grid-template-columns:1fr 1fr}
-  .wpp-phone{width:300px}
+  .testimonial-card{width:290px}
   .access-card-visual{height:160px}
   .device-slide-visual{height:170px}
 }
@@ -319,7 +325,7 @@ img{max-width:100%;height:auto;display:block}
   .device-slide{width:190px}
   .device-slide-visual{height:170px}
   .feedbacks{padding:60px 0}
-  .wpp-phone{width:300px}
+  .testimonial-card{width:290px}
   .plans{padding:60px 0}
   .plans-main{grid-template-columns:1fr}
   .plans-row2{grid-template-columns:1fr}
@@ -738,236 +744,282 @@ img{max-width:100%;height:auto;display:block}
       <h2 class="sec-title">Feedback <span>real</span></h2>
     </div>
 
-    <div class="feedbacks-carousel">
-      <div class="feedbacks-track">
+    </div>
 
-      <!-- Feedback 1 -->
-      <div class="wpp-phone">
-        <div class="wpp-header">
-          <div class="wpp-avatar">R</div>
-          <div class="wpp-contact">
-            <span class="wpp-contact-name">Rodrigo S.</span>
-            <span class="wpp-contact-status">online</span>
+    <div class="ticker-wrapper">
+      <div class="ticker-track" style="animation-duration:80s">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-coral">R</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Rodrigo S. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@rodrigo.s_</div>
+            </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Cancelei a Sky depois de 8 anos. Assisti à final da Libertadores sem travar um segundo, 3 telas ao mesmo tempo. Melhor que a Sky e pago 8x menos. <span class="mention">@smartplay</span> sensacional!</div>
         </div>
-        <div class="wpp-chat">
-          <div class="wpp-msg out">Boa noite Rodrigo! Tudo bem? Como est&aacute; o servi&ccedil;o? <span class="wpp-time">20:12 <span class="wpp-check">&#10003;&#10003;</span></span></div>
-          <div class="wpp-msg in">Cara, sensacional! Cancelei a Sky depois de 8 anos. N&atilde;o sinto falta de nada <span class="wpp-time">20:14</span></div>
-          <div class="wpp-msg in">Assisti &agrave; final da Libertadores sem travar um segundo. Minha fam&iacute;lia toda assistindo junto, 3 telas ao mesmo tempo <span class="wpp-time">20:14</span></div>
-          <div class="wpp-msg out">Que bom! E a qualidade de imagem? <span class="wpp-time">20:15 <span class="wpp-check">&#10003;&#10003;</span></span></div>
-          <div class="wpp-msg in">Imagem perfeita. 4K na TV da sala. Melhor que a Sky. E pago 8x menos haha <span class="wpp-time">20:16</span></div>
-        </div>
-      </div>
-
-      <!-- Feedback 2 -->
-      <div class="wpp-phone">
-        <div class="wpp-header">
-          <div class="wpp-avatar">A</div>
-          <div class="wpp-contact">
-            <span class="wpp-contact-name">Ana Paula</span>
-            <span class="wpp-contact-status">online</span>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-cyan">A</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Ana Paula <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@anapaula.m</div>
+            </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Meu marido achava que ia travar como os outros serviços. Já tem 2 meses e não caiu uma vez. Nem na hora do jogo do Flamengo! Vou indicar pra vizinha.</div>
         </div>
-        <div class="wpp-chat">
-          <div class="wpp-msg in">Oi! Queria agradecer voc&ecirc;s. Meu marido n&atilde;o para de elogiar <span class="wpp-time">18:32</span></div>
-          <div class="wpp-msg in">Ele achava que ia ser igual os outros servi&ccedil;os que a gente j&aacute; testou, que travava tudo <span class="wpp-time">18:32</span></div>
-          <div class="wpp-msg in">Mas j&aacute; tem 2 meses e n&atilde;o caiu uma vez. Nem na hora do jogo do Flamengo <span class="wpp-time">18:33</span></div>
-          <div class="wpp-msg out">Fico muito feliz, Ana! &Eacute; isso a&iacute;, pode contar sempre com a gente <span class="wpp-time">18:35 <span class="wpp-check">&#10003;&#10003;</span></span></div>
-          <div class="wpp-msg in">Vou indicar pra minha irm&atilde; e pra vizinha. Elas pagam R$200 na Claro e t&atilde;o loucas pra sair <span class="wpp-time">18:36</span></div>
-        </div>
-      </div>
-
-      <!-- Feedback 3 -->
-      <div class="wpp-phone">
-        <div class="wpp-header">
-          <div class="wpp-avatar">C</div>
-          <div class="wpp-contact">
-            <span class="wpp-contact-name">Carlos M.</span>
-            <span class="wpp-contact-status">online</span>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-gold">C</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Carlos M. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@carlosm.sp</div>
+            </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Minha esposa ficou impressionada com a quantidade de novela e série. E meu filho de 6 anos já sabe ir no Discovery Kids sozinho. A <span class="mention">@smartplay</span> é top!</div>
         </div>
-        <div class="wpp-chat">
-          <div class="wpp-msg in">Fala! Instalei ontem de noite e j&aacute; t&ocirc; viciado kk <span class="wpp-time">10:08</span></div>
-          <div class="wpp-msg in">Minha esposa ficou impressionada com a quantidade de novela e s&eacute;rie <span class="wpp-time">10:08</span></div>
-          <div class="wpp-msg in">E meu filho de 6 anos j&aacute; sabe ir no Discovery Kids sozinho <span class="wpp-time">10:09</span></div>
-          <div class="wpp-msg out">Que &oacute;timo Carlos! A fam&iacute;lia toda aproveitando. Qualquer d&uacute;vida estamos aqui <span class="wpp-time">10:15 <span class="wpp-check">&#10003;&#10003;</span></span></div>
-          <div class="wpp-msg in">S&oacute; queria saber, como faz pra renovar? Quero j&aacute; pegar o anual <span class="wpp-time">10:17</span></div>
-          <div class="wpp-msg out">Mando o link agora! Com o anual voc&ecirc; economiza mais de R$60 <span class="wpp-time">10:18 <span class="wpp-check">&#10003;&#10003;</span></span></div>
-        </div>
-      </div>
-
-      <!-- Feedback 4 -->
-      <div class="wpp-phone">
-        <div class="wpp-header">
-          <div class="wpp-avatar">L</div>
-          <div class="wpp-contact">
-            <span class="wpp-contact-name">Luciana R.</span>
-            <span class="wpp-contact-status">online</span>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix1">L</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Luciana R. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@luciana.r</div>
+            </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Meu sogro na roça usa com internet via rádio e funciona liso. Assiste jornal todo dia. Disse que não perde mais o jogo do Bahia!</div>
         </div>
-        <div class="wpp-chat">
-          <div class="wpp-msg in">Menina, preciso te contar! Meu sogro que mora na ro&ccedil;a conseguiu usar <span class="wpp-time">14:22</span></div>
-          <div class="wpp-msg in">Ele s&oacute; tem internet via r&aacute;dio e funciona liso. Assiste jornal todo dia de manh&atilde; <span class="wpp-time">14:22</span></div>
-          <div class="wpp-msg out">Que massa Luciana! Nosso servidor &eacute; otimizado justamente pra conex&otilde;es mais leves <span class="wpp-time">14:25 <span class="wpp-check">&#10003;&#10003;</span></span></div>
-          <div class="wpp-msg in">Ele t&aacute; feliz&atilde;o. Disse que agora n&atilde;o perde mais o jogo do Bahia kk <span class="wpp-time">14:26</span></div>
-          <div class="wpp-msg in">Vou renovar o dele j&aacute;. Quanto &eacute; o trimestral mesmo? <span class="wpp-time">14:27</span></div>
-          <div class="wpp-msg out">R$77,90 por 3 meses, com 3 telas! Mando o link <span class="wpp-time">14:28 <span class="wpp-check">&#10003;&#10003;</span></span></div>
-        </div>
-      </div>
-
-      <!-- Feedback 5 -->
-      <div class="wpp-phone">
-        <div class="wpp-header">
-          <div class="wpp-avatar">M</div>
-          <div class="wpp-contact">
-            <span class="wpp-contact-name">Marcos V.</span>
-            <span class="wpp-contact-status">online</span>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix2">M</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Marcos V. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@marcos.v</div>
+            </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Pagava R$180 na Oi TV e tinha metade dos canais. Agora minha mulher assiste novela, eu o jogo, meu filho vê desenho. Tudo ao mesmo tempo sem travar nada.</div>
         </div>
-        <div class="wpp-chat">
-          <div class="wpp-msg in">Rapaz, n&atilde;o acredito que demorei tanto pra conhecer isso <span class="wpp-time">21:45</span></div>
-          <div class="wpp-msg in">Eu pagava R$180 na Oi TV e tinha metade dos canais que tenho aqui <span class="wpp-time">21:45</span></div>
-          <div class="wpp-msg out">Fico feliz que est&aacute; curtindo, Marcos! <span class="wpp-time">21:48 <span class="wpp-check">&#10003;&#10003;</span></span></div>
-          <div class="wpp-msg in">Minha mulher assiste novela na TV, eu assisto o jogo no celular e meu filho v&ecirc; desenho no tablet. Tudo ao mesmo tempo sem travar nada <span class="wpp-time">21:49</span></div>
-          <div class="wpp-msg in">Isso sim &eacute; economia de verdade <span class="wpp-time">21:49</span></div>
-        </div>
-      </div>
-
-      <!-- Feedback 6 -->
-      <div class="wpp-phone">
-        <div class="wpp-header">
-          <div class="wpp-avatar">P</div>
-          <div class="wpp-contact">
-            <span class="wpp-contact-name">Patr&iacute;cia F.</span>
-            <span class="wpp-contact-status">online</span>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix3">P</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Patrícia F. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@patricia.f</div>
+            </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Suporte nota 10! Tive um problema e em 5 minutos já tinham resolvido. Melhor custo-benefício que existe. Já indiquei a <span class="mention">@smartplay</span> pra 4 pessoas.</div>
         </div>
-        <div class="wpp-chat">
-          <div class="wpp-msg in">Ol&aacute;! S&oacute; passando pra dizer que o suporte de voc&ecirc;s &eacute; nota 10 <span class="wpp-time">09:10</span></div>
-          <div class="wpp-msg in">Tive um probleminha ontem e em 5 minutos j&aacute; tinham resolvido <span class="wpp-time">09:10</span></div>
-          <div class="wpp-msg out">Obrigado pelo feedback Patr&iacute;cia! Estamos sempre por aqui <span class="wpp-time">09:14 <span class="wpp-check">&#10003;&#10003;</span></span></div>
-          <div class="wpp-msg in">Minha vizinha viu funcionando aqui em casa e j&aacute; quer tamb&eacute;m. Vou passar o contato <span class="wpp-time">09:15</span></div>
-          <div class="wpp-msg in">Melhor custo-benef&iacute;cio que existe. J&aacute; indiquei pra 4 pessoas <span class="wpp-time">09:16</span></div>
-          <div class="wpp-msg out">Sensacional! Pode mandar que a gente atende na hora <span class="wpp-time">09:18 <span class="wpp-check">&#10003;&#10003;</span></span></div>
-        </div>
-      </div>
-
-      <!-- DUPLICADOS PARA LOOP INFINITO -->
-
-      <!-- Feedback 1 (dup) -->
-      <div class="wpp-phone">
-        <div class="wpp-header">
-          <div class="wpp-avatar">R</div>
-          <div class="wpp-contact">
-            <span class="wpp-contact-name">Rodrigo S.</span>
-            <span class="wpp-contact-status">online</span>
+        <!-- duplicatas para loop -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-coral">R</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Rodrigo S. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@rodrigo.s_</div>
+            </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Cancelei a Sky depois de 8 anos. Assisti à final da Libertadores sem travar um segundo, 3 telas ao mesmo tempo. Melhor que a Sky e pago 8x menos. <span class="mention">@smartplay</span> sensacional!</div>
         </div>
-        <div class="wpp-chat">
-          <div class="wpp-msg out">Boa noite Rodrigo! Tudo bem? Como est&aacute; o servi&ccedil;o? <span class="wpp-time">20:12 <span class="wpp-check">&#10003;&#10003;</span></span></div>
-          <div class="wpp-msg in">Cara, sensacional! Cancelei a Sky depois de 8 anos. N&atilde;o sinto falta de nada <span class="wpp-time">20:14</span></div>
-          <div class="wpp-msg in">Assisti &agrave; final da Libertadores sem travar um segundo. Minha fam&iacute;lia toda assistindo junto, 3 telas ao mesmo tempo <span class="wpp-time">20:14</span></div>
-          <div class="wpp-msg out">Que bom! E a qualidade de imagem? <span class="wpp-time">20:15 <span class="wpp-check">&#10003;&#10003;</span></span></div>
-          <div class="wpp-msg in">Imagem perfeita. 4K na TV da sala. Melhor que a Sky. E pago 8x menos haha <span class="wpp-time">20:16</span></div>
-        </div>
-      </div>
-
-      <!-- Feedback 2 (dup) -->
-      <div class="wpp-phone">
-        <div class="wpp-header">
-          <div class="wpp-avatar">A</div>
-          <div class="wpp-contact">
-            <span class="wpp-contact-name">Ana Paula</span>
-            <span class="wpp-contact-status">online</span>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-cyan">A</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Ana Paula <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@anapaula.m</div>
+            </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Meu marido achava que ia travar como os outros serviços. Já tem 2 meses e não caiu uma vez. Nem na hora do jogo do Flamengo! Vou indicar pra vizinha.</div>
         </div>
-        <div class="wpp-chat">
-          <div class="wpp-msg in">Oi! Queria agradecer voc&ecirc;s. Meu marido n&atilde;o para de elogiar <span class="wpp-time">18:32</span></div>
-          <div class="wpp-msg in">Ele achava que ia ser igual os outros servi&ccedil;os que a gente j&aacute; testou, que travava tudo <span class="wpp-time">18:32</span></div>
-          <div class="wpp-msg in">Mas j&aacute; tem 2 meses e n&atilde;o caiu uma vez. Nem na hora do jogo do Flamengo <span class="wpp-time">18:33</span></div>
-          <div class="wpp-msg out">Fico muito feliz, Ana! &Eacute; isso a&iacute;, pode contar sempre com a gente <span class="wpp-time">18:35 <span class="wpp-check">&#10003;&#10003;</span></span></div>
-          <div class="wpp-msg in">Vou indicar pra minha irm&atilde; e pra vizinha. Elas pagam R$200 na Claro e t&atilde;o loucas pra sair <span class="wpp-time">18:36</span></div>
-        </div>
-      </div>
-
-      <!-- Feedback 3 (dup) -->
-      <div class="wpp-phone">
-        <div class="wpp-header">
-          <div class="wpp-avatar">C</div>
-          <div class="wpp-contact">
-            <span class="wpp-contact-name">Carlos M.</span>
-            <span class="wpp-contact-status">online</span>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-gold">C</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Carlos M. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@carlosm.sp</div>
+            </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Minha esposa ficou impressionada com a quantidade de novela e série. E meu filho de 6 anos já sabe ir no Discovery Kids sozinho. A <span class="mention">@smartplay</span> é top!</div>
         </div>
-        <div class="wpp-chat">
-          <div class="wpp-msg in">Fala! Instalei ontem de noite e j&aacute; t&ocirc; viciado kk <span class="wpp-time">10:08</span></div>
-          <div class="wpp-msg in">Minha esposa ficou impressionada com a quantidade de novela e s&eacute;rie <span class="wpp-time">10:08</span></div>
-          <div class="wpp-msg in">E meu filho de 6 anos j&aacute; sabe ir no Discovery Kids sozinho <span class="wpp-time">10:09</span></div>
-          <div class="wpp-msg out">Que &oacute;timo Carlos! A fam&iacute;lia toda aproveitando. Qualquer d&uacute;vida estamos aqui <span class="wpp-time">10:15 <span class="wpp-check">&#10003;&#10003;</span></span></div>
-          <div class="wpp-msg in">S&oacute; queria saber, como faz pra renovar? Quero j&aacute; pegar o anual <span class="wpp-time">10:17</span></div>
-          <div class="wpp-msg out">Mando o link agora! Com o anual voc&ecirc; economiza mais de R$60 <span class="wpp-time">10:18 <span class="wpp-check">&#10003;&#10003;</span></span></div>
-        </div>
-      </div>
-
-      <!-- Feedback 4 (dup) -->
-      <div class="wpp-phone">
-        <div class="wpp-header">
-          <div class="wpp-avatar">L</div>
-          <div class="wpp-contact">
-            <span class="wpp-contact-name">Luciana R.</span>
-            <span class="wpp-contact-status">online</span>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix1">L</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Luciana R. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@luciana.r</div>
+            </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Meu sogro na roça usa com internet via rádio e funciona liso. Assiste jornal todo dia. Disse que não perde mais o jogo do Bahia!</div>
         </div>
-        <div class="wpp-chat">
-          <div class="wpp-msg in">Menina, preciso te contar! Meu sogro que mora na ro&ccedil;a conseguiu usar <span class="wpp-time">14:22</span></div>
-          <div class="wpp-msg in">Ele s&oacute; tem internet via r&aacute;dio e funciona liso. Assiste jornal todo dia de manh&atilde; <span class="wpp-time">14:22</span></div>
-          <div class="wpp-msg out">Que massa Luciana! Nosso servidor &eacute; otimizado justamente pra conex&otilde;es mais leves <span class="wpp-time">14:25 <span class="wpp-check">&#10003;&#10003;</span></span></div>
-          <div class="wpp-msg in">Ele t&aacute; feliz&atilde;o. Disse que agora n&atilde;o perde mais o jogo do Bahia kk <span class="wpp-time">14:26</span></div>
-          <div class="wpp-msg in">Vou renovar o dele j&aacute;. Quanto &eacute; o trimestral mesmo? <span class="wpp-time">14:27</span></div>
-          <div class="wpp-msg out">R$77,90 por 3 meses, com 3 telas! Mando o link <span class="wpp-time">14:28 <span class="wpp-check">&#10003;&#10003;</span></span></div>
-        </div>
-      </div>
-
-      <!-- Feedback 5 (dup) -->
-      <div class="wpp-phone">
-        <div class="wpp-header">
-          <div class="wpp-avatar">M</div>
-          <div class="wpp-contact">
-            <span class="wpp-contact-name">Marcos V.</span>
-            <span class="wpp-contact-status">online</span>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix2">M</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Marcos V. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@marcos.v</div>
+            </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Pagava R$180 na Oi TV e tinha metade dos canais. Agora minha mulher assiste novela, eu o jogo, meu filho vê desenho. Tudo ao mesmo tempo sem travar nada.</div>
         </div>
-        <div class="wpp-chat">
-          <div class="wpp-msg in">Rapaz, n&atilde;o acredito que demorei tanto pra conhecer isso <span class="wpp-time">21:45</span></div>
-          <div class="wpp-msg in">Eu pagava R$180 na Oi TV e tinha metade dos canais que tenho aqui <span class="wpp-time">21:45</span></div>
-          <div class="wpp-msg out">Fico feliz que est&aacute; curtindo, Marcos! <span class="wpp-time">21:48 <span class="wpp-check">&#10003;&#10003;</span></span></div>
-          <div class="wpp-msg in">Minha mulher assiste novela na TV, eu assisto o jogo no celular e meu filho v&ecirc; desenho no tablet. Tudo ao mesmo tempo sem travar nada <span class="wpp-time">21:49</span></div>
-          <div class="wpp-msg in">Isso sim &eacute; economia de verdade <span class="wpp-time">21:49</span></div>
-        </div>
-      </div>
-
-      <!-- Feedback 6 (dup) -->
-      <div class="wpp-phone">
-        <div class="wpp-header">
-          <div class="wpp-avatar">P</div>
-          <div class="wpp-contact">
-            <span class="wpp-contact-name">Patr&iacute;cia F.</span>
-            <span class="wpp-contact-status">online</span>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix3">P</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Patrícia F. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@patricia.f</div>
+            </div>
           </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Suporte nota 10! Tive um problema e em 5 minutos já tinham resolvido. Melhor custo-benefício que existe. Já indiquei a <span class="mention">@smartplay</span> pra 4 pessoas.</div>
         </div>
-        <div class="wpp-chat">
-          <div class="wpp-msg in">Ol&aacute;! S&oacute; passando pra dizer que o suporte de voc&ecirc;s &eacute; nota 10 <span class="wpp-time">09:10</span></div>
-          <div class="wpp-msg in">Tive um probleminha ontem e em 5 minutos j&aacute; tinham resolvido <span class="wpp-time">09:10</span></div>
-          <div class="wpp-msg out">Obrigado pelo feedback Patr&iacute;cia! Estamos sempre por aqui <span class="wpp-time">09:14 <span class="wpp-check">&#10003;&#10003;</span></span></div>
-          <div class="wpp-msg in">Minha vizinha viu funcionando aqui em casa e j&aacute; quer tamb&eacute;m. Vou passar o contato <span class="wpp-time">09:15</span></div>
-          <div class="wpp-msg in">Melhor custo-benef&iacute;cio que existe. J&aacute; indiquei pra 4 pessoas <span class="wpp-time">09:16</span></div>
-          <div class="wpp-msg out">Sensacional! Pode mandar que a gente atende na hora <span class="wpp-time">09:18 <span class="wpp-check">&#10003;&#10003;</span></span></div>
-        </div>
-      </div>
-
       </div>
     </div>
-  </div>
+    <div class="ticker-wrapper">
+      <div class="ticker-track reverse" style="animation-duration:92s">
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-cyan">F</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Fernanda L. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@fer.lima</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Instalei na Smart TV da sala e no celular do meu esposo com um plano só. As crianças assistem desenho de manhã e ninguém mais briga pelo controle.</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-coral">J</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">João Pedro <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@joaopedro.ba</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Testei as 2 horas grátis num jogo do Vitória. Não travou nem no gol. Assinei o trimestral na hora. <span class="mention">@smartplay</span> surreal!</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix2">R</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Rosângela M. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@rosangela.m</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Minha novela das 9 em qualquer lugar. Fui pra casa da minha irmã e assisti pelo tablet. Coisa boa demais, viu.</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-gold">T</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Thiago R. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@thiago.reis</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">UFC, Champions e Brasileirão no mesmo app. Cancelei duas assinaturas e economizo mais de R$100 por mês. A <span class="mention">@smartplay</span> resolveu minha vida.</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix1">C</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Cláudia S. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@claudia.santos</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Meu filho estuda em outra cidade e usa a mesma conta. 3 telas de verdade, cada um assiste o seu sem atrapalhar ninguém.</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix3">E</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Edson P. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@edson.p</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Sou caminhoneiro e assisto pelo celular na estrada. Funciona até com internet do chip. Recomendo demais!</div>
+        </div>
+        <!-- duplicatas para loop -->
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-cyan">F</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Fernanda L. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@fer.lima</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Instalei na Smart TV da sala e no celular do meu esposo com um plano só. As crianças assistem desenho de manhã e ninguém mais briga pelo controle.</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-coral">J</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">João Pedro <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@joaopedro.ba</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Testei as 2 horas grátis num jogo do Vitória. Não travou nem no gol. Assinei o trimestral na hora. <span class="mention">@smartplay</span> surreal!</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix2">R</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Rosângela M. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@rosangela.m</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Minha novela das 9 em qualquer lugar. Fui pra casa da minha irmã e assisti pelo tablet. Coisa boa demais, viu.</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-gold">T</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Thiago R. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@thiago.reis</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">UFC, Champions e Brasileirão no mesmo app. Cancelei duas assinaturas e economizo mais de R$100 por mês. A <span class="mention">@smartplay</span> resolveu minha vida.</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix1">C</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Cláudia S. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@claudia.santos</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Meu filho estuda em outra cidade e usa a mesma conta. 3 telas de verdade, cada um assiste o seu sem atrapalhar ninguém.</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-header">
+            <div class="testimonial-avatar av-mix3">E</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Edson P. <svg class="testimonial-verified" viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#150A0A"/></svg></div>
+              <div class="testimonial-handle">@edson.p</div>
+            </div>
+          </div>
+          <svg class="testimonial-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+          <div class="testimonial-body">Sou caminhoneiro e assisto pelo celular na estrada. Funciona até com internet do chip. Recomendo demais!</div>
+        </div>
+      </div>
+    </div>
 </section>
 
 <!-- ════════════════ PLANS ════════════════ -->
