@@ -125,12 +125,12 @@ img{max-width:100%;height:auto;display:block}
 .logo-track img{height:40px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:.7;transition:opacity .3s}
 .logo-track img:hover{opacity:1}
 
-/* Track 2: Poster gradient cards */
-.poster-track{display:flex;gap:14px;animation:scrollPosters 40s linear infinite;width:max-content;padding:0 20px}
-.poster-track:hover{animation-play-state:paused}
-@keyframes scrollPosters{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.poster-track img{height:240px;width:auto;aspect-ratio:2/3;object-fit:cover;border-radius:10px;transition:transform .3s;flex-shrink:0}
-.poster-track img:hover{transform:scale(1.06)}
+/* Track 2: Coverflow 3D de posters */
+.coverflow{--cf-w:clamp(150px,20vw,230px);position:relative;overflow:hidden;padding:36px 0 44px;cursor:grab;touch-action:pan-y;outline:none;perspective:calc(var(--cf-w)*3)}
+.coverflow:active{cursor:grabbing}
+.cf-stage{position:relative;height:calc(var(--cf-w)*1.5);transform-style:preserve-3d;user-select:none;-webkit-user-select:none}
+.cf-card{position:absolute;left:50%;top:0;width:var(--cf-w);aspect-ratio:2/3;border-radius:12px;overflow:hidden;background:var(--card);box-shadow:0 18px 40px rgba(0,0,0,.5);will-change:transform,opacity}
+.cf-card img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
 
 /* ══════════════════════════════════════
    04 · STREAMING ACCESS (category grid)
@@ -292,7 +292,7 @@ img{max-width:100%;height:auto;display:block}
   .stat-label{font-size:10px}
   .sec-title{font-size:clamp(22px,5vw,28px)}
   .sec-desc{font-size:14px;margin-bottom:32px}
-  .poster-track img{height:180px}
+  .coverflow{--cf-w:clamp(130px,26vw,180px)}
   .logo-track img{height:32px}
   .access{padding:60px 0}
   .access-grid{grid-template-columns:repeat(2,1fr);gap:12px}
@@ -355,7 +355,8 @@ img{max-width:100%;height:auto;display:block}
   .stat-num{font-size:24px}
   .sec-title{font-size:clamp(20px,5vw,24px)}
   .sec-label{font-size:9px;letter-spacing:.35em;margin-bottom:10px}
-  .poster-track img{height:150px;border-radius:8px}
+  .coverflow{--cf-w:clamp(120px,40vw,160px);padding:24px 0 32px}
+  .cf-card{border-radius:8px}
   .logo-track img{height:28px}
   .access-grid{grid-template-columns:1fr;gap:10px}
   .access-card-visual{height:160px}
@@ -493,12 +494,30 @@ img{max-width:100%;height:auto;display:block}
       </div>
     </div>
 
-    <!-- Track 2: Poster gradient cards -->
-    <div class="carousel-row" style="margin-top:8px">
-      <div class="poster-track">
-        <img src="img/posters/squidgame.jpg" alt="Round 6"><img src="img/posters/oppenheimer.jpg" alt="Oppenheimer"><img src="img/posters/strangerthings.webp" alt="Stranger Things"><img src="img/posters/breakingbad.jpg" alt="Breaking Bad"><img src="img/posters/thelastofus.jpg" alt="The Last of Us"><img src="img/posters/houseofthedragon.jpg" alt="House of the Dragon"><img src="img/posters/peakyblinders.webp" alt="Peaky Blinders"><img src="img/posters/theboys.webp" alt="The Boys"><img src="img/posters/wednesday.jpg" alt="Wandinha"><img src="img/posters/loki.jpg" alt="Loki"><img src="img/posters/avengers.webp" alt="Vingadores"><img src="img/posters/gameofthrones.jpg" alt="Game of Thrones"><img src="img/posters/lacasadepapel.jpg" alt="La Casa de Papel"><img src="img/posters/blackpanther.webp" alt="Pantera Negra"><img src="img/posters/greysanatomy.jpg" alt="Grey's Anatomy"><img src="img/posters/mandalorian.jpg" alt="The Mandalorian"><img src="img/posters/thepenguin.jpg" alt="The Penguin"><img src="img/posters/guardiansofthegalaxy.jpg" alt="Guardi&otilde;es da Gal&aacute;xia"><img src="img/posters/shangchi.jpg" alt="Shang-Chi"><img src="img/posters/eternals.jpg" alt="Eternos"><img src="img/posters/walkingdead.jpg" alt="The Walking Dead">
-        <!-- duplicados para loop infinito -->
-        <img src="img/posters/squidgame.jpg" alt="Round 6"><img src="img/posters/oppenheimer.jpg" alt="Oppenheimer"><img src="img/posters/strangerthings.webp" alt="Stranger Things"><img src="img/posters/breakingbad.jpg" alt="Breaking Bad"><img src="img/posters/thelastofus.jpg" alt="The Last of Us"><img src="img/posters/houseofthedragon.jpg" alt="House of the Dragon"><img src="img/posters/peakyblinders.webp" alt="Peaky Blinders"><img src="img/posters/theboys.webp" alt="The Boys"><img src="img/posters/wednesday.jpg" alt="Wandinha"><img src="img/posters/loki.jpg" alt="Loki"><img src="img/posters/avengers.webp" alt="Vingadores"><img src="img/posters/gameofthrones.jpg" alt="Game of Thrones"><img src="img/posters/lacasadepapel.jpg" alt="La Casa de Papel"><img src="img/posters/blackpanther.webp" alt="Pantera Negra"><img src="img/posters/greysanatomy.jpg" alt="Grey's Anatomy"><img src="img/posters/mandalorian.jpg" alt="The Mandalorian"><img src="img/posters/thepenguin.jpg" alt="The Penguin"><img src="img/posters/guardiansofthegalaxy.jpg" alt="Guardi&otilde;es da Gal&aacute;xia"><img src="img/posters/shangchi.jpg" alt="Shang-Chi"><img src="img/posters/eternals.jpg" alt="Eternos"><img src="img/posters/walkingdead.jpg" alt="The Walking Dead">
+    <!-- Track 2: Coverflow 3D de posters -->
+    <div class="coverflow" id="coverflow" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Carrossel de filmes e s&eacute;ries">
+      <div class="cf-stage">
+        <div class="cf-card"><img src="img/posters/squidgame.jpg" alt="Round 6" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/oppenheimer.jpg" alt="Oppenheimer" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/strangerthings.webp" alt="Stranger Things" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/breakingbad.jpg" alt="Breaking Bad" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/thelastofus.jpg" alt="The Last of Us" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/houseofthedragon.jpg" alt="House of the Dragon" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/peakyblinders.webp" alt="Peaky Blinders" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/theboys.webp" alt="The Boys" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/wednesday.jpg" alt="Wandinha" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/loki.jpg" alt="Loki" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/avengers.webp" alt="Vingadores" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/gameofthrones.jpg" alt="Game of Thrones" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/lacasadepapel.jpg" alt="La Casa de Papel" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/blackpanther.webp" alt="Pantera Negra" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/greysanatomy.jpg" alt="Grey's Anatomy" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/mandalorian.jpg" alt="The Mandalorian" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/thepenguin.jpg" alt="The Penguin" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/guardiansofthegalaxy.jpg" alt="Guardi&otilde;es da Gal&aacute;xia" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/shangchi.jpg" alt="Shang-Chi" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/eternals.jpg" alt="Eternos" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/walkingdead.jpg" alt="The Walking Dead" draggable="false"></div>
       </div>
     </div>
 
@@ -1181,6 +1200,90 @@ document.querySelectorAll('.faq-q').forEach(function(b){
 window.addEventListener('scroll',function(){
   document.getElementById('nav').style.boxShadow=window.scrollY>40?'0 4px 24px rgba(0,0,0,.5)':'none';
 });
+
+// Coverflow 3D de posters
+(function(){
+  var wrap=document.getElementById('coverflow');
+  if(!wrap)return;
+  var cards=Array.prototype.slice.call(wrap.querySelectorAll('.cf-card'));
+  var count=cards.length;
+  var ROT=44,DEPTH=.6,FALL=.56,FADE=.1,GAP=.05;
+  var pos=0,target=0,raf=null,width=0,drag=null,auto=null;
+
+  function paint(){
+    if(!width)return;
+    var pitch=width*(1+GAP);
+    cards.forEach(function(card,i){
+      var off=i-pos;
+      off=((off%count)+count)%count;
+      if(off>count/2)off-=count;
+      var d=Math.abs(off);
+      var ramp=Math.pow(d,FALL);
+      var tilt=Math.min(ROT*ramp,82)*(off<0?-1:off>0?1:0);
+      card.style.transform='translateX(calc(-50% + '+(off*pitch)+'px)) translateZ('+(-DEPTH*width*ramp)+'px) rotateY('+(-tilt)+'deg)';
+      var edge=Math.min(1,Math.max(0,count/2-d));
+      card.style.opacity=String(Math.max(0,1-FADE*d)*edge);
+      card.style.zIndex=String(100-Math.round(d));
+    });
+  }
+
+  function settle(t){
+    if(raf)cancelAnimationFrame(raf);
+    target=t;
+    function step(){
+      var r=target-pos;
+      if(Math.abs(r)<.0004){pos=target;paint();raf=null;return;}
+      pos+=r*.16;
+      paint();
+      raf=requestAnimationFrame(step);
+    }
+    raf=requestAnimationFrame(step);
+  }
+
+  function startAuto(){stopAuto();auto=setInterval(function(){settle(Math.round(target)+1);},3000);}
+  function stopAuto(){if(auto){clearInterval(auto);auto=null;}}
+
+  wrap.addEventListener('pointerdown',function(e){
+    if(raf){cancelAnimationFrame(raf);raf=null;}
+    stopAuto();
+    wrap.setPointerCapture(e.pointerId);
+    target=pos;
+    drag={id:e.pointerId,x:e.clientX,pos:pos,v:0,t:performance.now()};
+  });
+  wrap.addEventListener('pointermove',function(e){
+    if(!drag||drag.id!==e.pointerId)return;
+    var pitch=width*(1+GAP);
+    if(!pitch)return;
+    var now=performance.now(),prev=pos;
+    pos=drag.pos-(e.clientX-drag.x)/pitch;
+    drag.v=(pos-prev)/Math.max(now-drag.t,1)*1000;
+    drag.t=now;
+    paint();
+  });
+  function endDrag(e){
+    if(!drag||drag.id!==e.pointerId)return;
+    var carried=Math.max(-2,Math.min(2,drag.v*.18));
+    drag=null;
+    settle(Math.round(pos+carried));
+    startAuto();
+  }
+  wrap.addEventListener('pointerup',endDrag);
+  wrap.addEventListener('pointercancel',endDrag);
+
+  wrap.addEventListener('keydown',function(e){
+    if(e.key==='ArrowLeft'){e.preventDefault();stopAuto();settle(Math.round(target)-1);startAuto();}
+    else if(e.key==='ArrowRight'){e.preventDefault();stopAuto();settle(Math.round(target)+1);startAuto();}
+  });
+
+  wrap.addEventListener('mouseenter',stopAuto);
+  wrap.addEventListener('mouseleave',function(){if(!drag)startAuto();});
+
+  function measure(){width=cards[0].offsetWidth;paint();}
+  if(window.ResizeObserver){new ResizeObserver(measure).observe(wrap);}
+  else{window.addEventListener('resize',measure);}
+  measure();
+  startAuto();
+})();
 </script>
 </body>
 </html>
