@@ -101,6 +101,10 @@ img{max-width:100%;height:auto;display:block}
 .hero-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--cyan);border:1px solid rgba(78,205,196,.25);padding:8px 24px;border-radius:40px;margin-bottom:32px;position:relative;z-index:2}
 .hero h1{font-size:clamp(32px,6vw,64px);font-weight:900;line-height:1.04;letter-spacing:-.03em;max-width:760px;margin-bottom:20px;position:relative;z-index:2}
 .hero h1 span{color:var(--cta)}
+.rotating-container{display:inline-block;height:1.15em;overflow:hidden;vertical-align:bottom;position:relative}
+.rotating-track{display:flex;flex-direction:column;animation:rotateWords 12s ease-in-out infinite}
+.rotating-word{height:1.15em;display:flex;align-items:center;color:var(--cta);white-space:nowrap}
+@keyframes rotateWords{0%,20%{transform:translateY(0)}25%,45%{transform:translateY(-1.15em)}50%,70%{transform:translateY(-2.3em)}75%,95%{transform:translateY(-3.45em)}100%{transform:translateY(0)}}
 .hero-sub{font-size:clamp(15px,2vw,18px);font-weight:300;color:var(--texto);max-width:540px;line-height:1.7;margin-bottom:40px;position:relative;z-index:2}
 .hero-sub strong{color:#fff;font-weight:500}
 
@@ -445,7 +449,7 @@ img{max-width:100%;height:auto;display:block}
 
   <div class="hero-badge">Streaming Premium</div>
 
-  <h1>A fam&iacute;lia inteira<br>assistindo <span>sem parar</span></h1>
+  <h1>A fam&iacute;lia inteira<br>assistindo <span class="rotating-container"><span class="rotating-track"><span class="rotating-word">sem parar</span><span class="rotating-word">sem travar</span><span class="rotating-word">sem pagar caro</span><span class="rotating-word">em at&eacute; 3 telas</span></span></span></h1>
 
   <p class="hero-sub">
     Mais de 200 canais ao vivo, filmes, s&eacute;ries e todo o futebol &mdash;
@@ -543,7 +547,7 @@ img{max-width:100%;height:auto;display:block}
       <!-- +50.000 Filmes -->
       <div class="access-card">
         <div class="access-card-visual">
-          <img src="img/categories/filmes.png" alt="Filmes" loading="lazy">
+          <img src="img/categories/mosaico-filmes.png" alt="Filmes" loading="lazy">
         </div>
         <div class="access-card-body">
           <h3>+ 50.000 Filmes</h3>
@@ -554,7 +558,7 @@ img{max-width:100%;height:auto;display:block}
       <!-- S&eacute;ries imperdiveis -->
       <div class="access-card">
         <div class="access-card-visual">
-          <img src="img/categories/series.png" alt="S&eacute;ries" loading="lazy">
+          <img src="img/categories/mosaico-series.png" alt="S&eacute;ries" loading="lazy">
         </div>
         <div class="access-card-body">
           <h3>S&eacute;ries imperd&iacute;veis</h3>
@@ -565,7 +569,7 @@ img{max-width:100%;height:auto;display:block}
       <!-- Esportes ao vivo -->
       <div class="access-card">
         <div class="access-card-visual">
-          <img src="img/categories/esportes.png" alt="Esportes" loading="lazy">
+          <img src="img/categories/mosaico-esportes.png" alt="Esportes" loading="lazy">
         </div>
         <div class="access-card-body">
           <h3>Esportes ao vivo</h3>
@@ -576,7 +580,7 @@ img{max-width:100%;height:auto;display:block}
       <!-- Novelas -->
       <div class="access-card">
         <div class="access-card-visual">
-          <img src="img/categories/novelas.png" alt="Novelas" loading="lazy">
+          <img src="img/categories/mosaico-novelas.png" alt="Novelas" loading="lazy">
         </div>
         <div class="access-card-body">
           <h3>Novelas</h3>
@@ -587,7 +591,7 @@ img{max-width:100%;height:auto;display:block}
       <!-- Canais Infantis -->
       <div class="access-card">
         <div class="access-card-visual">
-          <img src="img/categories/infantil.png" alt="Infantil" loading="lazy">
+          <img src="img/categories/mosaico-infantil.png" alt="Infantil" loading="lazy">
         </div>
         <div class="access-card-body">
           <h3>Canais Infantis</h3>
@@ -598,11 +602,11 @@ img{max-width:100%;height:auto;display:block}
       <!-- Os melhores animes -->
       <div class="access-card">
         <div class="access-card-visual">
-          <img src="img/categories/animes.png" alt="Animes" loading="lazy">
+          <img src="img/categories/mosaico-animes.png" alt="Animes" loading="lazy">
         </div>
         <div class="access-card-body">
           <h3>Os melhores animes</h3>
-          <p>Naruto, Dragon Ball, Demon Slayer, One Piece e muito mais. Dublado e legendado.</p>
+          <p>Demon Slayer, One Piece, JoJo's Bizarre Adventure e muito mais. Dublado e legendado.</p>
         </div>
       </div>
     </div>
