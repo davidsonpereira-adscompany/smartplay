@@ -152,15 +152,15 @@ img{max-width:100%;height:auto;display:block}
 /* ══════════════════════════════════════
    05 · BEST SERVER (6-card grid)
 ══════════════════════════════════════ */
-.server{padding:100px 0;background:var(--base);border-top:1px solid var(--border)}
-.server-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
-.server-card{background:linear-gradient(180deg,rgba(32,20,20,.6),rgba(21,10,10,.9));border:1px solid rgba(255,107,107,.12);border-radius:12px;overflow:hidden;transition:all .3s;cursor:default}
-.server-card:hover{border-color:rgba(255,107,107,.35);transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.4)}
-.server-card-visual{height:180px;overflow:hidden;background:#0a0404}
-.server-card-visual img{width:100%;height:100%;object-fit:cover}
-.server-card-body{padding:16px 18px}
-.server-card-body h4{font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;color:var(--branco)}
-.server-card-body p{font-size:12px;color:var(--texto2);font-weight:300;line-height:1.6}
+.server{padding:80px 0;background:var(--base);border-top:1px solid var(--border);overflow:hidden}
+.server-ticker{display:flex;width:max-content;animation:serverScroll 32s linear infinite;margin-top:48px}
+.server-ticker:hover{animation-play-state:paused}
+.server-tag{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;margin:0 8px;background:var(--card);border:1px solid var(--border);border-radius:12px;white-space:nowrap;flex-shrink:0;transition:border-color .3s}
+.server-tag:hover{border-color:var(--border2)}
+.server-tag-icon{width:32px;height:32px;border-radius:8px;background:rgba(255,107,107,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.server-tag-icon svg{width:16px;height:16px;color:var(--azul)}
+.server-tag-text{font-size:14px;font-weight:600;color:var(--branco)}
+@keyframes serverScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ══════════════════════════════════════
    06 · DEVICES (carousel)
@@ -276,7 +276,6 @@ img.testimonial-avatar{object-fit:cover;border:2px solid var(--border2)}
 ══════════════════════════════════════ */
 @media(max-width:1024px){
   .access-grid{grid-template-columns:repeat(2,1fr)}
-  .server-grid{grid-template-columns:repeat(2,1fr)}
   .device-slide{width:210px}
   .plans-main{grid-template-columns:1fr 1fr}
   .plans-row2{grid-template-columns:1fr 1fr}
@@ -315,12 +314,9 @@ img.testimonial-avatar{object-fit:cover;border:2px solid var(--border2)}
   .access-card-body{padding:14px 16px}
   .access-card-body h3{font-size:15px}
   .access-card-body p{font-size:12px;line-height:1.5}
-  .server{padding:60px 0}
-  .server-grid{grid-template-columns:repeat(2,1fr);gap:12px}
-  .server-card-visual{height:140px}
-  .server-card-body{padding:14px 16px}
-  .server-card-body h4{font-size:13px}
-  .server-card-body p{font-size:12px}
+  .server{padding:56px 0}
+  .server-tag{padding:11px 20px;margin:0 6px}
+  .server-tag-text{font-size:13px}
   .devices{padding:60px 0}
   .device-track{gap:36px}
   .device-slide{width:190px}
@@ -378,10 +374,6 @@ img.testimonial-avatar{object-fit:cover;border:2px solid var(--border2)}
   .access-card-visual{height:160px}
   .access-card-body h3{font-size:15px}
   .access-card-body p{font-size:12px}
-  .server-grid{grid-template-columns:1fr;gap:10px}
-  .server-card-visual{height:160px}
-  .server-card-body h4{font-size:13px;margin-bottom:4px}
-  .server-card-body p{font-size:12px;line-height:1.5}
   .device-slide{width:160px}
   .device-slide-visual{height:135px}
   .device-slide-name{font-size:12px}
@@ -638,62 +630,93 @@ img.testimonial-avatar{object-fit:cover;border:2px solid var(--border2)}
       <p class="sec-desc mx-auto" style="text-align:center">Infraestrutura profissional para voc&ecirc; assistir sem travamentos, sem quedas e sem complica&ccedil;&atilde;o.</p>
     </div>
 
-    <div class="server-grid">
-      <!-- Conex&atilde;o via Internet -->
-      <div class="server-card">
-        <div class="server-card-visual"><img src="img/tecnologia/conexao-internet.jpg" alt="Conex&atilde;o via Internet" loading="lazy"></div>
-        <div class="server-card-body">
-          <h4>Conex&atilde;o via Internet</h4>
-          <p>Voc&ecirc; s&oacute; precisa de 10 MB de internet &mdash; o que a maioria dos lares j&aacute; tem. Sem antena, sem t&eacute;cnico, sem instala&ccedil;&atilde;o. Conectou, j&aacute; est&aacute; assistindo.</p>
-        </div>
-      </div>
-
-      <!-- Atualiza&ccedil;&atilde;o semanal -->
-      <div class="server-card">
-        <div class="server-card-visual"><img src="img/tecnologia/atualizacao-semanal.jpg" alt="Atualiza&ccedil;&atilde;o semanal" loading="lazy"></div>
-        <div class="server-card-body">
-          <h4>Atualiza&ccedil;&atilde;o semanal</h4>
-          <p>Toda semana a Smart Play recebe melhorias autom&aacute;ticas. Novos canais, ajustes de estabilidade e conte&uacute;do fresco &mdash; voc&ecirc; n&atilde;o precisa fazer nada.</p>
-        </div>
-      </div>
-
-      <!-- Ideal para zonas rurais -->
-      <div class="server-card">
-        <div class="server-card-visual"><img src="img/tecnologia/zonas-rurais.jpg" alt="Ideal para zonas rurais" loading="lazy"></div>
-        <div class="server-card-body">
-          <h4>Ideal para zonas rurais</h4>
-          <p>Mora no interior, na ch&aacute;cara ou no s&iacute;tio? Onde a parab&oacute;lica n&atilde;o alcan&ccedil;a, a Smart Play chega. Basta um sinal de internet &mdash; mesmo via sat&eacute;lite &mdash; e toda a programa&ccedil;&atilde;o est&aacute; na sua tela.</p>
-        </div>
-      </div>
-
-      <!-- Canais liberados -->
-      <div class="server-card">
-        <div class="server-card-visual"><img src="img/tecnologia/canais-liberados.jpg" alt="Canais liberados" loading="lazy"></div>
-        <div class="server-card-body">
-          <h4>Canais liberados</h4>
-          <p>Mais de 200 canais ao vivo j&aacute; inclu&iacute;dos &mdash; esporte, filmes, s&eacute;ries, not&iacute;cias, infantil e muito mais. Tudo desbloqueado, sem taxa extra, sem surpresa na fatura.</p>
-        </div>
-      </div>
-
-      <!-- Compat&iacute;vel com qualquer modelo de TV Smart -->
-      <div class="server-card">
-        <div class="server-card-visual"><img src="img/tecnologia/compatibilidade.jpg" alt="Compat&iacute;vel com qualquer Smart TV" loading="lazy"></div>
-        <div class="server-card-body">
-          <h4>Compat&iacute;vel com qualquer modelo de TV Smart</h4>
-          <p>Samsung, LG, TCL, Sony, AOC, Philips, Roku TV, Semp Toshiba &mdash; al&eacute;m de celular, tablet, notebook, TV Box, Fire Stick e Chromecast. Assista onde quiser.</p>
-        </div>
-      </div>
-
-      <!-- 100% atualizado -->
-      <div class="server-card">
-        <div class="server-card-visual"><img src="img/tecnologia/atualizado.jpg" alt="100% atualizado" loading="lazy"></div>
-        <div class="server-card-body">
-          <h4>100% atualizado</h4>
-          <p>Lan&ccedil;amentos do cinema e s&eacute;ries que acabaram de estrear &mdash; tudo dispon&iacute;vel rapidamente. Na Smart Play, voc&ecirc; nunca fica para tr&aacute;s.</p>
-        </div>
-      </div>
     </div>
 
+  <div class="server-ticker">
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></div>
+      <span class="server-tag-text">S&oacute; 10 MB de internet j&aacute; roda</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
+      <span class="server-tag-text">Atualiza&ccedil;&atilde;o autom&aacute;tica semanal</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49"/><path d="M7.76 16.24a6 6 0 0 1 0-8.49"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 19.07a10 10 0 0 1 0-14.14"/></svg></div>
+      <span class="server-tag-text">Funciona em zonas rurais</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+      <span class="server-tag-text">+200 canais liberados</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
+      <span class="server-tag-text">Qualquer marca de Smart TV</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+      <span class="server-tag-text">Lan&ccedil;amentos sempre em dia</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <span class="server-tag-text">HD / 4K</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg></div>
+      <span class="server-tag-text">Zero travamento</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <span class="server-tag-text">Sinal est&aacute;vel 24h</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <span class="server-tag-text">Suporte via WhatsApp</span>
+    </div>
+    <!-- duplicatas para loop -->
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg></div>
+      <span class="server-tag-text">S&oacute; 10 MB de internet j&aacute; roda</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
+      <span class="server-tag-text">Atualiza&ccedil;&atilde;o autom&aacute;tica semanal</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49"/><path d="M7.76 16.24a6 6 0 0 1 0-8.49"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 19.07a10 10 0 0 1 0-14.14"/></svg></div>
+      <span class="server-tag-text">Funciona em zonas rurais</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+      <span class="server-tag-text">+200 canais liberados</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
+      <span class="server-tag-text">Qualquer marca de Smart TV</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+      <span class="server-tag-text">Lan&ccedil;amentos sempre em dia</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <span class="server-tag-text">HD / 4K</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4"/><path d="M12 16V8"/></svg></div>
+      <span class="server-tag-text">Zero travamento</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <span class="server-tag-text">Sinal est&aacute;vel 24h</span>
+    </div>
+    <div class="server-tag">
+      <div class="server-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <span class="server-tag-text">Suporte via WhatsApp</span>
+    </div>
+  </div>
+
+  <div class="container">
     <div class="text-center" style="margin-top:48px">
       <a href="#planos" class="btn btn-cta">QUERO COMPRAR AGORA</a>
     </div>
