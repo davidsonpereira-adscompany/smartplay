@@ -166,14 +166,18 @@ img{max-width:100%;height:auto;display:block}
    06 · DEVICES (carousel)
 ══════════════════════════════════════ */
 .devices{padding:100px 0;background:radial-gradient(ellipse 600px 400px at 50% 80%,rgba(78,205,196,.05) 0%,transparent 60%),var(--base2);border-top:1px solid var(--border);overflow:hidden}
-.device-track{display:flex;gap:20px;animation:scrollDevices 30s linear infinite;width:max-content;padding:0 20px;align-items:center}
+.device-track{display:flex;gap:56px;animation:scrollDevices 32s linear infinite;width:max-content;padding:28px 28px 12px;align-items:flex-end}
 .device-track:hover{animation-play-state:paused}
 @keyframes scrollDevices{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.device-slide{flex-shrink:0;width:280px;border-radius:14px;overflow:hidden;border:1px solid var(--border);background:var(--card);transition:all .3s}
-.device-slide:hover{border-color:var(--border2);transform:translateY(-4px)}
-.device-slide-visual{width:100%;height:200px;overflow:hidden;background:#000}
-.device-slide-visual img{width:100%;height:100%;object-fit:cover}
-.device-slide-name{padding:12px 16px;font-size:13px;font-weight:700;text-align:center}
+.device-slide{flex-shrink:0;width:250px;display:flex;flex-direction:column;align-items:center;gap:18px}
+.device-slide-visual{width:100%;height:210px;display:flex;align-items:flex-end;justify-content:center;position:relative;animation:deviceFloat 5.5s ease-in-out infinite}
+.device-slide:nth-child(2n) .device-slide-visual{animation-delay:-1.8s}
+.device-slide:nth-child(3n) .device-slide-visual{animation-delay:-3.7s}
+.device-slide-visual::after{content:'';position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);width:75%;height:28px;background:radial-gradient(ellipse at center,rgba(255,107,107,.3) 0%,transparent 70%);filter:blur(8px);pointer-events:none}
+.device-slide-visual img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 26px 30px rgba(0,0,0,.55));transition:transform .35s}
+.device-slide:hover .device-slide-visual img{transform:scale(1.07)}
+.device-slide-name{font-size:14px;font-weight:800;text-align:center;letter-spacing:.03em}
+@keyframes deviceFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 
 /* ══════════════════════════════════════
    07 · FEEDBACKS (WhatsApp mockups)
@@ -266,12 +270,12 @@ img{max-width:100%;height:auto;display:block}
 @media(max-width:1024px){
   .access-grid{grid-template-columns:repeat(2,1fr)}
   .server-grid{grid-template-columns:repeat(2,1fr)}
-  .device-slide{width:240px}
+  .device-slide{width:210px}
   .plans-main{grid-template-columns:1fr 1fr}
   .plans-row2{grid-template-columns:1fr 1fr}
   .wpp-phone{width:300px}
   .access-card-visual{height:160px}
-  .device-slide-visual{height:160px}
+  .device-slide-visual{height:170px}
 }
 @media(max-width:768px){
   .container,.container-sm{padding:0 16px}
@@ -311,8 +315,9 @@ img{max-width:100%;height:auto;display:block}
   .server-card-body h4{font-size:13px}
   .server-card-body p{font-size:12px}
   .devices{padding:60px 0}
-  .device-slide{width:220px}
-  .device-slide-visual{height:160px}
+  .device-track{gap:36px}
+  .device-slide{width:190px}
+  .device-slide-visual{height:170px}
   .feedbacks{padding:60px 0}
   .wpp-phone{width:300px}
   .plans{padding:60px 0}
@@ -370,9 +375,9 @@ img{max-width:100%;height:auto;display:block}
   .server-card-visual{height:160px}
   .server-card-body h4{font-size:13px;margin-bottom:4px}
   .server-card-body p{font-size:12px;line-height:1.5}
-  .device-slide{width:200px}
-  .device-slide-visual{height:140px}
-  .device-slide-name{font-size:12px;padding:10px 12px}
+  .device-slide{width:160px}
+  .device-slide-visual{height:135px}
+  .device-slide-name{font-size:12px}
   .wpp-msg{font-size:12px;padding:8px 10px}
   .wpp-contact-name{font-size:12px}
   .plan{padding:24px 18px}
@@ -697,21 +702,21 @@ img{max-width:100%;height:auto;display:block}
   </div>
   <div class="device-track">
     <!-- Set 1 -->
-    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/celular.jpg" alt="Celular" loading="lazy"></div><div class="device-slide-name">Celular</div></div>
-    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/tablet.jpg" alt="Tablet" loading="lazy"></div><div class="device-slide-name">Tablet</div></div>
-    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/computador.jpg" alt="Computador" loading="lazy"></div><div class="device-slide-name">Computador</div></div>
-    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/tvbox.jpg" alt="TV Box" loading="lazy"></div><div class="device-slide-name">TV Box</div></div>
-    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/firestick.jpg" alt="Fire Stick" loading="lazy"></div><div class="device-slide-name">Fire Stick</div></div>
-    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/chromecast.jpg" alt="Chromecast" loading="lazy"></div><div class="device-slide-name">Chromecast</div></div>
-    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/smarttv.jpg" alt="Smart TV" loading="lazy"></div><div class="device-slide-name">Smart TV</div></div>
+    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/celular-3d.png" alt="Celular" loading="lazy"></div><div class="device-slide-name">Celular</div></div>
+    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/tablet-3d.png" alt="Tablet" loading="lazy"></div><div class="device-slide-name">Tablet</div></div>
+    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/computador-3d.png" alt="Computador" loading="lazy"></div><div class="device-slide-name">Computador</div></div>
+    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/tvbox-3d.png" alt="TV Box" loading="lazy"></div><div class="device-slide-name">TV Box</div></div>
+    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/firestick-3d.png" alt="Fire Stick" loading="lazy"></div><div class="device-slide-name">Fire Stick</div></div>
+    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/chromecast-3d.png" alt="Chromecast" loading="lazy"></div><div class="device-slide-name">Chromecast</div></div>
+    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/smarttv-3d.png" alt="Smart TV" loading="lazy"></div><div class="device-slide-name">Smart TV</div></div>
     <!-- Set 2 (duplicado para loop infinito) -->
-    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/celular.jpg" alt="Celular" loading="lazy"></div><div class="device-slide-name">Celular</div></div>
-    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/tablet.jpg" alt="Tablet" loading="lazy"></div><div class="device-slide-name">Tablet</div></div>
-    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/computador.jpg" alt="Computador" loading="lazy"></div><div class="device-slide-name">Computador</div></div>
-    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/tvbox.jpg" alt="TV Box" loading="lazy"></div><div class="device-slide-name">TV Box</div></div>
-    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/firestick.jpg" alt="Fire Stick" loading="lazy"></div><div class="device-slide-name">Fire Stick</div></div>
-    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/chromecast.jpg" alt="Chromecast" loading="lazy"></div><div class="device-slide-name">Chromecast</div></div>
-    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/smarttv.jpg" alt="Smart TV" loading="lazy"></div><div class="device-slide-name">Smart TV</div></div>
+    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/celular-3d.png" alt="Celular" loading="lazy"></div><div class="device-slide-name">Celular</div></div>
+    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/tablet-3d.png" alt="Tablet" loading="lazy"></div><div class="device-slide-name">Tablet</div></div>
+    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/computador-3d.png" alt="Computador" loading="lazy"></div><div class="device-slide-name">Computador</div></div>
+    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/tvbox-3d.png" alt="TV Box" loading="lazy"></div><div class="device-slide-name">TV Box</div></div>
+    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/firestick-3d.png" alt="Fire Stick" loading="lazy"></div><div class="device-slide-name">Fire Stick</div></div>
+    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/chromecast-3d.png" alt="Chromecast" loading="lazy"></div><div class="device-slide-name">Chromecast</div></div>
+    <div class="device-slide"><div class="device-slide-visual"><img src="img/devices/smarttv-3d.png" alt="Smart TV" loading="lazy"></div><div class="device-slide-name">Smart TV</div></div>
   </div>
 
   <!-- Banner CTA -->
