@@ -623,6 +623,17 @@ html { scrollbar-color: #3a2020 var(--breu); scrollbar-width: thin; }
 .rodape-zap svg { width: 17px; height: 17px; }
 .rodape-nota { font-size: 12px; color: #6b5252; margin-top: 26px; text-align: center; line-height: 1.7; }
 
+/* ══════════════════ Mudando de canal (coverflow) ══════════════════ */
+.canais { padding: 90px 0 50px; }
+.coverflow{--cf-w:clamp(150px,20vw,230px);position:relative;overflow:hidden;padding:30px 0 40px;cursor:grab;touch-action:pan-y;outline:none;perspective:calc(var(--cf-w)*3)}
+.coverflow:active{cursor:grabbing}
+.cf-stage{position:relative;height:calc(var(--cf-w)*1.5);transform-style:preserve-3d;user-select:none;-webkit-user-select:none}
+.cf-card{position:absolute;left:50%;top:0;width:var(--cf-w);aspect-ratio:2/3;border-radius:12px;overflow:hidden;background:#1a0e0e;box-shadow:0 18px 40px rgba(0,0,0,.55);will-change:transform,opacity}
+.cf-card img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+
+.dupla-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 40px; }
+.dupla-cta.centro { justify-content: center; }
+
 /* ══════════════════ Movimento ══════════════════ */
 .surge { opacity: 0; transform: translateY(26px); transition: opacity .9s ease-out, transform .9s cubic-bezier(.16,1,.3,1); }
 .comodo.aceso .surge { opacity: 1; transform: none; }
@@ -660,6 +671,9 @@ html { scrollbar-color: #3a2020 var(--breu); scrollbar-width: thin; }
   .sala-botoes .btn-ligar, .sala-botoes .btn-quieto, .dorme-botoes .btn-ligar, .dorme-botoes .btn-quieto { width: 100%; justify-content: center; }
   .gc-sala { letter-spacing: 0.1em; font-size: 11px; }
   .sala-titulo { font-size: clamp(30px, 9.6vw, 42px); }
+  .canais { padding: 56px 0 30px; }
+  .coverflow { --cf-w: clamp(120px, 38vw, 160px); padding: 20px 0 28px; }
+  .dupla-cta .btn-ligar, .dupla-cta .btn-quieto { width: 100%; justify-content: center; }
 }
 </style>
 </head>
@@ -718,6 +732,38 @@ review, the verdict, DESIGN.md, and every shipping raster carrying its provenanc
 
 <main>
 
+<!-- ══════════════ MUDANDO DE CANAL ══════════════ -->
+<section class="canais comodo" style="--glow: var(--luz-coral)">
+  <div class="container">
+    <p class="hora surge">20:01 · MUDANDO DE CANAL</p>
+  </div>
+  <div class="coverflow" id="coverflow" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Filmes e séries passando na TV">
+    <div class="cf-stage">
+        <div class="cf-card"><img src="img/posters/squidgame.jpg" alt="Round 6" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/oppenheimer.jpg" alt="Oppenheimer" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/strangerthings.webp" alt="Stranger Things" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/breakingbad.jpg" alt="Breaking Bad" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/thelastofus.jpg" alt="The Last of Us" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/houseofthedragon.jpg" alt="House of the Dragon" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/peakyblinders.webp" alt="Peaky Blinders" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/theboys.webp" alt="The Boys" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/wednesday.jpg" alt="Wandinha" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/loki.jpg" alt="Loki" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/avengers.webp" alt="Vingadores" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/gameofthrones.jpg" alt="Game of Thrones" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/lacasadepapel.jpg" alt="La Casa de Papel" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/blackpanther.webp" alt="Pantera Negra" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/greysanatomy.jpg" alt="Grey's Anatomy" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/mandalorian.jpg" alt="The Mandalorian" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/thepenguin.jpg" alt="The Penguin" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/guardiansofthegalaxy.jpg" alt="Guardiões da Galáxia" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/shangchi.jpg" alt="Shang-Chi" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/eternals.jpg" alt="Eternos" draggable="false"></div>
+        <div class="cf-card"><img src="img/posters/walkingdead.jpg" alt="The Walking Dead" draggable="false"></div>
+    </div>
+  </div>
+</section>
+
 <!-- ══════════════ 2 · O JOGO ══════════════ -->
 <section class="momento comodo" style="--glow: var(--luz-ciano)">
   <div class="container">
@@ -774,11 +820,11 @@ review, the verdict, DESIGN.md, and every shipping raster carrying its provenanc
       </figure>
     </div>
     <div class="estante surge" aria-label="Capas do catálogo">
-      <img src="img/capas/filme-homem-aranha.jpg" alt="Homem-Aranha: Um Novo Dia" loading="lazy">
+      <img src="img/posters/wednesday.jpg" alt="Wandinha" loading="lazy">
       <img src="img/capas/serie-onepiece-liveaction.jpg" alt="One Piece: A Série" loading="lazy">
       <img src="img/capas/anime-demonslayer.jpg" alt="Demon Slayer: Castelo Infinito" loading="lazy">
-      <img src="img/capas/filme-odisseia.jpg" alt="A Odisseia" loading="lazy">
-      <img src="img/capas/serie-euphoria.jpg" alt="Euphoria" loading="lazy">
+      <img src="img/posters/mandalorian.jpg" alt="The Mandalorian" loading="lazy">
+      <img src="img/posters/lacasadepapel.jpg" alt="La Casa de Papel" loading="lazy">
       <img src="img/capas/anime-onepiece.jpg" alt="One Piece" loading="lazy">
       <img src="img/capas/filme-fim-da-rua.jpg" alt="O Fim da Rua" loading="lazy">
       <img src="img/capas/serie-thepitt.jpg" alt="The Pitt" loading="lazy">
@@ -786,6 +832,13 @@ review, the verdict, DESIGN.md, and every shipping raster carrying its provenanc
       <img src="img/posters/oppenheimer.jpg" alt="Oppenheimer" loading="lazy">
       <img src="img/posters/houseofthedragon.jpg" alt="House of the Dragon" loading="lazy">
       <img src="img/posters/squidgame.jpg" alt="Round 6" loading="lazy">
+    </div>
+    <div class="dupla-cta surge">
+      <a class="btn-ligar" href="https://wa.me/5516982156332?text=Ol%C3%A1%21%20Quero%20esse%20cat%C3%A1logo%20na%20minha%20TV%20%E2%80%94%20teste%20gr%C3%A1tis%20de%202%20horas%20%F0%9F%8D%BF">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.77.04"/></svg>
+        Quero esse catálogo na minha TV
+      </a>
+      <a class="btn-quieto" href="#planos">Ver os planos</a>
     </div>
   </div>
 </section>
@@ -851,6 +904,15 @@ review, the verdict, DESIGN.md, and every shipping raster carrying its provenanc
   </div>
   <div class="mensagens-fita-wrap" id="fitaMsg1"></div>
   <div class="mensagens-fita-wrap" id="fitaMsg2"></div>
+  <div class="container">
+    <div class="dupla-cta centro surge">
+      <a class="btn-ligar" href="https://wa.me/5516982156332?text=Ol%C3%A1%21%20Vi%20os%20depoimentos%20e%20quero%20a%20Smart%20Play%20na%20minha%20casa%20%E2%8F%B3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.77.04"/></svg>
+        Quero isso na minha casa
+      </a>
+      <a class="btn-quieto" href="#planos">Conhecer os planos</a>
+    </div>
+  </div>
 </section>
 
 <!-- ══════════════ 8 · AS TELAS DA CASA ══════════════ -->
@@ -1000,6 +1062,87 @@ review, the verdict, DESIGN.md, and every shipping raster carrying its provenanc
   }
   var ft = document.getElementById('fitaTelas');
   if (ft) ft.innerHTML = TELAS.map(telaItem).join('') + TELAS.map(telaItem).join('');
+
+  /* ── Mudando de canal: coverflow 3D ── */
+  (function () {
+    var wrap = document.getElementById('coverflow');
+    if (!wrap) return;
+    var cards = Array.prototype.slice.call(wrap.querySelectorAll('.cf-card'));
+    var count = cards.length;
+    var ROT = 44, DEPTH = .6, FALL = .56, FADE = .1, GAP = .05;
+    var pos = 0, target = 0, raf = null, width = 0, drag = null, auto = null;
+    var reduz = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function paint() {
+      if (!width) return;
+      var pitch = width * (1 + GAP);
+      cards.forEach(function (card, i) {
+        var off = i - pos;
+        off = ((off % count) + count) % count;
+        if (off > count / 2) off -= count;
+        var d = Math.abs(off);
+        var ramp = Math.pow(d, FALL);
+        var tilt = Math.min(ROT * ramp, 82) * (off < 0 ? -1 : off > 0 ? 1 : 0);
+        card.style.transform = 'translateX(calc(-50% + ' + (off * pitch) + 'px)) translateZ(' + (-DEPTH * width * ramp) + 'px) rotateY(' + (-tilt) + 'deg)';
+        var edge = Math.min(1, Math.max(0, count / 2 - d));
+        card.style.opacity = String(Math.max(0, 1 - FADE * d) * edge);
+        card.style.zIndex = String(100 - Math.round(d));
+      });
+    }
+    function settle(t) {
+      if (raf) cancelAnimationFrame(raf);
+      target = t;
+      function step() {
+        var r = target - pos;
+        if (Math.abs(r) < .0004) { pos = target; paint(); raf = null; return; }
+        pos += r * .16;
+        paint();
+        raf = requestAnimationFrame(step);
+      }
+      raf = requestAnimationFrame(step);
+    }
+    function startAuto() { stopAuto(); if (!reduz) auto = setInterval(function () { settle(Math.round(target) + 1); }, 3000); }
+    function stopAuto() { if (auto) { clearInterval(auto); auto = null; } }
+
+    wrap.addEventListener('pointerdown', function (e) {
+      if (raf) { cancelAnimationFrame(raf); raf = null; }
+      stopAuto();
+      wrap.setPointerCapture(e.pointerId);
+      target = pos;
+      drag = { id: e.pointerId, x: e.clientX, pos: pos, v: 0, t: performance.now() };
+    });
+    wrap.addEventListener('pointermove', function (e) {
+      if (!drag || drag.id !== e.pointerId) return;
+      var pitch = width * (1 + GAP);
+      if (!pitch) return;
+      var now = performance.now(), prev = pos;
+      pos = drag.pos - (e.clientX - drag.x) / pitch;
+      drag.v = (pos - prev) / Math.max(now - drag.t, 1) * 1000;
+      drag.t = now;
+      paint();
+    });
+    function endDrag(e) {
+      if (!drag || drag.id !== e.pointerId) return;
+      var carried = Math.max(-2, Math.min(2, drag.v * .18));
+      drag = null;
+      settle(Math.round(pos + carried));
+      startAuto();
+    }
+    wrap.addEventListener('pointerup', endDrag);
+    wrap.addEventListener('pointercancel', endDrag);
+    wrap.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); stopAuto(); settle(Math.round(target) - 1); startAuto(); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); stopAuto(); settle(Math.round(target) + 1); startAuto(); }
+    });
+    wrap.addEventListener('mouseenter', stopAuto);
+    wrap.addEventListener('mouseleave', function () { if (!drag) startAuto(); });
+
+    function measure() { width = cards[0].offsetWidth; paint(); }
+    if (window.ResizeObserver) { new ResizeObserver(measure).observe(wrap); }
+    else { window.addEventListener('resize', measure); }
+    measure();
+    startAuto();
+  })();
 
   /* ── Perguntas ── */
   document.querySelectorAll('.pergunta-q').forEach(function (q) {
