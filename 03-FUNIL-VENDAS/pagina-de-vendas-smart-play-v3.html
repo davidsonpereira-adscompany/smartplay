@@ -625,6 +625,17 @@ html { scrollbar-color: #3a2020 var(--breu); scrollbar-width: thin; }
 
 /* ══════════════════ Mudando de canal (coverflow) ══════════════════ */
 .canais { padding: 90px 0 50px; }
+.canais-logos {
+  overflow: hidden;
+  margin-top: 34px;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+}
+.canais-logos-fita { display: flex; gap: 44px; width: max-content; align-items: center; animation: fitaLogos 26s linear infinite; padding: 4px 0; }
+.canais-logos-fita:hover { animation-play-state: paused; }
+@keyframes fitaLogos { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+.canais-logos-fita img { height: 34px; width: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: .55; transition: opacity .3s; }
+.canais-logos-fita img:hover { opacity: 1; }
 .coverflow{--cf-w:clamp(150px,20vw,230px);position:relative;overflow:hidden;padding:30px 0 40px;cursor:grab;touch-action:pan-y;outline:none;perspective:calc(var(--cf-w)*3)}
 .coverflow:active{cursor:grabbing}
 .cf-stage{position:relative;height:calc(var(--cf-w)*1.5);transform-style:preserve-3d;user-select:none;-webkit-user-select:none}
@@ -672,6 +683,8 @@ html { scrollbar-color: #3a2020 var(--breu); scrollbar-width: thin; }
   .gc-sala { letter-spacing: 0.1em; font-size: 11px; }
   .sala-titulo { font-size: clamp(30px, 9.6vw, 42px); }
   .canais { padding: 56px 0 30px; }
+  .canais-logos-fita { gap: 28px; }
+  .canais-logos-fita img { height: 26px; }
   .coverflow { --cf-w: clamp(120px, 38vw, 160px); padding: 20px 0 28px; }
   .dupla-cta .btn-ligar, .dupla-cta .btn-quieto { width: 100%; justify-content: center; }
 }
@@ -736,6 +749,13 @@ review, the verdict, DESIGN.md, and every shipping raster carrying its provenanc
 <section class="canais comodo" style="--glow: var(--luz-coral)">
   <div class="container">
     <p class="hora surge">20:01 · MUDANDO DE CANAL</p>
+  </div>
+  <div class="canais-logos surge">
+    <div class="canais-logos-fita">
+      <img src="img/logos/netflix.svg" alt="netflix" loading="lazy"><img src="img/logos/primevideo.svg" alt="primevideo" loading="lazy"><img src="img/logos/disneyplus.svg" alt="disneyplus" loading="lazy"><img src="img/logos/hbomax.svg" alt="hbomax" loading="lazy"><img src="img/logos/globoplay.svg" alt="globoplay" loading="lazy"><img src="img/logos/paramountplus.svg" alt="paramountplus" loading="lazy"><img src="img/logos/appletv.svg" alt="appletv" loading="lazy"><img src="img/logos/espn.svg" alt="espn" loading="lazy"><img src="img/logos/sportv.svg" alt="sportv" loading="lazy"><img src="img/logos/tntsports.svg" alt="tntsports" loading="lazy"><img src="img/logos/premiere.svg" alt="premiere" loading="lazy"><img src="img/logos/telecine.svg" alt="telecine" loading="lazy"><img src="img/logos/cartoonnetwork.svg" alt="cartoonnetwork" loading="lazy"><img src="img/logos/discoverykids.svg" alt="discoverykids" loading="lazy"><img src="img/logos/multishow.svg" alt="multishow" loading="lazy"><img src="img/logos/band.svg" alt="band" loading="lazy"><img src="img/logos/sbt.svg" alt="sbt" loading="lazy"><img src="img/logos/record.svg" alt="record" loading="lazy">
+      <!-- duplicatas para loop -->
+      <img src="img/logos/netflix.svg" alt="netflix" loading="lazy"><img src="img/logos/primevideo.svg" alt="primevideo" loading="lazy"><img src="img/logos/disneyplus.svg" alt="disneyplus" loading="lazy"><img src="img/logos/hbomax.svg" alt="hbomax" loading="lazy"><img src="img/logos/globoplay.svg" alt="globoplay" loading="lazy"><img src="img/logos/paramountplus.svg" alt="paramountplus" loading="lazy"><img src="img/logos/appletv.svg" alt="appletv" loading="lazy"><img src="img/logos/espn.svg" alt="espn" loading="lazy"><img src="img/logos/sportv.svg" alt="sportv" loading="lazy"><img src="img/logos/tntsports.svg" alt="tntsports" loading="lazy"><img src="img/logos/premiere.svg" alt="premiere" loading="lazy"><img src="img/logos/telecine.svg" alt="telecine" loading="lazy"><img src="img/logos/cartoonnetwork.svg" alt="cartoonnetwork" loading="lazy"><img src="img/logos/discoverykids.svg" alt="discoverykids" loading="lazy"><img src="img/logos/multishow.svg" alt="multishow" loading="lazy"><img src="img/logos/band.svg" alt="band" loading="lazy"><img src="img/logos/sbt.svg" alt="sbt" loading="lazy"><img src="img/logos/record.svg" alt="record" loading="lazy">
+    </div>
   </div>
   <div class="coverflow" id="coverflow" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Filmes e séries passando na TV">
     <div class="cf-stage">
