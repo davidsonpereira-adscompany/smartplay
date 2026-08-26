@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Play — A família inteira assistindo</title>
+<meta name="description" content="A noite de TV da sua família por R$16,90. Mais de 200 canais ao vivo, filmes, séries e futebol. Teste grátis de 2 horas pelo WhatsApp.">
+<meta name="theme-color" content="#0F0808">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --noite: #0F0808;
+  --breu: #090404;
+  --luz-coral: #FF6B6B;
+  --luz-ciano: #4ECDC4;
+  --luz-ouro: #FFD93D;
+  --texto: #EFDEDE;
+  --texto2: #C9A6A6;
+  --texto-dim: #A07E7E;
+  --oncta: #2B1608;
+  --font: 'Montserrat', sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--breu);
+  color: var(--texto);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+
+::selection { background: var(--luz-coral); color: var(--oncta); }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--breu); }
+::-webkit-scrollbar-thumb { background: #3a2020; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--luz-coral); }
+html { scrollbar-color: #3a2020 var(--breu); scrollbar-width: thin; }
+
+:focus-visible { outline: 2px solid var(--luz-ouro); outline-offset: 3px; border-radius: 4px; }
+
+.container { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+
+/* ── A luz de cada cômodo: --glow governa título, divisor, botão e sombra ── */
+.comodo { position: relative; --glow: var(--luz-coral); }
+.comodo::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: min(900px, 100vw);
+  height: 420px;
+  background: radial-gradient(ellipse 60% 55% at 50% 0%, color-mix(in srgb, var(--glow) 13%, transparent) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.6s ease-out;
+}
+.comodo.aceso::before { opacity: 1; }
+
+.hora {
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.22em;
+  color: color-mix(in srgb, var(--glow) 72%, var(--texto));
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hora::after { content: ''; height: 1px; width: 64px; background: linear-gradient(90deg, var(--glow), transparent); opacity: .55; }
+
+.titulo {
+  font-size: clamp(30px, 4.6vw, 52px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: #fff;
+  text-wrap: balance;
+  margin-top: 14px;
+  text-shadow: 0 0 60px color-mix(in srgb, var(--glow) 35%, transparent);
+}
+.titulo em { font-style: normal; color: var(--glow); }
+
+.fala {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--texto2);
+  max-width: 58ch;
+  margin-top: 18px;
+  line-height: 1.75;
+}
+.fala strong { color: var(--texto); font-weight: 600; }
+
+/* ── Botões: o dourado é o botão de ligar do controle ── */
+.btn-ligar {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--luz-ouro);
+  color: var(--oncta);
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  padding: 18px 36px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 40px rgba(255, 217, 61, 0.28), 0 2px 10px rgba(0,0,0,.5);
+  transition: transform .3s, box-shadow .3s;
+}
+.btn-ligar:hover { transform: translateY(-2px); box-shadow: 0 10px 56px rgba(255, 217, 61, 0.42), 0 2px 10px rgba(0,0,0,.5); }
+.btn-ligar svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+.btn-quieto {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--texto);
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 18px 28px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.03);
+  cursor: pointer;
+  transition: border-color .3s, background .3s;
+}
+.btn-quieto:hover { border-color: rgba(255,255,255,0.34); background: rgba(255,255,255,0.06); }
+
+/* ══════════════════ 1 · A SALA (hero) ══════════════════ */
+.sala {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  --glow: var(--luz-coral);
+}
+.sala-foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 40%;
+  filter: brightness(0.86) saturate(1.05);
+}
+.sala-luz {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 46% 40% at 60% 30%, rgba(78, 205, 196, 0.16) 0%, transparent 60%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: tvFlicker 7s ease-in-out infinite;
+}
+@keyframes tvFlicker {
+  0%, 100% { opacity: .85; }
+  8% { opacity: 1; }
+  13% { opacity: .78; }
+  16% { opacity: .96; }
+  47% { opacity: .84; }
+  52% { opacity: 1; }
+  81% { opacity: .9; }
+}
+.sala-veu-baixo {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, var(--breu) 0%, rgba(9,4,4,0.86) 18%, rgba(9,4,4,0.28) 46%, transparent 70%),
+    linear-gradient(to bottom, rgba(9,4,4,0.72) 0%, transparent 24%),
+    linear-gradient(100deg, rgba(9,4,4,0.62) 0%, transparent 48%);
+}
+.sala-conteudo {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0 0 76px;
+}
+.sala-marca {
+  position: absolute;
+  top: 28px;
+  left: 32px;
+  right: 32px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+}
+.marca-anel {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 2.5px solid var(--luz-coral);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+.marca-play {
+  width: 21px; height: 21px;
+  border-radius: 50%;
+  background: var(--luz-coral);
+  display: flex; align-items: center; justify-content: center;
+}
+.marca-ponto {
+  position: absolute;
+  bottom: -1px; right: -1px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--luz-ouro);
+  box-shadow: 0 0 8px var(--luz-ouro);
+}
+.marca-nome { display: flex; flex-direction: column; }
+.marca-nome b { font-size: 21px; font-weight: 800; color: #fff; letter-spacing: -0.02em; line-height: 1; }
+.marca-nome span { font-size: 7px; font-weight: 600; letter-spacing: 0.35em; text-transform: uppercase; color: var(--luz-ciano); margin-top: 3px; }
+.marca-acao {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--oncta);
+  background: var(--luz-ouro);
+  padding: 11px 22px;
+  border-radius: 999px;
+  box-shadow: 0 4px 24px rgba(255,217,61,.3);
+  transition: transform .3s;
+}
+.marca-acao:hover { transform: translateY(-1px); }
+
+.gc-sala {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.16em;
+  color: var(--texto2);
+  background: rgba(9, 4, 4, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 9px 18px;
+  border-radius: 6px;
+  margin-bottom: 26px;
+}
+.gc-vivo {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #fff;
+  font-weight: 800;
+}
+.gc-vivo::before {
+  content: '';
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--luz-coral);
+  box-shadow: 0 0 10px var(--luz-coral);
+  animation: pulsa 2.2s ease-in-out infinite;
+}
+@keyframes pulsa { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+
+.sala-titulo {
+  font-size: clamp(38px, 6.4vw, 76px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: #fff;
+  max-width: 760px;
+  text-wrap: balance;
+  text-shadow: 0 2px 40px rgba(9,4,4,.8);
+}
+.sala-titulo .assistindo { color: var(--luz-coral); }
+
+.sala-troca {
+  display: inline-block;
+  height: 1.1em;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.sala-troca-fita { display: flex; flex-direction: column; animation: trocaCanal 12s ease-in-out infinite; }
+.sala-troca-fita span { height: 1.1em; display: flex; align-items: center; color: var(--luz-ouro); white-space: nowrap; }
+@keyframes trocaCanal {
+  0%, 20% { transform: translateY(0); }
+  25%, 45% { transform: translateY(-1.1em); }
+  50%, 70% { transform: translateY(-2.2em); }
+  75%, 95% { transform: translateY(-3.3em); }
+  100% { transform: translateY(0); }
+}
+
+.sala-fala {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--texto2);
+  max-width: 52ch;
+  margin-top: 22px;
+  line-height: 1.7;
+  text-shadow: 0 1px 20px rgba(9,4,4,.9);
+}
+.sala-fala strong { color: #fff; font-weight: 600; }
+.sala-preco { font-variant-numeric: tabular-nums; font-weight: 800; color: var(--luz-ouro); }
+
+.sala-botoes { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+.sala-nota { font-size: 12px; color: var(--texto-dim); margin-top: 18px; max-width: 46ch; }
+
+/* ══════════════════ Momentos da noite ══════════════════ */
+.momento { padding: 110px 0 90px; }
+.momento-tela {
+  position: relative;
+  margin-top: 44px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.55),
+    0 0 90px color-mix(in srgb, var(--glow) 16%, transparent);
+}
+.momento-tela img { width: 100%; display: block; }
+.momento-gc {
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.14em;
+  color: #fff;
+  background: rgba(9,4,4,0.62);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+.momento-gc b { font-weight: 800; color: color-mix(in srgb, var(--glow) 80%, #fff); }
+
+.momento-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 22px;
+}
+.momento-duo .momento-tela { margin-top: 0; }
+
+/* ══════════════════ Estante da madrugada (capas) ══════════════════ */
+.estante {
+  display: flex;
+  gap: 16px;
+  margin-top: 44px;
+  overflow-x: auto;
+  padding: 10px 4px 26px;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 3%, #000 97%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 3%, #000 97%, transparent 100%);
+}
+.estante::-webkit-scrollbar { display: none; }
+.estante img {
+  height: 240px;
+  width: auto;
+  border-radius: 8px;
+  flex-shrink: 0;
+  box-shadow: 0 18px 44px rgba(0,0,0,.6);
+  transition: transform .35s;
+}
+.estante img:hover { transform: translateY(-8px); }
+
+/* ══════════════════ A conta da noite (planos) ══════════════════ */
+.conta { padding: 110px 0 90px; }
+.conta-lista { margin-top: 48px; }
+.plano {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) auto minmax(150px, 1fr) auto;
+  align-items: center;
+  gap: 18px 28px;
+  padding: 26px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: background .3s;
+}
+.plano:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+.plano:hover { background: rgba(255,255,255,0.02); }
+.plano-nome { font-size: 17px; font-weight: 700; color: #fff; }
+.plano-nome small { display: block; font-size: 12px; font-weight: 400; color: var(--texto-dim); margin-top: 3px; }
+.plano-preco {
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--texto);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.plano-preco small { font-size: 14px; font-weight: 400; color: var(--texto-dim); }
+.plano-equiv { font-size: 12.5px; color: var(--texto-dim); font-variant-numeric: tabular-nums; }
+.plano-ir {
+  justify-self: end;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--texto);
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: border-color .3s, color .3s, background .3s;
+  white-space: nowrap;
+}
+.plano-ir:hover { border-color: var(--luz-ouro); color: var(--luz-ouro); }
+
+.plano.aceso-max {
+  background: linear-gradient(90deg, rgba(255,217,61,0.06), transparent 70%);
+  border-bottom-color: rgba(255,217,61,0.28);
+  border-top: 1px solid rgba(255,217,61,0.28);
+  position: relative;
+}
+.plano.aceso-max .plano-preco { color: var(--luz-ouro); text-shadow: 0 0 34px rgba(255,217,61,.3); }
+.plano.aceso-max .plano-ir { background: var(--luz-ouro); color: var(--oncta); border-color: var(--luz-ouro); box-shadow: 0 4px 26px rgba(255,217,61,.25); }
+.plano-selo {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--luz-ouro);
+  display: block;
+  margin-top: 5px;
+}
+.plano-selo.ciano { color: var(--luz-ciano); }
+.conta-nota { font-size: 13px; color: var(--texto-dim); margin-top: 26px; text-align: center; }
+.conta-teste { text-align: center; margin-top: 40px; }
+
+/* ══════════════════ Mensagens da madrugada (depoimentos) ══════════════════ */
+.mensagens { padding: 110px 0 70px; overflow: hidden; }
+.mensagens-fita-wrap {
+  overflow: hidden;
+  margin-top: 46px;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 7%, #000 93%, transparent 100%);
+}
+.mensagens-fita-wrap + .mensagens-fita-wrap { margin-top: 20px; }
+.mensagens-fita { display: flex; gap: 20px; width: max-content; animation: fitaMsg 85s linear infinite; }
+.mensagens-fita.volta { animation-direction: reverse; animation-duration: 97s; }
+.mensagens-fita:hover { animation-play-state: paused; }
+@keyframes fitaMsg { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+.msg {
+  flex-shrink: 0;
+  width: 330px;
+  padding: 22px;
+  border-radius: 16px;
+  background: radial-gradient(ellipse 130% 120% at 20% 0%, rgba(255,107,107,0.07) 0%, rgba(255,255,255,0.025) 55%);
+  position: relative;
+  transition: transform .3s;
+}
+.msg:hover { transform: translateY(-3px); }
+.msg-cabeca { display: flex; align-items: center; gap: 12px; }
+.msg-foto {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,107,107,0.35);
+}
+.msg-quem { font-size: 14px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 5px; }
+.msg-quem svg { width: 13px; height: 13px; color: var(--luz-ciano); flex-shrink: 0; }
+.msg-arroba { font-size: 12px; color: var(--texto-dim); }
+.msg-x { position: absolute; top: 21px; right: 20px; width: 14px; height: 14px; color: var(--texto-dim); opacity: .65; }
+.msg-texto { font-size: 13.5px; color: var(--texto2); line-height: 1.65; margin-top: 13px; }
+.msg-texto .cita { color: var(--luz-coral); font-weight: 600; }
+
+/* ══════════════════ As telas da casa (dispositivos) ══════════════════ */
+.telas { padding: 100px 0 80px; overflow: hidden; }
+.telas-fita {
+  display: flex;
+  gap: 58px;
+  width: max-content;
+  animation: fitaTelas 34s linear infinite;
+  padding: 30px 30px 14px;
+  align-items: flex-end;
+}
+.telas-fita:hover { animation-play-state: paused; }
+@keyframes fitaTelas { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.tela-item {
+  flex-shrink: 0;
+  width: 235px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.tela-visu {
+  width: 100%;
+  height: 195px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  animation: flutua 5.5s ease-in-out infinite;
+}
+.tela-item:nth-child(2n) .tela-visu { animation-delay: -1.8s; }
+.tela-item:nth-child(3n) .tela-visu { animation-delay: -3.7s; }
+.tela-visu::after {
+  content: '';
+  position: absolute;
+  bottom: -20px; left: 50%;
+  transform: translateX(-50%);
+  width: 72%; height: 26px;
+  background: radial-gradient(ellipse at center, rgba(78,205,196,0.28) 0%, transparent 70%);
+  filter: blur(8px);
+  pointer-events: none;
+}
+.tela-visu img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 24px 28px rgba(0,0,0,.6)); }
+@keyframes flutua { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-11px); } }
+.tela-nome { font-size: 13.5px; font-weight: 700; color: var(--texto); letter-spacing: 0.03em; }
+.telas-acao { text-align: center; margin-top: 36px; }
+
+/* ══════════════════ Perguntas no escuro (FAQ) ══════════════════ */
+.perguntas { padding: 100px 0; }
+.perguntas .container { max-width: 780px; }
+.pergunta { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.pergunta:first-of-type { border-top: 1px solid rgba(255,255,255,0.07); }
+.pergunta-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--texto);
+  text-align: left;
+  transition: color .3s;
+}
+.pergunta-q:hover { color: #fff; }
+.pergunta-q svg { width: 22px; height: 22px; flex-shrink: 0; color: var(--texto-dim); transition: transform .35s, color .35s; }
+.pergunta.aberta .pergunta-q svg { transform: rotate(180deg); color: var(--luz-coral); }
+.pergunta-r { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s ease; }
+.pergunta.aberta .pergunta-r { grid-template-rows: 1fr; }
+.pergunta-r > div { overflow: hidden; }
+.pergunta-r p { font-size: 14px; color: var(--texto2); line-height: 1.75; padding: 0 4px 22px; max-width: 68ch; }
+.perguntas-fala { font-size: 14px; color: var(--texto2); margin-top: 30px; }
+.perguntas-fala a { color: var(--luz-coral); font-weight: 600; text-decoration: underline; text-decoration-color: rgba(255,107,107,.35); text-underline-offset: 3px; }
+.perguntas-fala a:hover { text-decoration-color: var(--luz-coral); }
+
+/* ══════════════════ A casa dorme (fechamento) ══════════════════ */
+.dorme {
+  position: relative;
+  padding: 130px 0 60px;
+  text-align: center;
+  overflow: hidden;
+}
+.dorme::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: min(760px, 92vw);
+  height: 300px;
+  background: radial-gradient(ellipse 55% 50% at 50% 0%, rgba(255,217,61,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.dorme-hora {
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.24em;
+  color: var(--texto-dim);
+}
+.dorme-titulo {
+  font-size: clamp(30px, 4.6vw, 54px);
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  color: #fff;
+  margin-top: 16px;
+  text-wrap: balance;
+}
+.dorme-titulo em { font-style: normal; color: var(--luz-ouro); }
+.dorme-fala { font-size: 16px; color: var(--texto2); max-width: 46ch; margin: 20px auto 0; font-weight: 300; }
+.dorme-botoes { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+.dorme-garantias {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 34px;
+  margin-top: 34px;
+  font-size: 13px;
+  color: var(--texto-dim);
+  font-variant-numeric: tabular-nums;
+}
+.dorme-garantias span { display: inline-flex; align-items: center; gap: 8px; }
+.dorme-garantias svg { width: 14px; height: 14px; color: var(--luz-ouro); opacity: .8; }
+
+.rodape {
+  margin-top: 100px;
+  padding: 40px 0 44px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.rodape-linha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.rodape .marca-anel { opacity: .6; }
+.rodape .marca-nome b { color: rgba(255,255,255,.55); }
+.rodape .marca-nome span { color: rgba(78,205,196,.5); }
+.rodape-zap { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--texto-dim); transition: color .3s; }
+.rodape-zap:hover { color: var(--texto); }
+.rodape-zap svg { width: 17px; height: 17px; }
+.rodape-nota { font-size: 12px; color: #6b5252; margin-top: 26px; text-align: center; line-height: 1.7; }
+
+/* ══════════════════ Movimento ══════════════════ */
+.surge { opacity: 0; transform: translateY(26px); transition: opacity .9s ease-out, transform .9s cubic-bezier(.16,1,.3,1); }
+.comodo.aceso .surge { opacity: 1; transform: none; }
+.comodo.aceso .surge:nth-child(2) { transition-delay: .08s; }
+.comodo.aceso .surge:nth-child(3) { transition-delay: .16s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .surge { opacity: 1 !important; transform: none !important; }
+  .comodo::before { opacity: 1; }
+  .sala-troca-fita span:not(:first-child) { display: none; }
+}
+
+/* ══════════════════ Responsivo ══════════════════ */
+@media (max-width: 900px) {
+  .momento-duo { grid-template-columns: 1fr; }
+  .plano { grid-template-columns: 1fr auto; }
+  .plano-equiv { grid-column: 1; }
+  .plano-ir { grid-column: 2; grid-row: 1 / span 2; }
+}
+@media (max-width: 640px) {
+  .container { padding: 0 20px; }
+  .sala-marca { left: 20px; right: 20px; top: 20px; }
+  .marca-acao { font-size: 12px; padding: 10px 16px; }
+  .momento { padding: 76px 0 60px; }
+  .conta, .mensagens, .telas, .perguntas { padding-top: 76px; }
+  .estante img { height: 190px; }
+  .msg { width: 290px; }
+  .tela-item { width: 175px; }
+  .tela-visu { height: 148px; }
+  .telas-fita { gap: 34px; }
+  .plano { padding: 22px 2px; }
+  .plano-preco { font-size: 24px; }
+  .plano-ir { padding: 11px 18px; font-size: 12.5px; }
+  .sala-botoes .btn-ligar, .sala-botoes .btn-quieto, .dorme-botoes .btn-ligar, .dorme-botoes .btn-quieto { width: 100%; justify-content: center; }
+  .gc-sala { letter-spacing: 0.1em; font-size: 11px; }
+  .sala-titulo { font-size: clamp(30px, 9.6vw, 42px); }
+}
+</style>
+</head>
+<body>
+<!--
+THESIS: A página É a sala da família à noite — cada seção um momento da noite de TV,
+iluminado pela luz da própria tela; recusa o hero+grid de cards da categoria streaming.
+OWN-WORLD: breu #090404/#0F0808; luzes coral #FF6B6B, ciano #4ECDC4, ouro #FFD93D como
+glow por seção (--glow governa título, divisor, botão, sombra); zero bordas e zero cards
+— hierarquia por iluminação; Montserrat; horas e preços em dígitos tabulares; GC de
+transmissão sobre as imagens.
+STORY: o visitante se reconhece na cena (a família assistindo), percorre a própria noite
+(jogo, novela, desenho, madrugada), vê a conta da noite (planos como extrato iluminado)
+e liga a TV da casa dele: teste grátis de 2h no WhatsApp.
+FIRST VIEWPORT: a sala real em tela cheia (foto da família), luz da TV tremulando; GC
+"22:47 · AO VIVO · TV DA SALA"; headline gigante com canal trocando; dois botões — ouro
+(teste grátis, dominante) e quieto (assinar); nota de preço R$16,90.
+FORM: A Sala à Noite — candidato 7 da lista ordenada; seed a1cfe3ce.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish
+review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
+-->
+
+<!-- ══════════════ 1 · A SALA ══════════════ -->
+<header class="sala comodo aceso" id="sala">
+  <img class="sala-foto" src="img/hero/familia-hero.jpg" alt="Família no sofá assistindo futebol na TV, à noite">
+  <div class="sala-luz"></div>
+  <div class="sala-veu-baixo"></div>
+
+  <div class="sala-marca">
+    <a class="marca" href="#sala" aria-label="Smart Play">
+      <span class="marca-anel">
+        <span class="marca-play"><svg width="9" height="10" viewBox="0 0 12 14" fill="none" aria-hidden="true"><path d="M1 1L11 7L1 13V1Z" fill="#fff"/></svg></span>
+        <span class="marca-ponto"></span>
+      </span>
+      <span class="marca-nome"><b>SmartPlay</b><span>Entretenimento</span></span>
+    </a>
+    <a class="marca-acao" href="https://wa.me/5516982156332?text=Ol%C3%A1%21%20Quero%20o%20teste%20gr%C3%A1tis%20de%202%20horas%20da%20Smart%20Play%20%E2%8F%B3">Testar grátis</a>
+  </div>
+
+  <div class="sala-conteudo">
+    <div class="container">
+      <p class="gc-sala"><span class="gc-vivo">AO VIVO</span> 22:47 · TV DA SALA · FUTEBOL</p>
+      <h1 class="sala-titulo">A família inteira <span class="assistindo">assistindo</span><br><span class="sala-troca"><span class="sala-troca-fita"><span>o jogo.</span><span>a novela.</span><span>o desenho.</span><span>tudo junto.</span></span></span></h1>
+      <p class="sala-fala">Mais de 200 canais ao vivo, filmes, séries e todo o futebol, <strong>em até 3 telas ao mesmo tempo</strong>, sem travar e sem contrato. A partir de <span class="sala-preco">R$16,90</span>.</p>
+      <div class="sala-botoes">
+        <a class="btn-ligar" href="https://wa.me/5516982156332?text=Ol%C3%A1%21%20Quero%20ligar%20a%20Smart%20Play%20agora%20%E2%80%94%20teste%20gr%C3%A1tis%20de%202%20horas%20%E2%8F%B3">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.77.04"/></svg>
+          Ligar agora — teste grátis 2h
+        </a>
+        <a class="btn-quieto" href="https://wa.me/5516982156332?text=Ol%C3%A1%21%20Quero%20deixar%20a%20Smart%20Play%20ligada%20na%20minha%20casa%20%F0%9F%93%BA">Já quero assinar</a>
+      </div>
+      <p class="sala-nota">O teste é grátis mesmo: 2 horas completas, direto no WhatsApp, sem cadastro e sem cartão.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ══════════════ 2 · O JOGO ══════════════ -->
+<section class="momento comodo" style="--glow: var(--luz-ciano)">
+  <div class="container">
+    <p class="hora surge">20:15 · SALA</p>
+    <h2 class="titulo surge">O jogo não trava <em>nem no gol.</em></h2>
+    <p class="fala surge">Brasileirão, Libertadores, Champions, UFC, NBA. Transmissão ao vivo em HD/4K com a qualidade se ajustando sozinha à sua internet. <strong>Funciona até na conexão via rádio da roça.</strong></p>
+    <figure class="momento-tela surge">
+      <img src="img/categories/mosaico-esportes.png" alt="NBA, UFC e futebol ao vivo na Smart Play" loading="lazy">
+      <figcaption class="momento-gc"><b>AO VIVO</b> ESPORTES · TODAS AS COMPETIÇÕES</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ══════════════ 3 · A NOVELA ══════════════ -->
+<section class="momento comodo" style="--glow: var(--luz-coral)">
+  <div class="container">
+    <p class="hora surge">21:30 · QUARTO</p>
+    <h2 class="titulo surge">A novela dela, <em>sem brigar pelo controle.</em></h2>
+    <p class="fala surge">Enquanto o jogo passa na sala, a novela passa no quarto. Todas as emissoras, ao vivo. E quem perdeu o capítulo <strong>assiste depois, na hora que quiser.</strong></p>
+    <figure class="momento-tela surge">
+      <img src="img/categories/mosaico-novelas.png" alt="Novelas atuais da Globo na Smart Play" loading="lazy">
+      <figcaption class="momento-gc"><b>21:30</b> NOVELAS · TODAS AS EMISSORAS</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ══════════════ 4 · O DESENHO ══════════════ -->
+<section class="momento comodo" style="--glow: var(--luz-ouro)">
+  <div class="container">
+    <p class="hora surge">SÁBADO · 08:00 · TABLET</p>
+    <h2 class="titulo surge">Sábado de manhã <em>é das crianças.</em></h2>
+    <p class="fala surge">Discovery Kids, Cartoon, desenhos e filmes infantis no tablet ou na TV: <strong>conteúdo seguro</strong> para os filhos, os sobrinhos e os netos, a manhã inteira.</p>
+    <figure class="momento-tela surge">
+      <img src="img/categories/mosaico-infantil.png" alt="Desenhos infantis na Smart Play" loading="lazy">
+      <figcaption class="momento-gc"><b>08:00</b> INFANTIL · CONTEÚDO SEGURO</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ══════════════ 5 · A MADRUGADA ══════════════ -->
+<section class="momento comodo" style="--glow: var(--luz-ciano)">
+  <div class="container">
+    <p class="hora surge">23:40 · SOFÁ</p>
+    <h2 class="titulo surge">Depois que a casa dorme, <em>a maratona começa.</em></h2>
+    <p class="fala surge">Mais de 50.000 filmes e as séries que todo mundo comenta, além dos animes, dublados e legendados. <strong>O catálogo inteiro, sem pagar nada além do plano.</strong></p>
+    <div class="momento-duo surge">
+      <figure class="momento-tela">
+        <img src="img/categories/mosaico-filmes.png" alt="Filmes em alta na Smart Play" loading="lazy">
+        <figcaption class="momento-gc"><b>+50.000</b> FILMES</figcaption>
+      </figure>
+      <figure class="momento-tela">
+        <img src="img/categories/mosaico-series.png" alt="Séries em alta na Smart Play" loading="lazy">
+        <figcaption class="momento-gc"><b>SÉRIES</b> TEMPORADAS COMPLETAS</figcaption>
+      </figure>
+    </div>
+    <div class="estante surge" aria-label="Capas do catálogo">
+      <img src="img/capas/filme-homem-aranha.jpg" alt="Homem-Aranha: Um Novo Dia" loading="lazy">
+      <img src="img/capas/serie-onepiece-liveaction.jpg" alt="One Piece: A Série" loading="lazy">
+      <img src="img/capas/anime-demonslayer.jpg" alt="Demon Slayer: Castelo Infinito" loading="lazy">
+      <img src="img/capas/filme-odisseia.jpg" alt="A Odisseia" loading="lazy">
+      <img src="img/capas/serie-euphoria.jpg" alt="Euphoria" loading="lazy">
+      <img src="img/capas/anime-onepiece.jpg" alt="One Piece" loading="lazy">
+      <img src="img/capas/filme-fim-da-rua.jpg" alt="O Fim da Rua" loading="lazy">
+      <img src="img/capas/serie-thepitt.jpg" alt="The Pitt" loading="lazy">
+      <img src="img/capas/anime-jojo-steelballrun.jpg" alt="JoJo's Bizarre Adventure" loading="lazy">
+      <img src="img/posters/oppenheimer.jpg" alt="Oppenheimer" loading="lazy">
+      <img src="img/posters/houseofthedragon.jpg" alt="House of the Dragon" loading="lazy">
+      <img src="img/posters/squidgame.jpg" alt="Round 6" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 6 · A CONTA DA NOITE ══════════════ -->
+<section class="conta comodo" id="planos" style="--glow: var(--luz-ouro)">
+  <div class="container">
+    <p class="hora surge">23:58 · A CONTA DA NOITE</p>
+    <h2 class="titulo surge">Tudo isso custa menos <em>que uma pizza.</em></h2>
+    <p class="fala surge">Todos os planos incluem os mesmos +200 canais, o catálogo completo e o suporte pelo WhatsApp. <strong>Nenhum tem fidelidade:</strong> você renova só se quiser.</p>
+
+    <div class="conta-lista surge">
+      <div class="plano">
+        <div class="plano-nome">15 Dias<small>1 tela</small></div>
+        <div class="plano-preco">R$16<small>,90</small></div>
+        <div class="plano-equiv">a porta de entrada</div>
+        <a class="plano-ir" href="https://wa.me/5516982156332?text=Ol%C3%A1%21%20Quero%20come%C3%A7ar%20pelo%20plano%20de%2015%20dias%20%28R%2416%2C90%20%E2%80%94%201%20tela%29%20%F0%9F%93%BA">Escolher</a>
+      </div>
+      <div class="plano">
+        <div class="plano-nome">Mensal<small>1 tela</small></div>
+        <div class="plano-preco">R$28<small>,00</small></div>
+        <div class="plano-equiv">R$0,93 por dia</div>
+        <a class="plano-ir" href="https://wa.me/5516982156332?text=Ol%C3%A1%21%20Quero%20come%C3%A7ar%20pelo%20plano%20Mensal%20%28R%2428%2C00%20%E2%80%94%201%20tela%29%20%F0%9F%93%BA">Escolher</a>
+      </div>
+      <div class="plano">
+        <div class="plano-nome">Bimestral<small>2 telas</small></div>
+        <div class="plano-preco">R$52<small>,90</small></div>
+        <div class="plano-equiv">R$26,45 por mês</div>
+        <a class="plano-ir" href="https://wa.me/5516982156332?text=Ol%C3%A1%21%20Quero%20come%C3%A7ar%20pelo%20plano%20Bimestral%20%28R%2452%2C90%20%E2%80%94%202%20telas%29%20%F0%9F%93%BA">Escolher</a>
+      </div>
+      <div class="plano aceso-max">
+        <div class="plano-nome">Trimestral<small>3 telas</small><span class="plano-selo">Mais Popular</span></div>
+        <div class="plano-preco">R$77<small>,90</small></div>
+        <div class="plano-equiv">R$25,97 por mês</div>
+        <a class="plano-ir" href="https://wa.me/5516982156332?text=Ol%C3%A1%21%20Quero%20come%C3%A7ar%20pelo%20plano%20Trimestral%20%28R%2477%2C90%20%E2%80%94%203%20telas%29%20%F0%9F%9A%80">Escolher</a>
+      </div>
+      <div class="plano">
+        <div class="plano-nome">Semestral<small>3 telas</small></div>
+        <div class="plano-preco">R$147<small>,90</small></div>
+        <div class="plano-equiv">R$24,65 por mês</div>
+        <a class="plano-ir" href="https://wa.me/5516982156332?text=Ol%C3%A1%21%20Quero%20come%C3%A7ar%20pelo%20plano%20Semestral%20%28R%24147%2C90%20%E2%80%94%203%20telas%29%20%F0%9F%92%8E">Escolher</a>
+      </div>
+      <div class="plano">
+        <div class="plano-nome">Anual<small>3 telas</small><span class="plano-selo ciano">Melhor custo-benefício</span></div>
+        <div class="plano-preco">R$267<small>,90</small></div>
+        <div class="plano-equiv">R$22,33 por mês</div>
+        <a class="plano-ir" href="https://wa.me/5516982156332?text=Ol%C3%A1%21%20Quero%20come%C3%A7ar%20pelo%20plano%20Anual%20%28R%24267%2C90%20%E2%80%94%203%20telas%29%20%E2%AD%90">Escolher</a>
+      </div>
+    </div>
+
+    <p class="conta-nota">3 telas simultâneas a partir do Trimestral. Sem multa, sem burocracia, sem surpresa na fatura.</p>
+    <div class="conta-teste">
+      <a class="btn-quieto" href="https://wa.me/5516982156332?text=Ol%C3%A1%21%20Vi%20os%20pre%C3%A7os%20e%20quero%20testar%20gr%C3%A1tis%20por%202%20horas%20antes%20de%20escolher%20%E2%8F%B3">Na dúvida? Teste grátis por 2 horas</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 7 · MENSAGENS ══════════════ -->
+<section class="mensagens comodo" style="--glow: var(--luz-coral)">
+  <div class="container">
+    <p class="hora surge">00:12 · NO GRUPO DA FAMÍLIA</p>
+    <h2 class="titulo surge">Quem já assiste <em>não fica quieto.</em></h2>
+  </div>
+  <div class="mensagens-fita-wrap" id="fitaMsg1"></div>
+  <div class="mensagens-fita-wrap" id="fitaMsg2"></div>
+</section>
+
+<!-- ══════════════ 8 · AS TELAS DA CASA ══════════════ -->
+<section class="telas comodo" style="--glow: var(--luz-ciano)">
+  <div class="container">
+    <p class="hora surge">00:24 · PELA CASA TODA</p>
+    <h2 class="titulo surge">Instala em 3 minutos <em>no que você já tem.</em></h2>
+  </div>
+  <div class="telas-fita" id="fitaTelas"></div>
+  <div class="telas-acao">
+    <a class="btn-quieto" href="https://wa.me/5516982156332?text=Ol%C3%A1%21%20Quero%20instalar%20a%20Smart%20Play%20na%20minha%20TV%20%F0%9F%93%B2">Ver como instalar no meu aparelho</a>
+  </div>
+</section>
+
+<!-- ══════════════ 9 · PERGUNTAS ══════════════ -->
+<section class="perguntas comodo" style="--glow: var(--luz-coral)">
+  <div class="container">
+    <p class="hora surge">00:31 · ANTES DE DORMIR</p>
+    <h2 class="titulo surge">Perguntas de quem <em>está quase assinando.</em></h2>
+
+    <div style="margin-top:40px" class="surge">
+      <div class="pergunta">
+        <button class="pergunta-q" type="button" aria-expanded="false">O que é a Smart Play?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="pergunta-r"><div><p>Um app de TV pela internet com mais de 200 canais ao vivo, filmes, séries e esportes em HD/4K. Funciona na Smart TV, celular, computador, tablet, TV Box, Fire Stick e Chromecast. Basta ter internet e dar o play.</p></div></div>
+      </div>
+      <div class="pergunta">
+        <button class="pergunta-q" type="button" aria-expanded="false">Quantas telas posso usar ao mesmo tempo?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="pergunta-r"><div><p>Depende do plano: 15 dias e Mensal dão 1 tela; o Bimestral, 2; do Trimestral em diante, até 3 telas simultâneas: pai na sala, mãe no quarto, filho no celular.</p></div></div>
+      </div>
+      <div class="pergunta">
+        <button class="pergunta-q" type="button" aria-expanded="false">Funciona em internet lenta?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="pergunta-r"><div><p>Sim. Com cerca de 10 MB você já assiste bem, e a qualidade se ajusta sozinha à conexão. Tem gente assistindo com internet via rádio na zona rural e com o chip do celular na estrada.</p></div></div>
+      </div>
+      <div class="pergunta">
+        <button class="pergunta-q" type="button" aria-expanded="false">Posso cancelar quando quiser?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="pergunta-r"><div><p>Pode. Nenhum plano tem fidelidade: você paga o período escolhido e renova só se quiser. Sem multa e sem burocracia.</p></div></div>
+      </div>
+      <div class="pergunta">
+        <button class="pergunta-q" type="button" aria-expanded="false">Como funciona o teste grátis?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="pergunta-r"><div><p>Você chama no WhatsApp, recebe o acesso e assiste por 2 horas completas: canais, filmes e futebol liberados. Sem cadastro e sem cartão. Gostou? Aí você escolhe o plano.</p></div></div>
+      </div>
+      <div class="pergunta">
+        <button class="pergunta-q" type="button" aria-expanded="false">Como faço para instalar?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        <div class="pergunta-r"><div><p>Chamou no WhatsApp, a gente te manda o passo a passo do seu aparelho. Em uns 3 minutos a TV da casa está ligada na Smart Play.</p></div></div>
+      </div>
+    </div>
+
+    <p class="perguntas-fala surge">Ficou outra dúvida? <a href="https://wa.me/5516982156332?text=Ol%C3%A1%21%20Ainda%20tenho%20uma%20d%C3%BAvida%20sobre%20a%20Smart%20Play%20%F0%9F%A4%94">Chama a gente no WhatsApp</a>: resposta rápida, gente de verdade.</p>
+  </div>
+</section>
+
+<!-- ══════════════ 10 · A CASA DORME ══════════════ -->
+<section class="dorme comodo" style="--glow: var(--luz-ouro)">
+  <div class="container">
+    <p class="dorme-hora surge">00:52 · A CASA VAI DORMIR</p>
+    <h2 class="dorme-titulo surge">Amanhã à noite, essa sala <em>pode ser a sua.</em></h2>
+    <p class="dorme-fala surge">Duas horas grátis para a família decidir no sofá. Se gostar, o plano começa em R$16,90.</p>
+    <div class="dorme-botoes surge">
+      <a class="btn-ligar" href="https://wa.me/5516982156332?text=Ol%C3%A1%21%20Terminei%20de%20ver%20a%20p%C3%A1gina%20e%20quero%20o%20teste%20gr%C3%A1tis%20de%202%20horas%20%F0%9F%8C%99">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.77.04"/></svg>
+        Ligar minha TV — teste grátis
+      </a>
+      <a class="btn-quieto" href="#planos">Rever os planos</a>
+    </div>
+    <div class="dorme-garantias">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Assistindo em 5 minutos</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Sem contrato e sem fidelidade</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Suporte humano no WhatsApp</span>
+    </div>
+
+    <footer class="rodape">
+      <div class="rodape-linha">
+        <span class="marca">
+          <span class="marca-anel">
+            <span class="marca-play"><svg width="9" height="10" viewBox="0 0 12 14" fill="none" aria-hidden="true"><path d="M1 1L11 7L1 13V1Z" fill="#fff"/></svg></span>
+            <span class="marca-ponto"></span>
+          </span>
+          <span class="marca-nome"><b>SmartPlay</b><span>Entretenimento</span></span>
+        </span>
+        <a class="rodape-zap" href="https://wa.me/5516982156332?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Smart%20Play%20%F0%9F%91%8B" aria-label="WhatsApp da Smart Play">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          (16) 98215-6332
+        </a>
+      </div>
+      <p class="rodape-nota">© 2026 Smart Play. Todos os direitos reservados. Smart Play requer assinatura; conteúdos sujeitos à disponibilidade.</p>
+    </footer>
+  </div>
+</section>
+
+</main>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── As luzes acendem quando a seção entra ── */
+  var comodos = document.querySelectorAll('.comodo');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('aceso'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.18 });
+    comodos.forEach(function (c) { if (!c.classList.contains('aceso')) io.observe(c); });
+  } else {
+    comodos.forEach(function (c) { c.classList.add('aceso'); });
+  }
+
+  /* ── Depoimentos (2 fitas, direções opostas) ── */
+  var VERIF = '<svg viewBox="0 0 24 24" fill="currentColor" aria-label="Verificado"><path d="M12 1.5l2.6 2.5 3.5-.6 1.1 3.4 3.3 1.5-1.4 3.7 1.4 3.7-3.3 1.5-1.1 3.4-3.5-.6L12 22.5l-2.6-2.5-3.5.6-1.1-3.4-3.3-1.5L2.9 12 1.5 8.3l3.3-1.5 1.1-3.4 3.5.6z"/><path d="M10.7 14.6l-2.2-2.2-1.2 1.2 3.4 3.4 6-6-1.2-1.2z" fill="#090404"/></svg>';
+  var XICO = '<svg class="msg-x" viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>';
+  var FILA1 = [
+    ['av08.jpg', 'Rodrigo S.', '@rodrigo.s_', 'Cancelei a Sky depois de 8 anos. Assisti à final da Libertadores sem travar um segundo, 3 telas ao mesmo tempo. Melhor que a Sky e pago 8x menos. <span class="cita">@smartplay</span> sensacional!'],
+    ['av05.jpg', 'Ana Paula', '@anapaula.m', 'Meu marido achava que ia travar como os outros serviços. Já tem 2 meses e não caiu uma vez. Nem na hora do jogo do Flamengo! Vou indicar pra vizinha.'],
+    ['av01.jpg', 'Carlos M.', '@carlosm.sp', 'Minha esposa ficou impressionada com a quantidade de novela e série. E meu filho de 6 anos já sabe ir no Discovery Kids sozinho. A <span class="cita">@smartplay</span> é top!'],
+    ['av03.jpg', 'Luciana R.', '@luciana.r', 'Meu sogro na roça usa com internet via rádio e funciona liso. Assiste jornal todo dia. Disse que não perde mais o jogo do Bahia!'],
+    ['av02.jpg', 'Marcos V.', '@marcos.v', 'Pagava R$180 na Oi TV e tinha metade dos canais. Agora minha mulher assiste novela, eu o jogo, meu filho vê desenho. Tudo ao mesmo tempo sem travar nada.'],
+    ['av11.jpg', 'Patrícia F.', '@patricia.f', 'Suporte nota 10! Tive um problema e em 5 minutos já tinham resolvido. Melhor custo-benefício que existe. Já indiquei a <span class="cita">@smartplay</span> pra 4 pessoas.']
+  ];
+  var FILA2 = [
+    ['av07.jpg', 'Fernanda L.', '@fer.lima', 'Instalei na Smart TV da sala e no celular do meu esposo com um plano só. As crianças assistem desenho de manhã e ninguém mais briga pelo controle.'],
+    ['av12.jpg', 'João Pedro', '@joaopedro.ba', 'Testei as 2 horas grátis num jogo do Vitória. Não travou nem no gol. Assinei o trimestral na hora. <span class="cita">@smartplay</span> surreal!'],
+    ['av09.jpg', 'Rosângela M.', '@rosangela.m', 'Minha novela das 9 em qualquer lugar. Fui pra casa da minha irmã e assisti pelo tablet. Coisa boa demais, viu.'],
+    ['av10.jpg', 'Thiago R.', '@thiago.reis', 'UFC, Champions e Brasileirão no mesmo app. Cancelei duas assinaturas e economizo mais de R$100 por mês. A <span class="cita">@smartplay</span> resolveu minha vida.'],
+    ['av06.jpg', 'Cláudio S.', '@claudio.santos', 'Estudo em outra cidade e uso a mesma conta dos meus pais. 3 telas de verdade, cada um assiste o seu sem atrapalhar ninguém.'],
+    ['av04.jpg', 'Edson P.', '@edson.p', 'Sou caminhoneiro e assisto pelo celular na estrada. Funciona até com internet do chip. Recomendo demais!']
+  ];
+  function cartao(d) {
+    return '<article class="msg"><div class="msg-cabeca"><img class="msg-foto" src="img/avatars/' + d[0] + '" alt="' + d[1] + '" loading="lazy"><div><div class="msg-quem">' + d[1] + ' ' + VERIF + '</div><div class="msg-arroba">' + d[2] + '</div></div></div>' + XICO + '<p class="msg-texto">' + d[3] + '</p></article>';
+  }
+  function fita(dados, volta) {
+    var h = dados.map(cartao).join('') + dados.map(cartao).join('');
+    return '<div class="mensagens-fita' + (volta ? ' volta' : '') + '">' + h + '</div>';
+  }
+  var f1 = document.getElementById('fitaMsg1');
+  var f2 = document.getElementById('fitaMsg2');
+  if (f1) f1.innerHTML = fita(FILA1, false);
+  if (f2) f2.innerHTML = fita(FILA2, true);
+
+  /* ── Telas da casa ── */
+  var TELAS = [
+    ['smarttv-3d.png', 'Smart TV'], ['celular-3d.png', 'Celular'], ['computador-3d.png', 'Computador'],
+    ['tablet-3d.png', 'Tablet'], ['tvbox-3d.png', 'TV Box'], ['firestick-3d.png', 'Fire Stick'], ['chromecast-3d.png', 'Chromecast']
+  ];
+  function telaItem(t) {
+    return '<div class="tela-item"><div class="tela-visu"><img src="img/devices/' + t[0] + '" alt="' + t[1] + '" loading="lazy"></div><span class="tela-nome">' + t[1] + '</span></div>';
+  }
+  var ft = document.getElementById('fitaTelas');
+  if (ft) ft.innerHTML = TELAS.map(telaItem).join('') + TELAS.map(telaItem).join('');
+
+  /* ── Perguntas ── */
+  document.querySelectorAll('.pergunta-q').forEach(function (q) {
+    q.addEventListener('click', function () {
+      var item = this.parentElement;
+      var aberta = item.classList.contains('aberta');
+      document.querySelectorAll('.pergunta').forEach(function (p) {
+        p.classList.remove('aberta');
+        p.querySelector('.pergunta-q').setAttribute('aria-expanded', 'false');
+      });
+      if (!aberta) {
+        item.classList.add('aberta');
+        this.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
