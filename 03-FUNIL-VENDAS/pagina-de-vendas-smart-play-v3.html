@@ -9,6 +9,37 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+
+<!-- Guardar fbclid do anúncio para rastreamento entre páginas -->
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var fbclid = params.get('fbclid') || '';
+  if (fbclid) {
+    var fbc = 'fb.1.' + Date.now() + '.' + fbclid;
+    document.cookie = '_fbc=' + fbc + '; max-age=7776000; path=/; SameSite=Lax';
+    try { localStorage.setItem('sp_fbclid', fbclid); } catch(e) {}
+  }
+})();
+</script>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1462874512324348');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1462874512324348&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+
 <style>
 :root {
   --noite: #0F0808;
@@ -1187,6 +1218,17 @@ review, the verdict, DESIGN.md, and every shipping raster carrying its provenanc
       if (!aberta) {
         item.classList.add('aberta');
         this.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
+</script>
+<script>
+(function() {
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', { content_name: 'WhatsApp Click', content_category: 'pagina-v3' });
       }
     });
   });

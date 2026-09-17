@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup — Planilha de Renovações Smart Play</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #090404;
+            --card: #150A0A;
+            --primary: #FF6B6B;
+            --cta: #FFD93D;
+            --success: #00C853;
+            --warn: #FFB300;
+            --text: #FFFFFF;
+            --text-muted: rgba(255,255,255,0.5);
+            --border: rgba(255,107,107,0.2);
+            --code-bg: #241111;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+        .wrap { max-width: 860px; margin: 0 auto; }
+
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+        }
+        .header h1 {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .header p { color: var(--text-muted); font-size: 15px; }
+
+        .step {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: var(--primary);
+            color: #fff;
+            font-weight: 900;
+            font-size: 16px;
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+        .step h2 {
+            display: inline;
+            font-size: 20px;
+            font-weight: 700;
+            vertical-align: middle;
+        }
+        .step p, .step ul {
+            margin-top: 16px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+        }
+        .step ul { padding-left: 20px; }
+        .step li { margin-bottom: 8px; }
+
+        .code-block {
+            position: relative;
+            background: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-top: 16px;
+            overflow: hidden;
+        }
+        .code-block-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255,107,107,0.1);
+            padding: 8px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        .code-block-header span {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+        .copy-btn {
+            background: var(--primary);
+            color: #2B1608;
+            border: none;
+            border-radius: 6px;
+            padding: 4px 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .copy-btn:hover { background: #e05555; }
+        .copy-btn.copied { background: var(--success); }
+        pre {
+            padding: 16px;
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #e2e8f0;
+            white-space: pre;
+            tab-size: 2;
+        }
+
+        .alert {
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-top: 16px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .alert-warn {
+            background: rgba(255,179,0,0.1);
+            border: 1px solid rgba(255,179,0,0.3);
+            color: var(--warn);
+        }
+        .alert-success {
+            background: rgba(0,200,83,0.1);
+            border: 1px solid rgba(0,200,83,0.3);
+            color: var(--success);
+        }
+        .alert-info {
+            background: rgba(255,107,107,0.1);
+            border: 1px solid rgba(255,107,107,0.3);
+            color: var(--primary);
+        }
+        .alert strong { display: block; margin-bottom: 4px; }
+
+        .highlight { color: var(--cta); font-weight: 700; }
+        code {
+            background: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+            font-size: 14px;
+        }
+        th, td {
+            text-align: left;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 600px) {
+            .step { padding: 24px 18px; }
+            .header h1 { font-size: 24px; }
+            pre { font-size: 11px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+
+    <div class="header">
+        <h1>Setup — Planilha de Renovações</h1>
+        <p>Guia completo para configurar o Google Sheets + Apps Script + alertas por email</p>
+    </div>
+
+    <!-- PASSO 1 -->
+    <div class="step">
+        <span class="step-number">1</span>
+        <h2>Abrir o Editor de Scripts</h2>
+        <p>Na planilha do Google Sheets:</p>
+        <ul>
+            <li>Menu superior: <strong>Extensões</strong> &rarr; <strong>Apps Script</strong></li>
+            <li>Vai abrir o editor de código em uma nova aba</li>
+            <li>Selecione todo o conteúdo do arquivo <code>Código.gs</code> (Ctrl+A / Cmd+A)</li>
+            <li>Apague tudo e cole <strong>todo o código</strong> do Passo 2 abaixo</li>
+        </ul>
+    </div>
+
+    <!-- PASSO 2 -->
+    <div class="step">
+        <span class="step-number">2</span>
+        <h2>Colar o Código Completo</h2>
+        <p>Cole este código inteiro no editor do Apps Script (substituindo tudo):</p>
+
+        <div class="code-block">
+            <div class="code-block-header">
+                <span>Código.gs — Google Apps Script (Smart Play v1.0)</span>
+                <button class="copy-btn" onclick="copyCode(this, 'codeMain')">COPIAR</button>
+            </div>
+<pre id="codeMain">// ══════════════════════════════════════════════════════════
+//  Smart Play — Sistema de Gestão de Clientes e Renovações
+//  Versão: 1.0 Smart Play (base NEO TV v1.3)
+//  Configuração: altere apenas as variáveis abaixo
+// ══════════════════════════════════════════════════════════
+
+var SHEET_NAME = 'Clientes';
+
+var ALERT_EMAILS = [
+  'davidsonsoledade@adscompany.pro'
+  // Adicione aqui os e-mails da equipe Smart Play, separados por vírgula
+];
+
+// Quantos dias antes do vencimento começar a alertar
+var ALERT_DAYS = 5;
+
+// Mapeamento dos planos
+var PLANS = {
+  '15dias-1tela':      { name: '15 Dias - 1 Tela',     days: 15,  price: 16.90  },
+  'mensal-1tela':      { name: 'Mensal - 1 Tela',      days: 30,  price: 28.00  },
+  'bimestral-2telas':  { name: 'Bimestral - 2 Telas',  days: 60,  price: 52.90  },
+  'trimestral-3telas': { name: 'Trimestral - 3 Telas', days: 90,  price: 77.90  },
+  'semestral-3telas':  { name: 'Semestral - 3 Telas',  days: 180, price: 147.90 },
+  'anual-3telas':      { name: 'Anual - 3 Telas',      days: 365, price: 267.90 }
+};
+
+// Índices das colunas (base 0)
+var COL = {
+  NOME: 0,
+  EMAIL: 1,
+  WHATSAPP: 2,
+  PLANO: 3,
+  VALOR: 4,
+  DATA_ATIVACAO: 5,
+  DATA_VENCIMENTO: 6,
+  DIAS_RESTANTES: 7,
+  STATUS: 8,
+  OBSERVACOES: 9,
+  SITUACAO: 10
+};
+
+var TOTAL_COLUNAS = 11;
+
+
+// ══════════════════════════════════════════════════════════
+//  1. RECEBER DADOS DO FORMULÁRIO (Webhook)
+// ══════════════════════════════════════════════════════════
+
+function doPost(e) {
+  try {
+    var data = JSON.parse(e.postData.contents);
+    var sheet = getOrCreateSheet();
+    var plan = PLANS[data.plano];
+
+    if (!plan) {
+      return jsonResponse({ status: 'error', message: 'Plano inválido' });
+    }
+
+    var now = new Date();
+    var expDate = new Date(now);
+    expDate.setDate(expDate.getDate() + plan.days);
+
+    var daysLeft = calcDaysLeft(expDate);
+    var status = getStatus(daysLeft);
+
+    var phoneFormatted = formatPhone(data.whatsapp);
+
+    // Usa o valor enviado pelo formulario (prioridade) ou o da tabela PLANS
+    var finalPrice = (data.valor &amp;&amp; !isNaN(data.valor)) ? Number(data.valor) : plan.price;
+    var finalName = data.plano_nome || plan.name;
+
+    sheet.appendRow([
+      data.nome,
+      data.email,
+      phoneFormatted,
+      finalName,
+      formatCurrency(finalPrice),
+      formatDate(now),
+      formatDate(expDate),
+      daysLeft,
+      status,
+      '',  // Observações
+      ''   // Situação (vazio = ativo normal)
+    ]);
+
+    // Garantir que a célula do WhatsApp é texto
+    var lastRow = sheet.getLastRow();
+    sheet.getRange(lastRow, 3).setNumberFormat('@').setValue(phoneFormatted);
+
+    // Colorir a linha recém-adicionada
+    colorRow(sheet, lastRow, status, '');
+
+    return jsonResponse({ status: 'ok' });
+  } catch (error) {
+    return jsonResponse({ status: 'error', message: error.toString() });
+  }
+}
+
+function doGet(e) {
+  return ContentService.createTextOutput(
+    'Smart Play — Sistema de Renovações ativo. v1.0'
+  );
+}
+
+
+// ══════════════════════════════════════════════════════════
+//  2. CONFIGURAR PLANILHA (rodar 1x)
+// ══════════════════════════════════════════════════════════
+
+function setupSheet() {
+  var sheet = getOrCreateSheet();
+
+  var headers = [
+    'Nome', 'Email', 'WhatsApp', 'Plano', 'Valor',
+    'Data Ativação', 'Data Vencimento', 'Dias Restantes',
+    'Status', 'Observações', 'Situação'
+  ];
+
+  var headerRange = sheet.getRange(1, 1, 1, headers.length);
+  headerRange.setValues([headers]);
+  headerRange.setBackground('#0F0808');
+  headerRange.setFontColor('#FF6B6B');
+  headerRange.setFontWeight('bold');
+  headerRange.setFontFamily('Montserrat');
+  headerRange.setHorizontalAlignment('center');
+
+  // Largura das colunas
+  sheet.setColumnWidth(1, 200);   // Nome
+  sheet.setColumnWidth(2, 260);   // Email
+  sheet.setColumnWidth(3, 170);   // WhatsApp
+  sheet.setColumnWidth(4, 200);   // Plano
+  sheet.setColumnWidth(5, 120);   // Valor
+  sheet.setColumnWidth(6, 140);   // Data Ativação
+  sheet.setColumnWidth(7, 140);   // Data Vencimento
+  sheet.setColumnWidth(8, 130);   // Dias Restantes
+  sheet.setColumnWidth(9, 120);   // Status
+  sheet.setColumnWidth(10, 220);  // Observações
+  sheet.setColumnWidth(11, 130);  // Situação
+
+  // Congelar cabeçalho
+  sheet.setFrozenRows(1);
+
+  // Coluna WhatsApp como texto puro
+  sheet.getRange('C:C').setNumberFormat('@');
+
+  // Alinhar colunas ao centro
+  sheet.getRange('E:I').setHorizontalAlignment('center');
+  sheet.getRange('K:K').setHorizontalAlignment('center');
+
+  // Dropdown de validação na coluna Situação
+  var situacaoRange = sheet.getRange('K2:K1000');
+  var regra = SpreadsheetApp.newDataValidation()
+    .requireValueInList(['', 'Renovou', 'Cancelou'], true)
+    .setAllowInvalid(false)
+    .build();
+  situacaoRange.setDataValidation(regra);
+
+  Logger.log('Planilha configurada com sucesso! (Smart Play v1.0)');
+}
+
+
+// ══════════════════════════════════════════════════════════
+//  3. ATUALIZAR STATUS DE TODOS OS CLIENTES
+// ══════════════════════════════════════════════════════════
+
+function updateAllStatus() {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+  if (!sheet) return;
+
+  var lastRow = sheet.getLastRow();
+  if (lastRow &lt;= 1) return;
+
+  var numRows = lastRow - 1;
+  var data = sheet.getRange(2, 1, numRows, TOTAL_COLUNAS).getValues();
+
+  for (var i = 0; i &lt; data.length; i++) {
+    var situacao = String(data[i][COL.SITUACAO]).trim();
+
+    // Linhas com Situação marcada: aplica cor especial e pula cálculo
+    if (situacao === 'Renovou' || situacao === 'Cancelou') {
+      colorRow(sheet, i + 2, '', situacao);
+      continue;
+    }
+
+    var expValue = data[i][COL.DATA_VENCIMENTO];
+    if (!expValue) continue;
+
+    var expDate = parseDate(expValue);
+    if (!expDate) continue;
+
+    var daysLeft = calcDaysLeft(expDate);
+    var status = getStatus(daysLeft);
+    var row = i + 2;
+
+    sheet.getRange(row, COL.DIAS_RESTANTES + 1).setValue(daysLeft);
+    sheet.getRange(row, COL.STATUS + 1).setValue(status);
+
+    colorRow(sheet, row, status, situacao);
+  }
+
+  Logger.log('Status atualizado para ' + numRows + ' clientes.');
+}
+
+
+// ══════════════════════════════════════════════════════════
+//  4. ENVIAR ALERTA DIÁRIO POR EMAIL
+// ══════════════════════════════════════════════════════════
+
+function sendDailyAlert() {
+  // Primeiro atualiza todos os status
+  updateAllStatus();
+
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+  if (!sheet) return;
+
+  var lastRow = sheet.getLastRow();
+  if (lastRow &lt;= 1) return;
+
+  var data = sheet.getRange(2, 1, lastRow - 1, TOTAL_COLUNAS).getValues();
+
+  var urgentes = [];    // 1-3 dias
+  var renovar = [];     // 4-7 dias
+  var vencidos = [];    // &lt;= 0 dias (sem Situação marcada)
+  var recuperar = [];   // Cancelou — tentar reativar
+
+  var totalAtivos = 0;
+
+  for (var i = 0; i &lt; data.length; i++) {
+    var situacao = String(data[i][COL.SITUACAO]).trim();
+
+    // Renovou = ignorar completamente
+    if (situacao === 'Renovou') continue;
+
+    var cliente = {
+      nome:       data[i][COL.NOME],
+      email:      data[i][COL.EMAIL],
+      whatsapp:   data[i][COL.WHATSAPP],
+      plano:      data[i][COL.PLANO],
+      valor:      data[i][COL.VALOR],
+      ativacao:   data[i][COL.DATA_ATIVACAO],
+      vencimento: data[i][COL.DATA_VENCIMENTO],
+      dias:       data[i][COL.DIAS_RESTANTES],
+      status:     data[i][COL.STATUS],
+      obs:        data[i][COL.OBSERVACOES] || ''
+    };
+
+    // Cancelou = vai pra seção Recuperar
+    if (situacao === 'Cancelou') {
+      recuperar.push(cliente);
+      continue;
+    }
+
+    // Cliente normal — classificar por status
+    var status = data[i][COL.STATUS];
+
+    if (status === 'Urgente')  urgentes.push(cliente);
+    if (status === 'Renovar')  renovar.push(cliente);
+    if (status === 'Vencido')  vencidos.push(cliente);
+    if (status === 'Ativo')    totalAtivos++;
+  }
+
+  // Se não tem ninguém pra alertar, não envia
+  if (urgentes.length === 0 &amp;&amp; renovar.length === 0 &amp;&amp; vencidos.length === 0 &amp;&amp; recuperar.length === 0) {
+    Logger.log('Nenhum cliente para alertar hoje.');
+    return;
+  }
+
+  // Montar email HTML
+  var html = buildEmailHTML(urgentes, renovar, vencidos, recuperar, totalAtivos, lastRow - 1);
+
+  // Montar assunto
+  var subject = 'Smart Play';
+
+  if (urgentes.length &gt; 0) {
+    subject += ' | ' + urgentes.length + ' URGENTE(S)';
+  }
+  if (renovar.length &gt; 0) {
+    subject += ' | ' + renovar.length + ' para renovar';
+  }
+  if (vencidos.length &gt; 0) {
+    subject += ' | ' + vencidos.length + ' vencido(s)';
+  }
+  if (recuperar.length &gt; 0) {
+    subject += ' | ' + recuperar.length + ' para recuperar';
+  }
+
+  // Enviar para todos os emails
+  for (var j = 0; j &lt; ALERT_EMAILS.length; j++) {
+    try {
+      MailApp.sendEmail({
+        to: ALERT_EMAILS[j],
+        subject: subject,
+        htmlBody: html
+      });
+    } catch (err) {
+      Logger.log('Erro ao enviar para ' + ALERT_EMAILS[j] + ': ' + err);
+    }
+  }
+
+  Logger.log('Alerta enviado para ' + ALERT_EMAILS.length + ' emails.');
+}
+
+
+// ══════════════════════════════════════════════════════════
+//  5. CRIAR TRIGGERS AUTOMÁTICOS (rodar 1x)
+// ══════════════════════════════════════════════════════════
+
+function createTriggers() {
+  var triggers = ScriptApp.getProjectTriggers();
+  for (var i = 0; i &lt; triggers.length; i++) {
+    ScriptApp.deleteTrigger(triggers[i]);
+  }
+
+  ScriptApp.newTrigger('sendDailyAlert')
+    .timeBased()
+    .atHour(8)
+    .everyDays(1)
+    .inTimezone('America/Sao_Paulo')
+    .create();
+
+  Logger.log('Trigger criado: alerta diário às 8h (Brasília).');
+}
+
+
+// ══════════════════════════════════════════════════════════
+//  FUNÇÕES AUXILIARES
+// ══════════════════════════════════════════════════════════
+
+function getOrCreateSheet() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName(SHEET_NAME);
+  if (!sheet) {
+    sheet = ss.insertSheet(SHEET_NAME);
+    setupSheet();
+  }
+  return sheet;
+}
+
+function calcDaysLeft(expDate) {
+  var today = new Date();
+  today.setHours(0, 0, 0, 0);
+  var exp = new Date(expDate);
+  exp.setHours(0, 0, 0, 0);
+  return Math.ceil((exp - today) / (1000 * 60 * 60 * 24));
+}
+
+function getStatus(daysLeft) {
+  if (daysLeft &lt;= 0) return 'Vencido';
+  if (daysLeft &lt;= 3) return 'Urgente';
+  if (daysLeft &lt;= 7) return 'Renovar';
+  return 'Ativo';
+}
+
+function colorRow(sheet, row, status, situacao) {
+  var range = sheet.getRange(row, 1, 1, TOTAL_COLUNAS);
+
+  // Se tem Situação marcada, usa cor especial
+  if (situacao === 'Renovou') {
+    range.setBackground('#E3F2FD');  // Azul claro
+    range.setFontColor('#1565C0');
+    return;
+  }
+  if (situacao === 'Cancelou') {
+    range.setBackground('#FCE4EC');  // Rosa claro
+    range.setFontColor('#AD1457');
+    return;
+  }
+
+  // Cores padrão por status
+  var colors = {
+    'Ativo':   '#E8F5E9',
+    'Renovar': '#FFF9C4',
+    'Urgente': '#FFCDD2',
+    'Vencido': '#E0E0E0'
+  };
+  var fontColors = {
+    'Ativo':   '#1B5E20',
+    'Renovar': '#F57F17',
+    'Urgente': '#C62828',
+    'Vencido': '#616161'
+  };
+  range.setBackground(colors[status] || '#FFFFFF');
+  range.setFontColor(fontColors[status] || '#000000');
+}
+
+function formatDate(date) {
+  return Utilities.formatDate(new Date(date), 'America/Sao_Paulo', 'dd/MM/yyyy');
+}
+
+function formatCurrency(value) {
+  return 'R$ ' + value.toFixed(2).replace('.', ',');
+}
+
+function formatPhone(phone) {
+  var p = String(phone).replace(/\D/g, '');
+  if (p.length === 13 &amp;&amp; p.substring(0,2) === '55') {
+    p = p.substring(2);
+  }
+  if (p.length === 11) {
+    return '(' + p.substring(0,2) + ') ' + p.substring(2,7) + '-' + p.substring(7);
+  }
+  if (p.length === 10) {
+    return '(' + p.substring(0,2) + ') ' + p.substring(2,6) + '-' + p.substring(6);
+  }
+  return p;
+}
+
+function parseDate(value) {
+  if (value instanceof Date) return value;
+  if (typeof value === 'string') {
+    var parts = value.split('/');
+    if (parts.length === 3) {
+      return new Date(parts[2], parts[1] - 1, parts[0]);
+    }
+  }
+  return null;
+}
+
+function jsonResponse(obj) {
+  return ContentService
+    .createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+
+// ══════════════════════════════════════════════════════════
+//  TEMPLATE DO EMAIL
+// ══════════════════════════════════════════════════════════
+
+function buildEmailHTML(urgentes, renovar, vencidos, recuperar, totalAtivos, totalGeral) {
+  var today = Utilities.formatDate(new Date(), 'America/Sao_Paulo', 'dd/MM/yyyy');
+
+  var html = '';
+  html += '&lt;div style="font-family:Arial,Helvetica,sans-serif;max-width:640px;margin:0 auto;background:#f5f5f5;padding:0;"&gt;';
+
+  // Header
+  html += '&lt;div style="background:#0F0808;color:#fff;padding:28px 24px;text-align:center;border-radius:12px 12px 0 0;"&gt;';
+  html += '&lt;h1 style="color:#FF6B6B;margin:0;font-size:24px;"&gt;Smart Play — Renovações&lt;/h1&gt;';
+  html += '&lt;p style="color:rgba(255,255,255,0.5);margin:6px 0 0;font-size:14px;"&gt;Relatório diário — ' + today + '&lt;/p&gt;';
+  html += '&lt;/div&gt;';
+
+  // Resumo
+  html += '&lt;div style="background:#fff;padding:16px 24px;border-bottom:1px solid #eee;"&gt;';
+  html += '&lt;table style="width:100%;font-size:14px;border-collapse:collapse;"&gt;';
+  html += '&lt;tr&gt;&lt;td style="padding:4px 0;"&gt;Total de clientes:&lt;/td&gt;&lt;td style="text-align:right;font-weight:bold;"&gt;' + totalGeral + '&lt;/td&gt;&lt;/tr&gt;';
+  html += '&lt;tr&gt;&lt;td style="padding:4px 0;color:#1B5E20;"&gt;Ativos:&lt;/td&gt;&lt;td style="text-align:right;font-weight:bold;color:#1B5E20;"&gt;' + totalAtivos + '&lt;/td&gt;&lt;/tr&gt;';
+  html += '&lt;tr&gt;&lt;td style="padding:4px 0;color:#C62828;"&gt;Urgentes (1-3 dias):&lt;/td&gt;&lt;td style="text-align:right;font-weight:bold;color:#C62828;"&gt;' + urgentes.length + '&lt;/td&gt;&lt;/tr&gt;';
+  html += '&lt;tr&gt;&lt;td style="padding:4px 0;color:#F57F17;"&gt;Renovar (4-7 dias):&lt;/td&gt;&lt;td style="text-align:right;font-weight:bold;color:#F57F17;"&gt;' + renovar.length + '&lt;/td&gt;&lt;/tr&gt;';
+  html += '&lt;tr&gt;&lt;td style="padding:4px 0;color:#616161;"&gt;Vencidos:&lt;/td&gt;&lt;td style="text-align:right;font-weight:bold;color:#616161;"&gt;' + vencidos.length + '&lt;/td&gt;&lt;/tr&gt;';
+  html += '&lt;tr&gt;&lt;td style="padding:4px 0;color:#AD1457;"&gt;Recuperar (cancelaram):&lt;/td&gt;&lt;td style="text-align:right;font-weight:bold;color:#AD1457;"&gt;' + recuperar.length + '&lt;/td&gt;&lt;/tr&gt;';
+  html += '&lt;/table&gt;&lt;/div&gt;';
+
+  // Urgentes
+  if (urgentes.length &gt; 0) {
+    html += '&lt;div style="padding:20px 24px;background:#FFCDD2;"&gt;';
+    html += '&lt;h2 style="color:#C62828;margin:0 0 12px;font-size:16px;"&gt;URGENTE — Vencem em 1-3 dias (' + urgentes.length + ')&lt;/h2&gt;';
+    for (var i = 0; i &lt; urgentes.length; i++) {
+      html += clienteCard(urgentes[i]);
+    }
+    html += '&lt;/div&gt;';
+  }
+
+  // Renovar
+  if (renovar.length &gt; 0) {
+    html += '&lt;div style="padding:20px 24px;background:#FFF9C4;"&gt;';
+    html += '&lt;h2 style="color:#F57F17;margin:0 0 12px;font-size:16px;"&gt;RENOVAR — Vencem em 4-7 dias (' + renovar.length + ')&lt;/h2&gt;';
+    for (var j = 0; j &lt; renovar.length; j++) {
+      html += clienteCard(renovar[j]);
+    }
+    html += '&lt;/div&gt;';
+  }
+
+  // Vencidos
+  if (vencidos.length &gt; 0) {
+    html += '&lt;div style="padding:20px 24px;background:#E0E0E0;"&gt;';
+    html += '&lt;h2 style="color:#424242;margin:0 0 12px;font-size:16px;"&gt;VENCIDOS (' + vencidos.length + ')&lt;/h2&gt;';
+    for (var k = 0; k &lt; vencidos.length; k++) {
+      html += clienteCard(vencidos[k]);
+    }
+    html += '&lt;/div&gt;';
+  }
+
+  // Recuperar (Cancelaram)
+  if (recuperar.length &gt; 0) {
+    html += '&lt;div style="padding:20px 24px;background:#FCE4EC;border-top:3px solid #AD1457;"&gt;';
+    html += '&lt;h2 style="color:#AD1457;margin:0 0 4px;font-size:16px;"&gt;RECUPERAR — Cancelaram mas podem voltar (' + recuperar.length + ')&lt;/h2&gt;';
+    html += '&lt;p style="color:#880E4F;font-size:12px;margin:0 0 12px;"&gt;Clientes que sinalizaram cancelamento. Tente reativar com promoção ou contato.&lt;/p&gt;';
+    for (var m = 0; m &lt; recuperar.length; m++) {
+      html += clienteCard(recuperar[m]);
+    }
+    html += '&lt;/div&gt;';
+  }
+
+  // Footer
+  html += '&lt;div style="background:#0F0808;padding:20px 24px;text-align:center;border-radius:0 0 12px 12px;"&gt;';
+  html += '&lt;p style="color:rgba(255,255,255,0.4);font-size:12px;margin:0;"&gt;Enviado automaticamente pelo sistema Smart Play — ADS Company&lt;/p&gt;';
+  html += '&lt;/div&gt;';
+
+  html += '&lt;/div&gt;';
+  return html;
+}
+
+function clienteCard(c) {
+  var whatsNum = String(c.whatsapp).replace(/\D/g, '');
+  if (whatsNum.length &lt;= 11) {
+    whatsNum = '55' + whatsNum;
+  }
+  var whatsLink = 'https://wa.me/' + whatsNum;
+  var html = '';
+  html += '&lt;div style="background:#fff;padding:12px 16px;border-radius:8px;margin:8px 0;font-size:13px;"&gt;';
+  html += '&lt;strong style="font-size:14px;"&gt;' + c.nome + '&lt;/strong&gt;';
+  html += '&lt;br&gt;Plano: ' + c.plano + ' | ' + c.valor;
+  html += '&lt;br&gt;WhatsApp: &lt;a href="' + whatsLink + '"&gt;' + c.whatsapp + '&lt;/a&gt;';
+  html += '&lt;br&gt;Vencimento: ' + c.vencimento + ' (' + c.dias + ' dias)';
+  if (c.obs) {
+    html += '&lt;br&gt;&lt;em style="color:#888;"&gt;Obs: ' + c.obs + '&lt;/em&gt;';
+  }
+  html += '&lt;/div&gt;';
+  return html;
+}
+</pre>
+        </div>
+
+        <div class="alert alert-warn">
+            <strong>Importante:</strong>
+            Copie TODO o código acima. Ele contém: webhook, configuração da planilha, atualização de status, alertas por email (com seção Recuperar) e triggers automáticos.
+        </div>
+    </div>
+
+    <!-- PASSO 3 -->
+    <div class="step">
+        <span class="step-number">3</span>
+        <h2>Salvar e Rodar a Configuração</h2>
+        <p>Depois de colar o código:</p>
+        <ul>
+            <li>Clique em <strong>Ctrl+S</strong> (ou Cmd+S no Mac) para salvar</li>
+            <li>Selecione a função <strong><code>setupSheet</code></strong> no dropdown</li>
+            <li>Clique em <strong>Executar</strong> (play)</li>
+            <li>Se pedir autorização: <strong>Revisar permissões</strong> &rarr; sua conta &rarr; <strong>Avançado</strong> &rarr; <strong>Ir para Smart Play (inseguro)</strong> &rarr; <strong>Permitir</strong></li>
+        </ul>
+
+        <div class="alert alert-info">
+            <strong>Por que aparece "inseguro"?</strong>
+            É normal para scripts próprios. O Google avisa porque não foi verificado por eles — mas é o SEU script, na SUA planilha.
+        </div>
+
+        <p style="margin-top:16px;">Depois, selecione <strong><code>createTriggers</code></strong> e execute. Isso agenda o alerta diário automático às 8h.</p>
+    </div>
+
+    <!-- PASSO 4 -->
+    <div class="step">
+        <span class="step-number">4</span>
+        <h2>Publicar como Web App (Webhook)</h2>
+        <ul>
+            <li>No editor: <strong>Implantar</strong> &rarr; <strong>Gerenciar implantações</strong></li>
+            <li>Clique no <strong>lápis</strong> (editar) na implantação existente</li>
+            <li>Em "Versão", selecione <strong>Nova versão</strong></li>
+            <li>Clique em <strong>Implantar</strong></li>
+            <li>A URL continua a mesma — não precisa mudar nada na página HTML</li>
+        </ul>
+
+        <div class="alert alert-success">
+            <strong>Se é a primeira vez implantando:</strong>
+            Clique em <strong>Implantar</strong> &rarr; <strong>Nova implantação</strong> &rarr; tipo <strong>App da Web</strong> &rarr; executar como <strong>Eu</strong> &rarr; acesso <strong class="highlight">Qualquer pessoa</strong> &rarr; <strong>Implantar</strong>. Copie a URL gerada e cole no <code>ativar-cadastro.html</code>.
+        </div>
+    </div>
+
+    <!-- PASSO 5 -->
+    <div class="step">
+        <span class="step-number">5</span>
+        <h2>Testar Tudo</h2>
+        <ul>
+            <li>Abra <code>ativar-cadastro.html</code> no navegador</li>
+            <li>Preencha com dados de teste (WhatsApp: <strong>16 98215-6332</strong>)</li>
+            <li>Clique em <strong>ATIVAR CADASTRO</strong></li>
+            <li>Na planilha: linha verde, WhatsApp <strong>(16) 98215-6332</strong>, coluna Situação vazia</li>
+            <li>Teste o dropdown da coluna Situação — deve mostrar: <em>(vazio)</em>, <em>Renovou</em>, <em>Cancelou</em></li>
+        </ul>
+
+        <div class="alert alert-info">
+            <strong>Dica de teste completo:</strong>
+            Crie 3 linhas de teste. Na primeira, marque "Renovou" (fica azul). Na segunda, marque "Cancelou" (fica rosa). Deixe a terceira vazia. Rode <code>sendDailyAlert</code> manualmente — o email deve mostrar só a terceira + a seção Recuperar com a segunda.
+        </div>
+    </div>
+
+    <!-- RESUMO -->
+    <div class="step">
+        <span class="step-number">&#10003;</span>
+        <h2>Resumo do Sistema</h2>
+
+        <table>
+            <tr><th>Recurso</th><th>O que faz</th></tr>
+            <tr><td>Formulário HTML</td><td>Coleta nome, email, WhatsApp (DDD + número) e plano</td></tr>
+            <tr><td>Meta Pixel</td><td>Dispara evento <strong>Purchase</strong> com valor e plano</td></tr>
+            <tr><td>Webhook &rarr; Sheets</td><td>Envia dados para a planilha automaticamente</td></tr>
+            <tr><td>Cálculo automático</td><td>Data de vencimento e dias restantes</td></tr>
+            <tr><td>Cores por status</td><td>Verde (ativo), Amarelo (renovar), Vermelho (urgente), Cinza (vencido)</td></tr>
+            <tr><td>Coluna Situação</td><td>Dropdown: Renovou (azul) ou Cancelou (rosa)</td></tr>
+            <tr><td>Email diário (8h)</td><td>Urgentes + Renovar + Vencidos + Recuperar (cancelados)</td></tr>
+            <tr><td>Link WhatsApp</td><td>Cada cliente no email tem link direto wa.me</td></tr>
+        </table>
+    </div>
+
+    <!-- CORES DA PLANILHA -->
+    <div class="step">
+        <span class="step-number">&#127912;</span>
+        <h2>Guia de Cores da Planilha</h2>
+        <table>
+            <tr><th>Cor</th><th>Status</th><th>Situação</th><th>Aparece no email?</th></tr>
+            <tr>
+                <td style="color:#1B5E20;">&#9632; Verde</td>
+                <td>Ativo (&gt;7 dias)</td>
+                <td>—</td>
+                <td>Não (está tranquilo)</td>
+            </tr>
+            <tr>
+                <td style="color:#F57F17;">&#9632; Amarelo</td>
+                <td>Renovar (4-7 dias)</td>
+                <td>—</td>
+                <td>Sim — seção Renovar</td>
+            </tr>
+            <tr>
+                <td style="color:#C62828;">&#9632; Vermelho</td>
+                <td>Urgente (1-3 dias)</td>
+                <td>—</td>
+                <td>Sim — seção Urgente</td>
+            </tr>
+            <tr>
+                <td style="color:#616161;">&#9632; Cinza</td>
+                <td>Vencido</td>
+                <td>—</td>
+                <td>Sim — seção Vencidos</td>
+            </tr>
+            <tr>
+                <td style="color:#1565C0;">&#9632; Azul</td>
+                <td>—</td>
+                <td>Renovou</td>
+                <td>Não (resolvido)</td>
+            </tr>
+            <tr>
+                <td style="color:#AD1457;">&#9632; Rosa</td>
+                <td>—</td>
+                <td>Cancelou</td>
+                <td>Sim — seção Recuperar</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- FLUXO OPERACIONAL -->
+    <div class="step">
+        <span class="step-number">&#9733;</span>
+        <h2>Fluxo Operacional Diário</h2>
+        <ul>
+            <li><strong>Venda no WhatsApp:</strong> Após ativar o cliente, envia o link da página "Ativar Cadastro"</li>
+            <li><strong>Cliente preenche:</strong> Dados vão para a planilha + Pixel dispara Purchase</li>
+            <li><strong>8h da manhã:</strong> Email automático com Urgentes, Renovar, Vencidos e Recuperar</li>
+            <li><strong>Equipe age:</strong> Prioridade: vermelho &rarr; amarelo &rarr; cinza &rarr; rosa</li>
+            <li><strong>Cliente renovou:</strong> Marca "Renovou" na linha antiga (fica azul, sai do email)</li>
+            <li><strong>Cliente cancelou:</strong> Marca "Cancelou" na linha (fica rosa, vai pra seção Recuperar)</li>
+            <li><strong>Recuperação:</strong> Ao longo da semana, tenta reativar os rosa com promoção ou contato</li>
+        </ul>
+    </div>
+
+    <!-- CHANGELOG -->
+    <div class="step">
+        <span class="step-number">!</span>
+        <h2>Histórico de Atualizações</h2>
+        <ul>
+            <li><strong>v1.0 Smart Play</strong> — Sistema criado sobre a base NEO TV v1.3: webhook, planilha com status automático, coluna Situação (Renovou/Cancelou), e-mail diário às 8h com seções Urgente, Renovar, Vencidos e Recuperar. Planos e preços da Smart Play: 15 Dias R$16,90 · Mensal R$28,00 · Bimestral R$52,90 · Trimestral R$77,90 · Semestral R$147,90 · Anual R$267,90. Identidade Coral Família.</li>
+        </ul>
+    </div>
+
+</div>
+
+<script>
+function copyCode(btn, preId) {
+    var pre = document.getElementById(preId);
+    var text = pre.textContent;
+    navigator.clipboard.writeText(text).then(function() {
+        btn.textContent = 'COPIADO!';
+        btn.classList.add('copied');
+        setTimeout(function() {
+            btn.textContent = 'COPIAR';
+            btn.classList.remove('copied');
+        }, 2000);
+    });
+}
+</script>
+
+</body>
+</html>

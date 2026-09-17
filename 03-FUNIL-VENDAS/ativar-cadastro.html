@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ativar Cadastro — Smart Play</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Restaurar cookie _fbc a partir do parâmetro ref (fbclid original do anúncio) -->
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var ref = params.get('ref') || params.get('fbclid') || '';
+  if (!ref) {
+    try { ref = localStorage.getItem('sp_fbclid') || ''; } catch(e) {}
+  }
+  if (ref) {
+    var fbc = 'fb.1.' + Date.now() + '.' + ref;
+    document.cookie = '_fbc=' + fbc + '; max-age=7776000; path=/; SameSite=Lax';
+    try { localStorage.setItem('sp_fbclid', ref); } catch(e) {}
+  }
+})();
+</script>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1462874512324348');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1462874512324348&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+
+<style>
+:root {
+  --breu: #090404;
+  --noite: #150A0A;
+  --luz-coral: #FF6B6B;
+  --luz-ciano: #4ECDC4;
+  --luz-ouro: #FFD93D;
+  --sucesso: #34C77B;
+  --texto: #EFDEDE;
+  --texto2: #C9A6A6;
+  --texto-dim: #A07E7E;
+  --oncta: #2B1608;
+  --font: 'Montserrat', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font);
+  background: var(--breu);
+  color: var(--texto);
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(760px, 100vw);
+  height: 460px;
+  background: radial-gradient(ellipse 55% 55% at 50% 20%, rgba(255, 107, 107, 0.14) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+::selection { background: var(--luz-coral); color: var(--oncta); }
+:focus-visible { outline: 2px solid var(--luz-ouro); outline-offset: 3px; border-radius: 4px; }
+
+.container { width: 100%; max-width: 470px; position: relative; }
+
+/* ── Marca ── */
+.marca {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  margin-bottom: 30px;
+}
+.marca-anel {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 2.5px solid var(--luz-coral);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+.marca-play {
+  width: 23px; height: 23px;
+  border-radius: 50%;
+  background: var(--luz-coral);
+  display: flex; align-items: center; justify-content: center;
+}
+.marca-ponto {
+  position: absolute;
+  bottom: -1px; right: -1px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--luz-ouro);
+  box-shadow: 0 0 9px var(--luz-ouro);
+}
+.marca-nome { display: flex; flex-direction: column; }
+.marca-nome b { font-size: 23px; font-weight: 800; color: #fff; letter-spacing: -0.02em; line-height: 1; }
+.marca-nome span { font-size: 7px; font-weight: 600; letter-spacing: 0.35em; text-transform: uppercase; color: var(--luz-ciano); margin-top: 3px; }
+
+/* ── Cartão ── */
+.cartao {
+  background: var(--noite);
+  border-radius: 20px;
+  padding: 36px 30px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.55), 0 0 90px rgba(255, 107, 107, 0.08);
+}
+
+.titulo {
+  font-size: 26px;
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.titulo em { font-style: normal; color: var(--luz-ouro); }
+.subtitulo {
+  font-size: 14px;
+  color: var(--texto2);
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 26px;
+}
+
+/* ── Progresso ── */
+.progresso { margin-bottom: 26px; }
+.progresso-barra {
+  width: 100%;
+  height: 30px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 15px;
+  overflow: hidden;
+}
+.progresso-luz {
+  height: 100%;
+  width: 90%;
+  background: linear-gradient(90deg, var(--luz-coral), var(--luz-ouro));
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+.progresso-luz span {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--oncta);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Formulário ── */
+.campo { margin-bottom: 17px; }
+.campo label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--texto);
+  margin-bottom: 7px;
+}
+.campo input, .campo select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 500;
+  background: #fff;
+  color: #241414;
+  transition: border-color .2s, box-shadow .2s;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.campo select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23875f5f' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 42px;
+  cursor: pointer;
+}
+.campo input:focus, .campo select:focus {
+  border-color: var(--luz-coral);
+  box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.18);
+}
+.campo input::placeholder { color: #a08c8c; }
+.campo .erro {
+  font-size: 12px;
+  color: var(--luz-coral);
+  margin-top: 5px;
+  display: none;
+}
+
+/* ── Botão ── */
+.btn-ativar {
+  width: 100%;
+  padding: 17px;
+  border: none;
+  border-radius: 999px;
+  background: var(--luz-ouro);
+  color: var(--oncta);
+  font-family: var(--font);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .3s;
+  margin-top: 10px;
+  box-shadow: 0 6px 36px rgba(255, 217, 61, 0.25);
+}
+.btn-ativar:hover { transform: translateY(-2px); box-shadow: 0 10px 48px rgba(255, 217, 61, 0.4); }
+.btn-ativar:active { transform: translateY(0); }
+.btn-ativar:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.btn-ativar .girando {
+  display: none;
+  width: 20px; height: 20px;
+  border: 3px solid rgba(43, 22, 8, 0.3);
+  border-top-color: var(--oncta);
+  border-radius: 50%;
+  animation: gira .6s linear infinite;
+  margin: 0 auto;
+}
+@keyframes gira { to { transform: rotate(360deg); } }
+
+/* ── Sucesso ── */
+.sucesso { display: none; text-align: center; padding: 18px 0 8px; }
+.sucesso-luz {
+  width: 82px; height: 82px;
+  background: var(--sucesso);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 22px;
+  box-shadow: 0 0 60px rgba(52, 199, 123, 0.35);
+  animation: acende .45s ease;
+}
+@keyframes acende {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+.sucesso-luz svg { width: 40px; height: 40px; fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.sucesso h2 { font-size: 24px; font-weight: 900; color: var(--sucesso); margin-bottom: 12px; }
+.sucesso p { font-size: 14.5px; color: var(--texto2); line-height: 1.7; max-width: 330px; margin: 0 auto; }
+.sucesso p strong { color: var(--texto); }
+
+/* ── Selo ── */
+.selo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 20px;
+  font-size: 11.5px;
+  color: var(--texto-dim);
+}
+.selo svg { width: 14px; height: 14px; fill: none; stroke: var(--texto-dim); stroke-width: 2; }
+
+@media (max-width: 480px) {
+  .cartao { padding: 28px 20px; }
+  .titulo { font-size: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="marca">
+    <span class="marca-anel">
+      <span class="marca-play"><svg width="10" height="11" viewBox="0 0 12 14" fill="none" aria-hidden="true"><path d="M1 1L11 7L1 13V1Z" fill="#fff"/></svg></span>
+      <span class="marca-ponto"></span>
+    </span>
+    <span class="marca-nome"><b>SmartPlay</b><span>Entretenimento</span></span>
+  </div>
+
+  <div class="cartao">
+
+    <!-- ── Formulário ── -->
+    <div id="formContainer">
+      <h1 class="titulo">Ativar <em>cadastro</em></h1>
+      <p class="subtitulo">Último passo para liberar a sua TV</p>
+
+      <div class="progresso">
+        <div class="progresso-barra">
+          <div class="progresso-luz"><span>Quase lá</span><span>90%</span></div>
+        </div>
+      </div>
+
+      <form id="formCadastro" novalidate>
+        <div class="campo">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome completo" autocomplete="name" required>
+          <div class="erro" id="erroNome">Preencha seu nome</div>
+        </div>
+
+        <div class="campo">
+          <label for="email">E-mail para contato:</label>
+          <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" autocomplete="email" required>
+          <div class="erro" id="erroEmail">Preencha um e-mail válido</div>
+        </div>
+
+        <div class="campo">
+          <label for="whatsapp">WhatsApp para contato:</label>
+          <input type="tel" id="whatsapp" name="whatsapp" placeholder="16 99999-0000" autocomplete="tel-national" required>
+          <div class="erro" id="erroWhatsapp">Preencha seu WhatsApp (DDD + número)</div>
+        </div>
+
+        <div class="campo">
+          <label for="plano">Plano contratado:</label>
+          <select id="plano" name="plano" required>
+            <option value="">Selecione seu plano</option>
+            <option value="15dias-1tela">15 Dias — 1 Tela — R$16,90</option>
+            <option value="mensal-1tela">Mensal — 1 Tela — R$28,00</option>
+            <option value="bimestral-2telas">Bimestral — 2 Telas — R$52,90</option>
+            <option value="trimestral-3telas">Trimestral — 3 Telas — R$77,90</option>
+            <option value="semestral-3telas">Semestral — 3 Telas — R$147,90</option>
+            <option value="anual-3telas">Anual — 3 Telas — R$267,90</option>
+          </select>
+          <div class="erro" id="erroPlano">Selecione o plano contratado</div>
+        </div>
+
+        <button type="submit" class="btn-ativar" id="btnSubmit">
+          <span id="btnText">ATIVAR CADASTRO</span>
+          <div class="girando" id="btnSpinner"></div>
+        </button>
+      </form>
+
+      <div class="selo">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Seus dados estão protegidos
+      </div>
+    </div>
+
+    <!-- ── Sucesso ── -->
+    <div class="sucesso" id="successContainer">
+      <div class="sucesso-luz">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2>Cadastro ativado!</h2>
+      <p>
+        Sua TV está <strong>ligada</strong>.<br>
+        Qualquer dúvida, chama a gente no WhatsApp.<br><br>
+        Boa noite de TV para a família! 📺
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+// ══════════════════════════════════════════════
+//  CONFIGURAÇÃO
+//  WEBHOOK_URL: cole aqui a URL do Apps Script da
+//  planilha de renovações (Implantar > App da Web)
+// ══════════════════════════════════════════════
+const WEBHOOK_URL = '';
+
+const PLAN_PRICES = {
+  '15dias-1tela':      16.90,
+  'mensal-1tela':      28.00,
+  'bimestral-2telas':  52.90,
+  'trimestral-3telas': 77.90,
+  'semestral-3telas': 147.90,
+  'anual-3telas':     267.90
+};
+
+const PLAN_NAMES = {
+  '15dias-1tela':      '15 Dias - 1 Tela',
+  'mensal-1tela':      'Mensal - 1 Tela',
+  'bimestral-2telas':  'Bimestral - 2 Telas',
+  'trimestral-3telas': 'Trimestral - 3 Telas',
+  'semestral-3telas':  'Semestral - 3 Telas',
+  'anual-3telas':      'Anual - 3 Telas'
+};
+
+// ══════════════════════════════════════════════
+//  FORMULÁRIO
+// ══════════════════════════════════════════════
+const form = document.getElementById('formCadastro');
+const btnSubmit = document.getElementById('btnSubmit');
+const btnText = document.getElementById('btnText');
+const btnSpinner = document.getElementById('btnSpinner');
+
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  document.querySelectorAll('.erro').forEach(el => el.style.display = 'none');
+  document.querySelectorAll('input, select').forEach(el => el.style.borderColor = 'transparent');
+
+  const nome     = document.getElementById('nome').value.trim();
+  const email    = document.getElementById('email').value.trim();
+  const whatsapp = document.getElementById('whatsapp').value.trim();
+  const plano    = document.getElementById('plano').value;
+
+  let hasError = false;
+
+  if (!nome) { showError('nome', 'erroNome'); hasError = true; }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('email', 'erroEmail'); hasError = true; }
+  if (!whatsapp || whatsapp.replace(/\D/g,'').length < 10) { showError('whatsapp', 'erroWhatsapp'); hasError = true; }
+  if (!plano) { showError('plano', 'erroPlano'); hasError = true; }
+
+  if (hasError) return;
+
+  btnSubmit.disabled = true;
+  btnText.style.display = 'none';
+  btnSpinner.style.display = 'block';
+
+  // 1. Disparar Meta Pixel — Purchase (com proteção antiduplicata)
+  const price = PLAN_PRICES[plano];
+  const planName = PLAN_NAMES[plano];
+  const eventID = 'purchase_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+
+  if (!sessionStorage.getItem('sp_purchase_fired')) {
+    fbq('track', 'Purchase', {
+      value: price,
+      currency: 'BRL',
+      content_name: planName,
+      content_type: 'product',
+      content_ids: [plano]
+    }, { eventID: eventID });
+    sessionStorage.setItem('sp_purchase_fired', eventID);
+  }
+
+  // 2. Enviar dados para a planilha (via webhook do Apps Script)
+  if (WEBHOOK_URL) {
+    const payload = {
+      nome: nome,
+      email: email,
+      whatsapp: whatsapp.replace(/\D/g,''),
+      plano: plano,
+      valor: price,
+      plano_nome: planName
+    };
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify(payload)
+      });
+    } catch (err) {
+      // Silencioso — não bloqueia a experiência do cliente
+    }
+  }
+
+  // 3. Mostrar sucesso
+  localStorage.setItem('sp_activated_' + plano, 'true');
+  setTimeout(() => {
+    document.getElementById('formContainer').style.display = 'none';
+    document.getElementById('successContainer').style.display = 'block';
+  }, 800);
+});
+
+function showError(inputId, errorId) {
+  document.getElementById(inputId).style.borderColor = 'var(--luz-coral)';
+  document.getElementById(errorId).style.display = 'block';
+}
+
+// Máscara WhatsApp (DDD + número, sem código do país)
+document.getElementById('whatsapp').addEventListener('input', function(e) {
+  let v = e.target.value.replace(/\D/g, '');
+  if (v.length > 11) v = v.substring(0, 11);
+  if (v.length > 2 && v.length <= 7) {
+    v = v.substring(0,2) + ' ' + v.substring(2);
+  } else if (v.length > 7) {
+    v = v.substring(0,2) + ' ' + v.substring(2,7) + '-' + v.substring(7);
+  }
+  e.target.value = v;
+});
+</script>
+
+</body>
+</html>
