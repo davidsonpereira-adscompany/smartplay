@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de Criação do Instagram — Smart Play</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --breu: #090404;
+  --noite: #150A0A;
+  --card: #201414;
+  --coral: #FF6B6B;
+  --ouro: #FFD93D;
+  --ciano: #4ECDC4;
+  --sucesso: #34C77B;
+  --texto: #EFDEDE;
+  --texto2: #C9A6A6;
+  --texto-dim: #A07E7E;
+  --oncta: #2B1608;
+  --borda: rgba(255,255,255,0.08);
+  --font: 'Montserrat', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--font);
+  background: var(--breu);
+  color: var(--texto);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--coral); color: var(--oncta); }
+.wrap { max-width: 680px; margin: 0 auto; padding: 40px 20px 80px; }
+
+/* ── Cabeçalho ── */
+.topo { text-align: center; margin-bottom: 44px; }
+.marca { display: inline-flex; align-items: center; gap: 11px; margin-bottom: 22px; }
+.marca-anel { width: 44px; height: 44px; border-radius: 50%; border: 3px solid var(--coral); display: flex; align-items: center; justify-content: center; position: relative; }
+.marca-play { width: 24px; height: 24px; border-radius: 50%; background: var(--coral); display: flex; align-items: center; justify-content: center; }
+.marca-ponto { position: absolute; bottom: -1px; right: -1px; width: 9px; height: 9px; border-radius: 50%; background: var(--ouro); box-shadow: 0 0 9px var(--ouro); }
+.marca-nome { display: flex; flex-direction: column; text-align: left; }
+.marca-nome b { font-size: 24px; font-weight: 800; color: #fff; letter-spacing: -0.02em; line-height: 1; }
+.marca-nome span { font-size: 8px; font-weight: 600; letter-spacing: 0.35em; text-transform: uppercase; color: var(--ciano); margin-top: 3px; }
+.topo h1 { font-size: clamp(26px, 6vw, 34px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; color: #fff; }
+.topo h1 em { font-style: normal; color: var(--ouro); }
+.topo p { font-size: 14.5px; color: var(--texto2); margin-top: 12px; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+/* ── Passos ── */
+.passo {
+  background: var(--noite);
+  border: 1px solid var(--borda);
+  border-radius: 18px;
+  padding: 28px 22px;
+  margin-bottom: 22px;
+}
+.passo-topo { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+.passo-num {
+  width: 40px; height: 40px; flex-shrink: 0;
+  background: var(--coral);
+  color: #fff;
+  font-weight: 900; font-size: 18px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.passo h2 { font-size: 19px; font-weight: 800; color: #fff; line-height: 1.25; }
+.passo p, .passo li { font-size: 14.5px; color: var(--texto2); }
+.passo p strong, .passo li strong { color: var(--texto); }
+.passo ol, .passo ul { padding-left: 22px; margin-top: 10px; }
+.passo li { margin-bottom: 9px; }
+.passo li::marker { color: var(--coral); font-weight: 700; }
+
+/* ── Caixa de copiar ── */
+.copiar {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 14px;
+}
+.copiar-rotulo { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--coral); margin-bottom: 8px; }
+.copiar-texto {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 600;
+  white-space: pre-line;
+  word-break: break-word;
+  line-height: 1.6;
+}
+.btn-copiar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  background: var(--ouro);
+  color: var(--oncta);
+  font-family: var(--font);
+  font-size: 13.5px;
+  font-weight: 800;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform .15s;
+}
+.btn-copiar:active { transform: scale(0.97); }
+.btn-copiar.copiado { background: var(--sucesso); color: #fff; }
+.btn-copiar svg { width: 15px; height: 15px; }
+
+.alternativas { margin-top: 12px; font-size: 13px; color: var(--texto-dim); }
+.alternativas code { background: var(--card); padding: 3px 9px; border-radius: 6px; color: var(--texto2); font-family: var(--font); font-weight: 600; display: inline-block; margin: 3px 3px 0 0; }
+
+/* ── Dica ── */
+.dica {
+  background: rgba(78, 205, 196, 0.07);
+  border: 1px solid rgba(78, 205, 196, 0.25);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-top: 14px;
+  font-size: 13.5px;
+  color: var(--ciano);
+  line-height: 1.6;
+}
+.dica strong { color: var(--ciano); }
+.atencao {
+  background: rgba(255, 217, 61, 0.07);
+  border: 1px solid rgba(255, 217, 61, 0.3);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-top: 14px;
+  font-size: 13.5px;
+  color: var(--ouro);
+  line-height: 1.6;
+}
+
+/* ── Foto de perfil ── */
+.perfil-foto { display: flex; align-items: center; gap: 18px; margin-top: 16px; flex-wrap: wrap; }
+.perfil-foto img { width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--coral); }
+
+/* ── Grid de capas ── */
+.capas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 18px;
+}
+.capa {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  overflow: hidden;
+  text-align: center;
+}
+.capa img { width: 100%; display: block; aspect-ratio: 1; object-fit: cover; }
+.capa-corpo { padding: 12px 10px 16px; }
+.capa-ordem { font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em; color: var(--texto-dim); }
+.capa-nome { font-size: 14px; font-weight: 800; color: #fff; margin: 2px 0 10px; letter-spacing: 0.04em; }
+.btn-baixar {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  color: var(--ouro);
+  border: 1.5px solid rgba(255, 217, 61, 0.5);
+  font-family: var(--font);
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 9px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background .2s;
+}
+.btn-baixar:active { background: rgba(255, 217, 61, 0.12); }
+.btn-baixar svg { width: 13px; height: 13px; }
+
+/* ── Prévia do perfil ── */
+.previa {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  padding: 20px 14px;
+  margin-top: 16px;
+}
+.previa-topo { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.previa-topo img { width: 62px; height: 62px; border-radius: 50%; border: 2px solid var(--coral); }
+.previa-arroba { font-size: 14.5px; font-weight: 800; color: #fff; }
+.previa-nome { font-size: 12.5px; color: var(--texto2); font-weight: 600; }
+.previa-bio { font-size: 12.5px; color: var(--texto2); line-height: 1.55; white-space: pre-line; }
+.previa-bio a { color: var(--ciano); text-decoration: none; }
+.previa-destaques { display: flex; gap: 12px; overflow-x: auto; padding: 14px 2px 4px; scrollbar-width: none; }
+.previa-destaques::-webkit-scrollbar { display: none; }
+.previa-destaque { text-align: center; flex-shrink: 0; }
+.previa-destaque img { width: 56px; height: 56px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.25); }
+.previa-destaque span { display: block; font-size: 9px; font-weight: 600; color: var(--texto2); margin-top: 4px; max-width: 60px; }
+
+/* ── Checklist ── */
+.check { list-style: none; padding: 0 !important; margin-top: 14px; }
+.check li {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--borda);
+  font-size: 14px;
+  color: var(--texto2);
+}
+.check li:last-child { border-bottom: none; }
+.check li::before {
+  content: '';
+  width: 20px; height: 20px; flex-shrink: 0;
+  border: 2px solid var(--coral);
+  border-radius: 6px;
+  margin-top: 2px;
+}
+
+.rodape { text-align: center; margin-top: 40px; font-size: 12.5px; color: var(--texto-dim); line-height: 1.7; }
+
+@media (min-width: 560px) {
+  .capas { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="topo">
+    <div class="marca">
+      <span class="marca-anel">
+        <span class="marca-play"><svg width="11" height="12" viewBox="0 0 12 14" fill="none"><path d="M1 1L11 7L1 13V1Z" fill="#fff"/></svg></span>
+        <span class="marca-ponto"></span>
+      </span>
+      <span class="marca-nome"><b>SmartPlay</b><span>Entretenimento</span></span>
+    </div>
+    <h1>Guia de criação do <em>Instagram</em></h1>
+    <p>Tudo pronto: é só seguir os passos na ordem, copiar os textos e baixar as imagens. Em uns 30 minutos o perfil está no ar, profissional e completo.</p>
+  </header>
+
+  <!-- ═══════════ PASSO 1 ═══════════ -->
+  <section class="passo">
+    <div class="passo-topo"><span class="passo-num">1</span><h2>Criar a conta</h2></div>
+    <ol>
+      <li>Baixe o aplicativo <strong>Instagram</strong> na loja do celular (se ainda não tiver).</li>
+      <li>Toque em <strong>Criar nova conta</strong> e cadastre com um <strong>e-mail da empresa</strong> (evite conta pessoal — o perfil é do negócio).</li>
+      <li>Crie uma senha forte e <strong>anote em lugar seguro</strong>.</li>
+      <li>Depois de criada, vá em <strong>Configurações → Conta → Mudar para conta profissional → Empresa</strong>.</li>
+      <li>Na categoria, escolha <strong>"Serviço de entretenimento"</strong> (ou similar).</li>
+    </ol>
+    <div class="dica"><strong>Por que conta profissional?</strong> Libera as métricas de alcance, o botão de contato e a possibilidade de impulsionar publicações depois.</div>
+  </section>
+
+  <!-- ═══════════ PASSO 2 ═══════════ -->
+  <section class="passo">
+    <div class="passo-topo"><span class="passo-num">2</span><h2>Definir o @ (nome de usuário)</h2></div>
+    <p>O @ é o endereço do perfil. Ele é <strong>idêntico ao site</strong> de propósito — uma marca só em todo lugar, à prova de perfil falso.</p>
+    <div class="copiar">
+      <div class="copiar-rotulo">@ do perfil — copie e cole</div>
+      <div class="copiar-texto" id="txt-arroba">smartplaytvoficial</div>
+      <button class="btn-copiar" onclick="copiar(this, 'txt-arroba')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>COPIAR</button>
+    </div>
+    <div class="alternativas">Se estiver ocupado, tente nesta ordem: <code>smartplay.oficial</code> <code>smartplaytv.br</code> <code>smartplay.entretenimento</code></div>
+  </section>
+
+  <!-- ═══════════ PASSO 3 ═══════════ -->
+  <section class="passo">
+    <div class="passo-topo"><span class="passo-num">3</span><h2>Nome de exibição</h2></div>
+    <p>É o nome em <strong>negrito</strong> no perfil. A busca do Instagram lê esse campo — por isso ele leva as palavras que o público procura.</p>
+    <p style="margin-top:8px">Em <strong>Editar perfil → Nome</strong>, cole:</p>
+    <div class="copiar">
+      <div class="copiar-rotulo">Nome — copie e cole</div>
+      <div class="copiar-texto" id="txt-nome">Smart Play | Filmes, Séries e Futebol ao Vivo</div>
+      <button class="btn-copiar" onclick="copiar(this, 'txt-nome')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>COPIAR</button>
+    </div>
+  </section>
+
+  <!-- ═══════════ PASSO 4 ═══════════ -->
+  <section class="passo">
+    <div class="passo-topo"><span class="passo-num">4</span><h2>Foto de perfil</h2></div>
+    <p>Baixe a logo oficial e coloque em <strong>Editar perfil → Alterar foto</strong>. Ela já foi desenhada para o recorte redondo do Instagram.</p>
+    <div class="perfil-foto">
+      <img src="../../assets/logo-smartplay-1080.png" alt="Logo Smart Play">
+      <a class="btn-baixar" href="../../assets/logo-smartplay-1080.png" download="logo-smartplay.png"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>BAIXAR LOGO</a>
+    </div>
+    <div class="dica"><strong>No iPhone:</strong> se o botão abrir a imagem em vez de baixar, segure o dedo sobre ela e toque em <strong>"Salvar na Fototeca"</strong>.</div>
+  </section>
+
+  <!-- ═══════════ PASSO 5 ═══════════ -->
+  <section class="passo">
+    <div class="passo-topo"><span class="passo-num">5</span><h2>Biografia</h2></div>
+    <p>Em <strong>Editar perfil → Bio</strong>, cole o texto abaixo (as 4 linhas juntas):</p>
+    <div class="copiar">
+      <div class="copiar-rotulo">Bio — copie e cole</div>
+      <div class="copiar-texto" id="txt-bio">📺 A família inteira assistindo
+⚽ Futebol, filmes, séries e novelas
+💰 A partir de R$16,90 · sem fidelidade
+👇 Teste grátis 2h no link</div>
+      <button class="btn-copiar" onclick="copiar(this, 'txt-bio')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>COPIAR</button>
+    </div>
+    <p style="margin-top:16px">E em <strong>Editar perfil → Links → Adicionar link externo</strong>, cole o site:</p>
+    <div class="copiar">
+      <div class="copiar-rotulo">Link da bio — copie e cole</div>
+      <div class="copiar-texto" id="txt-link">https://smartplaytvoficial.com.br</div>
+      <button class="btn-copiar" onclick="copiar(this, 'txt-link')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>COPIAR</button>
+    </div>
+    <div class="atencao"><strong>Importante:</strong> o link da bio é sempre o site — nunca o link direto do WhatsApp. É o site que registra quem visitou e faz os anúncios ficarem mais baratos e certeiros.</div>
+  </section>
+
+  <!-- ═══════════ PASSO 6 ═══════════ -->
+  <section class="passo">
+    <div class="passo-topo"><span class="passo-num">6</span><h2>Baixar as capas dos destaques</h2></div>
+    <p>Baixe as 7 imagens abaixo no celular. Elas são as "capinhas" redondas que ficam abaixo da bio. <strong>A ordem dos números é a ordem no perfil.</strong></p>
+    <div class="capas">
+      <div class="capa">
+        <img src="destaque-teste-gratis.png" alt="Capa Teste Grátis" loading="lazy">
+        <div class="capa-corpo">
+          <div class="capa-ordem">1º DESTAQUE</div>
+          <div class="capa-nome">TESTE GRÁTIS</div>
+          <a class="btn-baixar" href="destaque-teste-gratis.png" download="destaque-teste-gratis.png"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>BAIXAR</a>
+        </div>
+      </div>
+      <div class="capa">
+        <img src="destaque-planos.png" alt="Capa Planos" loading="lazy">
+        <div class="capa-corpo">
+          <div class="capa-ordem">2º DESTAQUE</div>
+          <div class="capa-nome">PLANOS</div>
+          <a class="btn-baixar" href="destaque-planos.png" download="destaque-planos.png"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>BAIXAR</a>
+        </div>
+      </div>
+      <div class="capa">
+        <img src="destaque-ao-vivo.png" alt="Capa Ao Vivo" loading="lazy">
+        <div class="capa-corpo">
+          <div class="capa-ordem">3º DESTAQUE</div>
+          <div class="capa-nome">AO VIVO</div>
+          <a class="btn-baixar" href="destaque-ao-vivo.png" download="destaque-ao-vivo.png"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>BAIXAR</a>
+        </div>
+      </div>
+      <div class="capa">
+        <img src="destaque-catalogo.png" alt="Capa Catálogo" loading="lazy">
+        <div class="capa-corpo">
+          <div class="capa-ordem">4º DESTAQUE</div>
+          <div class="capa-nome">CATÁLOGO</div>
+          <a class="btn-baixar" href="destaque-catalogo.png" download="destaque-catalogo.png"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>BAIXAR</a>
+        </div>
+      </div>
+      <div class="capa">
+        <img src="destaque-como-funciona.png" alt="Capa Como Funciona" loading="lazy">
+        <div class="capa-corpo">
+          <div class="capa-ordem">5º DESTAQUE</div>
+          <div class="capa-nome">COMO FUNCIONA</div>
+          <a class="btn-baixar" href="destaque-como-funciona.png" download="destaque-como-funciona.png"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>BAIXAR</a>
+        </div>
+      </div>
+      <div class="capa">
+        <img src="destaque-clientes.png" alt="Capa Clientes" loading="lazy">
+        <div class="capa-corpo">
+          <div class="capa-ordem">6º DESTAQUE</div>
+          <div class="capa-nome">CLIENTES</div>
+          <a class="btn-baixar" href="destaque-clientes.png" download="destaque-clientes.png"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>BAIXAR</a>
+        </div>
+      </div>
+      <div class="capa">
+        <img src="destaque-duvidas.png" alt="Capa Dúvidas" loading="lazy">
+        <div class="capa-corpo">
+          <div class="capa-ordem">7º DESTAQUE</div>
+          <div class="capa-nome">DÚVIDAS</div>
+          <a class="btn-baixar" href="destaque-duvidas.png" download="destaque-duvidas.png"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>BAIXAR</a>
+        </div>
+      </div>
+    </div>
+    <div class="dica"><strong>No iPhone:</strong> se o botão abrir a imagem, segure o dedo sobre ela e toque em <strong>"Salvar na Fototeca"</strong>. No Android o download é direto.</div>
+  </section>
+
+  <!-- ═══════════ PASSO 7 ═══════════ -->
+  <section class="passo">
+    <div class="passo-topo"><span class="passo-num">7</span><h2>Criar os destaques com as capas</h2></div>
+    <p>O Instagram só cria destaque a partir de um story. O caminho é este, <strong>um destaque por vez</strong>:</p>
+    <ol>
+      <li>Poste a imagem da capa como <strong>story</strong> (pode postar e seguir direto para o passo 2 — ninguém precisa ver).</li>
+      <li>Abra o story publicado e toque em <strong>Destacar</strong> (ícone de coração com círculo).</li>
+      <li>Dê o nome do destaque <strong>em caixa alta</strong>, exatamente como está na lista do Passo 6 (ex.: TESTE GRÁTIS).</li>
+      <li>Depois, no perfil, segure o destaque → <strong>Editar destaque → Editar capa</strong> → escolha a imagem baixada e centralize.</li>
+      <li>Se quiser, apague o story depois — o destaque continua com a capa.</li>
+    </ol>
+    <div class="dica">Crie na ordem <strong>7 → 1</strong> (do último para o primeiro): o Instagram mostra o destaque mais recente primeiro, então terminando no TESTE GRÁTIS ele fica na frente.</div>
+    <p style="margin-top:14px">Depois de criados, os stories de conteúdo de cada assunto vão sendo adicionados aos destaques certos com o tempo (a gente te passa esse material).</p>
+  </section>
+
+  <!-- ═══════════ PASSO 8 ═══════════ -->
+  <section class="passo">
+    <div class="passo-topo"><span class="passo-num">8</span><h2>Como o perfil vai ficar</h2></div>
+    <div class="previa">
+      <div class="previa-topo">
+        <img src="../../assets/logo-smartplay-1080.png" alt="Foto de perfil">
+        <div>
+          <div class="previa-arroba">@smartplaytvoficial</div>
+          <div class="previa-nome">Smart Play | Filmes, Séries e Futebol ao Vivo</div>
+        </div>
+      </div>
+      <div class="previa-bio">📺 A família inteira assistindo
+⚽ Futebol, filmes, séries e novelas
+💰 A partir de R$16,90 · sem fidelidade
+👇 Teste grátis 2h no link
+<a href="https://smartplaytvoficial.com.br">smartplaytvoficial.com.br</a></div>
+      <div class="previa-destaques">
+        <div class="previa-destaque"><img src="destaque-teste-gratis.png" alt=""><span>TESTE GRÁTIS</span></div>
+        <div class="previa-destaque"><img src="destaque-planos.png" alt=""><span>PLANOS</span></div>
+        <div class="previa-destaque"><img src="destaque-ao-vivo.png" alt=""><span>AO VIVO</span></div>
+        <div class="previa-destaque"><img src="destaque-catalogo.png" alt=""><span>CATÁLOGO</span></div>
+        <div class="previa-destaque"><img src="destaque-como-funciona.png" alt=""><span>COMO FUNCIONA</span></div>
+        <div class="previa-destaque"><img src="destaque-clientes.png" alt=""><span>CLIENTES</span></div>
+        <div class="previa-destaque"><img src="destaque-duvidas.png" alt=""><span>DÚVIDAS</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CHECKLIST ═══════════ -->
+  <section class="passo">
+    <div class="passo-topo"><span class="passo-num">✓</span><h2>Checklist final</h2></div>
+    <ul class="check">
+      <li>Conta criada com e-mail da empresa e mudada para conta profissional</li>
+      <li>@ definido (smartplaytvoficial ou alternativa da lista)</li>
+      <li>Nome de exibição colado</li>
+      <li>Foto de perfil com a logo oficial</li>
+      <li>Bio colada com as 4 linhas</li>
+      <li>Link do site adicionado na bio</li>
+      <li>7 destaques criados, na ordem certa, cada um com sua capa</li>
+    </ul>
+    <p style="margin-top:16px">Perfil pronto? <strong>Manda o print para a gente</strong> — os próximos passos são os stories de cada destaque e os primeiros reels, que já estão preparados.</p>
+  </section>
+
+  <p class="rodape">Smart Play — Guia de criação do Instagram<br>Ficou com dúvida em algum passo? Chama a gente que resolvemos juntos.</p>
+
+</div>
+
+<script>
+function copiar(btn, id) {
+  var texto = document.getElementById(id).innerText;
+  function ok() {
+    btn.classList.add('copiado');
+    btn.lastChild.textContent = 'COPIADO!';
+    setTimeout(function () {
+      btn.classList.remove('copiado');
+      btn.lastChild.textContent = 'COPIAR';
+    }, 2000);
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(texto).then(ok).catch(function () { fallback(texto, ok); });
+  } else {
+    fallback(texto, ok);
+  }
+}
+function fallback(texto, ok) {
+  var ta = document.createElement('textarea');
+  ta.value = texto;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); ok(); } catch (e) {}
+  document.body.removeChild(ta);
+}
+</script>
+
+</body>
+</html>
