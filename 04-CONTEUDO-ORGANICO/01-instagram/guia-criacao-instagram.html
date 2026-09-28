@@ -214,6 +214,14 @@ body {
   margin-top: 2px;
 }
 
+/* ── Grid de bases de reels (9:16) ── */
+.bases { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 18px; }
+.base-reel { background: var(--card); border: 1px solid var(--borda); border-radius: 14px; overflow: hidden; text-align: center; }
+.base-reel img { width: 100%; display: block; aspect-ratio: 9/16; object-fit: cover; }
+.base-corpo { padding: 12px 10px 16px; }
+.base-nome { font-size: 13.5px; font-weight: 800; color: #fff; margin-bottom: 10px; letter-spacing: 0.04em; }
+@media (min-width: 560px) { .bases { grid-template-columns: repeat(3, 1fr); } }
+
 .rodape { text-align: center; margin-top: 40px; font-size: 12.5px; color: var(--texto-dim); line-height: 1.7; }
 
 @media (min-width: 560px) {
@@ -412,6 +420,80 @@ body {
         <div class="previa-destaque"><img src="destaque-duvidas.png" alt=""><span>DÚVIDAS</span></div>
       </div>
     </div>
+  </section>
+
+  <!-- ═══════════ PASSO 9 ═══════════ -->
+  <section class="passo">
+    <div class="passo-topo"><span class="passo-num">9</span><h2>Publicar os Reels com as bases prontas</h2></div>
+    <p>Estas são as <strong>imagens de base</strong> dos Reels: elas já vêm com a chamada, o botão e a logo. Você só encaixa o vídeo (lance do jogo, cena do filme, trailer) dentro da janela tracejada e publica.</p>
+
+    <p style="margin-top:14px"><strong>1º — Baixe a base do tema que vai postar:</strong></p>
+    <div class="bases">
+      <div class="base-reel">
+        <img src="../04-reels/reel-futebol.png" alt="Base JOGOS" loading="lazy">
+        <div class="base-corpo">
+          <div class="base-nome">JOGOS</div>
+          <a class="btn-baixar" href="../04-reels/reel-futebol.png" download="reel-futebol.png"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>BAIXAR</a>
+        </div>
+      </div>
+      <div class="base-reel">
+        <img src="../04-reels/reel-filme.png" alt="Base FILMES" loading="lazy">
+        <div class="base-corpo">
+          <div class="base-nome">FILMES</div>
+          <a class="btn-baixar" href="../04-reels/reel-filme.png" download="reel-filme.png"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>BAIXAR</a>
+        </div>
+      </div>
+      <div class="base-reel">
+        <img src="../04-reels/reel-serie.png" alt="Base SÉRIES" loading="lazy">
+        <div class="base-corpo">
+          <div class="base-nome">SÉRIES</div>
+          <a class="btn-baixar" href="../04-reels/reel-serie.png" download="reel-serie.png"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>BAIXAR</a>
+        </div>
+      </div>
+      <div class="base-reel">
+        <img src="../04-reels/reel-luta.png" alt="Base LUTAS" loading="lazy">
+        <div class="base-corpo">
+          <div class="base-nome">LUTAS</div>
+          <a class="btn-baixar" href="../04-reels/reel-luta.png" download="reel-luta.png"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>BAIXAR</a>
+        </div>
+      </div>
+      <div class="base-reel">
+        <img src="../04-reels/reel-novela.png" alt="Base NOVELAS" loading="lazy">
+        <div class="base-corpo">
+          <div class="base-nome">NOVELAS</div>
+          <a class="btn-baixar" href="../04-reels/reel-novela.png" download="reel-novela.png"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>BAIXAR</a>
+        </div>
+      </div>
+      <div class="base-reel">
+        <img src="../04-reels/reel-infantil.png" alt="Base INFANTIL" loading="lazy">
+        <div class="base-corpo">
+          <div class="base-nome">INFANTIL</div>
+          <a class="btn-baixar" href="../04-reels/reel-infantil.png" download="reel-infantil.png"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>BAIXAR</a>
+        </div>
+      </div>
+    </div>
+    <div class="dica"><strong>No iPhone:</strong> se o botão abrir a imagem, segure o dedo sobre ela e toque em <strong>"Salvar na Fototeca"</strong>. No Android o download é direto.</div>
+
+    <p style="margin-top:18px"><strong>2º — Monte no CapCut</strong> (aplicativo gratuito de edição):</p>
+    <ol>
+      <li>Abra o <strong>CapCut</strong> → <strong>Novo projeto</strong> → escolha o <strong>vídeo</strong> que vai usar (lance, cena, trailer).</li>
+      <li>Toque em <strong>Proporção</strong> e selecione <strong>9:16</strong>.</li>
+      <li>Toque em <strong>Sobreposição → Adicionar sobreposição</strong> e escolha a <strong>base baixada</strong>.</li>
+      <li>Abra a base em tela cheia (pinça para ampliar) até cobrir todo o vídeo, do início ao fim.</li>
+      <li>Com a base selecionada, toque em <strong>Máscara → Retângulo</strong>, posicione sobre a <strong>janela tracejada</strong> e toque em <strong>Inverter</strong> — o vídeo aparece limpo dentro da janela e o resto da base fica intacto.</li>
+      <li>Ajuste o vídeo por baixo até a cena ficar bem enquadrada na janela.</li>
+      <li>Duração ideal: <strong>7 a 15 segundos</strong> — corte só o melhor momento.</li>
+      <li>Exporte em <strong>1080p, 30fps</strong>.</li>
+    </ol>
+
+    <p style="margin-top:16px"><strong>3º — Publique como Reel:</strong></p>
+    <ol>
+      <li>No Instagram, toque em <strong>+ → Reel</strong> e escolha o vídeo exportado.</li>
+      <li>Legenda curta chamando para o link (ex.: <strong>"Teste grátis de 2 horas no link da bio 👆"</strong>).</li>
+      <li>Compartilhe também nos <strong>stories</strong> depois de publicar.</li>
+    </ol>
+
+    <div class="atencao"><strong>Regras de ouro:</strong> o melhor momento do vídeo nos 2 primeiros segundos · sem marca d'água de outros perfis · 1 reel por dia útil, alternando os temas · em dia de jogo grande, futebol sempre.</div>
   </section>
 
   <!-- ═══════════ CHECKLIST ═══════════ -->
